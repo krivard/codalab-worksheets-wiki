@@ -1,4 +1,4 @@
-1. Login to Azure Management
+1. Login to Windows Azure [Management Portal](http://manage.windowsazure.com/)
 2. Go to VM Screen, select "+ NEW" from the lower left corner of the screen
 3. On the pane that appears select, Compute -> Virtual Machine -> Quick Create
 

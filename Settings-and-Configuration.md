@@ -16,3 +16,16 @@ A package named config_gen is used to templatize configuration files needed for 
 
 The templates expand settings that are defined in the settings files to build them. The location of the templates and the generated files is configurable with the settings: CONFIG_GEN_TEMPLATES_DIR and CONFIG_GEN_GENERATED_DIR
 
+***
+
+## Azure
+A number of services such a Blob storage, SQL Azure and ServiceBus can be used with Django.
+
+### SQL Azure 
+SQL Azure is Microsoft SQL Server, but has some slightly different options for connecting to the DB.
+
+#### Windows
+Requirements:
+* [Windows SQL Server driver](http://www.microsoft.com/en-us/download/details.aspx?id=36434)
+* [PyODBC package](http://code.google.com/p/pyodbc/)
+* [PyWin32](http://starship.python.net/crew/mhammond/win32/Downloads.html)

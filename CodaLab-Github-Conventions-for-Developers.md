@@ -12,3 +12,7 @@ In the [CodaLab Github Repo](http://github.com/codalab/codalab) there will be ma
 * If a change is going to affect the user experience, it should include code reviews/discussions (again through pull requests mentions) because this is a broad platform, intended for use by many diverse communities.
 * Merges to master and deployment to production will be done by the project QA/Release Engineer (currently: Levert Banks)
 * Secure data is being stored in a shared dropbox location. 
+
+# Commits
+
+* When addressing an issue, do associate your commit with the issue. The mechanism for doing so is explained in this [GitHub Blog entry](https://github.com/blog/831-issues-2-0-the-next-generation) and in this [StackOverflow question](http://stackoverflow.com/questions/1687262/link-to-github-issue-number-with-commit-message).

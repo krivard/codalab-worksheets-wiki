@@ -41,8 +41,7 @@
     1. sudo apt-get update
         1. enter password (azureuser password from Step 3)
     2. sudo apt-get upgrade -y
-    3. sudo apt-get install git -y
-    4. sudo apt-get install python-pip -y
+    3. sudo apt-get install git python-pip -y
     5. sudo pip install virtualenv
     6. git clone https://github.com/codalab/codalab.git
     7. cd codalab

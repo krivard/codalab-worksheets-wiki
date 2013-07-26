@@ -8,3 +8,11 @@ There is a sample configuration file in settings/ named local_configuration_exam
 
 The local.py and deploy.py files are never checked into the repository. For server deployments, the files need to be created with the appropriate settings and deployed separately from the repository.
 
+# Configuration
+
+A package named config_gen is used to templatize configuration files needed for deployment and testing. codalab/config/templates contains the templates for the configuration files. Some of the may be used, some of them may not be. One runs:
+
+`python manage.py config_gen`
+
+The templates expand settings that are defined in the settings files to build them. The location of the templates and the generated files is configurable with the settings: CONFIG_GEN_TEMPLATES_DIR and CONFIG_GEN_GENERATED_DIR
+

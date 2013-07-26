@@ -13,6 +13,7 @@ In the [CodaLab Github Repo](http://github.com/codalab/codalab) there will be ma
 * Merges to master and deployment to production will be done by the project QA/Release Engineer (currently: Levert Banks)
 * Secure data is being stored in a shared dropbox location. 
 
-# Commits
+# Best practices
 
-* When addressing an issue, do associate your commit with the issue. The mechanism for doing so is explained in this [GitHub Blog entry](https://github.com/blog/831-issues-2-0-the-next-generation) and in this [StackOverflow question](http://stackoverflow.com/questions/1687262/link-to-github-issue-number-with-commit-message).
+* DO associate your commit with the issue that you are fixing. The mechanism for doing so is explained in this [GitHub Blog entry](https://github.com/blog/831-issues-2-0-the-next-generation) and in this [StackOverflow question](http://stackoverflow.com/questions/1687262/link-to-github-issue-number-with-commit-message).
+* DO ensure that the development environment runs on Windows and Linux. We want contributions from many developers irrespective of their favorite development platform.

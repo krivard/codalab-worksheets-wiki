@@ -3,7 +3,7 @@ We’re planning on implementing a change to login/signup (user registration). W
 Here’s what it looks like from the users point of view:
 
 1. User goes to site, plays around, decides to sign up
-1. User go to the sign up form, which has only one field, email address
+1. User goes to the sign up form, which has only one field, email address
 1. User enters email address hits “register”
 1. User gets email with a link
 1. User clicks link, goes to the “Set/Reset your password page”, once they provide a password that is accepted,

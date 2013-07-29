@@ -14,7 +14,8 @@ Assuming a fresh Ubuntu install the following commands should get you started:
 1. `./dev_setup.sh`
 1. `source venv/bin/activate`
 1. `python codalab/manage.py syncdb`
-1. Verify by running tests: `python codalab manage.py test web`
+1. Verify by running tests: 
+    * `python codalab manage.py test web`
 1. `python codalab/scripts/users.py`
 1. `python codalab/scripts/competitions.py`
 1. python codalab/manage.py runserver 0.0.0.0:8000
@@ -36,7 +37,8 @@ Assuming a fresh windows environment the following should get you started:
 1. `./dev_setup.bat`
 1. `venv/bin/activate.bat`
 1. `python codalab/manage.py syncdb`
-1. Verify by running tests: `python codalab manage.py test web`
+1. Verify by running tests:
+    * `python codalab manage.py test web`
 1. `python codalab/scripts/users.py`
 1. `python codalab/scripts/competitions.py`
 1. `python codalab/manage.py runserver 0.0.0.0:8000`

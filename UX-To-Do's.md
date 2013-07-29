@@ -1,5 +1,5 @@
 1. Debug Developer Documentation - Go through the [the getting started for developers wiki page](https://github.com/codalab/codalab/wiki/Getting-Started-for-Developers) and make sure those instructions are working
-1. Header sticky - Use the correct [foundation 4](http://foundation.zurb.com/) technique to make the header menu stay at the top of the browser viewport
+1. Fixed header - Use the correct [foundation 4](http://foundation.zurb.com/) technique to make the header menu stay at the top of the browser viewport
 1. Sections - Use the correct [foundation 4 sections](http://foundation.zurb.com/docs/components/section.html) technique to put sections on the "my competitions" page.
 1. Login/Signup/Logout - Make these show up in modal boxes on the page, instead of full round trips.
 1. Make the orbit on the home page work using banner1.png and codalab_hero.png.

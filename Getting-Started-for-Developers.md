@@ -84,4 +84,4 @@ If you need to bring the model and database in sync:
 
 ## Next steps
 
-Now that you're setup you might want to review some of the [conventions and practices](https://github.com/codalab/codalab/wiki/CodaLab-Github-Conventions-for-Developers) of the CodaLab team.
+Now that you're setup you might want to review some of the [conventions and practices](https://github.com/codalab/codalab/wiki/CodaLab-Conventions-for-Developers) of the CodaLab team.

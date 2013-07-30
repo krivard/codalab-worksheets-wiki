@@ -14,21 +14,37 @@ For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually 
 
 Assuming a fresh Ubuntu install the following commands should get you started:
 
-1. `sudo apt-get update`
+1. Upgrade the system
+
+  1. `sudo apt-get update`
     1. enter your password to get admin access
-1. `sudo apt-get upgrade -y`
-1. `sudo apt-get install git python-pip -y`
-1. `sudo pip install virtualenv`
-1. `git clone https://github.com/codalab/codalab.git`
+  1. `sudo apt-get upgrade -y`
+  1. `sudo apt-get install git python-pip -y`
+  1. `sudo pip install virtualenv`
+
+1. Checkout the CodaLab code from GitHub
+
+    `git clone https://github.com/codalab/codalab.git`
+
 1. `cd codalab`
+
 1. `./dev_setup.sh`
+
 1. `source venv/bin/activate`
+
 1. `python codalab/manage.py syncdb`
-1. Verify by running tests: 
-    * `python codalab manage.py test web`
-1. `python codalab/scripts/users.py`
-1. `python codalab/scripts/competitions.py`
-1. python codalab/manage.py runserver 0.0.0.0:8000
+
+1. Run tests to veirfy that everything is working: 
+    * `python codalab/manage.py test web`
+
+1. Populate the site:
+
+    `python codalab/scripts/users.py`
+    `python codalab/scripts/competitions.py`
+
+1. Start the web server:
+
+    `python codalab/manage.py runserver 0.0.0.0:8000`
 
 ### Windows (tested on Windows 8)
 

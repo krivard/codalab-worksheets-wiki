@@ -10,13 +10,13 @@
 
      `gem install compass`
 
-   Then, to generate the css files after you've made some changes to the scss files:
+   Then, to generate the css files after you've made some changes to the scss files in the sass folder:
 
      `cd codalab\apps\web\static\foundation`
 
      `compass compile`
 
-     Or to start a process which will automatically re-generate the files when changes are made:
+   Or to start a process which will automatically re-generate the files when changes are made:
 
      `cd codalab\apps\web\static\foundation`
 

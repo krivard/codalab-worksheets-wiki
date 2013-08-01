@@ -7,14 +7,17 @@
    * Open a command window and install compass by executing: 
 
      `gem update –system`
+
      `gem install compass`
 
-   * Then, to generate the css files after you've made some changes to the scss files:
+   Then, to generate the css files after you've made some changes to the scss files:
 
      `cd codalab\apps\web\static\foundation`
+
      `compass compile`
 
      Or to start a process which will automatically re-generate the files when changes are made:
 
      `cd codalab\apps\web\static\foundation`
+
      `compass watch .`

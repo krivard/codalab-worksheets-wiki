@@ -48,8 +48,10 @@
     8. ./bootstrap
     9. source venv/bin/activate
     10. python codalab/manage.py syncdb
-    11. python codalab/manage.py loaddata codalab/fixtures/initial.json
-    12. python codalab/manage.py runserver 0.0.0.0:8000
+    11. python codalab/scripts/initialize.py
+    12. python codalab/scripts/users.py
+    13. python codalab/scripts/competitions.py
+    14. python codalab/manage.py runserver 0.0.0.0:8000
 
 Now you should be able to open a browser and type in your DNS URL to access CodaLab.
 	In this example it would be http://cl-dev-ubuntu.cloudapp.net/

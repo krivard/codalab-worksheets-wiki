@@ -33,7 +33,7 @@
     For our project, include the following Host Name information
 
         Linux - dev: cl-dev-ubuntu.cloudapp.net 
-        Linux – test: cl-test-ubuntu.cloudapp.net
+        Linux – test: cl-test1-ubuntu.cloudapp.net
 
 8. Login to your VM via ssh as: azureuser <password provided at vm build - Step 3)
 9. Things to do once you're in Ubuntu

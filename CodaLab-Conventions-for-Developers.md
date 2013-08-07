@@ -7,7 +7,7 @@ In the [CodaLab Github Repo](http://github.com/codalab/codalab) there will be ma
 
 **Other assumptions:**
 
-* Developers are responsible for ensuring they pull and merge from master into their working branches so that merges back into master are not disruptive.
+* Developers are responsible for ensuring they pull and merge from **master** into their working branches so that merges back into master are not disruptive.
 * Developers should ask for code reviews of their code when they feel like it's getting ready to pull into master. This is easily done by adding github id's to the message on the pull request (mentioning them sends a notification).
 * If a change is going to affect the user experience, it should include code reviews/discussions (again through pull requests mentions) because this is a broad platform, intended for use by many diverse communities.
 * Merges to master and deployment to production will be done by the project QA/Release Engineer (currently: Levert Banks)

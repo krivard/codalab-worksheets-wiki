@@ -1,8 +1,23 @@
 If you are developing on Windows, these notes should be helpful. Thy need to be cleaned up but should be accurate.
 
 ### Running the site with Visual Studio
+**Create the codalab project:**
+1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
+2. Select the **From Existing Python Code** template.
+3. Name the project "codalab".
+4. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\).
+5. Uncheck the **Create directory for solution** option.
+6. Click OK. The Create New Project from Existing Python Code dialog appears.
+7. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab)
+8. add *.scss to the filter list.
+9. Click **Next**.
+10. Select **Python 2.7** from the dropdown menu.
+11. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
 
-Install Python Tools for Visual Studio. Then, create a new project using the option "From Existing Python code". You'll want the Visual Studio project file and solution files to be in the root folder: codalab\codalab.pyproj & codalab\codalab.sln. When the project is created, use "Add existing virtual environment..." option on Python Environments and pick the codalab\venv directory.
+After you have created the project:
+1. In Solution Explorer right-click the **Python Environments** node and select "Add existing virtual environment...".
+2. Pick the codalab\venv directory.
+
 
 ### Running against a local SQL server instance.
 

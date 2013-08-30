@@ -5,13 +5,18 @@ This page contains instructions for installing and configuring Python to work wi
 * [Python 2.7](http://python.org/ftp/python/2.7.5/python-2.7.5.msi) from [Python.org](http://python.org/).
 * [Python Tools for Visual Studio](https://pytools.codeplex.com/)
 
-### Running the site with Visual Studio
+### Get the CodaLab source
 **Fork and Clone the codalab repo**
+
 1. Go to [https://github.com/codalab/codalab](https://github.com/codalab/codalab).
 2. Fork the repo.
 3. Go to your account page at GitHub.com and clone Codalab to your local computer.
 
+For help with forking and cloning, see [Fork a Repo](https://help.github.com/articles/fork-a-repo). For more information about working with Git, see: [http://git-scm.com/book](http://git-scm.com/book).
+
+### Running the site with Visual Studio
 **Create the codalab project:**
+
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
 2. Select the **From Existing Python Code** template.
 3. Name the project "codalab".
@@ -24,7 +29,8 @@ This page contains instructions for installing and configuring Python to work wi
 10. Select **Python 2.7** from the dropdown menu.
 11. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
 
-After you have created the project:
+**After you have created the project:**
+
 1. In Solution Explorer right-click the **Python Environments** node and select "Add existing virtual environment...".
 2. Pick the codalab\venv directory.
 

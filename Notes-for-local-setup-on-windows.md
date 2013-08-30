@@ -1,6 +1,16 @@
-If you are developing on Windows, these notes should be helpful. Thy need to be cleaned up but should be accurate.
+This page contains instructions for installing and configuring Python to work with the CodaLab project.
+
+### Prerequisites
+* Visual Studio 2012
+* [Python 2.7](http://python.org/ftp/python/2.7.5/python-2.7.5.msi) from [Python.org](http://python.org/).
+* [Python Tools for Visual Studio](https://pytools.codeplex.com/)
 
 ### Running the site with Visual Studio
+**Fork and Clone the codalab repo**
+1. Go to [https://github.com/codalab/codalab](https://github.com/codalab/codalab).
+2. Fork the repo.
+3. Go to your account page at GitHub.com and clone Codalab to your local computer.
+
 **Create the codalab project:**
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
 2. Select the **From Existing Python Code** template.

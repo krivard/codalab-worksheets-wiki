@@ -79,7 +79,6 @@ Once you've carried out the steps above, you should be able to use the normal wo
 
     python manage.py syncdb
     cd scripts
-    python initialize.py
     python users.py
     python competitions.py
 

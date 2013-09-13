@@ -14,7 +14,7 @@ This page contains instructions for installing and configuring Python to work wi
 
 For help with forking and cloning, see [Fork a Repo](https://help.github.com/articles/fork-a-repo). For more information about working with Git, see: [http://git-scm.com/book](http://git-scm.com/book).
 
-### Running the site with Visual Studio
+### Open the CodaLab project with Visual Studio
 **Create the codalab project:**
 
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.

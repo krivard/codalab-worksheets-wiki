@@ -1,5 +1,3 @@
-# Deploying CodaLab
-
 The following steps descripbe how to deploy CodaLab from scratch.
 
 The procedure assumes that you have access to a [Windows Azure](https://account.windowsazure.com/) subscription which will host the deployment. 

@@ -23,10 +23,10 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 
 In order to keep this content coherent we have adopted the following page naming convention to make it easy to find things. Every page title is prefixed with a code consisting of two digits followed by a period. The digits represent the subject area of the wiki page. This is the current subject area breakdown to make things consistent:
 
-•00-09. Project Documentation
-•10-19. User Experience / Interaction Design Documentation
-•20-29. Developer Documentation
-•30-39. Test Documentation
-•40-49. Release Documentation
+* 00-09. Project Documentation
+* 10-19. User Experience / Interaction Design Documentation
+* 20-29. Developer Documentation
+* 30-39. Test Documentation
+* 40-49. Release Documentation
 
 While codes are convenient for quick classification, it is better if pages are found by naturally following the above content guide.

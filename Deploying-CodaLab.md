@@ -57,7 +57,7 @@ In a new deployment, the first step is to create one or more VMs to run the web 
 After each VM is created add a load-balance HTTP endpoint:
 * Name: HTTP
 * Protocol: TCP
-* ports: 80 (public and private)
+* ports: 80 
 
 Follow [these instructions](http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/) to load-balance them. Basically, when creating the first endpoint, create a load-balanced set using the naming convention `<prefix>` (e.g. `codalab-prod`). Wait for the endpoint to be created. Then, when adding an endpoint to the remaining VMs, simply add the new HTTP endpoint to the existing load-balanced set. 
 
@@ -73,7 +73,7 @@ The current deployment also uses one additional machine to host the queues. Crea
 After the VM is provisioned, add an endpoint:
 * Name: AMPQ
 * Protocol: TCP
-* ports: 5672
+* ports: 5672 (public and private)
 
 ### Deploy the bits
 

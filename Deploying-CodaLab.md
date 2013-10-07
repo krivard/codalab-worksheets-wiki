@@ -66,7 +66,8 @@ The current deployment also uses one additional machine to host the queues. Crea
 * OS = Ubuntu 13.04
 * VM size = medium (2 cores)
 * Setting both a username/password and a certificate for the admin user.
-* Set machine name and DNS name. The naming convention is `<prefix>-q` (e.g. `codalab-q`) because multiple deployments share the same queue server.
+* Set machine name and DNS name. The naming convention is `<prefix>-<label>q` (e.g. `codalab-prodq`).
+* Add the VM to the DNS group used for the deployment.
 * Specify the location of the VM. Our current choice is to co-locate machines in the 'West US' region.
 
 After the VM is provisioned, add an endpoint:

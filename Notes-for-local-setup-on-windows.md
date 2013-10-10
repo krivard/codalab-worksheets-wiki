@@ -31,7 +31,7 @@ This page contains notes and tips for an improved development experience on Wind
 
 Install pyodbc: Download the correct flavor from https://code.google.com/p/pyodbc/. Then from your virtual environment:
 ```
-easy_install <path>\<pyodbc_installer_file>.exe.
+easy_install <path-to-pyodbc_installer_file>.exe.
 ```
 Install the Django-pyodbc-azure package: 
 ```
@@ -45,7 +45,7 @@ Modify your local configuration
 ```
 DB_ENGINE = 'sql_server.pyodbc'
 DB_NAME = 'djangodb' # Database name for django; from previous steps
-DB_HOST = '(localdb)\\v11.0'
+DB_HOST = '(localdb)\\\\v11.0'
 DB_PORT = ''
 DB_USER = ''
 DB_PASSWORD = '' 

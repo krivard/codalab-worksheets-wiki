@@ -10,22 +10,25 @@ This page contains notes and tips for an improved development experience on Wind
 **Create the codalab project:**
 
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
-2. Select the **From Existing Python Code** template.
-3. Name the project "codalab".
-4. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\codalab\codalab).
-5. Uncheck the **Create directory for solution** option.
-6. Click OK. The Create New Project from Existing Python Code dialog appears.
-7. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab\codalab)
-8. add *.scss to the filter list.
-9. Click **Next**.
-10. Select **manage.py** as the file to run when F5 is pressed.
-11. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
+1. Select the **From Existing Python Code** template.
+1. Name the project "codalab".
+1. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\codalab\codalab).
+1. Uncheck the **Create directory for solution** option.
+1. Click OK. The Create New Project from Existing Python Code dialog appears.
+1. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab\codalab)
+1. add *.scss to the filter list.
+1. Click **Next**.
+1. Select **manage.py** as the file to run when F5 is pressed.
+1. Click **Next**.
+1. Enable **Django** as a feature of your project.
+1. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
 
 **After you have created the project:**
 
 1. In Solution Explorer right-click the **Python Environments** node and select "Add existing virtual environment...".
-2. Pick the codalab\venv directory.
-
+1. Pick the codalab\venv directory.
+1. Save your solution.
+1. In Solution Explorer, right-click on the codalab project node, then choose Django > Validate Django App... The Django Management Console should appear and report zero errors found.
 
 ### Running against a local SQL server instance.
 

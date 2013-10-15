@@ -12,13 +12,13 @@ This page contains notes and tips for an improved development experience on Wind
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
 2. Select the **From Existing Python Code** template.
 3. Name the project "codalab".
-4. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\).
+4. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\codalab\codalab).
 5. Uncheck the **Create directory for solution** option.
 6. Click OK. The Create New Project from Existing Python Code dialog appears.
-7. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab)
+7. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab\codalab)
 8. add *.scss to the filter list.
 9. Click **Next**.
-10. Select **Python 2.7** from the dropdown menu.
+10. Select **manage.py** as the file to run when F5 is pressed.
 11. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
 
 **After you have created the project:**

@@ -32,7 +32,8 @@ This page contains notes and tips for an improved development experience on Wind
 
 ### Running against a local SQL server instance.
 
-Install pyodbc: Download the correct flavor from https://code.google.com/p/pyodbc/. Then from your virtual environment:
+1. Install pyodbc: Download the correct flavor from https://code.google.com/p/pyodbc/. 
+1. From your virtual environment:
 ```
 easy_install <path-to-pyodbc_installer_file>.exe.
 ```

@@ -12,8 +12,9 @@ Likewise, given the URL for a bundle in my account, I can issue a command in the
 
 Notes:
 
-*  How are bundles named? What does the URL to my bundle look like?
-*  Checksums should be used to validate the integrity of a bundle (see current prototype)
-*  Thoughts on dealing with dependencies. In particular what does it mean to upload a bundle that has dependent bundles which only exist locally. In the first pass, we could assume that bundles do not have dependencies.
-*  What are notes in the current prototype.
+* How are bundles named? What does the URL to my bundle look like?
+* Need to agree on an archiving format for bundles: ZIP? A key attribute is that we must be able to read part of a bundle without having to decompress the entire bundle. 
+* Checksums should be used to validate the integrity of a bundle (see current prototype)
+* Thoughts on dealing with dependencies. In particular what does it mean to upload a bundle that has dependent bundles which only exist locally. In the first pass, we could assume that bundles do not have dependencies.
+* What are notes in the current prototype.
 

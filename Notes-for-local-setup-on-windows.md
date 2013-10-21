@@ -4,7 +4,7 @@ This page contains notes and tips for an improved development experience on Wind
 * Visual Studio 2012
 * [Python 2.7](http://python.org/ftp/python/2.7.5/python-2.7.5.msi) from [Python.org](http://python.org/).
 * [Python Tools for Visual Studio](https://pytools.codeplex.com/)
-* You have followed the setup instructions on the [getting setup page](https://github.com/codalab/codalab/wiki/20.-Getting-Started-for-Developers).
+* You have followed the setup instructions on the [Getting Started page](https://github.com/codalab/codalab/wiki/20.-Getting-Started-for-Developers).
 
 ### Open the CodaLab project with Visual Studio
 **Create the codalab project:**

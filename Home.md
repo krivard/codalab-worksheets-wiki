@@ -3,7 +3,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 ### Content guide
 
 * Development
-    * How to contribute
+    * [How to Contribute](https://github.com/codalab/codalab/wiki/23.-How-to-Contribute)
     * [Getting Set Up](https://github.com/codalab/codalab/wiki/20.-Getting-Started-for-Developers)
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/22.-CodaLab-Conventions-for-Developers)
     * [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/25.-Issue-tracking)

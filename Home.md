@@ -1,6 +1,6 @@
 This is the CodaLab Wiki! It provides information about the project and its development. It is maintained by the CodaLab community for the CodaLab community. 
 
-### Content guide
+### CodaLab Wiki Content
 
 * Development
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev:-How-to-Contribute)
@@ -31,5 +31,6 @@ In order to keep this content coherent we have adopted the following page naming
 * **Dev** - Developer Documentation
 * **Test** - Test Documentation
 * **Release** -  Release Documentation
+* **Archive** - Things we no longer need but don't want to discard yet
 
 While codes are convenient for quick classification, it is better if pages are found by naturally following the above content guide.

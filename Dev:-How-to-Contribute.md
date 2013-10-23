@@ -7,13 +7,13 @@ There are many ways that you can contribute your skills to the CodaLab project! 
 - Let others know about CodaLab!
 
 ## Get the Source Code
-Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork the repo](https://help.github.com/articles/fork-a-repo). For more details, see [20. Getting Started for Developers](https://github.com/codalab/codalab/wiki/20.-Getting-Started-for-Developers).
+Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork the repo](https://help.github.com/articles/fork-a-repo). For more details, see [Getting Started on UNIX-based Systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems), and [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
 
 ## Report Bugs and Issues
-Bugs, issues, and feature requests are submitted through the [issues section](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/25.-Issue-tracking).
+Bugs, issues, and feature requests are submitted through the [issues section](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).
 
 ## Contribute Code
-So you want to submit some new code to CodaLab. Great! Before doing so, please take the time to familiarize yourself with our [developer guidelines](https://github.com/codalab/codalab/wiki/22.-CodaLab-Conventions-for-Developers). We assume that you can successfully build and run the project, and understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). Here are the steps you should take:
+So you want to submit some new code to CodaLab. Great! Before doing so, please take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines). We assume that you can successfully build and run the project, and understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). Here are the steps you should take:
 
 - Communicate your ideas with the [CodaLab team](https://github.com/codalab/codalab/network/members).
 - Create unit tests for your features.

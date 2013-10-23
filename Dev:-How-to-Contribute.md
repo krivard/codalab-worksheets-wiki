@@ -3,6 +3,7 @@ There are many ways that you can contribute your skills to the CodaLab project! 
 - Use CodaLab: [http://www.codalab.org/](http://www.codalab.org/).
 - Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
 - Submit a new feature request as a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
+- Become a CodaLab developer.
 - Let others know about CodaLab!
 
 ## Get the Source Code
@@ -18,7 +19,7 @@ So you want to submit some new code to CodaLab. Great! Before doing so, please t
 - Create unit tests for your features.
 
 ## Additional Resources
-The CodaLab team urges you to read up on these great posts about participating in an open source project:
+Finally, here is some recommended reading for participating in an open source project:
 - [Open Source Contribution Etiquette](http://tirania.org/blog/archive/2010/Dec-31.html) by Miguel de Icaza
 - [Don't "Push" your Pull Requests](http://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) by Ilya Grigorik
 - [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) by Vincent Driessen

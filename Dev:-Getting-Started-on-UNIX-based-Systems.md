@@ -13,16 +13,18 @@ For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually 
 
 #### Ubuntu Linux 13.04+
 
-Assuming a fresh Ubuntu install the following commands should get you started. Environment variables are used to control settings for a flexible build process. The build script will accept an environment variable, CONFIG_MODULE_PATH, to a location of an installable python source package which will get installed and be used as the settings module, which is specifically specified with DJANGO_SETTINGS_MODULE:
+Assuming a fresh Ubuntu install the following commands should get you started. Environment variables are used to control settings for a flexible build process. The build script will accept an environment variable, CONFIG_MODULE_PATH, to a location of an installable python source package which will get installed and be used as the settings module, which is specifically specified with DJANGO_SETTINGS_MODULE.
 
 1. Checkout the CodaLab code from GitHub.
 ```
 git clone https://github.com/codalab/codalab.git
 ```
+
 1. Install virtualenv.
 ```
 pip install virtualenv
 ```
+
 1. Activate the virtual environment.
 ```
 cd codalab
@@ -32,21 +34,16 @@ source venv/bin/activate
 1. Configure your local environment.
 ```
 ./dev_setup.sh
-CONFIG_REQ=dev_azure_nix.txt DJANGO_SETTINGS_MODULE=codalab.settings DJANGO_CONFIGURATION=Dev scripts/build
 ```
+
 If you want rabbitmq-server:
 ```
 sudo apt-get install rabbitmq-server
 ```
 
-1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. Activate your virtual environment:
+1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
 ```
-source venv/bin/activate
-```
-Continue with:
-```
-cd codalab
-source config/generated/startup_env.sh
+source config/templates/startup_env.sh
 python manage.py syncdb --migrate
 python scripts/initialize.py
 ```

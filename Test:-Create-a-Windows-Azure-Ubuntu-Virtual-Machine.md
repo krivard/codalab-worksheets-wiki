@@ -26,7 +26,7 @@
 
 6. Now you can login to it and start configuring things
 
-    First, install PuTTY Configuration tool from you’ll need to install PuTTY from here 
+    First, install PuTTY Configuration tool from [http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)
 
 7. Now Launch PuTTy from your Start menu
 

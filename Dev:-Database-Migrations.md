@@ -1,5 +1,4 @@
-# Database Migrations
-The project is using South ([South Docs](http://south.readthedocs.org/en/latest/index.html)) for migrations.
+The CodaLab project uses South ([South Docs](http://south.readthedocs.org/en/latest/index.html)) for migrations.
 
 When changes are made to the models a migration will need to be created to capture the change and allow it to be applied. In the simplest case, such as adding fields and tables:
 

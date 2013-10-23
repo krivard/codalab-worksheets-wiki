@@ -7,8 +7,6 @@ CodaLab is built with Python, supporting development on local machines with Wind
 
 In this section, we will walk you through installing Python 2.7.x, installing a version of pip >= 1.3 (for installing Python packages) and running the CodaLab site in a local virtual environment.
 
-### Unix-based systems
-
 For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually installed. However... Redhat-based Linux distributions, such as RHEL and CentOS, sometimes behind the curve and do not have Python 2.7. As of this writing, CentOS 6.4 is at Python 2.6, which is well on its way to EOL. Python 2.6 may work, but code will be written with 2.7 and 3.3+ in mind. Below are instructions for a specific flavor of Linux.
 
 #### Ubuntu Linux 13.04+
@@ -61,7 +59,7 @@ python scripts/competitions.py
 
 1. Start the web server:
 ```
-./manage runserver 0.0.0.0:8000
+python codalab/manage.py runserver 0.0.0.0:8000
 ```
 
 1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.

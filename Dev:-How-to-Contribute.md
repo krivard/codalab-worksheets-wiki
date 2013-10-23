@@ -7,7 +7,7 @@ There are many ways that you can contribute your skills to the CodaLab project! 
 - Let others know about CodaLab!
 
 ## Get the Source Code
-Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork the repo](https://help.github.com/articles/fork-a-repo). For more details, see [Getting Started on UNIX-based Systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems), and [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
+Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork the repo](https://help.github.com/articles/fork-a-repo). For important details about configuring your system, see [Getting Started on UNIX-based Systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems), and [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
 
 ## Report Bugs and Issues
 Bugs, issues, and feature requests are submitted through the [issues section](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).

@@ -31,6 +31,6 @@ In order to keep this content coherent we have adopted the following page naming
 * **Dev** - Developer Documentation
 * **Test** - Test Documentation
 * **Release** -  Release Documentation
-* **Archive** - Things we no longer need but don't want to discard yet
+* **Trash** - Things we no longer need but don't want to discard yet
 
 While codes are convenient for quick classification, it is better if pages are found by naturally following the above content guide.

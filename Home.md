@@ -4,7 +4,8 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 
 * Development
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev:-How-to-Contribute)
-    * [Getting Started (Linux)](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-Linux)
+    * [Getting Started (Linux)](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-(Linux))
+    * [Getting Started (Windows)](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-(Windows))
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines)
     * [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking)
     * Continuous integration

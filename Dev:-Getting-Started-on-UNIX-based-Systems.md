@@ -15,14 +15,23 @@ For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually 
 
 Assuming a fresh Ubuntu install the following commands should get you started. Environment variables are used to control settings for a flexible build process. The build script will accept an environment variable, CONFIG_MODULE_PATH, to a location of an installable python source package which will get installed and be used as the settings module, which is specifically specified with DJANGO_SETTINGS_MODULE:
 
-1. Checkout the CodaLab code from GitHub
+1. Checkout the CodaLab code from GitHub.
 ```
 git clone https://github.com/codalab/codalab.git
 ```
-Then setup your local environment:
+1. Install virtualenv.
+```
+pip install virtualenv
+```
+1. Activate the virtual environment.
 ```
 cd codalab
-scripts/dev_bootstrap
+source venv/bin/activate
+```
+
+1. Configure your local environment.
+```
+./dev_setup.sh
 CONFIG_REQ=dev_azure_nix.txt DJANGO_SETTINGS_MODULE=codalab.settings DJANGO_CONFIGURATION=Dev scripts/build
 ```
 If you want rabbitmq-server:

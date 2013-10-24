@@ -7,35 +7,41 @@ CodaLab is built with Python, supporting development on local machines with Wind
 
 In this section, we will walk you through installing Python 2.7.x, installing a version of pip >= 1.3 (for installing Python packages) and running the CodaLab site in a local virtual environment.
 
-For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually installed. However... Redhat-based Linux distributions, such as RHEL and CentOS, sometimes behind the curve and do not have Python 2.7. As of this writing, CentOS 6.4 is at Python 2.6, which is well on its way to EOL. Python 2.6 may work, but code will be written with 2.7 and 3.3+ in mind. Below are instructions for a specific flavor of Linux.
-
 #### Ubuntu Linux 13.04+
 
 Assuming a fresh Ubuntu install the following commands should get you started. Environment variables are used to control settings for a flexible build process. The build script will accept an environment variable, CONFIG_MODULE_PATH, to a location of an installable python source package which will get installed and be used as the settings module, which is specifically specified with DJANGO_SETTINGS_MODULE.
 
-1. Install Python. You can get it from [http://www.python.org/getit/](http://www.python.org/getit/).
+1. Install [Python](http://www.python.org/getit/). For current Debian-based Linux distributions, BSD and Mac Python 2.7 is usually installed. However Redhat-based Linux distributions, such as RHEL and CentOS, are sometimes behind the curve and do not have Python 2.7. As of this writing, CentOS 6.4 is at Python 2.6, which is well on its way to EOL. Python 2.6 may work, but code will be written with 2.7 and 3.3+ in mind. Below are instructions for a specific flavor of Linux.
 
-1. Install PIP. You can get it from [https://pypi.python.org/pypi/pip](https://pypi.python.org/pypi/pip).
-
-1. Checkout the CodaLab code from GitHub.
+1. Install [PIP](https://pypi.python.org/pypi/pip).
 ```
-git clone https://github.com/codalab/codalab.git
+sudo apt-get install python-pip
+```
+
+1. Install [Git](http://git-scm.com/download/linux).
+```
+sudo apt-get install git
 ```
 
 1. Install virtualenv.
 ```
-pip install virtualenv
+sudo apt-get install python-virtualenv
+```
+
+1. Clone the CodaLab source code from GitHub.
+```
+git clone https://github.com/codalab/codalab.git
+```
+
+1. Configure your local environment. The dev_setup.sh script will install everything you need to run CodaLab locally.
+```
+cd codalab
+./dev_setup.sh
 ```
 
 1. Activate the virtual environment.
 ```
-cd codalab
 source venv/bin/activate
-```
-
-1. Configure your local environment.
-```
-./dev_setup.sh
 ```
 
 If you want rabbitmq-server:
@@ -45,6 +51,7 @@ sudo apt-get install rabbitmq-server
 
 1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
 ```
+cd codalab
 source config/templates/startup_env.sh
 python manage.py syncdb --migrate
 python scripts/initialize.py

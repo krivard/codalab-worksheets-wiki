@@ -35,7 +35,7 @@ git clone https://github.com/codalab/codalab.git
 1. Configure your local environment. The dev_setup.sh script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 ```
 cd codalab
-./dev_setup.sh
+source ./dev_setup.sh
 ```
 
 1. Activate the virtual environment.
@@ -50,8 +50,8 @@ sudo apt-get install rabbitmq-server
 
 1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
 ```
-source ./dev_setup.sh
 cd codalab
+source config/templates/startup_env.sh
 python manage.py syncdb --migrate
 python scripts/initialize.py
 ```

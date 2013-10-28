@@ -13,7 +13,7 @@ Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork t
 Bugs, issues, and feature requests are submitted through the [issues section](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).
 
 ## Contribute Code
-So you want to submit some new code to CodaLab. Great! Before doing so, please take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines). We assume that you can successfully build and run the project, and understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). Here are the steps you should take:
+So you want to submit some new code to CodaLab. Great! Before doing so, please take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines). We assume that you can successfully build and run the project, and understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). Here are the steps you should take:
 
 - Communicate your ideas with the [CodaLab team](https://github.com/codalab/codalab/network/members).
 - Create unit tests for your features.

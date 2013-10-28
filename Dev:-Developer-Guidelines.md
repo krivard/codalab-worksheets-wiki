@@ -30,6 +30,6 @@ When you submit the pull request, GitHub will tell if the request cannot be merg
 
 # Best practices
 
-* DO read and follow [the process](https://github.com/codalab/codalab/wiki/25.-Issue-tracking) for managing tasks and bugs.
+* DO read and follow [the process](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking) for managing tasks and bugs.
 * DO associate your commit with the issue that you are fixing. The mechanism for doing so is explained in this [GitHub Blog entry](https://github.com/blog/831-issues-2-0-the-next-generation) and in this [StackOverflow question](http://stackoverflow.com/questions/1687262/link-to-github-issue-number-with-commit-message).
 * DO ensure that the development environment runs on Windows and Linux. We want contributions from many developers irrespective of their favorite development platform.

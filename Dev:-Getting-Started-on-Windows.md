@@ -77,16 +77,16 @@ You can increase your productivity by writing code, running and debugging the we
 1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
 1. Select the **From Existing Python Code** template.
 1. Name the project "codalab".
-1. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\).
+1. **Location** should be the codalab subdirectory within the codalab project (for example C:\Users\user\Documents\GitHub\codalab\codalab).
 1. Uncheck the **Create directory for solution** option.
 1. Click OK. The **Create New Project from Existing Python Code** dialog appears.
-1. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab)
+1. Enter the path for the codalab subdirectory within the codalab project (for example C:\Users\user\Documents\GitHub\codalab\codalab)
 1. add *.scss to the filter list.
 1. Click **Next**.
-1. Select **manage.py** as the file to run when F5 is pressed.
+1. Select **manage.py** as the file to run when F5 is pressed. If no files are showing up, then you may have used an incorrect project directory in steps 2 or 5.
 1. Click **Next**.
 1. Enable **Django** as a feature of your project.
-1. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
+1. Click Finish. The Visual Studio project file and solution files should be located in the codalab subfolder within the codalab project: codalab\codalab\codalab.pyproj & codalab\codalab\codalab.sln.
 
 **After you have created the project:**
 

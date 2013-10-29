@@ -1,5 +1,5 @@
 #Scenarios
-There are five high-level scenarios for CodaLab. They are assigned to Milestone = Scenarios. Each has a shorthand label, colored dark yellow associated.
+There are five high-level scenarios for CodaLab. They are assigned to Milestone = Scenarios. Each has a shorthand label in dark yellow associated.
 
 #Stories
 TBD

@@ -1,38 +1,9 @@
-This page contains notes and tips for an improved development experience on Windows.
+This page contains instructions for running against a local SQL server instance on Windows.
 
-### Prerequisites and assumptions
-* Visual Studio 2012
-* [Python 2.7](http://python.org/ftp/python/2.7.5/python-2.7.5.msi) from [Python.org](http://python.org/).
-* [Python Tools for Visual Studio](https://pytools.codeplex.com/)
-* You have followed the setup instructions on the [Getting Started page](https://github.com/codalab/codalab/wiki/20.-Getting-Started-for-Developers).
-
-### Open the CodaLab project with Visual Studio
-**Create the codalab project:**
-
-1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
-1. Select the **From Existing Python Code** template.
-1. Name the project "codalab".
-1. **Location** should be root of Git (for example C:\Users\user\Documents\GitHub\).
-1. Uncheck the **Create directory for solution** option.
-1. Click OK. The **Create New Project from Existing Python Code** dialog appears.
-1. Enter the path for the root of the project (for example C:\Users\user\Documents\GitHub\codalab)
-1. add *.scss to the filter list.
-1. Click **Next**.
-1. Select **manage.py** as the file to run when F5 is pressed.
-1. Click **Next**.
-1. Enable **Django** as a feature of your project.
-1. Click Finish. The Visual Studio project file and solution files should be located in the root folder for the project: codalab\codalab.pyproj & codalab\codalab.sln.
-
-**After you have created the project:**
-
-1. In Solution Explorer right-click the **Python Environments** node and select "Add existing virtual environment...".
-1. Pick the codalab\venv directory.
-1. Save your solution.
-1. In Solution Explorer, right-click on the codalab project node, then choose Django > Validate Django App... The Django Management Console should appear and report zero errors found.
-
-### Running against a local SQL server instance.
+1. Follow the instructions: [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
 
 1. Install pyodbc: Download the correct flavor from https://code.google.com/p/pyodbc/. 
+
 1. From your virtual environment:
 ```
 easy_install <path-to-pyodbc_installer_file>.exe.

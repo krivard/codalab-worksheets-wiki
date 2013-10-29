@@ -26,7 +26,7 @@ Otherwise, if breaking changes are made,
 4. Update CodaLab (if breaking changes have been made)
    1. kill -9 \`ps auwx | grep python  | grep codalab | awk '{ print  }' | xargs\`
    1. rm -rf codalab
-   1. Follow the [instructions to run CodaLab from github on Linux](https://github.com/codalab/codalab/wiki/53.-Running-CodaLab-from-Git-on-Linux)
+   1. Follow the [instructions to run CodaLab from github on Linux](https://github.com/codalab/codalab/wiki/Test:-Running-CodaLab-from-Git-on-Linux)
 
 Now you should be able to open a browser and type in your DNS URL to access CodaLab.
 	In this example it would be http://cl-dev-ubuntu.cloudapp.net/

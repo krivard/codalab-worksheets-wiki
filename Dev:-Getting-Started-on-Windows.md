@@ -28,8 +28,8 @@ pip install virtualenv
 ```
 
 1. Install git (either of these, or both):
-   1. https://code.google.com/p/msysgit/
-   1. http://windows.github.com/
+   - https://code.google.com/p/msysgit/
+   - http://windows.github.com/
 
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab source code](https://github.com/codalab/codalab) from GitHub.
 

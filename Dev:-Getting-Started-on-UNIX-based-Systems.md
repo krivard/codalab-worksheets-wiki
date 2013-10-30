@@ -27,57 +27,6 @@ sudo apt-get install python-virtualenv
 sudo apt-get install git
 ```
 
-## Get the Source Code
-
-1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab source code](https://github.com/codalab/codalab) from GitHub.
-
-1. Clone your fork.
-```
-git clone https://github.com/username/codalab.git
-```
-
-1. Configure your local environment. The dev_setup.sh script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
-```
-cd codalab
-source ./dev_setup.sh
-```
-
-1. Activate the virtual environment.
-```
-source venv/bin/activate
-```
-
-1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (optional)
-```
-sudo apt-get install rabbitmq-server
-```
-
-1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
-```
-cd codalab
-source config/templates/startup_env.sh
-python manage.py syncdb --migrate
-python scripts/initialize.py
-```
-
-1. Run tests to verify that everything is working:
-```
-python manage.py test
-```
-
-1. Populate the site with some sample data:
-```        
-python scripts/users.py
-python scripts/competitions.py
-```
-
-1. Start the web server:
-```
-python codalab/manage.py runserver 0.0.0.0:8000
-```
-
-1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.
-
 ## Next steps
 
 Now that you're setup you might want to review some of the [conventions and practices](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

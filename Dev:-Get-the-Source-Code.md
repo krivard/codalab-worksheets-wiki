@@ -9,82 +9,88 @@ git clone https://github.com/username/codalab.git
 
 1. Configure your local environment. The dev_setup.bat script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 
-**Windows**
-```
-./dev_setup.bat
-```
-**Linux**
-```
-source ./dev_setup.sh
-```
+    **Windows**
+    ```
+    ./dev_setup.bat
+    ```
+    **Linux**
+    ```
+    source ./dev_setup.sh
+    ```
 
 1. Activate the virtual environment.
 
-**Windows**
-```
-cd C:\Users\username\Documents\GitHub\codalab\
-venv\Scripts\activate.ps1
-```
-
-**Linux**
-```
-source venv/bin/activate
-```
+    **Windows**
+    ```
+    cd C:\Users\username\Documents\GitHub\codalab\
+    venv\Scripts\activate.ps1
+    ```
+    
+    **Linux**
+    ```
+    source venv/bin/activate
+    ```
 
 1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (optional).
 
-**Windows**
-Run the .exe installer.
-
-**Linux**
-```
-sudo apt-get install rabbitmq-server
-```
+    **Windows**
+    Run the .exe installer.
+    
+    **Linux**
+    ```
+    sudo apt-get install rabbitmq-server
+    ```
 
 1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started.
 
-**Windows** 
-```
-cd codalab
-config/templates/startup_env.bat
-python manage.py syncdb --migrate
-python scripts/initialize.py
-```
-
-**Linux**
-```
-cd codalab
-source config/templates/startup_env.sh
-python manage.py syncdb --migrate
-python scripts/initialize.py
-```
+    **Windows** 
+    ```
+    cd codalab
+    config/templates/startup_env.bat
+    python manage.py syncdb --migrate
+    python scripts/initialize.py
+    ```
+    
+    **Linux**
+    ```
+    cd codalab
+    source config/templates/startup_env.sh
+    python manage.py syncdb --migrate
+    python scripts/initialize.py
+    ```
 
 1. Run tests to verify that everything is working:
-```
-python manage.py test
-```
+
+    ```
+    python manage.py test
+    ```
 
 1. Populate the site with some sample data:
-```        
-python scripts/users.py
-python scripts/competitions.py
-```
+
+    ```        
+    python scripts/users.py
+    python scripts/competitions.py
+    ```
 
 1. Start the web server:
-```
-python manage.py runserver 0.0.0.0:8000
-```
+
+    ```
+    python manage.py runserver 0.0.0.0:8000
+    ```
 
 1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.
 
 When your next coding session comes along, remember to work in the virtual environment you created:
-```
-cd C:\Users\username\Documents\GitHub\codalab\
-venv\Scripts\activate.ps1
-```
+
+    ```
+    cd C:\Users\username\Documents\GitHub\codalab\
+    venv\Scripts\activate.ps1
+    ```
 
 If you need to bring the model and database in sync:
-```
-python codalab/manage.py syncdb --migrate
-```
+
+    ```
+    python codalab/manage.py syncdb --migrate
+    ```
+    
 Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).

@@ -62,4 +62,4 @@ You can increase your productivity by writing code, running and debugging the we
 
 ## Next steps
 
-Now that you're setup you'll want to review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.
+Now that you're set up you'll want to review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

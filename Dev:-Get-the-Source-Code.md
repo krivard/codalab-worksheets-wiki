@@ -1,3 +1,8 @@
+1. Install the prerequisites:
+
+* [Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows)
+* [Unix-based systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems)
+
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
 
 1. Clone your fork.

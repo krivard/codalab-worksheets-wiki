@@ -1,6 +1,6 @@
 If you are a developer and want to help build CodaLab, this page will explain how to to get started.
 
-To use and test the submission process, a queue server will need to be installed. [RabbitMQ](http://www.rabbitmq.com/download.html) installs easily on Linux and Windows and requires no configuration out of the box for testing purposes. A database besides SQLite is recommended. MySQL and Postgres work on Windows, Linux and Mac. SQL Server on Windows can be used, but support is not as complete as MySQL and Postgres.
+To use and test the submission process, a queue server will need to be installed. [RabbitMQ](http://www.rabbitmq.com/download.html) installs easily on Linux and Windows and requires no configuration out of the box for testing purposes. A database besides SQLite is recommended. MySQL and Postgres work on Windows, Linux and Mac. You can also use SQL Server on Windows. For more information, see [Running against a local SQL server instance](https://github.com/codalab/codalab/wiki/Test:-Running-against-a-local-SQL-server-instance)
 
 ## Local installation
 

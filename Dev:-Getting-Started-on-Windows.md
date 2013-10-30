@@ -75,13 +75,7 @@ python scripts/competitions.py
 
 1. Start the web server:
 ```
-python codalab/manage.py runserver 0.0.0.0:8000
-```
-
-1. If you start from a clean database, there are ways to programmatically insert sample data:
-```
-python scripts/users.py
-python scripts/competitions.py
+python manage.py runserver 0.0.0.0:8000
 ```
 
 When your next coding session comes along, remember to work in the virtual environment you created:
@@ -96,7 +90,7 @@ python codalab/manage.py syncdb --migrate
 ```
 Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).
 
-#### Work with CodaLab in Visual Studio
+## Work with CodaLab in Visual Studio
 
 You can increase your productivity by writing code, running and debugging the web site in Visual Studio using the [Python Tools for Visual Studio](https://pytools.codeplex.com/). 
 

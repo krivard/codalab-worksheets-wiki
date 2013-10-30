@@ -80,15 +80,15 @@ git clone https://github.com/username/codalab.git
 
 When your next coding session comes along, remember to work in the virtual environment you created:
 
-    ```
-    cd C:\Users\username\Documents\GitHub\codalab\
-    venv\Scripts\activate.ps1
-    ```
+```
+cd C:\Users\username\Documents\GitHub\codalab\
+venv\Scripts\activate.ps1
+```
 
 If you need to bring the model and database in sync:
 
-    ```
-    python codalab/manage.py syncdb --migrate
-    ```
+```
+python codalab/manage.py syncdb --migrate
+```
     
 Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).

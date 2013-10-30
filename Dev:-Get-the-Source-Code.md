@@ -1,5 +1,3 @@
-## Get the Source Code
-
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab source code](https://github.com/codalab/codalab) from GitHub.
 
 1. Clone your fork.

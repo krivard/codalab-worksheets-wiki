@@ -61,5 +61,5 @@ You can increase your productivity by writing code, running and debugging the we
 1. In Solution Explorer, right-click on the codalab project node, then choose Django > Validate Django App... The Django Management Console should appear and report zero errors found.
 
 ## Next steps
-
-Now that you're set up you'll want to review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.
+- [Get the Source Code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code)
+- Review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

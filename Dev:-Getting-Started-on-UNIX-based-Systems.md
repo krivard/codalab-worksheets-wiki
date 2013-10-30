@@ -47,7 +47,7 @@ source ./dev_setup.sh
 source venv/bin/activate
 ```
 
-If you want rabbitmq-server:
+1. Install RabbitMQ (optional)
 ```
 sudo apt-get install rabbitmq-server
 ```

@@ -5,7 +5,7 @@
 git clone https://github.com/username/codalab.git
 ```
 
-1. Configure your local environment. The dev_setup.bat script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
+1. Configure your local environment. The dev_setup script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 
     **Windows**
     ```

@@ -1,6 +1,6 @@
 If you are a developer and want to help build CodaLab, this page will explain how to to get started.
 
-To use and test the submission process, a queue server will need to be installed. RabbitMQ installs easily on Linux and Windows and requires no configuration out of the box for testing purposes. A database besides SQLite is recommended. MySQL and Postgres work on Windows, Linux and Mac. SQL Server on Windows can be used, but support is not as complete as MySQL and Postgres.
+To use and test the submission process, a queue server will need to be installed. [RabbitMQ](http://www.rabbitmq.com/download.html) installs easily on Linux and Windows and requires no configuration out of the box for testing purposes. A database besides SQLite is recommended. MySQL and Postgres work on Windows, Linux and Mac. SQL Server on Windows can be used, but support is not as complete as MySQL and Postgres.
 
 ## Local installation
 
@@ -8,11 +8,10 @@ CodaLab is built with Python, supporting development on local machines with Wind
 
 In this section, we will walk you through installing Python 2.7.x, installing a version of pip >= 1.3 (for installing Python packages) and running the CodaLab site in a local virtual environment.
 
-### Windows (tested on Windows 8)
+Assuming a fresh Windows environment the following should get you started:
 
-Assuming a fresh windows environment the following should get you started:
+1. Install [Python 2.7](http://www.python.org/getit/). Be sure to select the installer for your architecture. This typically will install to C:\Python27. The rest of these instructions will assume that you have installed to this path.
 
-1. Install python 2.7 (the latest for windows) which you can find [here](http://www.python.org/download/releases/). Be sure to select the installer for your architecture. This typically will install to C:\Python27. The rest of these instructions will assume installation in this path.
 1. To Install pip you should first install distribute. Download the file at the following URL:
    http://python-distribute.org/distribute_setup.py and run it from a shell from the directory into which it was downloaded:
 ```
@@ -25,32 +24,55 @@ C:\Python27\Scripts\easy_install.exe pip
 
 1. Next install [virtualenv](http://www.virtualenv.org/)
 ```
-C:\Python27\Scripts\pip.exe install virtualenv
+pip install virtualenv
 ```
 
 1. Install git (either of these, or both):
    1. https://code.google.com/p/msysgit/
    1. http://windows.github.com/
 
-1. Get the source:
+1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab source code](https://github.com/codalab/codalab) from GitHub.
+
+1. Clone your fork.
 ```
-git clone https://github.com/codalab/codalab.git
-cd codalab
+git clone https://github.com/username/codalab.git
 ```
 
-1. Create a virtual environment and finish the setup:
+1. Configure your local environment. The dev_setup.bat script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 ```
 ./dev_setup.bat
 ```
-At this point you should be able to run the site locally:
+
+1. Activate the virtual environment.
 ```
-cd codalab
-python manage.py runserver 0.0.0.0:8000
+cd C:\Users\username\Documents\GitHub\codalab\
+venv\Scripts\activate.ps1
 ```
 
-1. You could also verify your setup by running tests from the directory where `manage.py` is located: 
+1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (Optional).
+
+1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
+```
+cd codalab
+config/templates/startup_env.bat
+python manage.py syncdb --migrate
+python scripts/initialize.py
+```
+
+1. Run tests to verify that everything is working:
 ```
 python manage.py test
+```
+
+1. Populate the site with some sample data:
+```        
+python scripts/users.py
+python scripts/competitions.py
+```
+
+1. Start the web server:
+```
+python codalab/manage.py runserver 0.0.0.0:8000
 ```
 
 1. If you start from a clean database, there are ways to programmatically insert sample data:
@@ -58,10 +80,13 @@ python manage.py test
 python scripts/users.py
 python scripts/competitions.py
 ```
+
 When your next coding session comes along, remember to work in the virtual environment you created:
 ```
-venv/scripts/activate.bat
+cd C:\Users\username\Documents\GitHub\codalab\
+venv\Scripts\activate.ps1
 ```
+
 If you need to bring the model and database in sync:
 ```
 python codalab/manage.py syncdb --migrate

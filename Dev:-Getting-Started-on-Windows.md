@@ -52,7 +52,7 @@ cd C:\Users\username\Documents\GitHub\codalab\
 venv\Scripts\activate.ps1
 ```
 
-1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (Optional).
+1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (optional).
 
 1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started. 
 ```

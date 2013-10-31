@@ -33,6 +33,7 @@ cd C:\Python27\Scripts
    * https://code.google.com/p/msysgit/
    * http://windows.github.com/
 
+You are now ready to [get the CodaLab source code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code).
 
 ## Work with CodaLab in Visual Studio
 

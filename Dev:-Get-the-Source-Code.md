@@ -19,6 +19,7 @@ git clone https://github.com/<username>/codalab.git
     ```
     **Linux**
     ```
+    cd codalab
     source ./dev_setup.sh
     ```
 

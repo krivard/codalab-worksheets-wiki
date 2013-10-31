@@ -57,6 +57,7 @@ git clone https://github.com/<username>/codalab.git
     
     **Linux**
     ```
+    cd codalab/codalab
     source config/templates/startup_env.sh
     python manage.py syncdb --migrate
     python scripts/initialize.py

@@ -24,7 +24,8 @@ C:\Python27\Scripts\easy_install.exe pip
 
 1. Next install [virtualenv](http://www.virtualenv.org/)
 ```
-pip install virtualenv
+cd C:\Python27\Scripts
+.\pip.exe install virtualenv
 ```
 
 1. Install git (either of these, or both):

@@ -14,6 +14,7 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows**
     ```
+    cd codalab
     ./dev_setup.bat
     ```
     **Linux**

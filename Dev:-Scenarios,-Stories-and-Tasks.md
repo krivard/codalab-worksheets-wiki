@@ -2,7 +2,7 @@
 There are five high-level scenarios for CodaLab. They are assigned to Milestone = Scenarios. Each has a shorthand label in dark yellow associated.
 
 #Stories
-TBD
+Are workable areas that need to be implemented. Tasks can be associated by adding the Story ID into the Task. All tasks associated will then be linked back to the Story. 
 
 # Tasks
 ## Entering tasks:

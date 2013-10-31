@@ -2,7 +2,7 @@
 There are five high-level scenarios for CodaLab. They are assigned to Milestone = Scenarios. Each has a shorthand label in dark yellow. All Stories and Tasks should be labeled with the appropriate high-level scenario so that it is easy to see where they fit.
 
 #Stories
-Enter stories to both track the work you are doing or to let others know what you are doing or what needs to be done 
+Enter stories to track the work you are doing or to let others know what you are doing or to let others know what needs to be done 
 ## Entering stories:
 * Select 'New Issue' button
 * Add title

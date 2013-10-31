@@ -48,15 +48,14 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows** 
     ```
-    cd codalab
-    config/templates/startup_env.bat
+    cd c:\users\username\documents\github\codalab\codalab
+    config\templates\startup_env.bat
     python manage.py syncdb --migrate
-    python scripts/initialize.py
+    python scripts\initialize.py
     ```
     
     **Linux**
     ```
-    cd codalab
     source config/templates/startup_env.sh
     python manage.py syncdb --migrate
     python scripts/initialize.py

@@ -10,18 +10,6 @@
 git clone https://github.com/<username>/codalab.git
 ```
 
-1. Activate the virtual environment.
-
-    **Windows**
-    ```
-    venv\Scripts\activate.ps1
-    ```
-    
-    **Linux**
-    ```
-    source venv/bin/activate
-    ```
-
 1. Configure your local environment. The dev_setup script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 
     **Windows**
@@ -33,6 +21,18 @@ git clone https://github.com/<username>/codalab.git
     ```
     cd codalab
     source ./dev_setup.sh
+    ```
+
+1. Activate the virtual environment.
+
+    **Windows**
+    ```
+    venv\Scripts\activate.ps1
+    ```
+    
+    **Linux**
+    ```
+    source venv/bin/activate
     ```
 
 1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (optional).

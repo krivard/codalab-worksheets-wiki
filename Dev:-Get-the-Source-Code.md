@@ -26,7 +26,6 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows**
     ```
-    cd C:\Users\username\Documents\GitHub\codalab\
     venv\Scripts\activate.ps1
     ```
     

@@ -30,7 +30,7 @@ cd C:\Python27\Scripts
 
 1. Install git (either of these, or both):
 
-   * https://code.google.com/p/msysgit/
+   * http://msysgit.github.io/
    * http://windows.github.com/
 
 You are now ready to [get the CodaLab source code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code).

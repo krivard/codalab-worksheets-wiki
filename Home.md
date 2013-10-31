@@ -9,7 +9,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Get the Source Code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code)
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines)
     * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking)
-    * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev:-Stories-and-Tasks)
+    * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev:-Scenarios,-Stories-and-Tasks)
     * Continuous integration
     * [Deploying CodaLab](https://github.com/codalab/codalab/wiki/User:-Deploying-CodaLab)
     * Design and implementation notes

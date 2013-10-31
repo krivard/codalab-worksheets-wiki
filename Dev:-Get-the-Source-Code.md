@@ -7,7 +7,7 @@
 
 1. Clone your fork.
 ```
-git clone https://github.com/username/codalab.git
+git clone https://github.com/<username>/codalab.git
 ```
 
 1. Configure your local environment. The dev_setup script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.

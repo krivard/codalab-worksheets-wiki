@@ -19,7 +19,7 @@ Enter tasks if you prefer to track your work separately and not directly in the 
 * Select 'New Issue' button
 * Add title
 * Add label 'Task'
-* Add "#<StoryID>"
+* Add '#StoryID'
 * Assign to appropriate person
 * Select appropriate milestone
 * Add task definition

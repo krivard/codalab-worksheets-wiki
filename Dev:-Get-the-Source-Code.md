@@ -84,7 +84,7 @@ git clone https://github.com/<username>/codalab.git
 
 1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.
 
-When your next coding session comes along, remember to work in the virtual environment you created:
+1. When your next coding session comes along, remember to work in the virtual environment you created:
 
     **Windows**
     ```

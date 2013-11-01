@@ -86,10 +86,15 @@ git clone https://github.com/<username>/codalab.git
 
 When your next coding session comes along, remember to work in the virtual environment you created:
 
-```
-cd C:\Users\username\Documents\GitHub\codalab\
-venv\Scripts\activate.ps1
-```
+    **Windows**
+    ```
+    venv\Scripts\activate.ps1
+    ```
+    
+    **Linux**
+    ```
+    source venv/bin/activate
+    ```
 
 If you need to bring the model and database in sync:
 

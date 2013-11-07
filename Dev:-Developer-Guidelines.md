@@ -35,3 +35,4 @@ When you submit the pull request, GitHub will tell if the request cannot be merg
 * DO ensure that the development environment runs on Windows and Linux. We want contributions from many developers irrespective of their favorite development platform.
 * DO make sure to add unit tests to the `tests.py` file as you add new features.
 * DO make sure to add unit tests to the `tests.py` file as you fix bugs that could have been fixed by unit testing.
+* DO use PyLint (as documented at https://github.com/codalab/codalab/wiki/Dev:-Code-checkers) to validate your code matches this project's expectation of coding standards.

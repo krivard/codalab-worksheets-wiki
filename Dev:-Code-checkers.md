@@ -1,12 +1,26 @@
 ##Notes on using PyLint
 
-PyLint (http://pylint.org, http://docs.pylint.org/index.html) is a code checker which attempts to automatically detect errors and helps achieve consistent coding standard.
+PyLint (http://pylint.org, http://docs.pylint.org/index.html) is a code checker that detects errors in Python code, helping to achieve a consistent coding standard. When you run PyLint on a .py file or module, it checks your code against an assortment of standards and generates a report.
 
 From the virtual environment, PyLint installs with pip:
 ```
 pip install pylint
 ```
-At the time of writing, pip install PyLint 1.0.0 which has a severe issue on Windows with trailing whitespace: see https://bitbucket.org/logilab/pylint/commits/02db08561a8e. A workaround is to manually update `format.py` which is located under `Lib\site-packages\pylint\checkers`.
+At the time of writing, pip install PyLint 1.0.0 which has a severe issue on Windows with trailing whitespace: see https://bitbucket.org/logilab/pylint/commits/02db08561a8e. A workaround is to manually update `format.py` which is located under `Lib\site-packages\pylint\checkers`. Alternatively, use the `--disable=trailing-whitespace` option.
+
+## Using PyLint with CodaLab
+To run PyLint against the entire CodaLab project: 
+1. Navigate to \codalab\codalab (wherever that is located on your local system).
+1. Run `pylint codalab` to scan the entire project.
+
+
+## PyLint Tips
+- To output your report in HTML format, use the `-f html` option.
+- To pipe the report output into a file, use this syntax:
+`pylint codalab -f html > results.html`
+- Use the `-rn` option to omit the report tables.
+
+## Configure PyLint Rules
 
 PyLint's rules are configurable. To generate a default config file:
 ```
@@ -17,7 +31,7 @@ To use the generated config (assuming `.pylint-conf` is located in the current d
 pylint –-rcfile=.pylint-conf <module or package>
 ```
 
-Below is a set of rules that I have found the need to customize.
+Below is a set of customizations that will make working with PyLint a bit easier.
 
 * Output format. PyLint can format its output multiple ways. I find the HTML format to be convenient.
 ```

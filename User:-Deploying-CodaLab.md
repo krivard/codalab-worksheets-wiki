@@ -17,39 +17,34 @@ From the management portal, [create a new Virtual Machine from gallery](http://w
 When the server is provisioned, use SSH to log in as the admin user.
 
 1. Install Git, Virtualenv and Pip.
-
-```
-sudo apt-get install git
-sudo apt-get install python-virtualenv
-sudo apt-get install python-pip
-```
+   ```
+   sudo apt-get install git
+   sudo apt-get install python-virtualenv
+   sudo apt-get install python-pip
+   ```
 
 1. Clone the CodaLab Git repo:
-
-```
-mkdir src
-cd src
-git clone https://github.com/codalab/codalab.git
-```
+   ```
+   mkdir src
+   cd src
+   git clone https://github.com/codalab/codalab.git
+   ```
 
 1. Run `dev_setup.sh`.
-
-```
-cd codalab
-source ./dev_setup.sh
-```
+   ```
+   cd codalab
+   source ./dev_setup.sh
+   ```
 
 1. Activate the virtual environment.
-
-```
-source venv/bin/activate
-```
+   ```
+   source venv/bin/activate
+   ```
 
 1. Install fabric.
-
-```
-sudo pip install fabric
-```
+   ```
+   sudo pip install fabric
+   ```
 
 Now the build server should be all set up.
 

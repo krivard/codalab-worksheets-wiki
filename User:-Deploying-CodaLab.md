@@ -14,25 +14,44 @@ From the management portal, [create a new Virtual Machine from gallery](http://w
 * Set machine name and DNS name using the convention `<prefix>-build`. For instance, if the unique prefix is `codalab`, then the machine name is `codalab-build` and the DNS name is `codalab-build.cloudapp.net`.
 * Specify the location of the VM. Our current choice is to co-locate them in the 'West US' region.
 
-When the server is provisioned, use SSH to log into it using the admin user.
+When the server is provisioned, use SSH to log in as the admin user.
 
-In order to setup the build server, run these commands to get the basic packages installed:
+1. Install Git, Virtualenv and Pip.
 
-    sudo apt-get install -y git
+```
+sudo apt-get install git
+sudo apt-get install python-virtualenv
+sudo apt-get install python-pip
+```
 
-You also need to checkout the private configuration:
+1. Clone the CodaLab Git repo:
 
-	mkdir src
-    cd src
-    git clone https://codalab-project.visualstudio.com/DefaultCollection/_git/codalab-config
+```
+mkdir src
+cd src
+git clone https://github.com/codalab/codalab.git
+```
 
-Finally, the `codalab-config` directory contains a file named `bootstrap.sh`:
+1. Run `dev_setup.sh`.
 
-	cd codalab-config
-    bash ./bootstrap.sh
-    sudo pip install fabric
+```
+cd codalab
+source ./dev_setup.sh
+```
 
-Now the build server should be all setup.
+1. Activate the virtual environment.
+
+```
+source venv/bin/activate
+```
+
+1. Install fabric.
+
+```
+sudo pip install fabric
+```
+
+Now the build server should be all set up.
 
 ## Deploy a configuration of your choice
 

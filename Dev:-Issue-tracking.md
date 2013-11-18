@@ -18,12 +18,8 @@
 * Select the appropriate milestone
 
 ## Closing Bugs:
-* Assign to 'MedicalTest' to verify
 * Add appropriate comments
 * Close bug
-
-## Verifying Bugs
-When a bug is verified, the label 'Verified' will be added. This allows anyone to filter through the closed bugs and understand which have been tested.
 
 # Searching bugs
 

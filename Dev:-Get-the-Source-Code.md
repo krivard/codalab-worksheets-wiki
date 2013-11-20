@@ -27,7 +27,7 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows**
     ```
-    venv\Scripts\activate.ps1
+    venv\Scripts\activate
     ```
     
     **Linux**
@@ -35,30 +35,18 @@ git clone https://github.com/<username>/codalab.git
     source venv/bin/activate
     ```
 
-1. Install [RabbitMQ](http://www.rabbitmq.com/download.html) (optional).
-
-    **Windows**
-    Run the .exe installer.
-    
-    **Linux**
-    ```
-    sudo apt-get install rabbitmq-server
-    ```
-
 1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started.
 
     **Windows** 
     ```
     cd c:\users\username\documents\github\codalab\codalab
-    config\templates\startup_env.bat
     python manage.py syncdb --migrate
     python scripts\initialize.py
     ```
     
     **Linux**
     ```
-    cd codalab/codalab
-    source config/templates/startup_env.sh
+    cd codalab
     python manage.py syncdb --migrate
     python scripts/initialize.py
     ```

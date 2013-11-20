@@ -39,7 +39,8 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows** 
     ```
-    cd c:\users\username\documents\github\codalab\codalab
+    cd codalab
+    python manage.py validate
     python manage.py syncdb --migrate
     python scripts\initialize.py
     ```
@@ -47,6 +48,7 @@ git clone https://github.com/<username>/codalab.git
     **Linux**
     ```
     cd codalab
+    python manage.py validate
     python manage.py syncdb --migrate
     python scripts/initialize.py
     ```
@@ -67,7 +69,7 @@ git clone https://github.com/<username>/codalab.git
 1. Start the web server:
 
     ```
-    python manage.py runserver 0.0.0.0:8000
+    python manage.py runserver
     ```
 
 1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.

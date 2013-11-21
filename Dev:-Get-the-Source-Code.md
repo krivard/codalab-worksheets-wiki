@@ -78,7 +78,7 @@ git clone https://github.com/<username>/codalab.git
 
     **Windows**
     ```
-    venv\Scripts\activate.ps1
+    venv\Scripts\activate
     ```
     
     **Linux**

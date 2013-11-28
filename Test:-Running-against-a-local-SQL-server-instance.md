@@ -2,15 +2,13 @@ This page contains instructions for running against a local SQL server instance 
 
 1. Follow the instructions: [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
 
-1. Install pyodbc: Download the correct flavor from https://code.google.com/p/pyodbc/. 
-
 1. From your virtual environment:
 ```
-easy_install <path-to-pyodbc_installer_file>.exe.
+easy_install pyodbc
 ```
 Install the Django-pyodbc-azure package: 
 ```
-pip install django-pyodbc-azure.
+pip install "django-pyodbc-azure<1.1"
 ```
 Create a database in your SQL database:
 ```

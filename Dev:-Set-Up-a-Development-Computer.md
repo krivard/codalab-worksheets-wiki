@@ -1,8 +1,9 @@
-1. Install the prerequisites:
+## Install the prerequisites
 
 * [Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows)
 * [Unix-based systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems)
 
+## Get the source code
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
 
 1. Clone your fork.
@@ -10,7 +11,9 @@
 git clone https://github.com/<username>/codalab.git
 ```
 
-1. Configure your local environment. The dev_setup script will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
+## Configure your local environment
+
+1. Run the dev_setup script. This will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
 
     **Windows**
     ```
@@ -35,9 +38,11 @@ git clone https://github.com/<username>/codalab.git
     source venv/bin/activate
     ```
 
-1. Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started.
+## Install app schema and default data
 
-    **Windows** 
+Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started.
+
+**Windows** 
     ```
     cd codalab
     python manage.py validate
@@ -45,13 +50,14 @@ git clone https://github.com/<username>/codalab.git
     python scripts\initialize.py
     ```
     
-    **Linux**
+**Linux**
     ```
     cd codalab
     python manage.py validate
     python manage.py syncdb --migrate
     python scripts/initialize.py
     ```
+## Test your site
 
 1. Run tests to verify that everything is working:
 
@@ -74,7 +80,7 @@ git clone https://github.com/<username>/codalab.git
 
 1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.
 
-1. When your next coding session comes along, remember to work in the virtual environment you created:
+**Important:** When your next coding session comes along, remember to work in the virtual environment you created:
 
     **Windows**
     ```
@@ -86,10 +92,14 @@ git clone https://github.com/<username>/codalab.git
     source venv/bin/activate
     ```
 
-If you need to bring the model and database in sync:
+To sync the model and database:
 
 ```
 python codalab/manage.py syncdb --migrate
 ```
     
 Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).
+
+## Create an Azure Storage account
+
+In order to use CodaLab you will need to have a Windows Azure account.

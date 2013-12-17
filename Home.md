@@ -6,7 +6,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev:-How-to-Contribute)
     * [Getting Started on UNIX-based Systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems)
     * [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows)
-    * [Get the Source Code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code)
+    * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines)
     * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking)
     * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev:-Scenarios,-Stories-and-Tasks)

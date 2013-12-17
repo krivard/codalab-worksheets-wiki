@@ -28,5 +28,5 @@ sudo apt-get install git
 ```
 
 ## Next steps
-- [Get the Source Code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code)
+- [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)
 - Review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

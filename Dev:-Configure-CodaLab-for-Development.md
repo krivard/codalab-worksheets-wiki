@@ -54,7 +54,7 @@ Now you are ready to install the application schema and default data into the da
     DATABASES = {
         'default': {
             'ENGINE':  'django.db.backends.sqlite3',
-            'NAME': '..\..\dev_db.sqlite',
+            'NAME': '..\dev_db.sqlite',
             # The following settings are not used with sqlite3:
             'USER': 'someuser',
             'PASSWORD': 'somepassword',

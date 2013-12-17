@@ -51,7 +51,6 @@ Now you are ready to install the application schema and default data into the da
 **Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
 
 #### sqlite3
-    ```
     DATABASES = {
         'default': {
             'ENGINE':  'django.db.backends.sqlite3',
@@ -62,10 +61,8 @@ Now you are ready to install the application schema and default data into the da
             'HOST': 'someserver', 
             'PORT': '',
         }
-    ```
 
 #### MySQL
-    ```
     DATABASES = {
         'default': {
             'ENGINE':  'django.db.backends.mysql',
@@ -75,7 +72,6 @@ Now you are ready to install the application schema and default data into the da
             'HOST': 'someserver', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
             'PORT': '',           # Set to empty string for default.
         }
-    ```
 
 ### Migrate and initialize
 Follow these steps to initialize the database.

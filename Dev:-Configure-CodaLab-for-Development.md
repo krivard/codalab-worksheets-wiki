@@ -39,8 +39,46 @@ git clone https://github.com/<username>/codalab.git
     ```
 
 ## Install app schema and default data
+Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqlite database, which requires very little configuration and is sufficient to get started. You can also configure CodaLab to use MySQL, which requires you to explicitly create a database.
 
-Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqllite database. You will learn how to use a different database backend later; sqllite is sufficient to get started.
+### Create a local config file
+
+1. Open `codalab/codalab/settings/local_sample.py`.
+1. Save a copy of `local_sample.py` named `local.py` in the same directory. Naming is important, since CodaLab will recognize `local.py`.
+1. Open `local.py`.
+1. In the `DATABASES` section, enter the configuration settings for the database you want to use. 
+
+**Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
+
+#### sqlite3
+    ```
+    DATABASES = {
+        'default': {
+            'ENGINE':  'django.db.backends.sqlite3',
+            'NAME': '..\..\dev_db.sqlite',
+            # The following settings are not used with sqlite3:
+            'USER': 'someuser',
+            'PASSWORD': 'somepassword',
+            'HOST': 'someserver', 
+            'PORT': '',
+        }
+    ```
+
+#### MySQL
+    ```
+    DATABASES = {
+        'default': {
+            'ENGINE':  'django.db.backends.mysql',
+            'NAME': 'MySQL_DevDB',
+            'USER': 'someuser',
+            'PASSWORD': 'somepassword',
+            'HOST': 'someserver', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+            'PORT': '',           # Set to empty string for default.
+        }
+    ```
+
+### Migrate and initialize
+Follow these steps to initialize the database.
 
 **Windows** 
     ```
@@ -57,7 +95,8 @@ Now you are ready to install the application schema and default data into the da
     python manage.py syncdb --migrate
     python scripts/initialize.py
     ```
-## Test your site
+
+## Run the site
 
 1. Run tests to verify that everything is working:
 
@@ -72,34 +111,81 @@ Now you are ready to install the application schema and default data into the da
     python scripts/competitions.py
     ```
 
+1. Sync the model and database:
+
+    ```
+    python codalab/manage.py syncdb --migrate
+    ```
+
 1. Start the web server:
 
     ```
     python manage.py runserver
     ```
 
-1. Create a local settings override in `codalab/settings/local.py`. There is an example, `local_sample.py`, in the settings directory.
-
 **Important:** When your next coding session comes along, remember to work in the virtual environment you created:
 
-    **Windows**
-    ```
-    venv\Scripts\activate
-    ```
-    
-    **Linux**
-    ```
-    source venv/bin/activate
-    ```
-
-To sync the model and database:
-
+**Windows**
 ```
-python codalab/manage.py syncdb --migrate
+venv\Scripts\activate
+```
+    
+**Linux**
+```
+source venv/bin/activate
 ```
     
 Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).
 
-## Create an Azure Storage account
+## Set up data storage
 
-In order to use CodaLab you will need to have a Windows Azure account.
+In order to test uploading and running bundles in CodaLab, you will need to have a [Windows Azure storage account](http://www.windowsazure.com/en-us/pricing/details/storage/ "Windows Azure storage account"). Once you have set up your Azure account, log on to the [Azure Portal](https://manage.windowsazure.com/) and follow the steps in this section.
+
+### Create storage containers.
+
+1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
+1. In the left pane, click **Storage**.
+1. Select your storage account.
+1. At the bottom of the dashboard, click **Manage Access Keys**. Copy your access keys, you'll need them later.
+1. At the top of the dashboard page, click **Containers**.
+1. At the bottom of the Containers page click **Add**.
+1. Create a new container named "bundles". Set the **Access** to "Private".
+1. Add another container named "public". Set the **Access** to "Public Blob".
+
+### Add a service bus namespace
+
+1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
+1. In the left pane, click **Service Bus**.
+1. At the bottom of the dashboard, click **Create**, enter a name and select a region for the namespace, then click the check icon to create it.
+1. At the bottom of the page, click **Connection Information**.
+1. Copy the following connection information:
+    - Namespace name
+    - Default issuer
+    - Default key
+
+### Create a local configuration file
+
+1. Open your local configuration file (`local.py`). If there is no `local.py`, save a copy of `local_sample.py` named `local.py` in the same directory.
+1. In the `Azure storage` section, enter your Azure account details:
+
+    `DEFAULT_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
+    AZURE_ACCOUNT_NAME = "<enter name>"
+    AZURE_ACCOUNT_KEY = '<enter key>'
+    AZURE_CONTAINER = '<enter container name>'`
+    
+    `PRIVATE_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
+    PRIVATE_AZURE_ACCOUNT_NAME = "<enter name>"
+    PRIVATE_AZURE_ACCOUNT_KEY = "<enter key>"
+    PRIVATE_AZURE_CONTAINER = "<enter container name>"`
+    
+    `BUNDLE_AZURE_CONTAINER = "<enter the name of your bundle container>"
+    BUNDLE_AZURE_ACCOUNT_NAME = PRIVATE_AZURE_ACCOUNT_NAME
+    BUNDLE_AZURE_ACCOUNT_KEY = PRIVATE_AZURE_ACCOUNT_KEY`
+
+1. In the `Service Bus` section, enter your service bus connection information:
+
+    `SBS_NAMESPACE = '<enter the name of your service bus>'
+    SBS_ISSUER = 'owner'
+    SBS_ACCOUNT_KEY = '<enter value for 'default key'>'`
+
+**Important:** Do not change the values for `DEFAULT_FILE_STORAGE` and `PRIVATE_FILE_STORAGE`, as these parameters contain the name of the Python class which implements the Azure storage back-end for Django.

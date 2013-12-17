@@ -163,25 +163,27 @@ In order to test uploading and running bundles in CodaLab, you will need to have
 
 1. Open your local configuration file (`local.py`). If there is no `local.py`, save a copy of `local_sample.py` named `local.py` in the same directory.
 1. In the `Azure storage` section, enter your Azure account details:
-
-    `DEFAULT_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
+    ```
+    DEFAULT_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
     AZURE_ACCOUNT_NAME = "<enter name>"
     AZURE_ACCOUNT_KEY = '<enter key>'
-    AZURE_CONTAINER = '<enter container name>'`
+    AZURE_CONTAINER = '<enter container name>'
     
-    `PRIVATE_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
+    PRIVATE_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
     PRIVATE_AZURE_ACCOUNT_NAME = "<enter name>"
     PRIVATE_AZURE_ACCOUNT_KEY = "<enter key>"
-    PRIVATE_AZURE_CONTAINER = "<enter container name>"`
+    PRIVATE_AZURE_CONTAINER = "<enter container name>"
     
-    `BUNDLE_AZURE_CONTAINER = "<enter the name of your bundle container>"
+    BUNDLE_AZURE_CONTAINER = "<enter the name of your bundle container>"
     BUNDLE_AZURE_ACCOUNT_NAME = PRIVATE_AZURE_ACCOUNT_NAME
-    BUNDLE_AZURE_ACCOUNT_KEY = PRIVATE_AZURE_ACCOUNT_KEY`
+    BUNDLE_AZURE_ACCOUNT_KEY = PRIVATE_AZURE_ACCOUNT_KEY
+    ```
 
 1. In the `Service Bus` section, enter your service bus connection information:
-
-    `SBS_NAMESPACE = '<enter the name of your service bus>'
+    ```
+    SBS_NAMESPACE = '<enter the name of your service bus>'
     SBS_ISSUER = 'owner'
-    SBS_ACCOUNT_KEY = '<enter value for 'default key'>'`
+    SBS_ACCOUNT_KEY = '<enter value for 'default key'>'
+    ```
 
 **Important:** Do not change the values for `DEFAULT_FILE_STORAGE` and `PRIVATE_FILE_STORAGE`, as these parameters contain the name of the Python class which implements the Azure storage back-end for Django.

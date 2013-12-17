@@ -33,7 +33,7 @@ cd C:\Python27\Scripts
    * http://msysgit.github.io/
    * http://windows.github.com/
 
-You are now ready to [get the CodaLab source code](https://github.com/codalab/codalab/wiki/Dev:-Get-the-Source-Code).
+You are now ready to [configure CodaLab for development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
 
 ## Work with CodaLab in Visual Studio
 
@@ -63,5 +63,4 @@ You can increase your productivity by writing code, running and debugging the we
 1. In Solution Explorer, right-click on the codalab project node, then choose Django > Validate Django App... The Django Management Console should appear and report zero errors found.
 
 ## Next steps
-- [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)
 - Review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

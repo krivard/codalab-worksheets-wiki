@@ -1,11 +1,11 @@
 ## Contents
-[Install the prerequisites](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-the-prerequisites)
-[Get the source code](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#get-the-source-code)
-[Configure your local environment](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#configure-your-local-environment)
-[Install app schema and default data](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-app-schema-and-default-data)
-[Start the web server](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#start-the-web-server)
-[Set up data storage](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#set-up-data-storage)
-[Work with CodaLab in Visual Studio](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#work-with-codalab-in-visual-studio)
+- [Install the prerequisites](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-the-prerequisites)
+- [Get the source code](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#get-the-source-code)
+- [Configure your local environment](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#configure-your-local-environment)
+- [Install app schema and default data](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-app-schema-and-default-data)
+- [Start the web server](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#start-the-web-server)
+- [Set up data storage](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#set-up-data-storage)
+- [Work with CodaLab in Visual Studio](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#work-with-codalab-in-visual-studio)
 
 ## Install the prerequisites
 

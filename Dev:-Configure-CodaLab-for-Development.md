@@ -1,11 +1,11 @@
 ## Contents
-- [Install the prerequisites](#install-the-prerequisites)
+- [Install the prerequisites](#wiki-install-the-prerequisites)
 - [Get the source code](#get-the-source-code)
 - [Configure your local environment](#configure-your-local-environment)
 - [Install app schema and default data](#install-app-schema-and-default-data)
 - [Start the web server](#start-the-web-server)
 - [Set up data storage](#set-up-data-storage)
-- [Work with CodaLab in Visual Studio](work-with-codalab-in-visual-studio)
+- [Work with CodaLab in Visual Studio](#work-with-codalab-in-visual-studio)
 
 ## Install the prerequisites
 

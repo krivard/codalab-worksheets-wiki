@@ -114,18 +114,6 @@ Follow these steps to initialize the database.
     python scripts/competitions.py
     ```
 
-1. Sync the model and database:
-
-**Windows**
-    ```
-    python codalab\manage.py syncdb --migrate
-    ```
-
-**Linux**
-    ```
-    python codalab/manage.py syncdb --migrate
-    ```
-
 1. Start the web server:
 
     ```

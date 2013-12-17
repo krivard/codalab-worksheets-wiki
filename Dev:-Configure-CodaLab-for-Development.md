@@ -101,14 +101,23 @@ Follow these steps to initialize the database.
     ```
 
 1. Populate the site with some sample data:
-
+**Windows**
+    ```        
+    python scripts\users.py
+    python scripts\competitions.py
+    ```
+**Linux**
     ```        
     python scripts/users.py
     python scripts/competitions.py
     ```
 
 1. Sync the model and database:
-
+**Windows**
+    ```
+    python codalab\manage.py syncdb --migrate
+    ```
+**Linux**
     ```
     python codalab/manage.py syncdb --migrate
     ```

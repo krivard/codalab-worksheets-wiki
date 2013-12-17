@@ -46,11 +46,10 @@ Now you are ready to install the application schema and default data into the da
 1. Open `codalab/codalab/settings/local_sample.py`.
 1. Save a copy of `local_sample.py` named `local.py` in the same directory. Naming is important, since CodaLab will recognize `local.py`.
 1. Open `local.py`.
-1. In the `DATABASES` section, enter the configuration settings for the database you want to use. 
+1. In the `DATABASES` section, enter the configuration settings for the database you want to use.
 
-**Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
-
-#### sqlite3
+    **sqlite3**
+    ```
     DATABASES = {
         'default': {
             'ENGINE':  'django.db.backends.sqlite3',
@@ -61,8 +60,10 @@ Now you are ready to install the application schema and default data into the da
             'HOST': 'someserver', 
             'PORT': '',
         }
+    ```
 
-#### MySQL
+    **MySQL**
+    ```
     DATABASES = {
         'default': {
             'ENGINE':  'django.db.backends.mysql',
@@ -72,19 +73,22 @@ Now you are ready to install the application schema and default data into the da
             'HOST': 'someserver', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
             'PORT': '',           # Set to empty string for default.
         }
-
-### Migrate and initialize
-Follow these steps to initialize the database.
-
-**Windows** 
     ```
+
+    **Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
+
+### Initialize the database
+1. Run the following commands to initialize the database.
+
+    **Windows**
+    ``` 
     cd codalab
     python manage.py validate
     python manage.py syncdb --migrate
     python scripts\initialize.py
     ```
-    
-**Linux**
+        
+    **Linux**
     ```
     cd codalab
     python manage.py validate
@@ -92,47 +96,47 @@ Follow these steps to initialize the database.
     python scripts/initialize.py
     ```
 
-## Run the site
+1. Run tests to verify that everything is working
+```
+python manage.py test
+```
 
-1. Run tests to verify that everything is working:
+1. Populate the site with some sample data
 
-    ```
-    python manage.py test
-    ```
-
-1. Populate the site with some sample data:
-
-**Windows**
+    **Windows**
     ```        
     python scripts\users.py
     python scripts\competitions.py
     ```
-
-**Linux**
+    
+    **Linux**
     ```        
     python scripts/users.py
     python scripts/competitions.py
     ```
 
-1. Start the web server:
+## Start the web server
+1. Use the following command to start the CodaLab server locally.
 
     ```
     python manage.py runserver
     ```
 
-**Important:** When your next coding session comes along, remember to work in the virtual environment you created:
+1. Open a browser and navigate to [http://127.0.0.1:8000](http://127.0.0.1:8000) to preview the site.
 
-**Windows**
-```
-venv\Scripts\activate
-```
+1. When your next coding session comes along, remember to work in the virtual environment you created:
     
-**Linux**
-```
-source venv/bin/activate
-```
+    **Windows**
+    ```
+    venv\Scripts\activate
+    ```
+        
+    **Linux**
+    ```
+    source venv/bin/activate
+    ```
     
-Note: If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again (but if you create a new database, be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app).
+**Note:** If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again. After creating a new database be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app.
 
 ## Set up data storage
 

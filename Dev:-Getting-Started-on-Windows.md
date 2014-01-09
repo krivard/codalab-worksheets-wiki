@@ -28,10 +28,7 @@ cd C:\Python27\Scripts
 .\pip.exe install virtualenv
 ```
 
-1. Install git (either or both of these):
-
-   * http://msysgit.github.io/
-   * http://windows.github.com/
+1. Install Git: http://msysgit.github.io/ (be sure to check the **Run Git from Windows Command Prompt** option, as this will add Git to your local path).
 
 ## Next steps
 - [Configure CodaLab for development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).

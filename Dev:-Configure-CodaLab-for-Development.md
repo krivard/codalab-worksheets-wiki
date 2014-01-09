@@ -105,12 +105,12 @@ Now you are ready to install the application schema and default data into the da
     python scripts/initialize.py
     ```
 
-1. Run tests to verify that everything is working
+1. Run tests to verify that everything is working.
 ```
 python manage.py test
 ```
 
-1. Populate the site with some sample data
+1. **Optional:** Populate the site with some sample data.
 
     **Windows**
     ```        

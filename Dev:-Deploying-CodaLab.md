@@ -1,170 +1,218 @@
-The following steps descripbe how to deploy CodaLab from scratch.
+# CodaLab deployment
+This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab deployment tools use [Fabric](http://www.fabfile.org), a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks.
 
-The procedure assumes that you have access to a [Windows Azure](https://account.windowsazure.com/) subscription which will host the deployment. 
+## Install Prerequisites
+- [Windows Azure](http://www.windowsazure.com/) account
+- [Visual C++ 2008 redistributable package](http://www.microsoft.com/en-us/download/details.aspx?id=29)
+- [Cygwin](http://cygwin.com/)
+- Remote Git repository with cloned fork of CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
 
-## Setup a build machine
+### Install and configure Cygwin
+1. Download the appropriate installer from [Cygwin.com](http://cygwin.com/install.html).
+2. Install the following packages (listed here by category):
 
-Login to the [Windows Azure management portal](http://manage.windowsazure.com) using the appropriate Microsoft Account ID.
+- **Python**
+    - python
+    - python-setuptools
+    - python-openssl
+- **Net**
+    - wget
+    - openssl
+    - openssh
+- **Devel**
+    - git
+    - gcc-core
 
-From the management portal, [create a new Virtual Machine from gallery](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/):
+**Notes:**
+- Be sure to select only the packages you require, as installs can quickly grow to hundreds of megabytes.
+- If you are prompted to install dependencies, click **OK** to install them (default option).
 
-* OS = Ubuntu 13.04
-* VM size = medium (2 cores)
-* For the VM credentials, we recommend setting both a username/password and a certificate for the admin user. This [intro](http://www.windowsazure.com/en-us/manage/linux/tutorials/intro-to-linux/) provides more details about authentication with SSH keys.
-* Set machine name and DNS name using the convention `<prefix>-build`. For instance, if the unique prefix is `codalab`, then the machine name is `codalab-build` and the DNS name is `codalab-build.cloudapp.net`.
-* Specify the location of the VM. Our current choice is to co-locate them in the 'West US' region.
+### Install and configure Fabric
+1. Launch Cygwin.
+1. Install the following packages (in this order):
+    `$ easy_install pip`
+    `$ pip install fabric`
+    `$ pip install azure pyyaml`
+    `$ pip install ecdsa`
 
-When the server is provisioned, use SSH to log in as the admin user.
+1. Install [PyCrypto](https://www.dlitz.net/software/pycrypto/) using the appropriate [prebuilt binary](http://www.voidspace.org.uk/python/modules.shtml#pycrypto).
 
-1. Install Git, Virtualenv and Pip.
-   ```
-   sudo apt-get install git
-   sudo apt-get install python-virtualenv
-   sudo apt-get install python-pip
-   ```
+1. Generate an Azure key. See [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/) for detailed instructions.
 
-1. Clone the CodaLab Git repo:
-   ```
-   mkdir src
-   cd src
-   git clone https://github.com/codalab/codalab.git
-   ```
+1.  In your home directory create a folder named `.ssh`
+    `$ mkdir .ssh`
 
-1. Run `dev_setup.sh`.
-   ```
-   cd codalab
-   source ./dev_setup.sh
-   ```
+1. Copy the Azure key into the newly created `~/.ssh` directory.
+    `cp azureuser.key ~/.ssh`
 
-1. Activate the virtual environment.
-   ```
-   source venv/bin/activate
-   ```
+#### Verify your Fabric installation
+Now let's take a moment to ensure that Fabric has been properly configured.
 
-1. Install fabric.
-   ```
-   sudo pip install fabric
-   ```
+1. Launch Cygwin.
+1. Navigate to your CodaLab repo:
+    `$ cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 
-Now the build server should be all set up.
+1. To get a list of commands:
+    `$ fab -l`
 
-## Deploy a configuration of your choice
+If Fabric returns a list of commands, you're good to go. If not, you'll need to revisit the previous steps to determine what is missing.
 
-There can be multiple, independent deployments of the CodaLab site. Each deployment is identified with a label. Typically, the live site is the `prod` deployment, then there are `test` or `dev` deployments.
+## Set up certificates
+In this section you will create a set of Azure certificates and SSL keys. These certificates and keys provide the necessary authentication for CodaLab to interact with Azure.
 
-### Setup the database
+For general information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx).
 
-The application for a given deployment connects to [a MySQL database in the cloud](http://www.windowsazure.com/en-us/store/service/?id=b2e344bf-2252-44f5-9f5f-4f7aac6d4fa3). A database instance is created from the Windows Azure management portal: New > Store > Select ClearDB MySQL database.
+### Create and upload a self-signed management certificate
+1. In a Windows console, run the following command to create a new self-signed management certificate:
 
-### Setup machine instances
+    makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
 
-In a new deployment, the first step is to create one or more VMs to run the web site. From the management portal, [create a new Virtual Machine from gallery](http://www.windowsazure.com/en-us/manage/linux/tutorials/virtual-machine-from-gallery/):
+The command will create the .cer file, and install it in the Personal certificate store.
 
-* OS = Ubuntu 13.04
-* VM size = medium (2 cores)
-* For the VM credentials, we recommend setting both a username/password and a certificate for the admin user. This [intro](http://www.windowsazure.com/en-us/manage/linux/tutorials/intro-to-linux/) provides more details about authentication with SSH keys.
-* Set machine name using the convention `<prefix>-<label><number>`. For example, for a production deployment, the unique prefix might be `codalab` and the deployment label `prod`; thus the first machine in the deployment set would be named `codalab-prod1`.
-* Set DNS name using the convention `<prefix>-<label>.cloudapp.net` (e.g. `codalab-prod.cloudapp.net`). It is important to note that if multiple VMs are going to be load-balanced, the first VM will be created in a new cloud service but subsequent VMs will be created in the cloud service of the first VM. See this [description of how to load balance VMs in Windows Azure](http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/).
-* You should also group related VMs in one availability set. Create the availability set when the first VM is provisioned and add subsequent VMs to the same set. Name the set using the convention: `<prefix>-<label>` (e.g. `codalab-prod`). See [manage VM availability in Windows Azure](http://www.windowsazure.com/en-us/manage/windows/common-tasks/manage-vm-availability/) for further information.
-* Specify the location of the VM. Our current choice is to co-locate them in the 'West US' region.
+1. Upload the .cer file to Windows Azure via the **Upload** action of the **Settings** tab of the [management portal](https://manage.windowsazure.com/).
 
-After each VM is created add a load-balance HTTP endpoint:
-* Name: HTTP
-* Protocol: TCP
-* ports: 80 
+For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
-Follow [these instructions](http://www.windowsazure.com/en-us/manage/windows/common-tasks/how-to-load-balance-virtual-machines/) to load-balance them. Basically, when creating the first endpoint, create a load-balanced set using the naming convention `<prefix>` (e.g. `codalab-prod`). Wait for the endpoint to be created. Then, when adding an endpoint to the remaining VMs, simply add the new HTTP endpoint to the existing load-balanced set. 
+### Export a private key (.pfx)
+1. Open the Certificate Manager snap-in for the management console by typing **certmgr.msc** in the **Start** menu textbox.
 
-The current deployment also uses one additional machine to host the queues. Create the VM from the gallery in the management portal:
+1. If you used the procedure that includes using the makecert program to create a certificate, the new certificate was automatically added to the personal certificate store. If your certificate is not listed under Personal Certificates, import your X.509 certificate.
 
-* OS = Ubuntu 13.04
-* VM size = medium (2 cores)
-* Setting both a username/password and a certificate for the admin user.
-* Set machine name and DNS name. The naming convention is `<prefix>-<label>q` (e.g. `codalab-prodq`).
-* Add the VM to the DNS group used for the deployment.
-* Specify the location of the VM. Our current choice is to co-locate machines in the 'West US' region.
+1. Export the certificate by right-clicking the `AzureCertificate` certificate in the right pane, pointing to **All Tasks**, and then clicking **Export**.
 
-After the VM is provisioned, add an endpoint:
-* Name: AMPQ
-* Protocol: TCP
-* ports: 5672 (public and private)
+1. On the **Export Private Key** page, ensure that you select **Yes, export the private key**.
 
-### Deploy the bits
+1. Finish the wizard.
 
-#### Setup the configuration.
+For more information, see [Create a Service Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx)
 
-For a new deployment setup, one will need to create a matching configuration in the [codalab-config](https://codalab-project.visualstudio.com/) repo.
+### Export an RSA keypair
+1. Go to: [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/). CodaLab installs OpenSSL by default so you will not need to repeat that step.
+1. Follow the instructions to use openssl to generate an X509 certificate with a 2048-bit RSA keypair. Note that this topic features instructions for both Windows and Linux platforms.
 
-In the rest of this document, we will assume that the name of the new configuration is **ProdEx**. We will also assume that the servers have been creating using the naming conventions outlined above with a unique prefix of `codalab` and a label of `prodex`.
+!!!Notes!!!
+http://www.openssl.org/docs/HOWTO/keys.txt
+1. Use the OpenSSL utility to export an RSA key (.pem).?
 
-1. Edit `fabfile.py`. Copy and paste one of the existing configuration to create the new configuration. For our fictive **ProdEx** deployment, we would add:  
+    openssl genrsa -des3 -out privkey.pem 2048
 
-```
-def prodex(configuration='ProdEx', build_base_dir='codalab'):
-    # set the config name
-    env.config_set = 'prodex'
+!!! Or do we use the .pfx created in the previous step?
+    pkcs12 -in client_ssl.pfx -out client_ssl.pem -clcerts
+!!! Do we need -cacerts or -clcerts option?
+!!! http://www.openssl.org/docs/apps/pkcs12.html#
+http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
+http://stackoverflow.com/questions/15413646/converting-pfx-to-pem-using-openssl
+http://www.windowsazure.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/
+[guide users through creating .cer, .pem, .pfx, .key. They will need exact steps of what to do, as this is not clear and just attempting to browse the Azure docs can be confusing. Link to appropriate Azure help topics.]
 
-    env.http_port = '80' 
-    # set the outward facing DNS name
-    env.server_name = 'codalab-prodex.cloudapp.net'
+- Windows or Linux
+- Outercurve CodaLab or private CodaLab deployment
 
-    env.django_configuration=configuration
-    set_config()
-   
-    env.build_base_dir=build_base_dir
+First cert is the management certificate (2 flavors: Windows, Linux)
+The other certs are for automated authentication
 
-    # set the user@host for the build server
-    env.roledefs = { 'build': ['youruser@codalab-build.cloudapp.net'] }
+•	A developer working with the project’s Azure subscription (both internal and Outercurve sponsored account) would use existing certificates. The certificates files are on DropBox (Credentials\Keys\OuterCurveAzureUser) and the certificates that need to be uploaded to Azure have been uploaded.
+!!!Notes!!!
 
-    # set the user@host:port for the servers
-    env.roledefs.update( {'web': ['youruser@codalab-prodex.cloudapp.net:22',
-                                  'youruser@codalab-prodex.cloudapp.net:62945'
-                                  ],
-                          'queue': ['youruser@codalab-q.cloudapp.net'],
-                          'workers': [],
-                          })
 
-    env.SHELL_ENV.update(dict(DJANGO_CONFIGURATION=env.django_configuration,
-                              CONFIG_HTTP_PORT=env.http_port,
-                              CONFIG_SERVER_NAME=env.server_name))
-```
+## Configure Fabric
+To set up the Fabric configuration file, you'll need to have all of your Windows Azure account information on hand.
 
-Notice how the two web servers are not referred to using the machine names. Instead of `codalab-prodex2.cloudapp.net`, we have `codalab-prodex.cloudapp.net:62845`. The latter host name and port number are available in the Windows Azure management portal under 'SSH Details' in the Dashboard view of the selected VM.
+1. Download the following files from your Windows Azure account:
+    - azureuser.key
+    - azureuser.pfx
+    - codalabazuremgmtnix.cer
 
-2. Edit the site configuration in the folder `site-configuration\configurations`. For **ProdEx**, we would edit `prod.py` and create a new class deriving from the existing configuration:
+1. Copy the files into your `/home/[USER]/.ssh/` directory.
+
+1. From Cygwin, in your home directory create a file named `.codalabconfig`.
+    `$ touch .codalabconfig`
+
+1. Paste the following configuration file template into `.codalabconfig` and save the file. You will need to replace values with your own unique values wherever `<value>` is indicated, and replace `[USER]` with your user name.
 
 ```
- 	class Prod2(Prod): 
-        # override settings...
+deployment:
+    azure-management:
+        subscription-id: '<value>'
+        certificate-path: '/home/[USER]/.ssh/codalabazuremgmtnix.pem'
+        operation-timeout: 1800
+    service-global:
+        prefix: 'cxp'
+        location: 'West US'
+        certificate:
+            algorithm: 'sha1'
+            thumbprint: '<value>'
+            format: 'pfx'
+            filename: '/home/[USER]/.ssh/azureuser.pfx'
+            key-filename: '/home/[USER]/.ssh/azureuser.key'
+            password: '<value>'
+        vm:
+            username: 'azureuser'
+            password: '<value>'
+        e-mail:
+            host: 'smtp.sendgrid.net'
+            user: 'hendapui'
+            password: '<value>@azure.com'
+    build-configuration:
+        os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20131022-en-us-30GB'
+        role-size: 'Small'
+    service-configurations:
+        dev:
+            vm:
+                os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20131022-en-us-30GB'
+                count: 2
+                role-size: 'Medium'
+                ssh-port: 57190
+            git:
+                user: [USER]
+                repo: codalab
+                tag: dev
+            django:
+                configuration: 'CxpDev'
+                secret-key: '<value>'
+            database:
+                engine: 'django.db.backends.mysql'
+                name : 'mysql_dev'
+                user : 'b46b0ea1846080'
+                password : '<value>'
+                host : 'us-cdbr-azure-west-b.cleardb.com'
+                port : '3306'
+            storage:
+                public-container: 'pub'
+                bundles-container: 'bundles'
+            bus:
+                namespace: '' # leave empty for default '<Prefix><Label>Bus' (e.g. CodalabProdBus)
+logging:
+    version: 1
+    formatters:
+        simple:
+            format: '%(asctime)s %(levelname)s %(message)s'
+    handlers:
+        console:
+            class: logging.StreamHandler
+            level: DEBUG
+            formatter: simple
+            stream: ext://sys.stdout
+        file:
+            class: logging.FileHandler
+            level: DEBUG
+            formatter: simple
+            filename: '/home/[USER]/deployment-log.txt'
+            mode: w
+    loggers:
+        codalabtools:
+            level: DEBUG
+            handlers: [console, file]
+            propagate: no
+    root:
+        level: WARNING
+        handlers: [console]
 ```
 
-The new class should override existing settings as appropriate.
+## Create Azure VMs and deploy to Azure
+1. Create the Azure virtual machines that will host your deployment.
+    `fab config:dev provision:all`
 
-#### Provision the various servers and deploy.
+1. Deploy to Azure for the first time.
+    `fab config:dev build push_build deploy_web supervisor nginx_restart`
 
-Login to the build server and go into the codalab-config directory:
-
-    cd src/codalab-config
-
-
-This setup is only performed after new machines are created for a given deployment. Assuming the deployment label is `prodex`:
-
-    fab prodex provision_build 
-    fab prodex provision_web 
-    fab prodex provision_queue
-
-You are now ready for your first deployment:
-
-    CONFIG_SERVER_NAME=codalab-prodex.cloudapp.net CONFIG_HTTP_PORT=80 fab tag:master prodex build push_build deploy_web supervisor nginx_restart
-
-In the above example, we are deploying the head of the `master` branch into the web servers which are load-balanced under the address `codalab-prodex.cloudapp.net`. You can think of the deployment as follows. The `build` step combines the source code from `master` and the configuration for `prodex`. The resulting package is pushed (`push_build`) and deployed (`deploy_web`) to each web server. The supervisor services and the web server are also restarted on each web server. 
-
-Final step: open a web browser and ensure that the site is up!
-
-When a next set of changes becomes available, you can deploy them using:
-
-    CONFIG_SERVER_NAME=codalab-prodex.cloudapp.net CONFIG_HTTP_PORT=80 fab tag:master prodex build supervisor_stop push_build deploy_web supervisor nginx_restart
-
-## Contribution opportunities
-
-* Automate provisioning of VMs using the [Windows Azure cross-platform command line tools](https://github.com/WindowsAzure/azure-sdk-tools-xplat).

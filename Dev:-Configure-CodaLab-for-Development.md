@@ -167,6 +167,13 @@ In order to test uploading and running bundles in CodaLab, you will need to have
 1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
 1. In the left pane, click **Service Bus**.
 1. At the bottom of the dashboard, click **Create**, enter a name and select a region for the namespace, then click the check icon to create it.
+1. In the left pane, click **Service Bus**.
+1. Select the service bus you just created.
+1. At the top of the screen click **Queues**.
+1. Click **Create a new queue**.
+1. Click **Quick Create** and create a new queue named "compute".
+1. Click **Create A New Queue**.
+1. At the bottom of the screen, click **New**, and create another queue named "response".
 1. At the bottom of the page, click **Connection Information**.
 1. Copy the following connection information:
     - Namespace name

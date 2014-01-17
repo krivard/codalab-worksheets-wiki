@@ -62,6 +62,23 @@ Now you are ready to install the application schema and default data into the da
 1. Open `local.py`.
 1. In the `DATABASES` section, enter the configuration settings for the database you want to use.
 
+    **SQL Server***
+    ```
+    DATABASES = {
+        'default': {
+            'ENGINE':  sql_server.pyodbc',
+            'NAME': 'somename',
+            # Leaver user and password blank to use integrated security
+            'USER': '',
+            'PASSWORD': '',
+            'HOST': '(localdb)\\v11.0', 
+            'PORT': '',
+            'OPTIONS' = {
+               'driver': 'SQL Server Native Client 11.0',
+            }
+        }
+    ```
+
     **sqlite3**
     ```
     DATABASES = {

@@ -1,7 +1,5 @@
 If you are a developer and want to help build CodaLab, this page will explain how to to get started.
 
-A database besides SQLite is recommended. On Windows, we use SQL Server but MySQL and Postgres are also possible options. For more information about using SQL Server, see [Running against a local SQL server instance](https://github.com/codalab/codalab/wiki/Test:-Running-against-a-local-SQL-server-instance)
-
 ## Install Prerequisites
 
 CodaLab is built with Python, supporting development on local machines with Windows, Linux, Mac and BSD. If something is broken, please [open a new issue](https://github.com/codalab/codalab/issues?state=open).

@@ -29,6 +29,11 @@ git clone https://github.com/<username>/codalab.git
     cd codalab
     .\dev_setup.bat
     ```
+    If you are going to use SQL Server as a database, you will need to install the [Python PyODBC library](http://code.google.com/p/pyodbc/). Before running `dev_setup`, you can download the installer, then run the setup script as follows (assuming the installer was downloaded at the root of a D drive):
+    ```
+    cd codalab
+    dev_setup.bat D:\pyodbc-3.0.7.win-amd64-py2.7.exe
+    ```
     **Linux**
     ```
     cd codalab

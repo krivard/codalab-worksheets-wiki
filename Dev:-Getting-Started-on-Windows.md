@@ -1,6 +1,6 @@
 If you are a developer and want to help build CodaLab, this page will explain how to to get started.
 
-To use and test the submission process, a queue server will need to be installed. [RabbitMQ](http://www.rabbitmq.com/download.html) installs easily on Linux and Windows and requires no configuration out of the box for testing purposes. A database besides SQLite is recommended. MySQL and Postgres work on Windows, Linux and Mac. You can also use SQL Server on Windows. For more information, see [Running against a local SQL server instance](https://github.com/codalab/codalab/wiki/Test:-Running-against-a-local-SQL-server-instance)
+A database besides SQLite is recommended. On Windows, we use SQL Server but MySQL and Postgres are also possible options. For more information about using SQL Server, see [Running against a local SQL server instance](https://github.com/codalab/codalab/wiki/Test:-Running-against-a-local-SQL-server-instance)
 
 ## Install Prerequisites
 
@@ -25,7 +25,7 @@ C:\Python27\Scripts\easy_install.exe pip
 1. Next install [virtualenv](http://www.virtualenv.org/)
 ```
 cd C:\Python27\Scripts
-.\pip.exe install virtualenv
+pip install virtualenv
 ```
 
 1. Install Git: http://msysgit.github.io/ (be sure to check the **Run Git from Windows Command Prompt** option, as this will add Git to your local path).

@@ -53,7 +53,18 @@ git clone https://github.com/<username>/codalab.git
     ```
 
 ## Install app schema and default data
-Now you are ready to install the application schema and default data into the database. The default Dev setup uses a local sqlite database, which requires very little configuration and is sufficient to get started. You can also configure CodaLab to use MySQL, which requires you to explicitly create a database.
+Now you are ready to install the application schema and default data into the database. 
+
+### Set up databases
+You can configure CodaLab to use either SQL Server or MySQL. Both of these require you to explicitly create a database.
+
+#### Install MySQL Python
+1. Install MySql-Python to your virtual environment.
+1. Open a Windows command prompt.
+1. Navigate to the virtual environment (venv) for CodaLab and use the following command.
+    `easy_install mysql-python`
+1. Create a database:
+   `create database if not exists MySql_DevDB;`
 
 ### Create a local config file
 

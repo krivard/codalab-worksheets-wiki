@@ -8,11 +8,11 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 - Remote Git repository with cloned fork of CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
 
 ### Install and configure Cygwin
-1. Download the appropriate installer from [Cygwin.com](http://cygwin.com/install.html).
+1. Download the appropriate 32-bit installer from [Cygwin.com](http://cygwin.com/install.html).
 2. Install the following packages (listed here by category):
 
 - **Python**
-    - python
+    - python (Python language interpreter)
     - python-setuptools
     - python-openssl
 - **Net**
@@ -20,7 +20,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
     - openssl
     - openssh
 - **Devel**
-    - git
+    - git (Distributed version control system)
     - gcc-core
 
 **Notes:**
@@ -41,10 +41,10 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 Now let's take a moment to ensure that Fabric has been properly configured.
 
 1. Launch Cygwin.
-1. Navigate to your CodaLab repo:
+1. Navigate to the deploy directory of your CodaLab repo:
     `$ cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 
-1. To get a list of commands:
+1. To get a list of commands:l
     `$ fab -l`
 
 If Fabric returns a list of commands, you're good to go. If not, you'll need to revisit the previous steps to determine what is missing.
@@ -95,10 +95,10 @@ To set up the CodaLab configuration file, you'll need to have all of your Window
 In order to receive notifications from your CodaLab deployment, you will need to have a transactional email delivery service account. You can do this easily using [SendGrid](http://sendgrid.com/) or a similar service. You'll need to enter the host IP address, user name and password into the `.codalabconfig` file.
 
 ### Get your Django secret key
-Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `settings.py` file for your project. If the `SECRET_KEY` is not present, you can create one. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
+Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `codalab\codalab\settings\base.py` file for the CodaLab project. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
 
 ### Create a .codalabconfig file
-1. Copy the .key, .pfx, and .cer files into your `C:\cygwin64\home\<user>\.ssh` directory.
+1. Copy the .key, .pfx, and .cer files from `C:\Windows\SysWOW64` into your `C:\cygwin64\home\<user>\.ssh` directory.
 
 1. From Cygwin, in your home directory create a file named `.codalabconfig`.
     `$ touch .codalabconfig`
@@ -188,6 +188,9 @@ logging:
 ```
 
 ## Create Azure VMs and deploy to Azure
+1. Navigate to the deploy directory.
+    `codalab\codalab\codalabtools\deploy`
+
 1. Create the Azure virtual machines that will host your deployment.
     `fab config:dev provision:all`
 

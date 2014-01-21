@@ -11,7 +11,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking)
     * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev:-Scenarios,-Stories-and-Tasks)
     * Continuous integration
-    * [Deploying CodaLab](https://github.com/codalab/codalab/wiki/User:-Deploying-CodaLab)
+    * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev:-Deploying-CodaLab)
     * Design and implementation notes
         * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
         * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)

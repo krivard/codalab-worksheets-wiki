@@ -37,14 +37,6 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 
 1. Install [PyCrypto](https://www.dlitz.net/software/pycrypto/) using the appropriate [prebuilt binary](http://www.voidspace.org.uk/python/modules.shtml#pycrypto).
 
-1. Generate an Azure key. See [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/manage/linux/how-to-guides/ssh-into-linux/) for detailed instructions.
-
-1.  In your home directory create a folder named `.ssh`
-    `$ mkdir .ssh`
-
-1. Copy the Azure key into the newly created `~/.ssh` directory.
-    `cp azureuser.key ~/.ssh`
-
 #### Verify your Fabric installation
 Now let's take a moment to ensure that Fabric has been properly configured.
 
@@ -57,73 +49,56 @@ Now let's take a moment to ensure that Fabric has been properly configured.
 
 If Fabric returns a list of commands, you're good to go. If not, you'll need to revisit the previous steps to determine what is missing.
 
-## Set up certificates
+## Set up Azure certificates and SSL keys
 In this section you will create a set of Azure certificates and SSL keys. These certificates and keys provide the necessary authentication for CodaLab to interact with Azure.
+
+There are two sets of certificates. 
+- The self-signed management certificate used to authenticate the connection to Azure so that you can send commands to the Azure VMs.
+- The .key and .pfx files which are used by the Azure VMs.
 
 For general information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx).
 
+For help with the **makecert** utility, see [Makecert.exe (Certificate Creation Tool)](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx).
+
 ### Create and upload a self-signed management certificate
-1. In a Windows console, run the following command to create a new self-signed management certificate:
+1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
+1. Right-click **Developer Command Prompt** and select **Run as administrator**.
+1. Run the following command to create a new self-signed management certificate:
+    `makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\<user>\Desktop\AzureCertificate.cer"`
+    The command will create the .cer file at the specified path, and install it in your Personal certificate store. 
 
-    makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "AzureCertificate.cer"
-
-The command will create the .cer file, and install it in the Personal certificate store.
-
-1. Upload the .cer file to Windows Azure via the **Upload** action of the **Settings** tab of the [management portal](https://manage.windowsazure.com/).
+1. Go to the Azure [management portal](https://manage.windowsazure.com/).
+1. Click the **Settings** tab, then click **Management Certificates**.
+1. Click **Upload**.
+1. Browse to the .cer file you just created and upload it.
 
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
-### Export a private key (.pfx)
-1. Open the Certificate Manager snap-in for the management console by typing **certmgr.msc** in the **Start** menu textbox.
+### Create the Azure VM keys
+1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
+1. Right-click **Developer Command Prompt** and select **Run as administrator**.
+1. Run the following command to create a new keypair:
+    `makecert -r -sv azureuser_WF.pvk -n "cn=azureuser_WF" azureuser_WF.cer -e 12/31/2014`
+1. Enter passwords for the certificate when prompted. Don't forget to make a note of the passwords you entered!
 
-1. If you used the procedure that includes using the makecert program to create a certificate, the new certificate was automatically added to the personal certificate store. If your certificate is not listed under Personal Certificates, import your X.509 certificate.
+1. Run the following command to convert the .key to .pfx.
+    `pvk2pfx -pvk azureuser.pvk -spc azureuser.cer -pfx azureuser.pfx -po password`
+    Where `password` is the password you entered when creating the .pvk.
 
-1. Export the certificate by right-clicking the `AzureCertificate` certificate in the right pane, pointing to **All Tasks**, and then clicking **Export**.
+## Configure CodaLab
+To set up the CodaLab configuration file, you'll need to have all of your Windows Azure account information on hand. In this section, we will:
+- Set up an email delivery service account.
+- Generate a Django secret key.
+- Create a .codalabconfig file.
 
-1. On the **Export Private Key** page, ensure that you select **Yes, export the private key**.
+### Set up an email delivery service account
+In order to receive notifications from your CodaLab deployment, you will need to have a transactional email delivery service account. You can do this easily using [SendGrid](http://sendgrid.com/) or a similar service. You'll need to enter the host IP address, user name and password into the `.codalabconfig` file.
 
-1. Finish the wizard.
+### Get your Django secret key
+Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `settings.py` file for your project. If the `SECRET_KEY` is not present, you can create one. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
 
-For more information, see [Create a Service Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg432987.aspx)
-
-### Export an RSA keypair
-1. Go to: [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/). CodaLab installs OpenSSL by default so you will not need to repeat that step.
-1. Follow the instructions to use openssl to generate an X509 certificate with a 2048-bit RSA keypair. Note that this topic features instructions for both Windows and Linux platforms.
-
-!!!Notes!!!
-http://www.openssl.org/docs/HOWTO/keys.txt
-1. Use the OpenSSL utility to export an RSA key (.pem).?
-
-    openssl genrsa -des3 -out privkey.pem 2048
-
-!!! Or do we use the .pfx created in the previous step?
-    pkcs12 -in client_ssl.pfx -out client_ssl.pem -clcerts
-!!! Do we need -cacerts or -clcerts option?
-!!! http://www.openssl.org/docs/apps/pkcs12.html#
-http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/
-http://stackoverflow.com/questions/15413646/converting-pfx-to-pem-using-openssl
-http://www.windowsazure.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/
-[guide users through creating .cer, .pem, .pfx, .key. They will need exact steps of what to do, as this is not clear and just attempting to browse the Azure docs can be confusing. Link to appropriate Azure help topics.]
-
-- Windows or Linux
-- Outercurve CodaLab or private CodaLab deployment
-
-First cert is the management certificate (2 flavors: Windows, Linux)
-The other certs are for automated authentication
-
-•	A developer working with the project’s Azure subscription (both internal and Outercurve sponsored account) would use existing certificates. The certificates files are on DropBox (Credentials\Keys\OuterCurveAzureUser) and the certificates that need to be uploaded to Azure have been uploaded.
-!!!Notes!!!
-
-
-## Configure Fabric
-To set up the Fabric configuration file, you'll need to have all of your Windows Azure account information on hand.
-
-1. Download the following files from your Windows Azure account:
-    - azureuser.key
-    - azureuser.pfx
-    - codalabazuremgmtnix.cer
-
-1. Copy the files into your `/home/[USER]/.ssh/` directory.
+### Create a .codalabconfig file
+1. Copy the .key, .pfx, and .cer files into your `C:\cygwin64\home\<user>\.ssh` directory.
 
 1. From Cygwin, in your home directory create a file named `.codalabconfig`.
     `$ touch .codalabconfig`
@@ -133,15 +108,15 @@ To set up the Fabric configuration file, you'll need to have all of your Windows
 ```
 deployment:
     azure-management:
-        subscription-id: '<value>'
-        certificate-path: '/home/[USER]/.ssh/codalabazuremgmtnix.pem'
+        subscription-id: '<value>' # This is your Azure subscription ID.
+        certificate-path: 'CURRENT_USER\\my\\<name_of_certificate>'
         operation-timeout: 1800
     service-global:
         prefix: 'cxp'
         location: 'West US'
         certificate:
             algorithm: 'sha1'
-            thumbprint: '<value>'
+            thumbprint: '<value>' 
             format: 'pfx'
             filename: '/home/[USER]/.ssh/azureuser.pfx'
             key-filename: '/home/[USER]/.ssh/azureuser.key'
@@ -150,9 +125,10 @@ deployment:
             username: 'azureuser'
             password: '<value>'
         e-mail:
-            host: 'smtp.sendgrid.net'
-            user: 'hendapui'
-            password: '<value>@azure.com'
+            # Your email service account credentials.
+            host: '<value>'
+            user: '<user>'
+            password: '<value>'
     build-configuration:
         os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20131022-en-us-30GB'
         role-size: 'Small'
@@ -164,10 +140,12 @@ deployment:
                 role-size: 'Medium'
                 ssh-port: 57190
             git:
+                # Your Git credentials.
                 user: [USER]
                 repo: codalab
                 tag: dev
             django:
+                # Your Django secret key.
                 configuration: 'CxpDev'
                 secret-key: '<value>'
             database:

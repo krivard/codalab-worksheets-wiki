@@ -58,7 +58,7 @@ There are two sets of certificates.
 
 For general information about Azure certificates, see [Manage Certificates](http://msdn.microsoft.com/en-us/library/windowsazure/gg981929.aspx).
 
-For help with the **makecert** utility, see [Makecert.exe (Certificate Creation Tool)](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx).
+For help with **Makecert**, see [Makecert.exe (Certificate Creation Tool)](http://msdn.microsoft.com/en-us/library/bfsktky3.aspx).
 
 ### Create and upload a self-signed management certificate
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
@@ -75,15 +75,18 @@ For help with the **makecert** utility, see [Makecert.exe (Certificate Creation 
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
 ### Create the Azure VM keys
+
+
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
 1. Right-click **Developer Command Prompt** and select **Run as administrator**.
 1. Run the following command to create a new keypair:
-    `makecert -r -sv azureuser_WF.pvk -n "cn=azureuser_WF" azureuser_WF.cer -e 12/31/2014`
+    `makecert -r -sv azureuser.pvk -n "cn=azureuser" azureuser.key -e 12/31/2014`
+
 1. Enter passwords for the certificate when prompted. Don't forget to make a note of the passwords you entered!
 
 1. Run the following command to convert the .key to .pfx.
-    `pvk2pfx -pvk azureuser.pvk -spc azureuser.cer -pfx azureuser.pfx -po password`
-    Where `password` is the password you entered when creating the .pvk.
+    `pvk2pfx -pvk azureuser.pvk -spc azureuser.key -pfx azureuser.pfx -po password`
+    Where `password` is the password you entered when creating the keypair.
 
 ## Configure CodaLab
 To set up the CodaLab configuration file, you'll need to have all of your Windows Azure account information on hand. In this section, we will:
@@ -112,8 +115,8 @@ deployment:
         certificate-path: 'CURRENT_USER\\my\\<name_of_certificate>'
         operation-timeout: 1800
     service-global:
-        prefix: 'cxp'
-        location: 'West US'
+        prefix: '<value>' # First three letters of your service bus name.
+        location: '<value>' # Region setting for your service bus.
         certificate:
             algorithm: 'sha1'
             thumbprint: '<value>' 

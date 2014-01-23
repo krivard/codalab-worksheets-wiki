@@ -90,20 +90,6 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
         }
     ```
 
-    **sqlite3**
-    ```
-    DATABASES = {
-        'default': {
-            'ENGINE':  'django.db.backends.sqlite3',
-            'NAME': 'dev_db.sqlite',
-            # The following settings are not used with sqlite3:
-            'USER': 'someuser',
-            'PASSWORD': 'somepassword',
-            'HOST': 'someserver', 
-            'PORT': '',
-        }
-    ```
-
     **MySQL**
     ```
     DATABASES = {

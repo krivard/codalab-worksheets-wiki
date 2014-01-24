@@ -1,13 +1,15 @@
 This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab deployment tools use [Fabric](http://www.fabfile.org), a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks.
 
+**Note:** If you are a project committer, there is a set of credentials, predefined certificates, and a `.codalabconfig` template for you to use. Contact the project coordinator to get access to these items.
+
 ## Install Prerequisites
 - [Windows Azure](http://www.windowsazure.com/) account
 - [Visual C++ 2008 redistributable package](http://www.microsoft.com/en-us/download/details.aspx?id=29)
-- Cygwin
-- Remote Git repository with cloned fork of CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
+- Cygwin (required to run Fabric on Windows)
+- Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
 
 ### Install and configure Cygwin
-1. Download the appropriate 32-bit installer from [Cygwin.com](http://cygwin.com/install.html).
+1. Download the appropriate installer from [Cygwin.com](http://cygwin.com/install.html).
 2. Install the following packages (listed here by category):
 
 - **Python**
@@ -39,17 +41,19 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 #### Verify your Fabric installation
 Now let's take a moment to ensure that Fabric has been properly configured.
 
-1. Launch Cygwin.
+1. Launch PowerShell as an administrator.
 1. Navigate to the deploy directory of your CodaLab repo:
-    `$ cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
+    `cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 
-1. To get a list of commands:l
-    `$ fab -l`
+1. Test Fabric by getting a list of commands:
+    `fab -l`
 
 If Fabric returns a list of commands, you're good to go. If not, you'll need to revisit the previous steps to determine what is missing.
 
 ## Set up Azure certificates and SSL keys
 In this section you will create a set of Azure certificates and SSL keys. These certificates and keys provide the necessary authentication for CodaLab to interact with Azure.
+
+**Note:** If you are a project committer, there is a set of predefined certificates for you to use, so you can skip these steps. Contact the project coordinator to get access to the certificates and credentials you will need.
 
 There are two sets of certificates. 
 - The self-signed management certificate used to authenticate the connection to Azure so that you can send commands to the Azure VMs.
@@ -75,7 +79,6 @@ For help with **Makecert**, see [Makecert.exe (Certificate Creation Tool)](http:
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
 ### Create the Azure VM keys
-
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
 1. Right-click **Developer Command Prompt** and select **Run as administrator**.
 1. Run the following command to create a new keypair:
@@ -108,34 +111,38 @@ To set up the CodaLab configuration file, you'll need to have all of your Window
 ### Set up an email delivery service account
 In order to receive notifications from your CodaLab deployment, you will need to have a transactional email delivery service account. You can do this easily using [SendGrid](http://sendgrid.com/) or a similar service. You'll need to enter the host IP address, user name and password into the `.codalabconfig` file.
 
+**Note:** If you are a project committer, there is a Sendgrid account that you can use, so you can skip this step. Contact the project coordinator to get access to the `.codalabconfig` template with the account credentials.
+
 ### Get your Django secret key
 Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `codalab\codalab\settings\base.py` file for the CodaLab project. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
 
 ### Create a .codalabconfig file
-
-1. From Cygwin, in your home directory create a file named `.codalabconfig`.
-    `$ touch .codalabconfig`
+1. Launch PowerShell as an administrator.
+1. In your home directory create a file named `.codalabconfig`.
+    `new-item -path "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy" -name .codalabconfig -type "file"`
 
 1. Paste the following configuration file template into `.codalabconfig` and save the file. You will need to replace values with your own unique values wherever `<value>` is indicated, and replace `[USER]` with your user name.
+
+**Note:** If you are a project committer, there is a special `.codalabconfig` template that you should use. Contact the project coordinator to get access to this template.
 
 ```
 deployment:
     azure-management:
-        subscription-id: '<value>' # This is your Azure subscription ID.
-        certificate-path: 'CURRENT_USER\\my\\<name_of_certificate>'
+        subscription-id: '<value>' # Your Azure subscription ID.
+        certificate-path: "CURRENT_USER\\my\\<name_of_certificate>"
         operation-timeout: 1800
     service-global:
-        prefix: '<value>' # First three letters of your service bus name.
+        prefix: '<value>' # A unique prefix that is used when creating items in Azure.
         location: '<value>' # Region setting for your service bus.
         certificate:
             algorithm: 'sha1'
             thumbprint: '<value>' 
             format: 'pfx'
-            filename: '/home/[USER]/.ssh/azureuser.pfx'
-            key-filename: '/home/[USER]/.ssh/azureuser.key'
+            filename: 'C:\\cygwin64\\home\\azureuser.pfx'
+            key-filename: 'C:\\cygwin64\\home\\azureuser.key'
             password: '<value>'
         vm:
-            username: 'azureuser'
+            username: '[USER]'
             password: '<value>'
         e-mail:
             # Your email service account credentials.
@@ -159,7 +166,7 @@ deployment:
                 tag: dev
             django:
                 # Your Django secret key.
-                configuration: 'CxpDev'
+                configuration: 'Dev'
                 secret-key: '<value>'
             database:
                 engine: 'django.db.backends.mysql'
@@ -188,7 +195,7 @@ logging:
             class: logging.FileHandler
             level: DEBUG
             formatter: simple
-            filename: '/home/[USER]/deployment-log.txt'
+            filename: 'C:\cygwin64\home\[USER]\deployment-log.txt'
             mode: w
     loggers:
         codalabtools:
@@ -202,11 +209,14 @@ logging:
 
 ## Create Azure VMs and deploy to Azure
 1. Navigate to the deploy directory.
-    `codalab\codalab\codalabtools\deploy`
+    `cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 
 1. Create the Azure virtual machines that will host your deployment.
     `fab config:dev provision:all`
 
 1. Deploy to Azure for the first time.
     `fab config:dev build push_build deploy_web supervisor nginx_restart`
+
+You can use the **teardown** command to remove a deployment (handy to reset things if you experience issues):
+    `fab config:dev teardown:all`
 

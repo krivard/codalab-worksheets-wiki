@@ -1,4 +1,3 @@
-# CodaLab deployment
 This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab deployment tools use [Fabric](http://www.fabfile.org), a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks.
 
 ## Install Prerequisites
@@ -71,11 +70,11 @@ For help with **Makecert**, see [Makecert.exe (Certificate Creation Tool)](http:
 1. Click the **Settings** tab, then click **Management Certificates**.
 1. Click **Upload**.
 1. Browse to the .cer file you just created and upload it.
+1. Copy the .cer file to ``.
 
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
 ### Create the Azure VM keys
-
 
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
 1. Right-click **Developer Command Prompt** and select **Run as administrator**.
@@ -87,6 +86,18 @@ For more information, see [Create and Upload a Management Certificate for Window
 1. Run the following command to convert the .key to .pfx.
     `pvk2pfx -pvk azureuser.pvk -spc azureuser.key -pfx azureuser.pfx -po password`
     Where `password` is the password you entered when creating the keypair.
+    
+### Import certificates to your local store
+1. Copy the .key, .pfx, and .cer files from `C:\Windows\SysWOW64` into your `C:\cygwin64\home\<user>\.ssh` directory.
+1. Click **Start**, then type `certmgr.msc`.
+1. Expand **Personal** then expand **Certificates**.
+1. Click **Action**, **All Tasks**, **Import**.
+1. Click **Next**.
+1. Click **Browse** and navigate to the management certificate (.cer) you created earlier.
+1. Click **Next**.
+1. Ensure that **Place all certificates in the following store** is checked, and **Certificate store** is set to **Personal**.
+1. Click **Next**, then click **Finish**.
+1. Repeat the steps to import the .pfx you created.
 
 ## Configure CodaLab
 To set up the CodaLab configuration file, you'll need to have all of your Windows Azure account information on hand. In this section, we will:
@@ -101,7 +112,6 @@ In order to receive notifications from your CodaLab deployment, you will need to
 Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `codalab\codalab\settings\base.py` file for the CodaLab project. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
 
 ### Create a .codalabconfig file
-1. Copy the .key, .pfx, and .cer files from `C:\Windows\SysWOW64` into your `C:\cygwin64\home\<user>\.ssh` directory.
 
 1. From Cygwin, in your home directory create a file named `.codalabconfig`.
     `$ touch .codalabconfig`

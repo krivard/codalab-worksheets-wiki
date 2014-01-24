@@ -3,7 +3,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 **Note:** If you are a project committer, there is a set of credentials, predefined certificates, and a `.codalabconfig` template for you to use. Contact the project coordinator to get access to these items.
 
 ## Install Prerequisites
-- [Windows Azure](http://www.windowsazure.com/) account
+- [Windows Azure](http://www.windowsazure.com/) account (Committers, contact the project coordinator for credentials to a dedicated Azure account)
 - [Visual C++ 2008 redistributable package](http://www.microsoft.com/en-us/download/details.aspx?id=29)
 - Cygwin (required to run Fabric on Windows)
 - Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).

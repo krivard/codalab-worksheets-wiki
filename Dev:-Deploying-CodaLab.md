@@ -3,7 +3,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 **Note:** If you are a project committer, there is a set of credentials, predefined certificates, and a `.codalabconfig` template for you to use. Contact the project coordinator to get access to these items.
 
 ## Install Prerequisites
-- [Windows Azure](http://www.windowsazure.com/) account (Committers, contact the project coordinator for credentials to a dedicated Azure account)
+- [Windows Azure](http://www.windowsazure.com/) account
 - [Visual C++ 2008 redistributable package](http://www.microsoft.com/en-us/download/details.aspx?id=29)
 - Cygwin (required to run Fabric on Windows)
 - Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
@@ -119,7 +119,8 @@ Each Django installation has a secret key which is used to provide cryptographic
 ### Create a .codalabconfig file
 1. Launch PowerShell as an administrator.
 1. In your home directory create a file named `.codalabconfig`.
-    `new-item -path "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy" -name .codalabconfig -type "file"`
+    `new-item -path "C:\\cygwin64\\home\\[USER]" -name .codalabconfig -type "file"`
+    Be sure to replace "[USER]" with the name of your actual user directory.
 
 1. Paste the following configuration file template into `.codalabconfig` and save the file. You will need to replace values with your own unique values wherever `<value>` is indicated, and replace `[USER]` with your user name.
 
@@ -150,20 +151,20 @@ deployment:
             user: '<user>'
             password: '<value>'
     build-configuration:
-        os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20131022-en-us-30GB'
+        os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131015-en-us-30GB'
         role-size: 'Small'
     service-configurations:
         dev:
             vm:
-                os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_04-amd64-server-20131022-en-us-30GB'
+                os-image: 'b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131015-en-us-30GB'
                 count: 2
                 role-size: 'Medium'
                 ssh-port: 57190
             git:
                 # Your Git credentials.
-                user: [USER]
-                repo: codalab
-                tag: dev
+                user: [USER] # Your Github username.
+                repo: codalab # The name of your cloned CodaLab repo.
+                tag: master # The name of the remote branch to clone. 
             django:
                 # Your Django secret key.
                 configuration: 'Dev'
@@ -217,6 +218,10 @@ logging:
 1. Deploy to Azure for the first time.
     `fab config:dev build push_build deploy_web supervisor nginx_restart`
 
-You can use the **teardown** command to remove a deployment (handy to reset things if you experience issues):
+For subsequent deployments, use the following:
+    `fab config:dev supervisor_stop build push_build deploy_web supervisor nginx_restart`
+
+You can use the **teardown** command to remove a deployment. This is a handy way to reset things if you experience issues, but teardown cannot be undone so use caution:
     `fab config:dev teardown:all`
 
+## Test your deployment

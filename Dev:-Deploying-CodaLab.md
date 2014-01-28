@@ -230,11 +230,11 @@ Once all of your virtual machines are up and running, you can use SSH to connect
 - PuTTY
 - PuTTYgen
 
-You can get them from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+You can get them from here: [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
 
 For more information about using SSH to connect to Azure Linux VMs, see [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/).
 
-### Use SSH to connect to your Build machine
+### Use SSH to connect to your VMs
 1. Launch PuTTYgen.
 1. Under **Actions**, click **Load**.
 1. Navigate to the location of the .key that is specified in your .codalabconfig file.
@@ -243,6 +243,7 @@ For more information about using SSH to connect to Azure Linux VMs, see [How to 
 1. Click **Save private key** and save the .ppk file.
 1. Return to PuTTY.
 1. Under **Host Name (or IP address)** enter the VM host name.
+1. Under **Port** enter the port for the VM (the build machine will be port 22, the web instances will be a longer number).
 1. Under **Saved Sessions**, enter the host name, then click **Save**.
 1. In the left pane expand **Connection**, **SSH**, **Auth**.
 1. Under **Private key file for authentication** click **Browse** and navigate to the .ppk file you created.

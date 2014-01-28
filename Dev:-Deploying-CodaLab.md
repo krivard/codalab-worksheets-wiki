@@ -221,7 +221,49 @@ logging:
 For subsequent deployments, use the following:
     `fab config:dev supervisor_stop build push_build deploy_web supervisor nginx_restart`
 
-You can use the **teardown** command to remove a deployment. This is a handy way to reset things if you experience issues, but teardown cannot be undone so use caution:
+You can use the **teardown** command to remove a deployment. This is a handy way to reset things if you experience issues, but use caution since teardown cannot be undone:
     `fab config:dev teardown:all`
 
 ## Test your deployment
+
+
+## Tips and tricks
+Due to the complexity of the deployment process, things might not always go in accordance with plans. This section outlines some useful tips and scripts that you can use to troubleshoot your deployment.
+
+### Check your certificate
+If you are receiving errors during the initial parts of the provisioning process, it could be due to an issue with your certificate. Use this Python script to verify whether your certificate is valid. This script will only work if you have a valid certificate.
+
+    ```
+    import sys
+    import os, os.path
+    from azure import *
+    from azure.servicemanagement import *
+    
+    SUBSCRIPTION_ID = "[AZURE_SUBSCRIPTION_ID]"
+    
+    sms = ServiceManagementService(SUBSCRIPTION_ID, "CURRENT_USER\\my\\[AZURE_CERT_NAME]")
+    print sms.list_locations()
+    results = sms.list_locations()
+    for location in results:
+        print location.name
+    ```
+
+### List available OS images
+From time to time the OS images available on Azure will change. If, while in the provisioning stage, you receive an error stating that an OS image cannot be located, you may need to check for a new one. This Python script outputs a list of all Ubuntu OS images.
+
+    ```
+    from azure import *
+    from azure.servicemanagement import *
+    
+    subscription_id = "[AZURE_SUBSCRIPTION_ID]"
+    certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
+    
+    sms = ServiceManagementService(subscription_id, certificate_path)
+    
+    #result = sms.list_operating_systems()
+    result = sms.list_os_images()
+    
+    for os in result:
+        if "Ubuntu" in os.name:
+            print("Name: " + os.name)
+    ```

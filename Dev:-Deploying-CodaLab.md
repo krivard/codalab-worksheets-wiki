@@ -225,13 +225,44 @@ You can use the **teardown** command to remove a deployment. This is a handy way
     `fab config:dev teardown:all`
 
 ## Test your deployment
+Once all of your virtual machines are up and running, you can use SSH to connect and verify that things are working properly. You will need the following tools:
 
+- PuTTY
+- PuTTYgen
+
+You can get them from the [PuTTY download page](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
+
+For more information about using SSH to connect to Azure Linux VMs, see [How to Use SSH with Linux on Windows Azure](http://www.windowsazure.com/en-us/documentation/articles/linux-use-ssh-key/).
+
+### Use SSH to connect to your Build machine
+1. Launch PuTTYgen.
+1. Under **Actions**, click **Load**.
+1. Navigate to the location of the .key that is specified in your .codalabconfig file.
+1. Be sure **All Files(*.*)** is selected, select your .key file and click **Open**.
+1. Enter a **Key passphrase**.
+1. Click **Save private key** and save the .ppk file.
+1. Return to PuTTY.
+1. Under **Host Name (or IP address)** enter the VM host name.
+1. Under **Saved Sessions**, enter the host name, then click **Save**.
+1. In the left pane expand **Connection**, **SSH**, **Auth**.
+1. Under **Private key file for authentication** click **Browse** and navigate to the .ppk file you created.
+1. Click **Open** to select the file.
+1. In the left pane click **Session**.
+1. Click **Save** to ensure that the .ppk is saved with the session.
+1. Click **Open** to start the SSH session.
+1. When prompted, enter your username and the passphrase for the .ppk certificate. You should now be successfully logged on using SSH.
+
+### Use SSH to connect to a web instance
+1. From Putty, connect to your build VM (use the previous instructions).
+1. Use SSH to connect to your web instance:
+    `$ ssh [USER]@[MACHINE_NAME].cloudapp.net –p [PORT_NUMBER]`
+    You can get the connection information from the VM dashboard on your [Azure Management Portal](http://manage.windowsazure.com). 
 
 ## Tips and tricks
 Due to the complexity of the deployment process, things might not always go in accordance with plans. This section outlines some useful tips and scripts that you can use to troubleshoot your deployment.
 
 ### Check your certificate
-If you are receiving errors during the initial parts of the provisioning process, it could be due to an issue with your certificate. Use this Python script to verify whether your certificate is valid. This script will only work if you have a valid certificate.
+If you are receiving errors during the initial parts of the provisioning process, it could be due to an issue with your certificate. Use this Python script to verify whether your certificate is valid (if the script fails, your certificate is most likely bad).
 
     ```
     import sys
@@ -248,6 +279,39 @@ If you are receiving errors during the initial parts of the provisioning process
         print location.name
     ```
 
+### List all local certificates
+You can list all of your local certificates by running a few commands in PowerShell. This is a good way to get certificate thumbprints.
+
+    ```
+    PS C:\dev> cd cert:
+    PS Cert:\> ls
+     
+     
+    Location   : CurrentUser
+    StoreNames : {TrustedPublisher, ClientAuthIssuer, Root, UserDS...}
+     
+    Location   : LocalMachine
+    StoreNames : {TrustedPublisher, ClientAuthIssuer, Remote Desktop, Root...}
+     
+     
+     
+    PS Cert:\> cd .\\CurrentUser
+    PS Cert:\CurrentUser> cd .\My
+    PS Cert:\CurrentUser\My> ls
+     
+     
+        Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+     
+     
+    Thumbprint                                Subject
+    ----------                                -------
+    ADD5BA24A11C2935C0000040C35199BC964E63E7  CN=####@microsoft.com
+    00000B2042C77E2A35656822C5CDFFACA30A8E72  CN=#####DC...
+    9B000007A54112C3FD15E4AE21CCA97EFB69B786  CN=#####
+    963A1A1214F0700000A361A2A8D7F0000DFD22B0  CN=#####
+    ```
+
+
 ### List available OS images
 From time to time the OS images available on Azure will change. If, while in the provisioning stage, you receive an error stating that an OS image cannot be located, you may need to check for a new one. This Python script outputs a list of all Ubuntu OS images.
 
@@ -260,10 +324,17 @@ From time to time the OS images available on Azure will change. If, while in the
     
     sms = ServiceManagementService(subscription_id, certificate_path)
     
-    #result = sms.list_operating_systems()
     result = sms.list_os_images()
     
     for os in result:
         if "Ubuntu" in os.name:
             print("Name: " + os.name)
     ```
+
+The OS image names look like this:
+    `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131015-en-us-30GB`
+
+If the image name from your **.codalabconfig** is not in the list, you will need to select a different one.
+
+- Be sure to select an image for Ubuntu Server 13.x with 30GB.
+- Don't forget to paste the new image name into the `os-image` entries in **.codalabconfig**.

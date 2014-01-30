@@ -119,10 +119,10 @@ Each Django installation has a secret key which is used to provide cryptographic
 ### Create a .codalabconfig file
 1. Launch PowerShell as an administrator.
 1. In your home directory create a file named `.codalabconfig`.
-    `new-item -path "C:\\cygwin64\\home\\[USER]" -name .codalabconfig -type "file"`
+    `new-item -path "C:\\users\\[USER]" -name .codalabconfig -type "file"`
     Be sure to replace "[USER]" with the name of your actual user directory.
 
-1. Paste the following configuration file template into `.codalabconfig` and save the file. You will need to replace values with your own unique values wherever `<value>` is indicated, and replace `[USER]` with your user name.
+1. Paste the following configuration file template into `.codalabconfig` and save the file. You will need to replace values with your own unique values wherever `<value>` is indicated, and replace `[USER]` with the appropriate user name.
 
 **Note:** If you are a project committer, there is a special `.codalabconfig` template that you should use. Contact the project coordinator to get access to this template.
 
@@ -255,6 +255,8 @@ For more information about using SSH to connect to Azure Linux VMs, see [How to 
 
 ### Use SSH to connect to a web instance
 1. From Putty, connect to your build VM (use the previous instructions).
+1. If this is your first time connecting, you'll need to generate keys.
+    `openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout myPrivateKey.key -out myCert.pem`
 1. Use SSH to connect to your web instance:
     `$ ssh [USER]@[MACHINE_NAME].cloudapp.net –p [PORT_NUMBER]`
     You can get the connection information from the VM dashboard on your [Azure Management Portal](http://manage.windowsazure.com). 

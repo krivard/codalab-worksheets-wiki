@@ -24,6 +24,25 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 
    `sudo apt-get install git`
 
+5. Install and configure Compass.
+
+   - Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
+ 
+   - Open a command window and install compass by executing: 
+
+     `sudo gem install compass`
+
+   Take the following steps to generate the css files after you've made changes to the scss files in the sass folder:
+
+     `cd codalab/apps/web/static`
+     `compass compile`
+
+   Or to start a process which will automatically re-generate the files when changes are made:
+
+     `cd codalab/apps/web/static`
+
+     `compass watch .`
+
 ## Next steps
 - [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)
 - Review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.

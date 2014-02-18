@@ -13,15 +13,16 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 1. Install [Python 2.7](http://www.python.org/getit/). For current Debian-based Linux distributions (such as Ubuntu), BSD and Mac Python 2.7 is usually installed. However Redhat-based Linux distributions, such as RHEL and CentOS, are sometimes behind the curve and do not have Python 2.7. As of this writing, CentOS 6.4 is at Python 2.6, which is well on its way to EOL. Python 2.6 may work, but code will be written with 2.7 and 3.3+ in mind. Below are instructions for Ubuntu Linux 13.04+.
 
 2. Install [PIP](https://pypi.python.org/pypi/pip).
+
    `sudo apt-get install python-pip`
 
 3. Install virtualenv.
+
    `sudo apt-get install python-virtualenv`
 
 4. Install [Git](http://git-scm.com/download/linux).
-```
-sudo apt-get install git
-```
+
+   `sudo apt-get install git`
 
 ## Next steps
 - [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)

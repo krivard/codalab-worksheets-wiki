@@ -8,7 +8,7 @@ In this section, we will walk you through installing Python 2.7.x, installing pr
 
 Assuming a fresh Windows environment the following should get you started:
 
-1. Install [Python 2.7](http://www.python.org/getit/). Be sure to select the installer for your architecture. This typically will install to C:\Python27. The rest of these instructions will assume that you have installed to this path.
+1. Install [Python 2.7](http://www.python.org/download/). Be sure to select the installer for your architecture. This typically will install to C:\Python27. The rest of these instructions will assume that you have installed to this path.
 
 1. To Install pip you should first install distribute. Download the file at the following URL:
    http://python-distribute.org/distribute_setup.py and run it from a shell from the directory into which it was downloaded:

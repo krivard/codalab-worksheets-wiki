@@ -82,14 +82,14 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
     ```
     DATABASES = {
         'default': {
-            'ENGINE':  sql_server.pyodbc',
+            'ENGINE': 'sql_server.pyodbc',
             'NAME': 'somename',
             # Leaver user and password blank to use integrated security
             'USER': '',
             'PASSWORD': '',
             'HOST': '(localdb)\\v11.0', 
             'PORT': '',
-            'OPTIONS' = {
+            'OPTIONS': {
                'driver': 'SQL Server Native Client 11.0',
             }
         }

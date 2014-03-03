@@ -1,11 +1,12 @@
 ## Contents
-- [Install the prerequisites](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-the-prerequisites)
-- [Get the source code](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#get-the-source-code)
-- [Configure your local environment](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#configure-your-local-environment)
-- [Install app schema and default data](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#install-app-schema-and-default-data)
-- [Start the web server](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#start-the-web-server)
-- [Set up data storage](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#set-up-data-storage)
-- [Work with CodaLab in Visual Studio](https://github.com/codalab/codalab/wiki/Dev:-Configure-CodaLab-for-Development#work-with-codalab-in-visual-studio)
+- [Install the prerequisites](#install-the-prerequisites)
+- [Get the source code](#get-the-source-code)
+- [Configure your local environment](#configure-your-local-environment)
+- [Install app schema and default data](#install-app-schema-and-default-data)
+- [Start the web server](#start-the-web-server)
+- [Set up data storage](#set-up-data-storage)
+- [Start the worker role](#start-the-worker-role)
+- [Work with CodaLab in Visual Studio](#work-with-codalab-in-visual-studio)
 
 ## Install the prerequisites
 
@@ -233,6 +234,13 @@ In order to test uploading and running bundles in CodaLab, you will need to have
     ```
 
 **Important:** Do not change the values for `DEFAULT_FILE_STORAGE` and `PRIVATE_FILE_STORAGE`, as these parameters contain the name of the Python class which implements the Azure storage back-end for Django.
+
+## Start the worker role
+1. Use the following command to start the CodaLab worker role locally.
+
+    ```
+    python codalab\worker.py
+    ```
 
 ## Work with CodaLab in Visual Studio
 

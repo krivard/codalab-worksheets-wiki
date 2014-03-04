@@ -61,6 +61,7 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 
 #### Install MySQL Python
 **Windows**
+
 1. Open a Windows command prompt.
 1. Navigate to the virtual environment (venv) for CodaLab and use the following command to install MySql-Python.
 

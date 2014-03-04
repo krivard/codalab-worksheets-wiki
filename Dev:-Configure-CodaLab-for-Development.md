@@ -66,13 +66,13 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 
     `easy_install mysql-python`
 
-#### Create a database
 1. Launch the MySQL Command Line Client.
 1. Use the following command to create a new database:
 
    `create database if not exists MySql_DevDB;`
 
 **Linux**
+
 1. Open a terminal window.
 1. Run the following command to install MySQL:
 

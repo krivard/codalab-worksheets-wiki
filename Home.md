@@ -26,7 +26,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 ### Editing guidelines
 If you want to edit the wiki, you can clone it and work on it locally:
 
-    `git clone https://github.com/codalab/codalab.wiki.git`
+    git clone https://github.com/codalab/codalab.wiki.git
 
 In order to keep this content coherent we have adopted the following page naming convention to make it easy to find things. We are using pseudo-namespaces to organize pages. This is accomplished by using a prefix plus underscore for the page names, such as "Dev_configuring your setup".
 

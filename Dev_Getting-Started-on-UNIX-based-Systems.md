@@ -45,5 +45,5 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
      `compass watch .`
 
 ## Next steps
-- [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development)
-- Review the [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines) of the CodaLab team.
+- [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
+- Review the [Developer Guidelines](Dev_Developer-Guidelines) of the CodaLab team.

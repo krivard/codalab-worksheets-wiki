@@ -4,9 +4,10 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 
 * Development
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
-    * [Getting Started on UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
-    * [Getting Started on Windows](Dev_Getting-Started-on-Windows)
-    * [Getting Started on Mac](Dev_Getting-Started-on-Mac)
+    * Getting Started
+        * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
+        * [Windows](Dev_Getting-Started-on-Windows)
+        * [Mac](Dev_Getting-Started-on-Mac)
     * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)
     * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking)

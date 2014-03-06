@@ -10,8 +10,9 @@
 
 ## Install the prerequisites
 
-* [Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows)
-* [Unix-based systems](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-UNIX-based-Systems)
+* [Windows](Dev_Getting-Started-on-Windows)
+* [Unix](Dev_Getting-Started-on-UNIX-based-Systems)
+* [Mac](Dev_Getting-Started-on-Mac)
 
 ## Get the source code
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
@@ -63,32 +64,51 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 **Windows**
 
 1. Open a Windows command prompt.
-1. Navigate to the virtual environment (venv) for CodaLab and use the following command to install MySql-Python.
+2. Navigate to the virtual environment (venv) for CodaLab and use the following command to install MySql-Python.
 
     `easy_install mysql-python`
 
-1. Launch the MySQL Command Line Client.
-1. Use the following command to create a new database:
+3. Launch the MySQL Command Line Client.
+4. Use the following command to create a new database:
 
    `create database if not exists MySql_DevDB;`
 
 **Linux**
 
 1. Open a terminal window.
-1. Run the following command to install MySQL:
+2. Run the following command to install MySQL:
 
     `sudo apt-get install mysql-server`
 
-1. Login to MySQL as root by typing the following command:
+3. Login to MySQL as root by typing the following command:
 
     `mysql -u root -p`
     Enter your root password when prompted.
 
-1. Use the following command to create a new database:
+4. Use the following command to create a new database:
 
     `create database if not exists MySql_DevDB;`
 
-1. Type `exit` to return to the terminal prompt.
+5. Type `exit` to return to the terminal prompt.
+
+**Mac**
+
+1. Open a terminal window.
+
+2. Login to MySQL as root by typing the following command:
+
+    `mysql -u root -p`
+    Enter your root password when prompted.
+
+3. Use the following command to create a new database:
+
+    `create database if not exists MySql_DevDB;`
+
+4. Type `exit` to return to the terminal prompt.
+
+5. Finish up installation for Django
+
+    `export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH`
 
 ### Create a local config file
 

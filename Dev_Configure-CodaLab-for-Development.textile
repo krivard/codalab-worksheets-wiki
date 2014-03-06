@@ -273,11 +273,38 @@ In order to test uploading and running bundles in CodaLab, you will need to have
 
 **Important:** Do not change the values for `DEFAULT_FILE_STORAGE` and `PRIVATE_FILE_STORAGE`, as these parameters contain the name of the Python class which implements the Azure storage back-end for Django.
 
-## Start the worker role
-1. Use the following command to start the CodaLab worker role locally.
+### Create a local compute configuration file
+
+1. Open `codalab/codalab/codalabtools/compute/sample.config`.
+1. Save a copy of `sample.config` named `.codalabconfig` in the same directory.
+1. Open `.codalabconfig`.
+1. In the `compute-worker` section, enter the configuration settings for the storage account and the compute queue.
+
+    ```
+    compute-worker:
+        azure-storage:
+            account-name: "your account name"
+            account-key: "your account key"
+        azure-service-bus:
+            namespace: "your namespace"
+            key: "your secret key"
+            issuer: "owner"
+            listen-to: "name of queue"
+        local-root: "D:\\Temp"
+    ```
+
+## Start the worker roles
+1. Use the following command to start the worker role locally.
 
     ```
     python codalab\worker.py
+    ```
+
+1. Change to the `\codalabtools\compute` directory.
+1. Run the compute worker locally
+
+    ```
+    python worker.py
     ```
 
 ## Work with CodaLab in Visual Studio

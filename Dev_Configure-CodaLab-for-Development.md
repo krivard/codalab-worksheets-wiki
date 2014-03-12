@@ -71,7 +71,7 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 3. Launch the MySQL Command Line Client.
 4. Use the following command to create a new database:
 
-   `create database if not exists MySql_DevDB;`
+   `create database if not exists MySQL_DevDB;`
 
 **Linux**
 

@@ -26,6 +26,10 @@ cd C:\Python27\Scripts
 pip install virtualenv
 ```
 
+1. Install [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). Web Platform Installer makes it easy to install a wide variety of packages that you may need.
+
+1. Launch Web Platform Installer and user it to install MySQL 5.1.
+
 1. Install Git: http://msysgit.github.io/ (be sure to check the **Run Git from Windows Command Prompt** option, as this will add Git to your local path).
 
 5. Install and configure Compass.

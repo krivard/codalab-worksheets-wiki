@@ -87,7 +87,7 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 
 4. Use the following command to create a new database:
 
-    `create database if not exists MySql_DevDB;`
+    `create database if not exists MySQL_DevDB;`
 
 5. Type `exit` to return to the terminal prompt.
 
@@ -102,7 +102,7 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
 
 3. Use the following command to create a new database:
 
-    `create database if not exists MySql_DevDB;`
+    `create database if not exists MySQL_DevDB;`
 
 4. Type `exit` to return to the terminal prompt.
 

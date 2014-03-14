@@ -32,15 +32,16 @@ description: Example competition evaluation program.
 Here are the assumptions about the scoring process and the scoring program:
 
 1. There is a fixed directory structure that the scoring program operates within. It looks like this:
-    ```
-    Submission Directory
-      |- input
-        |- ref (This is the reference data unzipped)
-        |- res (This is the user submission unzipped)
-      |- program (This is the scoring program [and any included dependencies] unzipped)
-      |- output (This is where the scores.txt file needs to be written by the scoring program)
-    ```
-1. The scoring program will be invoked as ```<program> <input directory> <output directory>```
+```
+Submission Directory
+  |- input
+    |- ref (This is the reference data unzipped)
+    |- res (This is the user submission unzipped)
+  |- program (This is the scoring program [and any included dependencies] unzipped)
+  |- output (This is where the scores.txt file needs to be written by the scoring program)
+```
+
+1. The scoring program will be invoked as `<program> <input directory> <output directory>`.
 1. The scoring program is executed so that stderr and stdout are captured
 1. The scoring program will generate a scores.txt file (it has to be named scores.txt) that contains key value pairs of metrics. This is a score file for the example competition:
     ```

@@ -48,6 +48,20 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 
      `compass watch .`
 
+1. Install the JavaScript Closure compiler.
+
+   - Install Java from  [https://www.java.com/en/download/](https://www.java.com/en/download/).
+  
+   - Add Java bin folder to the PATH environment variable.
+
+   - Download and extract Closure from [http://dl.google.com/closure-compiler/compiler-latest.zip](http://dl.google.com/closure-compiler/compiler-latest.zip).
+
+   Take the following steps to generate the javascript files after you've made changes to the js folder:
+
+     `cd codalab/codalab/apps/web/static/js`
+
+     `python ../../../../../scripts/javascript.py ~/java/compiler.jar`
+
 ## Next steps
 - [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
 - Review the [Developer Guidelines](Dev_Developer-Guidelines) of the CodaLab team.

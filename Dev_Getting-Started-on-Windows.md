@@ -32,7 +32,7 @@ pip install virtualenv
 
 1. Install Git: http://msysgit.github.io/ (be sure to check the **Run Git from Windows Command Prompt** option, as this will add Git to your local path).
 
-5. Install and configure Compass.
+1. Install and configure Compass.
 
    - Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
  
@@ -52,19 +52,29 @@ pip install virtualenv
 
      `compass watch .`
 
-6. Install the JavaScript Closure compiler.
+1. Install the JavaScript Closure compiler.
 
-   - Install Java from  [https://www.java.com/en/download/](https://www.java.com/en/download/).
-  
-   - Add Java to PATH environment variable. For instance 'c:\Program Files (x86)\Java\jre7\bin'
+    - Install Java from  [https://www.java.com/en/download/](https://www.java.com/en/download/).
+    
+    - Add Java to PATH environment variable. For instance 'c:\Program Files (x86)\Java\jre7\bin'
+    
+    - Download and extract Closure from [http://dl.google.com/closure-compiler/compiler-latest.zip](http://dl.google.com/closure-compiler/compiler-latest.zip).
 
-   - Download and extract Closure from [http://dl.google.com/closure-compiler/compiler-latest.zip](http://dl.google.com/closure-compiler/compiler-latest.zip).
+    - Create `C:\closure` and copy **compiler.jar** into the new folder.
+
+1. Activate the virtual environment.
+    
+    `venv\scripts\activate`
+
+1. Install Closure Linter:
+
+    `easy_install http://closure-linter.googlecode.com/files/closure_linter-latest.tar.gz`
 
    Take the following steps to generate the javascript files after you've made changes to the js folder:
 
-     `cd codalab\codalab\apps\web\static\js`
+    `cd codalab\codalab\apps\web\static\js`
 
-     `python ..\..\..\..\..\scripts\javascript.py c:\closure\compiler.jar`
+    `python ..\..\..\..\..\scripts\javascript.py c:\closure\compiler.jar`
 
 ## Next steps
 - [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)

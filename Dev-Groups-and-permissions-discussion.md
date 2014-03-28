@@ -37,6 +37,8 @@ user_group = Table(
 )
 ```
 
+The implementation will have to be aware of special groups like *Public* since users will not be explicitly added to such groups.
+
 **Permissions**
 
 The set of possible permissions is captured in a table.
@@ -76,6 +78,43 @@ group_object_permission = Table(
 ```
 
 Table `group_object_permission` only knows about groups; it does not know about users directly. The intent is to create a group for each user. The group will be system-defined (not changeable by end-users) and will contain the single user.
+
+Notice the presence of one column per object type.
+
+#CLI commands
+To manage groups:
+```
+add-group <group_spec>
+del-group <group_spec>
+add-user <user_spec> <group_spec>
+del-user <user_spec> <group_spec>
+#List my groups
+cl list -g 
+#Show info (list members) of a group
+cl info -g <group_spec>
+```
+To set permissions, in a initial discussion, we had noted:
+```
+set-perm <group_spec> <none|r(ead)|a(ll)> <bundle_spec>
+set-perm -w <group_spec> <none|r(ead)|a(ll)> <worksheet_spec>
+set-perm -g <group_spec> <none|r(ead)|a(ll)> <group_spec>
+```
+The above design uses an additional command switch to specify the type of object (similar to `cl clist` vs. `cl list -w`). An alternative would be to have command named after the object type:
+```
+set-bundle-perm <group_spec> <none|r(ead)|a(ll)> <bundle_spec>
+set-worksheet-perm <group_spec> <none|r(ead)|a(ll)> <worksheet_spec>
+set-group-perm <group_spec> <none|r(ead)|a(ll)> <group_spec>
+```
+Another option would be to have a single command for all objects but that may increase the number of times that a user is forced to use the full UUID as opposed to using the friendly name of the object:
+```
+set-perm <group_spec> <none|r(ead)|a(ll)> <object_spec>
+```
+#Bundle service API
+TODO: How do existing service API change to satisfy the need of clients. A primary client is the web site.
+```
+list_worksheets(auth_token, owner/group, search text, bundle referenced, ..., offset/limit)
+list_bundles(auth_token, owner/group, search text, bundle dependencies, ..., offset/limit)
+```
 
 #Sample scenarios
 

@@ -58,9 +58,9 @@ In this section, we will walk you through installing Python 2.7.x, installing pr
 
    Take the following steps to generate the javascript files after you've made changes to the js folder:
 
-     `cd codalab/codalab/apps/web/static/js`
+     `cd codalab/codalab/apps/web/static`
 
-     `python ../../../../../scripts/javascript.py ~/java/compiler.jar`
+     `python ../../../../scripts/javascript.py ~/java/compiler.jar`
 
 ## Next steps
 - [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)

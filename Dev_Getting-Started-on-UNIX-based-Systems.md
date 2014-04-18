@@ -58,9 +58,9 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 
    Take the following steps to generate the javascript files after you've made changes to the js folder:
 
-     `cd codalab/codalab/apps/web/static/js`
+     `cd codalab/codalab/apps/web/static`
 
-     `python ../../../../../scripts/javascript.py ~/java/compiler.jar`
+     `python ../../../../scripts/javascript.py ~/java/compiler.jar`
 
 ## Next steps
 - [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)

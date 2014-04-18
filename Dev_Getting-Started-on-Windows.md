@@ -71,9 +71,9 @@ Assuming a fresh Windows environment the following should get you started:
 
 1. Take the following steps to generate the JavaScript files after you've made changes to the js folder:
 
-    `cd codalab\codalab\apps\web\static\js`
+    `cd codalab\codalab\apps\web\static`
 
-    `python ..\..\..\..\..\scripts\javascript.py c:\closure\compiler.jar`
+    `python ..\..\..\..\scripts\javascript.py c:\closure\compiler.jar`
 
    For more information, see [https://developers.google.com/closure/compiler/](https://developers.google.com/closure/compiler/)
 

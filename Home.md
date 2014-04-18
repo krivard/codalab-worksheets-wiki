@@ -1,6 +1,8 @@
 This is the CodaLab Wiki! It provides information about the project and its development. It is maintained by the CodaLab community for the CodaLab community. 
 
 ### CodaLab Wiki Content
+* General
+    * [CodaLab FAQ](./Project_CodaLab_FAQ.md)
 
 * Development
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
@@ -16,16 +18,17 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
     * Design and implementation notes
         * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
-        * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
+        <!--* [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)-->
         * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
         * [Progressive registration](https://github.com/codalab/codalab/wiki/User_Progressive-Registration)
 
-* Hosting a competition at CodaLab
-    * [Creating the competition bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
-    * [Building a scoring program](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
+* Hosting CodaLab Competitions
+    * [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
+    * [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
 
+* Working with CodaLab Worksheets
 
-### Editing guidelines
+### Editing Guidelines
 If you want to edit the wiki, you can clone it and work on it locally:
 
     git clone https://github.com/codalab/codalab.wiki.git

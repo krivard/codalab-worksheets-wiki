@@ -1,10 +1,10 @@
 This is the CodaLab Wiki! It provides information about the project and its development. It is maintained by the CodaLab community for the CodaLab community. 
 
-### CodaLab Wiki Content
-* General
+# CodaLab Wiki Content
+## General
     * [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
 
-* Development
+## Developers
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
     * Getting Started
         * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
@@ -18,15 +18,19 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
     * Design and implementation notes
         * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
-        <!--* [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)-->
+        * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
         * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
         * [Progressive registration](https://github.com/codalab/codalab/wiki/User_Progressive-Registration)
 
-* Hosting CodaLab Competitions
+    * [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
+    * [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
+
+## Competitions
     * [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
     * [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
 
-* Working with CodaLab Worksheets
+## Worksheets
+    * TBD
 
 ### Editing Guidelines
 If you want to edit the wiki, you can clone it and work on it locally:

@@ -2,7 +2,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 
 ### CodaLab Wiki Content
 * General
-    * [CodaLab FAQ](./Project_CodaLab_FAQ.md)
+    * [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
 
 * Development
     * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)

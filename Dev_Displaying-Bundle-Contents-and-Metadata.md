@@ -1,4 +1,4 @@
-#Displaying Bundles Metadata
+#Displaying Bundle Contents and Metadata
 
 **Bundles Metadata**
 

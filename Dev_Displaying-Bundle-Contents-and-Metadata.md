@@ -27,22 +27,20 @@ This document proposes how to display such metadata and bundle contents for the 
 
 **Worksheets Extended Markdown**
 
-The proposed approach is to extend markdown with well-defined commenting capabilities using a '// <name>: <type> <path to source>' syntax. The model that the template can use includes a bundle, it's metadata and contents.
+The proposed approach is to extend markdown with well-defined comments to describe additional representations of data. The model that the template can use includes a bundle, it's metadata and contents.
 
 **Formal Definition**
 
 ```
-<template> ::= "// " <name> ":" <type> <parameters>
+<template> ::= "// " (<directive> | <data>)
 
-<parameters> ::= <path-to-file> | <column-parameter>
+<directive> ::= "display " ("table" | "default" | "inline")
 
-<path-to-file> ::= <literal>
+<data> ::= <text> ": " <type> <path>
 
-<column-parameter> ::= <column-name> | "," <column-name>
+<type> ::= "image" | "metadata"
 
-<column-name> ::= <literal>
-
-<literal> ::= '"' <text> '"' | "'" <text> "'" | <text>
+<path> ::= "/" (<text> <path> | <text>)
 ```
 
 **Markdown Template Examples**
@@ -50,20 +48,42 @@ The proposed approach is to extend markdown with well-defined commenting capabil
 ***Image from Bundle Example***
 
 ```
-// 0x4d15fe795fa846c88c7729dc1978f6c1:image image.png
+// display inline
+// MyImage: image/image.png
 
 [0x4d15fe795fa846c88c7729dc1978f6c1: Bundle]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```
 
-***Metadata Table Example***
+***Metadata Example***
 
 ```
-// 0x4d15fe795fa846c88c7729dc1978f6c1:table name, tags
+// display default
+// Name: metadata/name
+// Tags: metadata/tags
 
 [0x4d15fe795fa846c88c7729dc1978f6c1: Bundle]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```
 
 From the cli one can execute:
+
+```
+>>cl print TestWorksheet
+
+Name: Vision System
+Tags: Machine Learning, Artificial Intelligence, Big Data
+```
+
+***Metadata Table Example***
+
+```
+// display table
+// Name: metadata/name
+// Tags: metadata/tags
+
+[0x4d15fe795fa846c88c7729dc1978f6c1: Bundle]{0x4d15fe795fa846c88c7729dc1978f6c1}
+```
+
+From the cli:
 
 ```
 >>cl print TestWorksheet
@@ -78,7 +98,8 @@ From the cli one can execute:
 In some cases, hiding the bundle block could be desirable. This can be accomplished by referencing the bundle without a description:
 
 ```
-// 0x4d15fe795fa846c88c7729dc1978f6c1:image image.png
+// display inline
+// MyImage: image/image.png
 
 [0x4d15fe795fa846c88c7729dc1978f6c1]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```

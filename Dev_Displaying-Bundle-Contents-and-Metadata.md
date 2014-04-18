@@ -27,16 +27,20 @@ This document proposes how to display such metadata and bundle contents for the 
 
 **Worksheets Extended Markdown**
 
-Several frameworks like DJango and AngularJS use '{{ }}' as a templating mechanism to bind data into HTML. Similarly, the proposed approach is to extend markdown with templating capabilities using a '{{ }}' block. The model that the template can use includes a bundle, it's metadata and contents.
+The proposed approach is to extend markdown with well-defined commenting capabilities using a '// <name>: <type> <path to source>' syntax. The model that the template can use includes a bundle, it's metadata and contents.
 
 **Formal Definition**
 
 ```
-<template> ::= "{{" <template-data> "}}"
+<template> ::= "// " <name> ":" <type> <parameters>
 
-<template-data> ::= <bundle-uuid> | <bundle-properties>
+<parameters> ::= <path-to-file> | <column-parameter>
 
-<bundle-properties> ::= "." <literal> | <bundle-properties> "." <literal>
+<path-to-file> ::= <literal>
+
+<column-parameter> ::= <column-name> | "," <column-name>
+
+<column-name> ::= <literal>
 
 <literal> ::= '"' <text> '"' | "'" <text> "'" | <text>
 ```
@@ -46,7 +50,7 @@ Several frameworks like DJango and AngularJS use '{{ }}' as a templating mechani
 ***Image from Bundle Example***
 
 ```
-![Bundle Image]({{ bundles.0x4d15fe795fa846c88c7729dc1978f6c1.files.'image.png' }})
+// 0x4d15fe795fa846c88c7729dc1978f6c1:image image.png
 
 [0x4d15fe795fa846c88c7729dc1978f6c1: Bundle]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```
@@ -54,10 +58,7 @@ Several frameworks like DJango and AngularJS use '{{ }}' as a templating mechani
 ***Metadata Table Example***
 
 ```
-| Properties    | Data                                                   |
-| ------------- | ------------------------------------------------------ |
-| Name          | {{ 0x4d15fe795fa846c88c7729dc1978f6c1.metadata.name }} |
-| Tags          | {{ 0x4d15fe795fa846c88c7729dc1978f6c1.metadata.tags }} |
+// 0x4d15fe795fa846c88c7729dc1978f6c1:table name, tags
 
 [0x4d15fe795fa846c88c7729dc1978f6c1: Bundle]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```
@@ -67,10 +68,9 @@ From the cli one can execute:
 ```
 >>cl print TestWorksheet
 
-| Properties    | Data                                                   |
+| Name          | Tags                                                   |
 | ------------- | ------------------------------------------------------ |
-| Name          | Vision System based on Neo-Cortex Neural Simulations   |
-| Tags          | Machine Learning, Artificial Intelligence, Big Data    |
+| Vision System | Machine Learning, Artificial Intelligence, Big Data    |
 ```
 
 ***Displaying ONLY an Image from Bundle***
@@ -78,7 +78,7 @@ From the cli one can execute:
 In some cases, hiding the bundle block could be desirable. This can be accomplished by referencing the bundle without a description:
 
 ```
-!\[Bundle Image\]({{ bundles.0x4d15fe795fa846c88c7729dc1978f6c1.files.'image.png' }})
+// 0x4d15fe795fa846c88c7729dc1978f6c1:image image.png
 
 [0x4d15fe795fa846c88c7729dc1978f6c1]{0x4d15fe795fa846c88c7729dc1978f6c1}
 ```

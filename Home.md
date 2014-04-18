@@ -1,22 +1,24 @@
 This is the CodaLab Wiki! It provides information about the project and its development. It is maintained by the CodaLab community for the CodaLab community. 
 
-# CodaLab Wiki Content
+#CONTENTS
 ## General
 * [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
 
 ## Developers
 * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
-* Getting Started
+* **Getting Started**
     * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
     * [Windows](Dev_Getting-Started-on-Windows)
     * [Mac](Dev_Getting-Started-on-Mac)
 * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
+
+* **Process**
 * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)
 * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking)
 * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev_Scenarios,-Stories-and-Tasks)
 * Continuous integration
 * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
-* Design and implementation notes
+* **Design and implementation notes**
     * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
     * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
     * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
@@ -32,7 +34,7 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 ## Worksheets
 * TBD
 
-### Editing Guidelines
+## Editing Guidelines
 If you want to edit the wiki, you can clone it and work on it locally:
 
     git clone https://github.com/codalab/codalab.wiki.git

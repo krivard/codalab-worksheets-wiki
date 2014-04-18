@@ -1,4 +1,6 @@
-#Data model
+# Groups and Permissions Discussion
+
+## Data model
 
 **Groups**
 Groups are identified by a "group spec" in a manner similar to bundles and worksheets. Groups are either user-defined or system-defined. System-defined groups cannot be modified. An example of a system-defined group is the *Public* group which denotes all users.

@@ -2,35 +2,35 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 
 # CodaLab Wiki Content
 ## General
-    * [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
+* [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
 
 ## Developers
-    * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
-    * Getting Started
-        * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
-        * [Windows](Dev_Getting-Started-on-Windows)
-        * [Mac](Dev_Getting-Started-on-Mac)
-    * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
-    * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)
-    * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking)
-    * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev_Scenarios,-Stories-and-Tasks)
-    * Continuous integration
-    * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
-    * Design and implementation notes
-        * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
-        * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
-        * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
-        * [Progressive registration](https://github.com/codalab/codalab/wiki/User_Progressive-Registration)
+* [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
+* Getting Started
+    * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
+    * [Windows](Dev_Getting-Started-on-Windows)
+    * [Mac](Dev_Getting-Started-on-Mac)
+* [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
+* [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)
+* [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking)
+* [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev_Scenarios,-Stories-and-Tasks)
+* Continuous integration
+* [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
+* Design and implementation notes
+    * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
+    * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
+    * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
+    * [Progressive registration](https://github.com/codalab/codalab/wiki/User_Progressive-Registration)
 
-    * [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
-    * [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
+* [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
+* [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
 
 ## Competitions
-    * [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
-    * [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
+* [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
+* [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
 
 ## Worksheets
-    * TBD
+* TBD
 
 ### Editing Guidelines
 If you want to edit the wiki, you can clone it and work on it locally:

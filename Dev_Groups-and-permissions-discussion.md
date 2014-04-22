@@ -3,7 +3,7 @@
 ## Data model
 
 **Groups**
-Groups are identified by a "group spec" in a manner similar to bundles and worksheets. Groups are either user-defined or system-defined. System-defined groups cannot be modified. An example of a system-defined group is the *Public* group which denotes all users.
+Groups are identified by a "group spec" in a manner similar to bundles and worksheets. Groups are either user-defined or system-defined. System-defined groups cannot be modified. An example of a system-defined group is the *Public* group which denotes all users. Non system-defined group are associated with a user (the creator of the group) via `owner_id`.
 
 ```
 group = Table(
@@ -13,8 +13,10 @@ group = Table(
   Column('uuid', String(63), nullable=False),
   Column('name', String(255), nullable=False),
   Column('user_defined', Boolean),
+  Column('owner_id', Integer, nullable=True),
   UniqueConstraint('uuid', name='uix_1'),
   Index('group_name_index', 'name'),
+  Index('group_owner_id_index', 'owner_id'),
   sqlite_autoincrement=True,
 )
 
@@ -32,37 +34,24 @@ user_group = Table(
   'user_group',
   db_metadata,
   Column('id', Integer, primary_key=True, nullable=False),
-  Column('user_id', String(63), nullable=False),
   Column('group_uuid', String(63), ForeignKey(group.c.uuid), nullable=False),
+  Column('user_id', String(63), nullable=False),
+  Column('is_admin', Boolean),
+  Index('group_uuid_index', 'group_uuid'),
   Index('user_id_index', 'user_id'),
   sqlite_autoincrement=True,
 )
 ```
 
+Column `is_admin` exists because a user may be added to a group and given admin privileges for the group. By default, the creator of the group is always an admin.
+
 The implementation will have to be aware of special groups like *Public* since users will not be explicitly added to such groups.
 
 **Permissions**
 
-The set of possible permissions is captured in a table.
+The set of possible permissions will be small and defined using symbolic constants. Basic permissions are: None, Read and All.
 
-```
-permission = Table(
-  'permission',
-  db_metadata,
-  Column('id', Integer, primary_key=True, nullable=False),
-  Column('uuid', String(63), nullable=False),
-  Column('name', String(255), nullable=False),
-  UniqueConstraint('uuid', name='uix_1'),
-  Index('permission_name_index', 'name'),
-  sqlite_autoincrement=True,
-)
-
-group.insert().values(name="All", uuid=...)
-group.insert().values(name="Read", uuid=...)
-...
-```
-
-Permissions are granted to a group on an object (a bundle, a worksheet or a group).
+Permissions are granted to a group on an object (a bundle or a worksheet).
 
 ```
 group_object_permission = Table(
@@ -70,18 +59,15 @@ group_object_permission = Table(
   db_metadata,
   Column('id', Integer, primary_key=True, nullable=False),
   Column('group_uuid', String(63), ForeignKey(group.c.uuid), nullable=False),
-  Column('bundle_object_uuid', String(63), ForeignKey(bundle.c.uuid), nullable=True),
-  Column('worksheet_object_uuid', String(63), ForeignKey(worksheet.c.uuid), nullable=True),
-  Column('group_object_uuid', String(63), ForeignKey(worksheet.c.uuid), nullable=True),
-  Column('permission_uuid', String(63), ForeignKey(permission.c.uuid), nullable=False),
-
+  # Reference to a worksheet or bundle object
+  Column('object_uuid', String(63), nullable=True),
+  # Permissions encoded as integer. 'Read' (0x01) or 'All' (0x11)
+  Column('permission', Integer, nullable=False),
   sqlite_autoincrement=True,
 )
 ```
 
-Table `group_object_permission` only knows about groups; it does not know about users directly. The intent is to create a group for each user. The group will be system-defined (not changeable by end-users) and will contain the single user.
-
-Notice the presence of one column per object type.
+Table `group_object_permission` only knows about groups; it does not know about users directly. All objects (bundles and worksheets) will have an additional column to keep track of the user who created the object. The so-called object owner always has full rights on the object.
 
 #CLI commands
 To manage groups:

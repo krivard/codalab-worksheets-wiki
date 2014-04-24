@@ -13,15 +13,12 @@ This is the CodaLab Wiki! It provides information about the project and its deve
 * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
 * [Set up data storage](https://github.com/codalab/codalab/wiki/Dev_Set-up-data-storage)
 * [Configure CodaLab to work with Visual Studio](https://github.com/codalab/codalab/wiki/Dev_Configure-CodaLab-Visual-Studio)
-
-
 * **Process**
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)
     * [Process for Tracking Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking)
     * [Process for Stories and Tasks](https://github.com/codalab/codalab/wiki/Dev_Scenarios,-Stories-and-Tasks)
     * Continuous integration
     * [Dev: Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab)
-
 * **Design and implementation notes**
     * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
     * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)

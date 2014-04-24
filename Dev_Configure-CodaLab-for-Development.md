@@ -4,9 +4,7 @@
 - [Configure your local environment](#configure-your-local-environment)
 - [Install app schema and default data](#install-app-schema-and-default-data)
 - [Start the web server](#start-the-web-server)
-- [Set up data storage](#set-up-data-storage)
 - [Start the worker role](#start-the-worker-role)
-- [Work with CodaLab in Visual Studio](#work-with-codalab-in-visual-studio)
 
 ## Install the prerequisites
 
@@ -210,88 +208,6 @@ python manage.py test
     
 **Note:** If you experience database errors try deleting the database file (\codalab\codalab\dev_db.*) and run syncdb again. After creating a new database be sure to run `initialize.py` in the `scripts` folder in order to insert initial data required by the app.
 
-## Set up data storage
-
-In order to test uploading and running bundles in CodaLab, you will need to have a [Windows Azure storage account](http://www.windowsazure.com/en-us/pricing/details/storage/ "Windows Azure storage account"). Once you have set up your Azure account, log on to the [Azure Portal](https://manage.windowsazure.com/) and follow the steps in this section.
-
-### Create storage containers.
-
-1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
-1. In the left pane, click **Storage**.
-1. Select your storage account.
-1. At the bottom of the dashboard, click **Manage Access Keys**. Copy your access keys, you'll need them later.
-1. At the top of the dashboard page, click **Containers**.
-1. At the bottom of the Containers page click **Add**.
-1. Create a new container named "bundles". Set the **Access** to "Private".
-1. Add another container named "public". Set the **Access** to "Public Blob".
-
-### Add a service bus namespace
-
-1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
-1. In the left pane, click **Service Bus**.
-1. At the bottom of the dashboard, click **Create**, enter a name and select a region for the namespace, then click the check icon to create it.
-1. In the left pane, click **Service Bus**.
-1. Select the service bus you just created.
-1. At the top of the screen click **Queues**.
-1. Click **Create a new queue**.
-1. Click **Quick Create** and create a new queue named "compute".
-1. Click **Create A New Queue**.
-1. At the bottom of the screen, click **New**, and create another queue named "response".
-1. In the left pane, click **Service Bus**.
-1. At the bottom of the page, click **Connection Information**.
-1. Copy the following connection information:
-    - Namespace name
-    - Default issuer
-    - Default key
-
-### Create a local configuration file
-
-1. Open your local configuration file (`local.py`). If there is no `local.py`, save a copy of `local_sample.py` named `local.py` in the same directory.
-1. In the `Azure storage` section, enter your Azure account details:
-    ```
-    DEFAULT_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
-    AZURE_ACCOUNT_NAME = "<enter name>"
-    AZURE_ACCOUNT_KEY = '<enter key>'
-    AZURE_CONTAINER = '<enter container name>'
-    
-    PRIVATE_FILE_STORAGE = 'codalab.azure_storage.AzureStorage'
-    PRIVATE_AZURE_ACCOUNT_NAME = "<enter name>"
-    PRIVATE_AZURE_ACCOUNT_KEY = "<enter key>"
-    PRIVATE_AZURE_CONTAINER = "<enter container name>"
-    
-    BUNDLE_AZURE_CONTAINER = "<enter the name of your bundle container>"
-    BUNDLE_AZURE_ACCOUNT_NAME = PRIVATE_AZURE_ACCOUNT_NAME
-    BUNDLE_AZURE_ACCOUNT_KEY = PRIVATE_AZURE_ACCOUNT_KEY
-    ```
-
-1. In the `Service Bus` section, enter your service bus connection information:
-    ```
-    SBS_NAMESPACE = '<enter the name of your service bus>'
-    SBS_ISSUER = 'owner'
-    SBS_ACCOUNT_KEY = '<enter value for 'default key'>'
-    ```
-
-**Important:** Do not change the values for `DEFAULT_FILE_STORAGE` and `PRIVATE_FILE_STORAGE`, as these parameters contain the name of the Python class which implements the Azure storage back-end for Django.
-
-### Create a local compute configuration file
-
-1. Open `codalab/codalab/codalabtools/compute/sample.config`.
-1. Save a copy of `sample.config` named `.codalabconfig` in the same directory.
-1. Open `.codalabconfig`.
-1. In the `compute-worker` section, enter the configuration settings for the storage account and the compute queue.
-
-    ```
-    compute-worker:
-        azure-storage:
-            account-name: "your account name"
-            account-key: "your account key"
-        azure-service-bus:
-            namespace: "your namespace"
-            key: "your secret key"
-            issuer: "owner"
-            listen-to: "name of queue"
-        local-root: "D:\\Temp"
-    ```
 
 ## Start the worker roles
 1. Use the following command to start the worker role locally.
@@ -307,29 +223,3 @@ In order to test uploading and running bundles in CodaLab, you will need to have
     python worker.py
     ```
 
-## Work with CodaLab in Visual Studio
-
-You can increase your productivity by writing code, running and debugging the web site in Visual Studio using the [Python Tools for Visual Studio](https://pytools.codeplex.com/). 
-
-**Create the codalab project:**
-
-1. In Visual Studio File menu click **New Project**. Under **Templates**, select **Other Languages**, then choose **Python**.
-1. Select the **From Existing Python Code** template.
-1. Name the project "codalab".
-1. **Location** should be the codalab subdirectory within the codalab project (for example C:\Users\user\Documents\GitHub\codalab\codalab).
-1. Uncheck the **Create directory for solution** option.
-1. Click OK. The **Create New Project from Existing Python Code** dialog appears.
-1. Enter the path for the codalab subdirectory within the codalab project (for example C:\Users\user\Documents\GitHub\codalab\codalab)
-1. add *.scss to the filter list.
-1. Click **Next**.
-1. Select **manage.py** as the file to run when F5 is pressed. If no files are showing up, then you may have used an incorrect project directory in steps 2 or 5.
-1. Click **Next**.
-1. Enable **Django** as a feature of your project.
-1. Click Finish. The Visual Studio project file and solution files should be located in the codalab subfolder within the codalab project: codalab\codalab\codalab.pyproj & codalab\codalab\codalab.sln.
-
-**After you have created the project:**
-
-1. In Solution Explorer right-click the **Python Environments** node and select "Add existing virtual environment...".
-1. Pick the codalab\venv directory.
-1. Save your solution.
-1. In Solution Explorer, right-click on the codalab project node, then choose Django > Validate Django App... The Django Management Console should appear and report zero errors found.

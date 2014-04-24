@@ -21,8 +21,9 @@ git clone https://github.com/<username>/codalab.git
 ```
 
 ## Configure your local environment
+In this segment, you will run the dev_setup script. This will install all dependencies and create a new virtual environment (venv) for CodaLab.
 
-1. Run the dev_setup script. This will install everything you need to run CodaLab locally, including all of the dependencies within the default virtual environment.
+1. Run the dev_setup script. 
 
     **Windows**
     ```
@@ -59,6 +60,8 @@ Now you are ready to install the application schema and default data into the da
 You can configure CodaLab to use either SQL Server or MySQL. Both of these require you to explicitly create a database.
 
 #### Install MySQL Python
+Follow these steps to install MySQL Python.
+
 **Windows**
 
 1. Open a Windows command prompt.
@@ -109,6 +112,7 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
     `export DYLD_LIBRARY_PATH=/usr/local/mysql/lib:$DYLD_LIBRARY_PATH`
 
 ### Create a local config file
+The local configuration file `local.py` tells CodaLab which type of database you are using, and stores credentials for the database.
 
 1. Open `codalab/codalab/settings/local_sample.py`.
 1. Save a copy of `local_sample.py` named `local.py` in the same directory. Naming is important, since CodaLab will recognize `local.py`.
@@ -148,6 +152,11 @@ You can configure CodaLab to use either SQL Server or MySQL. Both of these requi
     **Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
 
 ### Initialize the database
+To initialize the database, you will need to run a few standard [Django commands](https://docs.djangoproject.com/en/dev/ref/django-admin/), and the CodaLab database initialization script.
+- **validate**: Validates all installed models (according to the INSTALLED_APPS setting) and prints validation errors to standard output.
+- **syncdb**: Synchronizes the database state with the current set of models and migrations (note that the `migrate` option is used).
+- **initialize.py**: Inserts initial data into the database.
+
 1. Run the following commands to initialize the database.
 
     **Windows**

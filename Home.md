@@ -11,8 +11,8 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Windows](Dev_Getting-Started-on-Windows)
     * [Mac](Dev_Getting-Started-on-Mac)
 * [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development)
-* [Configure CodaLab to work with Visual Studio](https://github.com/codalab/codalab/wiki/Dev_Configure-CodaLab-Visual-Studio)
 * [Set up data storage](https://github.com/codalab/codalab/wiki/Dev_Set-up-data-storage)
+* [Configure CodaLab to work with Visual Studio](https://github.com/codalab/codalab/wiki/Dev_Configure-CodaLab-Visual-Studio)
 
 * **Process**
     * [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines)

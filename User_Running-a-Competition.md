@@ -1,0 +1,2 @@
+# Running a Competition
+This doc will contain the process of creating a competition, and document the ins and outs of what happens once it's running. Focus on UI interaction and troubleshooting steps. How to publish and un-publish.

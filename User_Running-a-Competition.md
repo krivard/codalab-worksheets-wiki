@@ -2,7 +2,7 @@
 This document explains how to create and run a CodaLab competition. It is assumed that you have already created a competition bundle by following the steps in the [Competition Roadmap](https://github.com/codalab/codalab/wiki/User_Competition-Roadmap).
 
 ## Contents
-- [Uploading a Competition Bundle]()
+- [Uploading a Competition Bundle](#uploading-a-competition-bundle)
 - [Editing a Competition]()
 - [Publishing a Competition]()
 - [Approving/Denying Participants]()

@@ -10,8 +10,9 @@ Welcome to the CodaLab Wiki! Here you will find the documentation for the CodaLa
 * [Competition Roadmap](https://github.com/codalab/codalab/wiki/User_Competition-Roadmap)
 * [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
 * [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
-* [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
+* [Running a Competition](https://github.com/codalab/codalab/wiki/User_Running-a-Competition)
 * [Participate in a Competition](https://github.com/codalab/codalab/wiki/User_Participate-in-a-Competition)
+* [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
 
 ## Worksheets
 * [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)

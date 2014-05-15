@@ -3,14 +3,14 @@ This document provides an overview of how competitions work, and describes the p
 
 ## Contents
 - How Competitions Work
-- Competition file structure
+- Competition Bundle File Structure
 - Types of Competition
 - Competition End to End Process
 
 ## How Competitions Work
 In a typical CodaLab competition, participants compete to find the best approach for a particular problem. Competitions are conducted in two phases: training, and competition. The appropriate data is made available to participants at each phase of the competition. During the training phase, participants have access to training data to refine their algorithms. During the competition phase, participants are provided with competition data to generate results which they can then submit to the competition. Results are calculated at the end of each phase, at which point participants can see the competition results on the leaderboard.
 
-## Competition File Structure
+## Competition Bundle File Structure
 Competitions consist of a set of files collectively known as a "bundle". Although technically CodaLab considers any zipped archive to be a bundle, competition bundles generally contain a specific assortment of files:
 - **competition.yaml** define the contents of the competition bundle, as well as links to external data which the organizer may want to make available.
 - **HTML pages** contain descriptive text and instructions for each phase of the competition.
@@ -40,11 +40,10 @@ CodaLab competitions can be set up in several different ways. There are four mai
 - Running a Competition
 
 ### Planning a Competition
-The very first step in creating a competition is planning. Some questions you will want to ask yourself are:
-- What kind of data will I provide?
-- How will I make this data available to participants?
-- Which steps will I take to secure my data?
+The very first step in creating a competition is planning. Some questions you will want to ask are:
 - Which competition template will I choose for a starting point?
+- How will I make data available to participants?
+- Which steps will I take to secure my data?
 - What type of scoring program will I need to create?
 
 ### Curating Competition Data
@@ -59,7 +58,7 @@ The scoring program evaluates the competition submissions for each phase, compar
 For more information see [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition).
 
 ### Creating a Competition Bundle
-The next step is creating a bundle and uploading that bundle to CodaLab. For detailed instructions, see [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle).
+The next step is creating a competition bundle. For detailed instructions, see [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle).
 
 ### Running a Competition
 Once your competition is up and running, you can manage it from your [CodaLab Dashboard](https://www.codalab.org/my/). For more details, see [Running a Competition](https://github.com/codalab/codalab/wiki/User_Running-a-Competition)

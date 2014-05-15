@@ -1,8 +1,20 @@
-This is the CodaLab Wiki! It provides information about the project and its development. It is maintained by the CodaLab community for the CodaLab community. 
+![](http://willum070.github.io/docteam/images/codalab-logo-dinky-pos.png)
+
+Welcome to the CodaLab Wiki! Here you will find the documentation for the CodaLab project. The CodaLab Wiki is maintained by the CodaLab community. 
 
 # CONTENTS
 ## General
 * [CodaLab FAQ](https://github.com/codalab/codalab/wiki/Project_CodaLab_FAQ)
+
+## Competitions
+* [Competition Roadmap](https://github.com/codalab/codalab/wiki/User_Competition-Roadmap)
+* [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
+* [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
+* [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
+* [Participate in a Competition](https://github.com/codalab/codalab/wiki/User_Participate-in-a-Competition)
+
+## Worksheets
+* [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
 
 ## Developers
 * [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute)
@@ -24,15 +36,6 @@ This is the CodaLab Wiki! It provides information about the project and its deve
     * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
     * [E-mail notification](https://github.com/codalab/codalab/wiki/E-mail-notifications)
     * [Progressive registration](https://github.com/codalab/codalab/wiki/User_Progressive-Registration)
-
-## Competitions
-* [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)
-* [Building a Scoring Program for a Competition](https://github.com/codalab/codalab/wiki/User_Building-a-Scoring-Program-for-a-Competition)
-* [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
-* [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
-
-## Worksheets
-* TBD
 
 ## Editing Guidelines
 If you want to edit the wiki, you can clone it and work on it locally:

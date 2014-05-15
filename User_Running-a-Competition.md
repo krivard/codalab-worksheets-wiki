@@ -14,6 +14,7 @@ This document explains how to create and run a CodaLab competition. It is assume
 The competition bundle contains all of the information and files needed by CodaLab to create a competition.
 
 **To upload a competition bundle to CodaLab**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
@@ -30,6 +31,7 @@ Once your competition has been uploaded, you can edit it by using the dashboard.
 - Toggle the public visibility of the competition.
 
 **To edit a competition**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
@@ -39,12 +41,14 @@ Once your competition has been uploaded, you can edit it by using the dashboard.
 Prior to being published, competitions are only visible to the competition organizer.
 
 **To publish a competition**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Publish** button for the competition you want to publish.
 
 **To un-publish a competition**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
@@ -55,12 +59,14 @@ Prior to being published, competitions are only visible to the competition organ
 Before participants can join the competition, they need to be approved by the competition organizer. Once participants are added, you can
 
 **To view participants**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Locate the competition for which you want to view participants, and click the **Participants** button. The participants are shown in a table.
 
 **To approve/deny a participant**
+
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.

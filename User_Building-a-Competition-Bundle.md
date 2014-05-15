@@ -137,13 +137,15 @@ reference.zip
 Here are the contents of the program.zip file:
 ```
 program.zip
-  |- evaluate.exe (The program that's run)
-  |- metadata     (Contents below...)
+  |- evaluate.py (The actual evaluation code to run)
+  |- metadata     (Syntax and information needed to run)
+  |- readme.txt (Contains notes about the evaluation program)
+  |- setup.py (Enables py2exe to build a windows executable of the evaluate.py script)
   |- supporting modules and libraries for evaluate.exe to run in isolation.
 ```
 
-The program.zip metadata file contains:
+The program.zip metadata file contains command syntax to use, along with a short description:
 ```
-command: $program/evaluate.exe $input $output
+command: python $program/evaluate.py $input $output
 description: Example competition evaluation program.
 ```

@@ -141,7 +141,7 @@ program.zip
   |- metadata     (Syntax and information needed to run)
   |- readme.txt (Contains notes about the evaluation program)
   |- setup.py (Enables py2exe to build a windows executable of the evaluate.py script)
-  |- supporting modules and libraries for evaluate.exe to run in isolation.
+  |- Supporting modules and libraries (if required).
 ```
 
 The program.zip metadata file contains command syntax to use, along with a short description:

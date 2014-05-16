@@ -41,7 +41,7 @@ In this section we'll walk through the major segments of the competition creatio
 ### Planning a Competition
 The very first step in creating a competition is planning. Some questions you will want to ask are:
 - Which competition template will I choose for a starting point?
-- How will I make data available to participants?
+- How will I make data securely available to participants?
 - Which steps will I take to secure my data?
 - What type of scoring program will I need to create?
 

@@ -1,4 +1,8 @@
-In the current CodaLab competition model a competition is constructed with a set of Reference Data and a Scoring Program. The way competitions work currently the Reference Data is compared with a participants submission and the differences in the two are scored using the Scoring Program.
+# Building a Scoring Program
+
+In the current CodaLab competition model a competition is constructed with a set of reference data and a scoring program. When a competition is run, the reference data is compared with each participant's submission, and the differences in the two are scored using the scoring program.
+
+## Reference and Submission Bundles
 
 The program.zip bundle contains the Scoring Program that compares the participants submission with the reference data (in the reference.zip bundle) to score the submission. In this example the reference data contains the value of pi. The program.zip bundle computes the absolute difference of the submitted value from the reference value.
 
@@ -18,18 +22,20 @@ submission.zip
 Here are the contents of the program.zip file:
 ```
 program.zip
-  |- evaluate.exe (The program that's run)
-  |- metadata     (Contents below...)
-  |- supporting modules and libraries for evaluate.exe to run in isolation.
+  |- evaluate.py (The actual evaluation code to run.)
+  |- metadata     (Syntax and information needed to run.)
+  |- readme.txt (Notes about the evaluation program.)
+  |- setup.py (Enables py2exe to build a windows executable of the evaluate.py script.)
+  |- Supporting modules and libraries (if required).
 ```
 
 The program.zip metadata file contains:
 ```
-command: $program/evaluate.exe $input $output
+command: python $program/evaluate.exe $input $output
 description: Example competition evaluation program.
 ```
 
-Here are the assumptions about the scoring process and the scoring program:
+## Directory Structure for Submissions
 
 1. There is a fixed directory structure that the scoring program operates within. It looks like this:
 ```
@@ -38,7 +44,7 @@ Submission Directory
     |- ref (This is the reference data unzipped)
     |- res (This is the user submission unzipped)
   |- program (This is the scoring program [and any included dependencies] unzipped)
-  |- output (This is where the scores.txt file needs to be written by the scoring program)
+  |- output (This is where the scores.txt file is written by the scoring program)
 ```
 
 1. The scoring program will be invoked as `<program> <input directory> <output directory>`.
@@ -47,4 +53,4 @@ Submission Directory
     ```
     Difference: 0.0057
     ```
-1. Each key in the scores.txt file is identical to a leaderboard column key in the competition.yaml. (e.g. "DIFFERENCE" in the [example competition.yaml](https://github.com/codalab/codalab/wiki/12.-Building-a-Competition-Bundle). This is how scores are related to the competition for reporting so it is critical the leaderboard keys and the keys in the scores.txt are identical.
+1. Each key in the scores.txt file is identical to a leaderboard column key in the competition.yaml. (e.g. "DIFFERENCE" in the example competition.yaml shown in [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)). This is how scores are related to the competition for reporting so it is critical the leaderboard keys and the keys in the scores.txt are identical.

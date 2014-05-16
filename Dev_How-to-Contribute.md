@@ -1,7 +1,7 @@
 There are many ways that you can contribute your skills to the CodaLab project! We value your feedback, questions, bug reports, and feature requests. Here is a list of the main ways that you can help:
 
 - Use CodaLab: [http://www.codalab.org/](http://www.codalab.org/).
-- Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
+- Find a bug? Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
 - Submit a new feature request as a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
 - Become a CodaLab developer.
 - Let others know about CodaLab!

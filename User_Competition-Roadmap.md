@@ -6,11 +6,11 @@ This document provides an overview of how competitions work, and describes the p
     - [Competition Bundle File Structure](#competition-bundle-file-structure)
     - [Types of Competition](#types-of-competition)
 - [Competition End to End Process](#competition-end-to-end-process)
-    - Planning a Competition
-    - Making Data Available Securely
-    - Creating a Scoring Program
-    - Creating a Competition Bundle
-    - Running a Competition
+    - [Planning a Competition](#planning-a-competition)
+    - [Making Data Available Securely](#making-data-available-securely)
+    - [Creating a Scoring Program](#creating-a-scoring-program)
+    - [Creating a Competition Bundle](#creating-a-competition-bundle)
+    - [Running a Competition](#running-a-competition)
 
 ## How Competitions Work
 In a typical CodaLab competition, participants compete to find the best approach for a particular problem. Competitions are conducted in three phases: test, training, and competition. The appropriate data is made available to participants at each phase of the competition. During the test and training phases, participants have access to training data to develop and refine their algorithms. During the competition phase, participants are provided with competition data to generate results which they can then submit to the competition. Results are calculated at the end of each phase, at which point participants can see the competition results on the leaderboard.

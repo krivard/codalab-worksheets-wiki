@@ -4,7 +4,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 
 *What can you do with CodaLab?*
 
-* **Join a competition.** Visit the [CodaLab.org competitions page](https://www.codalab.org/competitions) to see a list of current competitions. [Find out how to register for a competition](https://github.com/codalab/codalab/wiki/User_Participating-in-a-Competition).
+* **Join a competition.** Visit the [CodaLab.org competitions page](https://www.codalab.org/competitions) to see a list of current competitions. [Find out how to join a competition](https://github.com/codalab/codalab/wiki/User_Participating-in-a-Competition).
 * **Host a competition.** The [Competition Roadmap](https://github.com/codalab/codalab/wiki/User_Competition-Roadmap) shows you everything you need to know to host a CodaLab competition.
 * **Collaborate with worksheets.** 
 * **Contribute to the project.** See [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute) to find out how to report bugs, submit feature requests, and contribute your skills as a developer.

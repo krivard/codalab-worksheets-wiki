@@ -5,6 +5,7 @@ This document explains how to create and run a CodaLab competition. It is assume
 - [Uploading a Competition Bundle](#uploading-a-competition-bundle)
 - [Editing a Competition](#editing-a-competition)
 - [Publishing a Competition](#publishing-a-competition)
+- [Viewing Participants](#viewing-participants)
 - [Approving/Denying Participants](#approvingdenying-participants)
 - [Viewing Submissions](#viewing-submissions)
 - [Deleting a Competition](#deleting-a-competition)
@@ -52,26 +53,48 @@ Prior to being published, competitions are only visible to the competition organ
 1. Log in to www.codalab.org.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
-1. Click the **Edit** button for the competition you want to un-publish.
+1. Select a competition and click the **Edit** button.
 1. Under **General Information**, uncheck the checkbox next to **Publicly Available**.
 
+## Viewing participants
+When a participant registers for a competition, they are added to a list of participants. Follow these steps to view the participants for a competition.
+
+**To view competition participants**
+
+1. Log in to www.codalab.org.
+1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
+1. Click the **Competitions I'm Running** tab.
+1. Select a competition, and click the **Participants** button to see the list of participants.
+
 ## Approving/Denying Participants
-Before participants can join the competition, they need to be approved by the competition organizer. Once participants are added, you can
+The competition organizer must approve or deny each participant who registers for a competition. Follow these steps to approve or deny newly registered participants.
 
-**To view participants**
+**To approve/deny participants**
 
-1. Log in to www.codalab.org.
-1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
-1. Click the **Competitions I'm Running** tab.
-1. Locate the competition for which you want to view participants, and click the **Participants** button. The participants are shown in a table.
-
-**To approve/deny a participant**
-
-1. Log in to www.codalab.org.
-1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
-1. Click the **Competitions I'm Running** tab.
-1. Locate the competition for which you want to approve/deny participants, and click the **Participants** button. Pending participants are listed at the top.
-1. For each participant, select a status of **Approve** or **Deny** from the dropdown menu. You can give a short message to the participant in the **Reason** field (for example letting them know why they were not approved).
+1. Follow the instructions to view participants for a competition. Pending participants are listed at the top.
+1. For each participant, select a status of **Approve** or **Deny** from the drop-down menu. You can give a short message to the participant by typing in the **Reason** field.
 1. Click the **Process** button to complete the approval process.
 
 ## Viewing Submissions
+The competition organizer can view all of the submissions for a competition. These are displayed in a table which shows:
+
+- Time and date of submission
+- Participant ID
+- Filename (click to download the competition bundle for that submission)
+- Status
+- Leaderboard (True if the submission has been submitted to the leaderboard, otherwise False)
+
+Click the plus sign in the last column to access additional links for each competition. Here, you can:
+
+- Download the submission
+- View standard output and error logs
+- Download evaluation output from the prediction and scoring steps
+
+## Deleting a Competition
+
+**To delete a competition**
+
+1. Log in to www.codalab.org.
+1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
+1. Click the **Competitions I'm Running** tab.
+1. Click the **Delete** button for the competition you want to delete. You will be prompted to confirm the deletion.

@@ -9,7 +9,6 @@ This document explains how to create and run a CodaLab competition. It is assume
 - [Approving/Denying Participants](#approvingdenying-participants)
 - [Viewing Submissions](#viewing-submissions)
 - [Deleting a Competition](#deleting-a-competition)
-- [Troubleshooting](#troubleshooting)
 
 ## Uploading a Competition Bundle
 The competition bundle contains all of the information and files needed by CodaLab to create a competition.

@@ -57,6 +57,18 @@ In this section you will learn how to make a submission to a CodaLab competition
 
     **IMPORTANT:** Your submission will not be active until you submit it to the leaderboard.
 
-1. Click **Refresh status**, then click **Submit to Leaderboard**.
+1. Click **Refresh status**, then click **Submit to Leaderboard**. You can remove the submission by clicking **Remove from Leaderboard**.
 
 If there is an error with your submission, you can use the standard output and error logs to get more information.
+
+## Viewing Competition Results
+You can keep up with the progress of competitions you are participating in.
+
+**To view results for a competition**
+
+1. [Sign in to CodaLab](https://www.codalab.org/accounts/login/). If you do not have an account you will need to [create one](https://www.codalab.org/accounts/signup/).
+1. Visit the [CodaLab dashboard](https://www.codalab.org/my).
+1. Select the competition for which you want to view results.
+1. Click the **Results** tab.
+
+    ![](images/comp-submit-4.png)

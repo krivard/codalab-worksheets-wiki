@@ -49,7 +49,7 @@ In this section you will learn how to make a submission to a CodaLab competition
 
     On this page you can make new submissions, and see previous submissions for each phase in the competition.
 
-1. Click **Submit Results...**. You will be prompted to select a submission bundle (.zip archive). Locate the bundle you want to submit and click **Open** to upload your submission.
+1. Click **Submit Results...**. You will be prompted to select a submission bundle (.zip archive). Locate the bundle you want to submit and click **Open** to upload your submission. When uploading is complete the details will be displayed.
 
     ![](images/comp-submit-3.png)
 

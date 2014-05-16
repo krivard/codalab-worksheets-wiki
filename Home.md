@@ -1,4 +1,4 @@
-[![](http://willum070.github.io/docteam/images/codalab-logo-dinky-pos.png)](https://www.codalab.org)
+[![CodaLab.org](http://willum070.github.io/docteam/images/codalab-logo-dinky-pos.png)](https://www.codalab.org)
 
 Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 

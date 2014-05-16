@@ -53,7 +53,7 @@ In this section you will learn how to make a submission to a CodaLab competition
 
     ![](images/comp-submit-3.png)
 
-    Now you will be able to see the details for the submission you just uploaded. The detail page for each submission includes links to download the submission bundle, view standard output and error logs, and download evaluation output.
+    The detail page for each submission includes links to download the submission bundle, view standard output and error logs, and download evaluation output.
 
     **IMPORTANT:** Your submission will not be active until you submit it to the leaderboard.
 

@@ -5,7 +5,7 @@ This document explains how to participate in CodaLab competitions.
 
 - [Viewing Current Competitions](#viewing-current-competitions)
 - [Registering for a Competition](#registering-for-a-competition)
-- [Making a Submission](#making-a-submission) (don't forget crucial step of submit to leaderboard).
+- [Making a Submission](#making-a-submission)
 - [Viewing Competition Results](#viewing-competition-results)
 
 ## Viewing Current Competitions

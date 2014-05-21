@@ -22,7 +22,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 * [Groups and Permissions Discussion](https://github.com/codalab/codalab/wiki/Dev_Groups-and-permissions-discussion)
 
 ## Worksheets
-* [Using the CodaLab Bundle Service and CLI](User_Using-the-CodaLab-CLI.md)
+* [Using the CodaLab Bundle Service and CLI](User_Using-the-CodaLab-CLI)
 * [Displaying Bundle Contents and Metadata](https://github.com/codalab/codalab/wiki/Dev_Displaying-Bundle-Contents-and-Metadata)
 
 ## Developers

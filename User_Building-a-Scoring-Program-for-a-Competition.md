@@ -38,6 +38,7 @@ description: Example competition evaluation program.
 ## Directory Structure for Submissions
 
 1. There is a fixed directory structure that the scoring program operates within. It looks like this:
+
 ```
 Submission Directory
   |- input

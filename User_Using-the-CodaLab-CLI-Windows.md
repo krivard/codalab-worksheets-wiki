@@ -40,14 +40,9 @@ These instructions show you how to set up the bundle service and run the CodaLab
     `pip install sqlalchemy`
 
 ## Get the source code
-1. Fork the codalab-cli repo from GitHub: https://github.com/codalab/codalab-cli
-1. Clone your fork.
+1. Install the CodaLab CLI.
 
-    git clone https://github.com/<username>/codalab-cli.git
-
-
-1. Update codalab-cli\codalab\bin\cl.bat to point to your codalab-cli directory.
-[WILL: Write a PS1 file to replace cl.bat, handle input parameters.]
+    `pip install codalab-cli`
 
 ## Local Bundle Server Testing
 These are some rough notes since the process is kind of disjointed.

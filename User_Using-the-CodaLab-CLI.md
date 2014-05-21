@@ -13,7 +13,6 @@ The CodaLab CLI is a client from which you can run commands to create and manage
 
 ## Install prerequisites
 - Python (Python 2.7.3 is preinstalled on most Ubuntu distributions. Open a terminal window and type `python` at the prompt to verify whether this is the case on your system.) If Python is not installed, you will need to install it.
-- Git `$ sudo apt-get install git`
 - Virtualenv `$ sudo apt-get install python-virtualenv`
 
 **Note:** After installing the prerequisites, be sure to restart the terminal window so that the changes take effect.
@@ -21,15 +20,17 @@ The CodaLab CLI is a client from which you can run commands to create and manage
 ## Get the source code
 In this step you will clone the source code to your local computer, set up a Python virtual environment, install some required packages and define a PATH.
 
-1. Open a browser and go to [https://github.com/codalab/codalab-cli](https://github.com/codalab/codalab-cli).
-1. Fork and clone the repository.
+1. Install the CodaLab CLI.
+
+    `pip install codalab-cli`
+
 1. Open a terminal window.
 1. Navigate to the `codalab-cli` directory.
 1. Create a virtual environment directory.
 
     `virtualenv codalab_env --no-site-packages`
     
-1. Install the sqlalachemy package:
+1. Install the sqlalchemy package:
 
     `codalab_env/bin/pip-2.7 install sqlalchemy`
 

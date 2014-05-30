@@ -222,9 +222,10 @@ logging:
 
    If using a local MySQL server:
 
-    ```fab config:dev install_mysql:mysql
-       fab config:dev install_mysql:site_db
-    ```
+    ```fab config:dev install_mysql:mysql```
+
+    ```fab config:dev install_mysql:site_db```
+    
    The first command above install MySQL and the second line creates the database for the site.
 
 1. Deploy to Azure for the first time.

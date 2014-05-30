@@ -212,8 +212,20 @@ logging:
 1. Navigate to the deploy directory.
     `cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 
-1. Create the Azure virtual machines that will host your deployment.
-    `fab config:dev provision:all`
+1. Create the Azure virtual machines that will host your deployment. This is done once.
+
+    ```fab config:dev provision:all```
+
+   Enable CORS for Blob storage
+
+    ```fab config:dev enable_cors```
+
+   If using a local MySQL server:
+
+    ```fab config:dev install_mysql:mysql
+       fab config:dev install_mysql:site_db
+    ```
+   The first command above install MySQL and the second line creates the database for the site.
 
 1. Deploy to Azure for the first time.
     `fab config:dev build push_build deploy_web supervisor nginx_restart`

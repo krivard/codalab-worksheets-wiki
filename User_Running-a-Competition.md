@@ -36,9 +36,10 @@ Once your competition has been uploaded, you can edit it by using the dashboard.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Edit** button for the competition you want to edit.
+1. Make the desired changes, then scroll to the bottom of the page and click **Submit**.
 
 ## Publishing a Competition
-Prior to being published, competitions are only visible to the competition organizer.
+Publish a competition to make it publicly visible. Prior to being published, competitions are only visible to the competition organizer.
 
 **To publish a competition**
 
@@ -47,6 +48,9 @@ Prior to being published, competitions are only visible to the competition organ
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Publish** button for the competition you want to publish.
 
+## Un-Publishing a Competition
+Un-publishing a competition takes it offline so that it can only be viewed by the competition organizer.
+
 **To un-publish a competition**
 
 1. Log in to www.codalab.org.
@@ -54,6 +58,7 @@ Prior to being published, competitions are only visible to the competition organ
 1. Click the **Competitions I'm Running** tab.
 1. Select a competition and click the **Edit** button.
 1. Under **General Information**, uncheck the checkbox next to **Publicly Available**.
+1. Scroll to the bottom of the page and click **Submit**.
 
 ## Viewing participants
 When a participant registers for a competition, they are added to a list of participants. Follow these steps to view the participants for a competition.
@@ -97,3 +102,4 @@ Click the plus sign in the last column to access additional links for each compe
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Delete** button for the competition you want to delete. You will be prompted to confirm the deletion.
+**NOTE:** If you have previously published the competition, you will need to un-publish the competition first. See [Un-Publishing a Competition](#un-publishing-a-competition).

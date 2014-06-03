@@ -149,7 +149,7 @@ The local configuration file `local.py` tells CodaLab which type of database you
         }
     ```
 
-    **Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to manually install it and create a database before proceeding. CodaLab setup does not install MySQL.
+    **Note:** If you want to use [MySQL](http://www.mysql.com/) you'll need to [manually install](#install-mysql-python) it and create a database before proceeding. CodaLab setup does not install MySQL.
 
 ### Initialize the database
 To initialize the database, you will need to run a few standard [Django commands](https://docs.djangoproject.com/en/dev/ref/django-admin/), and the CodaLab database initialization script.
@@ -176,9 +176,8 @@ To initialize the database, you will need to run a few standard [Django commands
     ```
 
 1. Run tests to verify that everything is working.
-```
-python manage.py test
-```
+
+   python manage.py test
 
 1. **Optional:** Populate the site with some sample data.
 

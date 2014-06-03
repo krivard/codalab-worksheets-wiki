@@ -177,7 +177,7 @@ To initialize the database, you will need to run a few standard [Django commands
 
 1. Run tests to verify that everything is working.
 
-   python manage.py test
+   `python manage.py test`
 
 1. **Optional:** Populate the site with some sample data.
 

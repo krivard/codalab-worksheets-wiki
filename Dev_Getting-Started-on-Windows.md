@@ -52,12 +52,14 @@ If you want to make changes to CodaLab's stylesheets via SCSS files, you will ne
     `gem install compass`
     
     Each time you make changes to the SCSS files in the **sass** folder, take the following steps to generate the CSS files:
+
         ```
         cd codalab\apps\web\static
         compass compile
         ```
     
     Alternatively, you can run the `compass watch` command to start a process which will automatically re-generate the files when changes are made:
+
         ```
         cd codalab\apps\web\static
         compass watch .

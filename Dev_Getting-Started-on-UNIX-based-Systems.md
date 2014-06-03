@@ -28,7 +28,8 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 
    `apt-get install build-essential python-dev libmysqlclient-dev`
 
-1. Install and configure Compass.
+## Install Compass
+If you want to make changes to CodaLab's stylesheets via SCSS files, you will need to install [Compass](http://compass-style.org/). Note that this step is only required if you plan to make any changes to stylesheets.
 
    - Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
  
@@ -42,11 +43,14 @@ Assuming a fresh Ubuntu install the following commands should get you started. E
 
      `compass compile`
 
-   Or to start a process which will automatically re-generate the files when changes are made:
+   Alternatively, you can run the `compass watch` command to start a process which will automatically re-generate the files when changes are made:
 
      `cd codalab/apps/web/static`
 
      `compass watch .`
+
+## Install the JavaScript Closure Compiler
+If you need to modify any JavaScript files, you'll need the [JavaScript Closure Compiler](https://developers.google.com/closure/compiler/). Note that this step is only required if you make changes to JavaScript files.
 
 1. Install the JavaScript Closure compiler.
 

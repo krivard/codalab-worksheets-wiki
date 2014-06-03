@@ -42,7 +42,7 @@ Follow these steps to install MySQL 5.1 on your system.
 
 1. Launch Web Platform Installer and use it to install MySQL 5.1.
 
-## Install Compass
+## Install Compass (optional)
 If you want to make changes to CodaLab's stylesheets via SCSS files, you will need to install [Compass](http://compass-style.org/). Note that this step is only required if you plan to make any changes to stylesheets.
 
 1. Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
@@ -64,7 +64,7 @@ If you want to make changes to CodaLab's stylesheets via SCSS files, you will ne
     
     For more information, see [https://rubygems.org/gems/compass](https://rubygems.org/gems/compass).
 
-## Install the JavaScript Closure Compiler
+## Install the JavaScript Closure Compiler (optional)
 If you need to modify any JavaScript files, you'll need the [JavaScript Closure Compiler](https://developers.google.com/closure/compiler/). Note that this step is only required if you make changes to JavaScript files.
 
 1. Install the JavaScript Closure compiler.

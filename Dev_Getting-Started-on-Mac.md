@@ -28,7 +28,7 @@ In this section, we will walk you through installing Python 2.7.x, installing pr
 
 7. Install GCC. XCode Menu > Preferences > Downloads > Install Command Line Tools
 
-## Install Compass
+## Install Compass (optional)
 If you want to make changes to CodaLab's stylesheets via SCSS files, you will need to install [Compass](http://compass-style.org/). Note that this step is only required if you plan to make any changes to stylesheets.
 
    - Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
@@ -49,7 +49,7 @@ If you want to make changes to CodaLab's stylesheets via SCSS files, you will ne
 
      `compass watch .`
 
-## Install the JavaScript Closure Compiler
+## Install the JavaScript Closure Compiler (optional)
 If you need to modify any JavaScript files, you'll need the [JavaScript Closure Compiler](https://developers.google.com/closure/compiler/). Note that this step is only required if you make changes to JavaScript files.
 
    - Install Java from  [https://www.java.com/en/download/](https://www.java.com/en/download/).

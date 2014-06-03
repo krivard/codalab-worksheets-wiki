@@ -29,11 +29,21 @@ Assuming a fresh Windows environment the following should get you started:
     pip install virtualenv
     ```
 
-1. Install [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). Web Platform Installer makes it easy to install a wide variety of packages that you may need.
-
-1. Launch Web Platform Installer and user it to install MySQL 5.1.
+1. Activate the virtual environment.
+    
+    `venv\scripts\activate`
 
 1. Install Git: http://msysgit.github.io/ (be sure to check the **Run Git from Windows Command Prompt** option, as this will add Git to your local path).
+
+## Install MySQL
+Follow these steps to install MySQL 5.1 on your system.
+
+1. Install [Microsoft Web Platform Installer](http://www.microsoft.com/web/downloads/platform.aspx). Web Platform Installer makes it easy to install a wide variety of packages that you may need.
+
+1. Launch Web Platform Installer and use it to install MySQL 5.1.
+
+## Install Compass
+If you want to make changes to CodaLab's stylesheets via SCSS files, you will need to install [Compass](http://compass-style.org/). Note that this step is only required if you plan to make any changes to stylesheets.
 
 1. Install Ruby from  [http://rubyinstaller.org/downloads/](http://rubyinstaller.org/downloads/). (Version 1.9.3 is recommended). During installation be sure to select the option to add Ruby to your PATH.
 
@@ -55,6 +65,9 @@ Assuming a fresh Windows environment the following should get you started:
     
     For more information, see [https://rubygems.org/gems/compass](https://rubygems.org/gems/compass).
 
+## Install the JavaScript Closure Compiler
+If you need to modify any JavaScript files, you'll need the [JavaScript Closure Compiler](https://developers.google.com/closure/compiler/). Note that this step is only required if you make changes to JavaScript files.
+
 1. Install the JavaScript Closure compiler.
 
     &bull; Install Java from  [https://www.java.com/en/download/](https://www.java.com/en/download/).
@@ -64,10 +77,6 @@ Assuming a fresh Windows environment the following should get you started:
     &bull; Download and extract Closure from [http://dl.google.com/closure-compiler/compiler-latest.zip](http://dl.google.com/closure-compiler/compiler-latest.zip).
 
     &bull; Create `C:\closure` and copy **compiler.jar** into the new folder.
-
-1. Activate the virtual environment.
-    
-    `venv\scripts\activate`
 
 1. Take the following steps to generate the JavaScript files after you've made changes to the js folder:
 

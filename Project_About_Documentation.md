@@ -1,14 +1,17 @@
 # About CodaLab Documentation
 This topic explains how CodaLab documentation is set up, and shows you how to work with the documentation. CodaLab documentation is presented from two resources:
 - The CodaLab wiki, which you are now reading, contains the main CodaLab documentation. When accessed from codalab.org, wiki pages open in a new window.
-- [CodaLab GitHub IO pages](http://codalab.github.io/codalab) contain a subset of documentation which provides a tighter integration with the site.
+- [CodaLab GitHub IO pages](http://codalab.github.io/codalab) contain a subset of documentation which is more closely integrated with the site.
 
 No documentation is stored with the main site, relieving contributors of the need to re-deploy whenever documentation changes are made.
 
 ## Working with CodaLab GitHub IO Pages
-To work with the CodaLab GitHub IO pages, follow these steps:
+GitHub repositories contain a special branch named gh-pages, which stores the files for the repo's [GitHub Pages](https://pages.github.com/) website. You can see CodaLab's gh-pages branch [here](https://github.com/codalab/codalab/tree/gh-pages).
 
-1. Open a command prompt and navigate to your CodaLab repository.
+To work with the CodaLab GitHub Pages, follow these steps:
+
+1. If you have not already done so, [clone the CodaLab repository](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development#get-the-source-code).
+1. Open a command prompt and navigate to the CodaLab folder.
 1. Create a new orphan branch named 'gh-pages':
 
     `git checkout --orphan gh-pages`

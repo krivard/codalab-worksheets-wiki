@@ -31,6 +31,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 ### Install and configure Fabric
 1. Launch Cygwin.
 1. Install the following packages (in this order):
+
     `$ easy_install pip`
     `$ pip install fabric`
     `$ pip install azure pyyaml`

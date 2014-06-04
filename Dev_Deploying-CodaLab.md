@@ -32,10 +32,12 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 1. Launch Cygwin.
 1. Install the following packages (in this order):
 
-    `$ easy_install pip`
-    `$ pip install fabric`
-    `$ pip install azure pyyaml`
-    `$ pip install ecdsa`
+    ```
+    $ easy_install pip
+    $ pip install fabric
+    $ pip install azure pyyaml
+    $ pip install ecdsa
+    ```
 
 1. Install [PyCrypto](https://www.dlitz.net/software/pycrypto/) using the appropriate [prebuilt binary](http://www.voidspace.org.uk/python/modules.shtml#pycrypto).
 

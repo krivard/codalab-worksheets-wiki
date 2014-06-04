@@ -12,7 +12,8 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 # CONTENTS
 ## General
 * [CodaLab FAQ](Project_CodaLab_FAQ)
-* [CodaLab Users Group](http://willum070.github.io/docteam/forum.html)
+* [About CodaLab Documentation](Project_About_Documentation)
+* [CodaLab Users Group](http://codalab.github.io/codalab/forum.html)
 * [CodaLab Dev Group](https://groups.google.com/forum/#!forum/codalabdev)
 
 ## Competitions
@@ -50,23 +51,3 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
     * [E-mail notification](E-mail-notifications)
     * [Progressive registration](User_Progressive-Registration)
 
-## Editing Guidelines
-If you want to edit the wiki, you can clone it and work on it locally:
-
-    git clone https://github.com/codalab/codalab.wiki.git
-
-Note that the wiki is its own repo, separate from the CodaLab repo. Forking is not necessary, and you will not need to make pull requests for your changes. In light of this, please take the time to ensure that any documentation updates you contribute are technically correct. The CodaLab project welcomes your contributions!
-
-In order to keep this content coherent we have adopted the following page naming convention to make it easy to find things. We are using pseudo-namespaces to organize pages. This is accomplished by using a prefix plus underscore for the page names, such as "Dev_configuring your setup".
-
-This is the current subject area breakdown to make things consistent:
-
-* **Project** - Project Documentation
-* **User** - Competition Organizer Documentation
-* **UX** - User Experience / Interaction Design Documentation
-* **Dev** - Developer Documentation
-* **Test** - Test Documentation
-* **Release** -  Release Documentation
-* **Trash** - Things we no longer need but don't want to discard yet
-
-While codes are convenient for quick classification, it is better if pages are found by naturally following the above content guide.

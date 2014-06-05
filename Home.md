@@ -23,6 +23,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 * [Running a Competition](User_Running-a-Competition)
 * [Participating in a Competition](User_Participating-in-a-Competition)
 * [Groups and Permissions Discussion](Dev_Groups-and-permissions-discussion)
+* [Example Competitions](https://github.com/codalab/competition-examples)
 
 ## Worksheets
 * [Using the CodaLab Bundle Service and CLI (Linux)](User_Using-the-CodaLab-CLI)

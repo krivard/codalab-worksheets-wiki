@@ -4,7 +4,7 @@
 - [Configure your local environment](#configure-your-local-environment)
 - [Install app schema and default data](#install-app-schema-and-default-data)
 - [Start the web server](#start-the-web-server)
-- [Start the worker role](#start-the-worker-role)
+- [Start the worker role](#start-the-worker-roles)
 
 ## Install the prerequisites
 

@@ -52,3 +52,8 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
     * [E-mail notification](E-mail-notifications)
     * [Progressive registration](User_Progressive-Registration)
 
+## CodaLab Project
+* [Terms of Use](http://codalab.github.io/codalab/terms.html)
+* [Notices](http://codalab.github.io/codalab/notices.html)
+* [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance-8-18.docx)
+

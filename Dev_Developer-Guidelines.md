@@ -3,7 +3,7 @@ In the [CodaLab Github Repo](http://github.com/codalab/codalab) there may be man
 
 1. **production** - This is the gold standard codebase in production at any given time. It should be well tested and deployable to the production site http://www.codalab.org/ at any and all times.
 
-2. **master** - This is the integration branch. This is the branch that has all of the work that is thought to have been completed but has not yet undergone final testing before deployment to production. master is where automated builds and QA happens.
+2. **master** - This is the integration branch. This is the branch that has all of the work that is thought to have been completed but has not yet undergone final testing before deployment to production. The master branch is where automated builds and QA happens.
 
 The typical workflow for a contributor follows:
 
@@ -18,19 +18,19 @@ The typical workflow for a contributor follows:
 
 When the code in your GitHub fork is ready to make its way into the master branch of the CodaLab GitHub account, you should [submit a pull request](https://help.github.com/articles/using-pull-requests#initiating-the-pull-request). Be detailed in your description of the changes.
 
-When you submit the pull request, GitHub will tell if the request cannot be merged automatically. This GitHub page explains [how to merge a pull request](https://help.github.com/articles/merging-a-pull-request).
+When you submit a pull request, GitHub will let you know if the request cannot be merged automatically. This GitHub page explains [how to merge a pull request](https://help.github.com/articles/merging-a-pull-request).
 
 **Other assumptions:**
 
 * Committers will review pull requests and fold them into the master branch of the CodaLab account.
 * Developers should ask for code reviews of their code when they feel like it's getting ready to pull into master. This is easily done by adding github id's to the message on the pull request (mentioning them sends a notification).
 * If a change is going to affect the user experience, it should include code reviews/discussions (again through pull requests mentions) because this is a broad platform, intended for use by many diverse communities.
-* Merges to master and deployment to production will be done by the project QA/Release Engineer (currently: Levert Banks)
+* Merges to master and deployment to production will be done by the project QA/Release Engineer.
 * Secure data is being stored in a shared dropbox location. 
 
 # Best practices
 
-* DO read and follow [the process](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking) for managing tasks and bugs.
+* DO read and follow [the process](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking) for managing tasks and bugs.
 * DO associate your commit with the issue that you are fixing. The mechanism for doing so is explained in this [GitHub Blog entry](https://github.com/blog/831-issues-2-0-the-next-generation) and in this [StackOverflow question](http://stackoverflow.com/questions/1687262/link-to-github-issue-number-with-commit-message).
 * DO ensure that the development environment runs on Windows and Linux. We want contributions from many developers irrespective of their favorite development platform.
 * DO make sure to add unit tests to the `tests.py` file as you add new features.

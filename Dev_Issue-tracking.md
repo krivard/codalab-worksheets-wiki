@@ -1,10 +1,13 @@
 # Bugs
+This page describes how to file and track issues for the CodaLab project. All bugs are tracked as [issues](https://github.com/codalab/codalab/issues?state=open) in the CodaLab GitHub repository. 
+
 ## Entering bugs:
-* Add title
-* Add labels 'Bug' and 'New' and priority - 'P1' or 'P2' or 'P3' (see priority definitions below)
-* Assign to appropriate person if known, otherwise, leave unassigned
-* Select appropriate milestone if known, otherwise, leave unselected
-* Add the issue, appropriate repro steps, screen shots, etc., and expected outcome 
+* Add a meaningful title.
+* Add the 'Bug' and 'New' labels, to identify the issue as a bug.
+* Assign a priority - 'P1' or 'P2' or 'P3' (see priority definitions below).
+* Assign the issue to the appropriate person if known, otherwise leave it unassigned.
+* Select the appropriate milestone if known, otherwise leave it unselected.
+* Use the Comment field to describe the issue. Be sure to include the appropriate repro steps, screen shots, and so forth, as well as the expected outcome. 
  
 ### Priority Definitions:
 1. Ship Blocker - Must be fixed before shipping 
@@ -12,14 +15,14 @@
 3. Nice to have
 
 ## Triaging Bugs:
-* Remove label 'New'
-* Add or adjust Priority label, as appropriate
-* Assign to the appropriate person
-* Select the appropriate milestone
+* Remove the 'New' label.
+* Add or adjust Priority label, as appropriate.
+* Assign the issue to the appropriate person.
+* Select the appropriate milestone.
 
 ## Closing Bugs:
-* Add appropriate comments
-* Close bug
+* Add the appropriate comments.
+* Close the issue.
 
 # Searching bugs
 

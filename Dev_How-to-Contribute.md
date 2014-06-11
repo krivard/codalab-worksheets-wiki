@@ -22,6 +22,6 @@ If you want to contribute code to the CodaLab framework, you can take the follow
 - Current MSDN subscription number (if any)
 - Rationale: A short statement describing how an MSDN subscription will benefit your project, or if you are a current MSDN subscriber, describe how your MSDN subscription has helped your project.
 
-Upon approval, you'll receive a complimentary MSDN subscription including a copy of Visual Studio and a Microsoft Azure account which you can use to develop and test your code.
+Upon approval, you'll receive a complimentary MSDN subscription including a copy of Visual Studio and a Microsoft Azure account which you can use to develop and test your code. Note that there may be a delay, as requests are evaluated once a month.
 
 Now you are ready to make your first pull request! 

@@ -43,4 +43,4 @@
     2. sudo apt-get upgrade -y
     3. sudo apt-get install git python-pip -y
     4. sudo pip install virtualenv
-    5. Follow the [the instructions to run CodaLab from github](https://github.com/codalab/codalab/wiki/Test:-Running-CodaLab-from-Git-on-Linux)
+    5. Follow the [the instructions to run CodaLab from github](https://github.com/codalab/codalab/wiki/Test_Running-CodaLab-from-Git-on-Linux)

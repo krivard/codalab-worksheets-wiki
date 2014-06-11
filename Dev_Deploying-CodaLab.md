@@ -6,7 +6,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 - [Windows Azure](http://www.windowsazure.com/) account
 - [Visual C++ 2008 redistributable package](http://www.microsoft.com/en-us/download/details.aspx?id=29)
 - Cygwin (required to run Fabric on Windows)
-- Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev:-Configure-Codalab-For-Development).
+- Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development).
 
 ### Install and configure Cygwin
 1. Download the appropriate installer from [Cygwin.com](http://cygwin.com/install.html).

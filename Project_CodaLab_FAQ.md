@@ -14,7 +14,7 @@ An experiment is a special web page that lets you combine executable code (Pytho
 The CodaLab platform is built using [Python](http://python.org/), [Django](https://www.djangoproject.com/) and [Foundation](http://foundation.zurb.com/).
 
 ### Is CodaLab privately hostable?
-Yes, you can host a CodaLab instance on a [Windows Azure](http://www.windowsazure.com/en-us/) server. Some customization is possible as well. For more information, see [Deploying CodaLab](https://github.com/codalab/codalab/wiki/User:-Deploying-CodaLab).
+Yes, you can host a CodaLab instance on a [Windows Azure](http://www.windowsazure.com/en-us/) server. Some customization is possible as well. For more information, see [Deploying CodaLab](https://github.com/codalab/codalab/wiki/Dev_Deploying-CodaLab).
 
 ### How do I get started?
 - To create an experiment, go to [my experiments page](http://codalab.org/my/#experiments).
@@ -24,4 +24,4 @@ Yes, you can host a CodaLab instance on a [Windows Azure](http://www.windowsazur
 You will be prompted to create a user account on your first visit.
 
 ### How can I contribute to CodaLab?
-If you like to write code and want to get involved with the CodaLab project, see [How to Contribute](https://github.com/codalab/codalab/wiki/Dev:-How-to-Contribute). 
+If you like to write code and want to get involved with the CodaLab project, see [How to Contribute](https://github.com/codalab/codalab/wiki/Dev_How-to-Contribute). 

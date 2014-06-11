@@ -1,6 +1,6 @@
 This page contains instructions for running against a local SQL server instance on Windows.
 
-1. Follow the instructions: [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev:-Getting-Started-on-Windows).
+1. Follow the instructions: [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev_Getting-Started-on-Windows).
 
 1. From your virtual environment:
 ```

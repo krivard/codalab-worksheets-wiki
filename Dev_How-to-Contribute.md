@@ -3,20 +3,14 @@ There are many ways that you can contribute your skills to the CodaLab project! 
 - Use CodaLab: [http://www.codalab.org/](http://www.codalab.org/).
 - Find a bug? Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
 - Submit a new feature request as a [GitHub issue](https://github.com/codalab/codalab/issues?state=open).
-- Become a CodaLab developer.
+- Become a CodaLab Contributor.
 - Let others know about CodaLab!
 
-## Get the Source Code
-Visit the [CodaLab GitHub repo](https://github.com/codalab/codalab/) and [fork the repo](https://help.github.com/articles/fork-a-repo). For important details about configuring your system, see [Getting Started on UNIX-based Systems](https://github.com/codalab/codalab/wiki/Dev_Getting-Started-on-UNIX-based-Systems), and [Getting Started on Windows](https://github.com/codalab/codalab/wiki/Dev_Getting-Started-on-Windows).
+## Become a CodaLab Contributor
+If you want to contribute code to the CodaLab framework, you can become a contributor. First, take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines). When you're ready to make your first pull request, go ahead and make it! The CodaLab Committers group will evaluate your code, and you will be contacted. Once your submission is approved, you will need to sign a Contributor License Agreement (CLA) with the Outercurve Foundation. Upon signing the agreement, you'll receive a complimentary MSDN subscription including a copy of Visual Studio and a Microsoft Azure account which you can use to develop and test your code.
 
 ## Report Bugs and Issues
-Bugs, issues, and feature requests are submitted through the [issues section](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).
-
-## Contribute Code
-So you want to submit some new code to CodaLab. Great! Before doing so, please take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev:-Developer-Guidelines). We assume that you can successfully build and run the project, and understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). Here are the steps you should take:
-
-- Communicate your ideas with the [CodaLab team](https://github.com/codalab/codalab/network/members).
-- Create unit tests for your features.
+Bugs, issues, and feature requests are submitted through the [CodaLab GitHub Issues](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).
 
 ## Additional Resources
 Finally, here is some recommended reading for participating in an open source project:

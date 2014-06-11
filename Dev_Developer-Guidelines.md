@@ -39,3 +39,12 @@ When you submit a pull request, GitHub will let you know if the request cannot b
 * DO make sure to add unit tests to the `tests.py` file as you add new features.
 * DO make sure to add unit tests to the `tests.py` file as you fix bugs that could have been fixed by unit testing.
 * DO use PyLint (as documented at https://github.com/codalab/codalab/wiki/Dev:-Code-checkers) to validate your code matches this project's expectation of coding standards.
+
+
+## Additional Resources
+
+Finally, here is some recommended reading for participating in an open source project:
+- [Open Source Contribution Etiquette](http://tirania.org/blog/archive/2010/Dec-31.html) by Miguel de Icaza
+- [Don't "Push" your Pull Requests](http://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) by Ilya Grigorik
+- [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) by Vincent Driessen
+- CodaLab is built using [Python](http://www.python.org/) and [Django](https://www.djangoproject.com/).

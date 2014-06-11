@@ -10,11 +10,4 @@ There are many ways that you can contribute your skills to the CodaLab project! 
 If you want to contribute code to the CodaLab framework, you can become a contributor. First, take the time to familiarize yourself with our [Developer Guidelines](https://github.com/codalab/codalab/wiki/Dev_Developer-Guidelines). When you're ready to make your first pull request, go ahead and make it! The CodaLab Committers group will evaluate your code, and you will be contacted. Once your submission is approved, you will need to sign a Contributor License Agreement (CLA) with the Outercurve Foundation. Upon signing the agreement, you'll receive a complimentary MSDN subscription including a copy of Visual Studio and a Microsoft Azure account which you can use to develop and test your code.
 
 ## Report Bugs and Issues
-Bugs, issues, and feature requests are submitted through the [CodaLab GitHub Issues](https://github.com/codalab/codalab/issues?state=open) on GitHub. We recommend the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).
-
-## Additional Resources
-Finally, here is some recommended reading for participating in an open source project:
-- [Open Source Contribution Etiquette](http://tirania.org/blog/archive/2010/Dec-31.html) by Miguel de Icaza
-- [Don't "Push" your Pull Requests](http://www.igvita.com/2011/12/19/dont-push-your-pull-requests/) by Ilya Grigorik
-- [A Successful Git Branching Model](http://nvie.com/posts/a-successful-git-branching-model/) by Vincent Driessen
-- CodaLab is built using [Python](http://www.python.org/) and [Django](https://www.djangoproject.com/).
+Bugs, issues, and feature requests are submitted through the [CodaLab Issues](https://github.com/codalab/codalab/issues?state=open) page on GitHub. We recommend using the following [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev:-Issue-tracking).

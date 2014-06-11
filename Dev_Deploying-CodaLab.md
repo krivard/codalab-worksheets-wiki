@@ -116,6 +116,17 @@ In order to receive notifications from your CodaLab deployment, you will need to
 
 **Note:** If you are a project committer, there is a Sendgrid account that you can use, so you can skip this step. Contact the project coordinator to get access to the `.codalabconfig` template with the account credentials.
 
+### Set up an Azure Scheduler for phase migrations
+
+1. Sign into the [https://manage.windowsazure.com](Azure management portal).
+2. Go to the **Scheduler** tab on the left
+3. Click the **+ New** button on the bottom left
+4. Click **Custom Create**
+5. Select a **Region** and give it a **Name**, then click the **->** next arrow
+6. Setup the Action by giving it a **Name** and setting the URI to `http://yourdomain.com/competitions/check_phase_migrations`
+7. Define a **Recurring** schedule that recurs every **3 hours** starting **now**, then click the check mark
+8. Done!
+
 ### Get your Django secret key
 Each Django installation has a secret key which is used to provide cryptographic signing. The `SECRET_KEY` value can be found in the `codalab\codalab\settings\base.py` file for the CodaLab project. For more information, see the Django Help [Settings](https://docs.djangoproject.com/en/dev/ref/settings/#secret-key) topic.
 

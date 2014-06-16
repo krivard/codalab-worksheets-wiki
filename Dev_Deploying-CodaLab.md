@@ -124,7 +124,7 @@ In order to receive notifications from your CodaLab deployment, you will need to
 4. Click **Custom Create**
 5. Select a **Region** and give it a **Name**, then click the **->** next arrow
 6. Setup the Action by giving it a **Name** and setting the URI to `http://yourdomain.com/competitions/check_phase_migrations`
-7. Define a **Recurring** schedule that recurs every **3 hours** starting **now**, then click the check mark
+7. Define a **Recurring** schedule that recurs every **1 minute** starting **now**, then click the check mark
 8. Done!
 
 ### Get your Django secret key

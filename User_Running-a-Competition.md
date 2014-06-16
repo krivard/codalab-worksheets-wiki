@@ -16,7 +16,7 @@ The competition bundle contains all of the information and files needed by CodaL
 
 **To upload a competition bundle to CodaLab**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Create Competition** button.
@@ -33,7 +33,7 @@ Once your competition has been uploaded, you can edit it by using the dashboard.
 
 **To edit a competition**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Edit** button for the competition you want to edit.
@@ -44,7 +44,7 @@ Publish a competition to make it publicly visible. Prior to being published, com
 
 **To publish a competition**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Publish** button for the competition you want to publish.
@@ -54,7 +54,7 @@ Un-publishing a competition takes it offline so that it can only be viewed by th
 
 **To un-publish a competition**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Select a competition and click the **Edit** button.
@@ -66,7 +66,7 @@ When a participant registers for a competition, they are added to a list of part
 
 **To view competition participants**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Select a competition, and click the **Participants** button to see the list of participants.
@@ -99,7 +99,7 @@ Click the plus sign in the last column to access additional links for each compe
 
 **To delete a competition**
 
-1. Log in to www.codalab.org.
+1. Log in to <a href="http://www.codalab.org" target="_blank">www.codalab.org</a>.
 1. At the top of the page, click **My CodaLab**. This will take you to the dashboard.
 1. Click the **Competitions I'm Running** tab.
 1. Click the **Delete** button for the competition you want to delete. You will be prompted to confirm the deletion.

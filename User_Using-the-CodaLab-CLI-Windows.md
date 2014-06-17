@@ -96,8 +96,8 @@ import codalab
   },
   "model": {
     "class": "MySQLModel",
-    "username": "will",
-    "password": "prax",
+    "username": "user",
+    "password": "password123",
     "address": "localhost",
     "database": "MySQL_DevDB"
   },

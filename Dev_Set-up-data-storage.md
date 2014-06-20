@@ -78,3 +78,32 @@ In order to test uploading and running bundles in CodaLab, you will need to have
             listen-to: "name of queue"
         local-root: "D:\\Temp"
     ```
+
+## Enable CORS (Cross-origin resource sharing) on Blob Storage
+
+Cross-origin resource sharing (CORS) is a mechanism that allows many resources on a web page to be requested from another domain outside the domain the resource originated from. Web Browsers commonly apply same origin restriction policy to network requests. CORS would relax such a restriction and allows domains to give each other permissions for accessing each other’s resources. CORS is supported for Blob, Table and Queue services and can be enabled for each service using [Azure SDK for python](http://azure.microsoft.com/en-us/documentation/articles/python-how-to-install/).
+
+1. Make sure you have a valid management certificate to connect to the Service Management endpoint. This tutorial explains how to create a certificate and upload it to the Azure management portal: [http://azure.microsoft.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/). 
+
+2. To enable CORS on your private Blob container, consider running a Python script which should essentially look like this :
+ ```
+    import sys
+    import yaml
+    from os.path import dirname, abspath
+    # Add codalabtools to the module search path
+    sys.path.append(dirname(dirname(dirname(abspath(__file__))))) #depends on where you place this script
+    from codalabtools.azure_extensions import (Cors,CorsRule,set_storage_service_cors_properties)
+
+    account_name = "<your blob storage account name>"
+    account_key = "<your blob storage account key>"
+    cors_rule = CorsRule()
+    cors_rule.allowed_origins = '*' # this is fine for dev setup
+    cors_rule.allowed_methods = 'PUT'
+    cors_rule.exposed_headers = '*'
+    cors_rule.allowed_headers = '*'
+    cors_rule.max_age_in_seconds = 1800
+    cors_rules = Cors()
+    cors_rules.cors_rule.append(cors_rule)
+    set_storage_service_cors_properties(account_name, account_key, cors_rules)
+ ```
+Make sure to run this script in your virtual environment.

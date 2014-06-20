@@ -219,14 +219,8 @@ To initialize the database, you will need to run a few standard [Django commands
 
 
 ## Start the worker roles
-1. Use the following command to start the worker role locally.
-
-    ```
-    python codalab\worker.py
-    ```
-
 1. Change to the `\codalabtools\compute` directory.
-1. Run the compute worker locally
+1. Start the compute worker locally:
 
     ```
     python worker.py

@@ -114,6 +114,7 @@ Follow these steps to install MySQL Python.
 ### Create a local config file
 The local configuration file `local.py` tells CodaLab which type of database you are using, and stores credentials for the database.
 
+1. Follow these instructions to set up Azure bundle storage: [Set Up Data Storage](https://github.com/codalab/codalab/wiki/Dev_Set-up-data-storage).
 1. Open `codalab/codalab/settings/local_sample.py`.
 1. Save a copy of `local_sample.py` named `local.py` in the same directory. Naming is important, since CodaLab will recognize `local.py`.
 1. Open `local.py`.

@@ -219,6 +219,8 @@ To initialize the database, you will need to run a few standard [Django commands
 
 
 ## Start the worker roles
+In order to test competitions and bundles locally, you'll need to run the worker roles.
+
 1. Change to the `\codalabtools\compute` directory.
 1. Start the compute worker locally:
 

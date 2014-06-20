@@ -222,15 +222,17 @@ To initialize the database, you will need to run a few standard [Django commands
 In order to test competitions and bundles locally, you'll need to run the compute worker roles. There are two `worker.py` scripts that you will need to run.
 
 1. Open a command prompt and activate your CodaLab virtual environment.
-1. Start the first compute worker:
+1. Start the first compute worker as shown here:
 
     ```
-    python codalab\worker.py
+    cd codalab
+    python worker.py
     ```
 
 1. Open a *second* command prompt and activate your CodaLab virtual environment.
-1. Start the second compute worker:
+1. Start the second compute worker as shown here:
 
     ```
-    python codalabtools\compute\worker.py
+    cd codalabtools\compute
+    python worker.py
     ```

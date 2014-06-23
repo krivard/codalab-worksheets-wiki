@@ -84,19 +84,17 @@ In order to work with competitions and bundles in your local development environ
 
 1. Make sure you have a valid management certificate to connect to the Service Management endpoint. This tutorial explains how to create a certificate and upload it to the Azure management portal: [http://azure.microsoft.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/](http://azure.microsoft.com/en-us/documentation/articles/cloud-services-python-how-to-use-service-management/). 
 
-2. To enable CORS on your private Blob container, run the following Python script:
- ```
+1. Open `codalab\scripts\cors-enable.py` in a text editor, and update `account_name` and `account_key` with the account name and key for your blob storage account:
+
+    ```
     import sys
     import yaml
     from os.path import dirname, abspath
     # Add codalabtools to the module search path
-    sys.path.append(dirname(dirname(dirname(abspath(__file__)))))
-    '''
-    This path depends on the location of the script file.
-    In this example, it is in \codalab\codalab\codalabtools\compute
-    '''
+    sys.path.append(dirname(dirname(abspath(__file__))))
+    
     from codalabtools.azure_extensions import (Cors,CorsRule,set_storage_service_cors_properties)
-
+    
     account_name = "<your blob storage account name>"
     account_key = "<your blob storage account key>"
     cors_rule = CorsRule()
@@ -108,5 +106,16 @@ In order to work with competitions and bundles in your local development environ
     cors_rules = Cors()
     cors_rules.cors_rule.append(cors_rule)
     set_storage_service_cors_properties(account_name, account_key, cors_rules)
- ```
-Make sure to run this script in your virtual environment.
+    ```
+
+1. Save your changes, activate your virtual environment and run the script:
+    
+    **Windows**
+    ```
+    python scripts\cors-enable.py
+    ```
+
+    **Linux**
+    ```
+    python scripts/cors-enable.py
+    ```

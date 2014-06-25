@@ -26,7 +26,7 @@ With those assumptions in place:
 
    a. Create a user on the web site. Typically, I call this user `codalab`. Treat it as an admin user even though the CodaLab site doesn't really have admin roles today.
 
-   b. Run the script: `codalab\codalab\script\sample_cl_server_config.py`. The script will generate an output of the form:
+   b. Activate your virtual environment and run the script: `codalab\codalab\script\sample_cl_server_config.py`. The script will generate an output of the form:
 
       ```
       Checking that confidential client exists for user codalab
@@ -48,7 +48,7 @@ With those assumptions in place:
       }
       ```
 
-   Take the "server" block in the output and insert it into your CLI config file (`.codalab\config.json` in your home directory).  
+   Take the "server" block in the output and insert it into your CLI config file (`.codalab\config.json` in your home directory). Since the values for `app_id` and `app_key` can be long, make sure to remove any line breaks that resulted from copying from the command prompt.  
 
    c. Run the Django web site. Make sure it uses port 8000. Note for Visual Studio users: with the latest Python Tools for Visual Studio, you can set the port number in the Debug tab of the project properties.
 

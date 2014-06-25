@@ -20,7 +20,7 @@ With those assumptions in place:
         codalab.__path__ = extend_path(codalab.__path__, codalab.__name__)
    ```
 
-   These additional elements say to enable Worksheets using the bundle service running at the given URL (in the next steps we'll cover how to start the bundle service with the `cl server` command). Finally, the code in `apps\web\bundles.py` will need to import modules from the `codalab-cli` project. Therefore, we extend the Python path by pointing to the CLI code on your machine. If you have repos `codalab` and `codalab-cli` checked in folders which are siblings, the relative `BUNDLE_SERVICE_CODE_PATH` given above should just work for your setup.
+   These additional elements say to enable Worksheets using the bundle service running at the given URL (in the next steps we'll cover how to start the bundle service with the `cl server` command). Finally, the code in `apps\web\bundles.py` will need to import modules from the `codalab-cli` project. Therefore, we extend the Python path by pointing to the CLI code on your machine. If you have repos `codalab` and `codalab-cli` checked in folders which are siblings, the relative `BUNDLE_SERVICE_CODE_PATH` given above should work for your setup.
 
 2. The Django web site is a client of the bundle service. For example, to get a list of worksheets, the Django web site makes a call to the `list_worksheets` API exposed by the bundle service. However, to handle authorization, the bundle service must be able to make calls back to the web site, which hosts the OAuth server. As a result, the bundle service is a trusted OAuth client of the web site. To setup this trusted relationship:
 

@@ -1,7 +1,7 @@
 # Enabling Automatic Submission and Phase Migration
 The automatic submission feature automatically adds submissions to the leaderboard. Phase migration facilitates migrating submissions from phase to phase. This saves participants the from having to download and re-upload submissions when moving between phases.
 
-## How to Enable Auto Submit
+## How to Enable Automatic Submission
 Follow these steps to enable automatic submission for a competition.
 
 1. Open competition.yaml in a text editor.
@@ -10,6 +10,7 @@ Follow these steps to enable automatic submission for a competition.
     `force_submission_to_leaderboard: true`
 
     A value of **true** enables the feature; **false** disables it.
+
 1. Save your changes.
 
 

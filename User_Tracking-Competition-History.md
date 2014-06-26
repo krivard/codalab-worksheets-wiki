@@ -1,5 +1,8 @@
 # Tracking Competition History
-Competition history enables competition organizers to view all of the output files for competition participants, providing an audit trail of all successful submissions in the competition. This is accomplished by adding history functions to your evaluation code. First, a history folder is created:
+Competition history creates an audit trail which enables participants and organizers to see the percentage of correct answers for each successive submission. For a given competition, participants can view the history for their own submissions, while organizers can see the history for all submissions. In order to enable history, the scoring program must be modified (instructions are below).
+
+## How the Audit Trail Works
+First, a history folder is created:
 
 ```
 input/history/<phase #>/<submission #>/
@@ -45,7 +48,7 @@ Competition organizers can access the history for entries by following these ste
 1. Click **Download evaluation output from scoring step**. The .zip archive will contain two files: `scores.txt`, and `metadata`.
 
 ## Adding History to a Scoring Program
-In order to log history, you need to incorporate a few functions into your scoring program (`evaluate.py`). These functions create the history folder and create the `scores.txt` file for each submission. The following example code shows `evaluate.py` for an example "Hello World" competition. All of the history functionality is indicated by code comments.
+In order to log history, you need to incorporate a few functions into your scoring program (`evaluate.py`). These functions create the history folder and calculate the `scores.txt` file for each submission. The following example code shows `evaluate.py` for an example "Hello World" competition. All of the history functionality is indicated by code comments.
 
 ```
 #!/usr/bin/env python

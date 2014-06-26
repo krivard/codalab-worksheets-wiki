@@ -18,7 +18,7 @@ input/history/000/001/output/scores.txt # submission #1 scores
 input/history/000/002/output/scores.txt # submission #2 scores
 ```
 
-Each `scores.txt` file lists the number of correct entries up to that point in the competition, along with an `audit_score` which shows the percentage of correct answers. For example, the third entry would show the number of correct answers up to and including the results for the third entry. If you got one of three correct answers the `audit_score` would show a value of 0.3.
+Each `scores.txt` file lists the number of correct entries up to that point in the competition, along with an `audit_score` which shows the percentage of correct answers. For example, if you have made three submissions, viewing `scores.txt` for the third submission would show whether the current entry is correct (`correct:1.0`). If the third answer was correct but the previous two were not, the `audit_score` would show a value of 0.3.
 
 Competition participants can access the history for entries by following these steps:
 

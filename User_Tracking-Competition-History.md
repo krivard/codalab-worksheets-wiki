@@ -18,7 +18,7 @@ input/history/000/001/output/scores.txt # submission #1 scores
 input/history/000/002/output/scores.txt # submission #2 scores
 ```
 
-Each `scores.txt` file shows whether the current submission is correct, along with an `audit_score` which shows the running percentage of correct answers. For example, say you have just made your third submission. Let's assume that the first two submissions were incorrect, but the third one is correct. The `scores.txt` file would look like this:
+Each `scores.txt` file shows whether the current submission is correct, along with the running percentage of correct answers. For example, say you have just made your third submission. Let's assume that the first two submissions were incorrect, but the third one is correct. The `scores.txt` file would look like this:
 
 ```
 correct:1.0

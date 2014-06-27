@@ -19,9 +19,9 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 ## Competitions
 * [Competition Roadmap](User_Competition-Roadmap)
 * [Building a Competition Bundle](User_Building-a-Competition-Bundle)
+    * [Enabling Automatic Submission and Phase Migration](User_Enable-Auto-Submit-Phase-Migration)
 * [Building a Scoring Program for a Competition](User_Building-a-Scoring-Program-for-a-Competition)
-* [Tracking Competition History](User_Tracking-Competition-History)
-* [Enabling Automatic Submission and Phase Migration](User_Enable-Auto-Submit-Phase-Migration)
+    * [Tracking Competition History](User_Tracking-Competition-History)
 * [Running a Competition](User_Running-a-Competition)
 * [Participating in a Competition](User_Participating-in-a-Competition)
 * [Groups and Permissions Discussion](Dev_Groups-and-permissions-discussion)

@@ -30,4 +30,7 @@ Follow these steps to enable automatic submission for a competition.
         ...
 
     ```
+
+    A value of **true** enables the feature; **false** disables it.
+
 1. Save your changes.

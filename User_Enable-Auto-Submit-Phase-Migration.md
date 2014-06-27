@@ -13,6 +13,7 @@ Follow these steps to enable automatic submission for a competition.
 
 1. Save your changes.
 
+If the competition has already been uploaded to CodaLab, you can toggle this feature by [editing the competition](User_Running-a-Competition#editing-a-competition) and checking/un-checking **Force submission to leaderboard** under **General Information**.
 
 ## How to Enable Phase Migration
 
@@ -34,3 +35,5 @@ Follow these steps to enable automatic submission for a competition.
     A value of **true** enables the feature; **false** disables it.
 
 1. Save your changes.
+
+If the competition has already been uploaded to CodaLab, you can toggle this feature by [editing the competition](User_Running-a-Competition#editing-a-competition) and checking/un-checking **Auto migration** under the appropriate **Competition Phase**.

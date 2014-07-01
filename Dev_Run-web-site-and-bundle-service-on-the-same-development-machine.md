@@ -26,7 +26,7 @@ With those assumptions in place:
 
    a. Create a user on the web site. Typically, I call this user `codalab`. Treat it as an admin user even though the CodaLab site doesn't really have admin roles today.
 
-   b. Activate your virtual environment and run the script: `codalab\codalab\script\sample_cl_server_config.py`. The script will generate an output of the form:
+   b. Activate your virtual environment and run the script: `codalab\codalab\scripts\sample_cl_server_config.py`. The script will generate an output of the form:
 
       ```
       Checking that confidential client exists for user codalab

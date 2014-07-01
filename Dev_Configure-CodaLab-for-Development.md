@@ -240,3 +240,9 @@ In order to test competitions and bundles locally, you'll need to run the comput
     cd codalabtools\compute
     python worker.py
     ```
+
+1. If you plan to test competitions locally, open a *third* command prompt and activate the virtual environment for the CodaLab CLI, then start the bundle server:
+
+   ```
+   cl server
+   ```

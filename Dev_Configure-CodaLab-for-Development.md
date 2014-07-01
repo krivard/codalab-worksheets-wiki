@@ -194,6 +194,9 @@ To initialize the database, you will need to run a few standard [Django commands
     python scripts/competitions.py
     ```
 
+## Configure the Bundle Service to run Locally
+If you want to run the CodaLab bundle service on the same machine as CodaLab, follow these instructions: [Run the Web Site and Bundle Service on the same development machine](https://github.com/codalab/codalab/wiki/Dev_Run-web-site-and-bundle-service-on-the-same-development-machine).
+
 ## Start the web server
 1. Use the following command to start the CodaLab server locally.
 

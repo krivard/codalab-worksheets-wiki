@@ -3,6 +3,7 @@
 - [Get the source code](#get-the-source-code)
 - [Configure your local environment](#configure-your-local-environment)
 - [Install app schema and default data](#install-app-schema-and-default-data)
+- [Configure the Bundle Service to run Locally](#Configure-the-Bundle-Service-to-run-Locally)
 - [Start the web server](#start-the-web-server)
 - [Start the worker role](#start-the-worker-roles)
 

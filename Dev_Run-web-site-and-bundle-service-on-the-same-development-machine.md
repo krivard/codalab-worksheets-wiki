@@ -54,3 +54,8 @@ With those assumptions in place:
 
    d. Run the bundle service: `cl server`.
 
+If you are simulating competitions on your local test machine, be sure to start the worker threads:
+
+   `python codalab\codalab\worker.py`
+   `python codalab\codalabtools\compute\worker.py`
+

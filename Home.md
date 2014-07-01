@@ -41,6 +41,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
     * [Mac](Dev_Getting-Started-on-Mac)
 * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
 * [Set up data storage](Dev_Set-up-data-storage)
+* [Run the Web Site and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
 * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
 * **Process**
     * [Developer Guidelines](Dev_Developer-Guidelines)

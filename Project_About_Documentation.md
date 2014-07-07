@@ -1,7 +1,7 @@
 # About CodaLab Documentation
 This topic explains how CodaLab documentation is set up, and shows you how to work with the documentation. CodaLab documentation is presented from two resources:
 - The CodaLab wiki, which you are now reading, contains the main CodaLab documentation. When accessed from codalab.org, wiki pages open in a new window.
-- [CodaLab GitHub IO pages](http://codalab.github.io/codalab) contain a subset of documentation which is more closely integrated with the site.
+- [CodaLab GitHub IO pages](http://codalab.github.io/codalab) contain a subset of documentation and other content which is more closely integrated with the site. This includes the About Page, the CodaLab forum, and competition overview topics.
 
 No documentation is stored with the main site, relieving contributors of the need to re-deploy whenever documentation changes are made.
 
@@ -47,3 +47,53 @@ This is the current subject area breakdown to make things consistent:
 * **Trash** - Things we no longer need but don't want to discard yet
 
 While codes are convenient for quick classification, it is better if pages are found by naturally following the above content guide.
+
+## Working with CodaLab Links
+Although no help content is hosted on CodaLab.org, there may be times when you will need to edit the links that point to the content. This section shows you the locations of the files you will need to modify, and shows you how to make the changes.
+
+### Main Page (index.html)
+The main page contains a number of links that may need editing at some point. You can find the main page at `\codalab\apps\web\templates\web\index.html`.
+
+### Header and Footer Links
+Markup for the header and footer links is defined in the base template `\codalab\apps\web\templates\base.html`. This is the base template for all pages on the site. 
+
+The header contains a number of links including a link to the CodaLab wiki ("Help"). In the event that this URL needs to change, the markup for the link is located within the `<!-- Right Nav Section -->`:
+
+```
+<li id="liHelp"><a href="https://github.com/codalab/codalab/wiki" target="_blank">Help</a></li>
+``` 
+
+Note that because these pages are create using the Foundation framework, the links are defined as an unordered list.
+
+To find the footer bar markup open `base.html` and grep for "footer". The following example shows how the footer markup appears.
+
+```
+<!-- Footer -->
+<footer id="footer">
+    <div class="small-6 columns">
+        <ul class="inline-list left">            
+        <li>   
+            <span>
+              <a href="http://research.microsoft.com/" target="_blank" target="_self"><img src="{{ STATIC_URL }}img/msr_footer.png" border="0"/></a>
+            </span>
+        </li>
+        <li>   
+            <span>
+              <!-- <a href="{{last_commit}}">{{app_version}}</a> -->
+            </span>
+        </li>
+        </ul>
+    </div>
+    <div class="small-6 columns">
+        <ul class="inline-list right">
+            <!-- <li>CodaLab v.0 ()</li> -->
+            <li><a href="http://codalab.github.io/codalab/about.html" target="_self">About</a></li>
+            <li><a href="http://codalab.github.io/codalab/forum.html" target="_self">Forum</a></li>
+            <li><a href="http://go.microsoft.com/?linkid=9837806" target="_blank">Survey</a></li>
+            <li><a href="http://codalab.github.io/codalab/notices.html" target="_self">Notices</a></li>
+            <li><a href="http://codalab.github.io/codalab/terms.html" target="_self">Terms of Use</a></li>
+        </ul>
+    </div>
+</footer>
+```
+

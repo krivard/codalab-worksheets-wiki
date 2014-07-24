@@ -12,7 +12,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 # CONTENTS
 ## General
 * [CodaLab FAQ](Project_CodaLab_FAQ)
-* [About CodaLab Documentation](Project_About_Documentation)
+* [Contribute to the CodaLab Documentation](Project_About_Documentation)
 * [CodaLab Users Group](http://codalab.github.io/codalab/forum.html)
 * [CodaLab Dev Group](https://groups.google.com/forum/#!forum/codalabdev)
 

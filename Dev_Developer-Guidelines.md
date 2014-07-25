@@ -15,24 +15,24 @@ Follow these instructions to create a local clone of the CodaLab source code.
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
 
 1. Clone the fork to your local computer.
-```
-git clone https://github.com/<username>/codalab.git
-```
+    ```
+    git clone https://github.com/<username>/codalab.git
+    ```
 
 ## Create a 'blessed' Branch
-Follow these optional steps to create a 'blessed' master branch, which is an "untouched" master that can be updated to get the latest changes with `git pull`. 
+Follow these optional steps to create a 'blessed' master branch, which is an "untouched" master that can be updated to get the latest changes with `git pull`.
 
 1. Open a command prompt and navigate to the CodaLab folder.
-1. Create a 'blessed' remote.
-    
-    a. Assign the original repo to a remote called "blessed".
+1. Assign the original repo to a remote called "blessed".
+    ```
+    git remote add blessed https://github.com/codalab/codalab.git
+    ```
 
-        git remote add blessed https://github.com/codalab/codalab.git
-
-    c. Get the latest changes from blessed:
-
-        git checkout master
-        git pull blessed master
+1. Get the latest changes from blessed:
+    ```
+    git checkout master
+    git pull blessed master
+    ```
 
 ## Use Topic Branches
 Topic branches are typically lightweight branches that you create locally and that have a name that is meaningful for you. They are where you might do work for a bug fix or feature (they're also called feature branches). Follow these steps to create a topic branch:

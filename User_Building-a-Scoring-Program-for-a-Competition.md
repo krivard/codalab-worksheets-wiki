@@ -55,3 +55,26 @@ Submission Directory
     Difference: 0.0057
     ```
 1. Each key in the scores.txt file is identical to a leaderboard column key in the competition.yaml. (e.g. "DIFFERENCE" in the example competition.yaml shown in [Building a Competition Bundle](https://github.com/codalab/codalab/wiki/User_Building-a-Competition-Bundle)). This is how scores are related to the competition for reporting so it is critical the leaderboard keys and the keys in the scores.txt are identical.
+
+
+## Metadata passed to scoring program
+
+Meta data is passed to the scoring program input directory as `input.txt`
+
+```history```
+The `history.txt` path
+
+```submitted-by```
+The username of the participant who submitted this
+
+```submitted-at```
+Time the submission was submitted
+
+```competition-submission```
+The submission number
+
+```competition-phase```
+The phase number
+
+```automatic-submission```
+This will only be passed if `phase.auto_migration` is enabled. If this is an automatic submission (from phase-to-phase migrations) then it will be marked as `true`.

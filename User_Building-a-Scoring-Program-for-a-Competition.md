@@ -59,7 +59,7 @@ Submission Directory
 
 ## Metadata passed to scoring program
 
-Meta data is passed to the scoring program input directory as `input.txt`
+Metadata is passed to the scoring program input directory as `input.txt`
 
 ```history```
 The `history.txt` path

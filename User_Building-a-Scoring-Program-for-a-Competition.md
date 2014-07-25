@@ -59,22 +59,40 @@ Submission Directory
 
 ## Metadata passed to scoring program
 
-Metadata is passed to the scoring program input directory as `input.txt`
+Metadata is passed to the scoring program input directory as `metadata`
 
-```history```
+### Example metadata
+```
+ref: competition/2/2/data/competition/2/2/data/reference_7.zip
+res: competition/2/submission/1/ebbf8284-6aeb-4a5b-b200-54e28534d769.zip
+history: competition/2/8/submissions/1/2/history.txt
+submitted-by: codalab
+submitted-at: 2014-07-18T00:09:55+00:00
+competition-submission: 2
+competition-phase: 2
+automatic-submission: False
+```
+
+**history**
+
 The `history.txt` path
 
-```submitted-by```
+**submitted-by**
+
 The username of the participant who submitted this
 
-```submitted-at```
+**submitted-at**
+
 Time the submission was submitted
 
-```competition-submission```
+**competition-submission**
+
 The submission number
 
-```competition-phase```
+**competition-phase**
+
 The phase number
 
-```automatic-submission```
+**automatic-submission**
+
 This will only be passed if `phase.auto_migration` is enabled. If this is an automatic submission (from phase-to-phase migrations) then it will be marked as `true`.

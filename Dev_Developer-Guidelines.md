@@ -8,16 +8,49 @@ In the [CodaLab Github Repo](http://github.com/codalab/codalab) there may be man
 
 2. **master** - This is the integration branch. This is the branch that has all of the work that is thought to have been completed but has not yet undergone final testing before deployment to production. The master branch is where automated builds and QA happens.
 
-The typical workflow for a contributor follows:
 
-1. Go to https://github.com/codalab/codalab.
-1. Fork the project using the button in the top right of the page and select your own GitHub account as the target of the fork.
-1. Clone your forked repository:
-```git clone git@github.com:<yourname>/codalab```
-1. Develop on your branch, committing your changes:
+## Get the Source Code
+Follow these instructions to create a local clone of the CodaLab source code.
+
+1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
+
+1. Clone the fork to your local computer.
+```
+git clone https://github.com/<username>/codalab.git
+```
+
+## Create a 'blessed' Branch
+Follow these optional steps to create a 'blessed' master branch, which is an "untouched" master that can be updated to get the latest changes with `git pull`. 
+
+1. Open a command prompt and navigate to the CodaLab folder.
+1. Create a 'blessed' remote.
+    
+    a. Assign the original repo to a remote called "blessed".
+
+        git remote add blessed https://github.com/codalab/codalab.git
+
+    c. Get the latest changes from blessed:
+
+        git checkout master
+        git pull blessed master
+
+## Use Topic Branches
+Topic branches are typically lightweight branches that you create locally and that have a name that is meaningful for you. They are where you might do work for a bug fix or feature (they're also called feature branches). Follow these steps to create a topic branch:
+
+1. In your GitHub repository, create a [topic branch](http://learn.github.com/p/branching.html). 
+
+    `git checkout -b branch_name`
+    
+    Make all of your changes in the topic branch, and consider the master branch to be  a reference of the latest version.
+
+1. Commit your changes:
 ```git commit -a -m "A meaningful description of my commit."```
+
 1. Push your local changes to your fork:
-```git push```
+```git push origin <branch_name>```
+    Now you're ready to make a pull request.
+
+## Pull Requests
 
 When the code in your GitHub fork is ready to make its way into the master branch of the CodaLab GitHub account, you should [submit a pull request](https://help.github.com/articles/using-pull-requests#initiating-the-pull-request). Be detailed in your description of the changes.
 

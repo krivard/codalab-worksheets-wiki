@@ -21,6 +21,8 @@
 git clone https://github.com/<username>/codalab.git
 ```
 
+For more details and recommended practices, see [Developer Guidelines](Dev_Developer-Guidelines).
+
 ## Configure your local environment
 In this segment, you will run the dev_setup script. This will install all dependencies and create a new virtual environment (venv) for CodaLab.
 

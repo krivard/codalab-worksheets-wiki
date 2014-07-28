@@ -80,6 +80,8 @@ The competition organizer must approve or deny each participant who registers fo
 1. For each participant, select a status of **Approve** or **Deny** from the drop-down menu. You can give a short message to the participant by typing in the **Reason** field.
 1. Click the **Process** button to complete the approval process.
 
+After a participant has already been accepted, you can revoke/deny their permissions from the list of participants.
+
 ## Viewing Submissions
 The competition organizer can view all of the submissions for a competition. These are displayed in a table which shows:
 

@@ -33,6 +33,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 * [Using the CodaLab Bundle Service and CLI (Windows)](User_Using-the-CodaLab-CLI-Windows)
 * [Displaying Bundle Contents and Metadata](Dev_Displaying-Bundle-Contents-and-Metadata)
 * [CodaLab CLI GitHub repository](https://github.com/codalab/codalab-cli)
+* [README](https://github.com/codalab/codalab-cli/README.md)
 
 ## Developers
 * [How to Contribute](Dev_How-to-Contribute)

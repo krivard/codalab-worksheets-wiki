@@ -1,12 +1,12 @@
 [![CodaLab.org](http://willum070.github.io/docteam/images/codalab-logo-dinky-pos.png)](http://www.codalab.org)
 
-Welcome to the CodaLab Wiki, the home of CodaLab documentation.
+Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki contains information for both the website and the [bundle service](https://github.com/codalab/codalab-cli).
 
 *What can you do with CodaLab?*
 
 * **Join a competition.** Visit the [CodaLab.org competitions page](https://www.codalab.org/competitions) to see a list of current competitions. [Find out how to join a competition](User_Participating-in-a-Competition).
 * **Host a competition.** The [Competition Roadmap](User_Competition-Roadmap) shows you everything you need to know to host a CodaLab competition.
-* **Collaborate with worksheets.** 
+* **Run experiments and share results with worksheets** (under development).
 * **Contribute to the project.**
     - See [How to Contribute](Dev_How-to-Contribute) to find out how to report bugs, submit feature requests, and contribute your skills as a developer.
     - See [About CodaLab Documentation](Project_About_Documentation) to learn how to make contributions to the CodaLab documentation.
@@ -28,12 +28,10 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 * [Groups and Permissions Discussion](Dev_Groups-and-permissions-discussion)
 * [Example Competitions](https://github.com/codalab/competition-examples)
 
-## Worksheets
-* [Using the CodaLab Bundle Service and CLI (Linux)](User_Using-the-CodaLab-CLI)
-* [Using the CodaLab Bundle Service and CLI (Windows)](User_Using-the-CodaLab-CLI-Windows)
-* [Displaying Bundle Contents and Metadata](Dev_Displaying-Bundle-Contents-and-Metadata)
-* [CodaLab CLI GitHub repository](https://github.com/codalab/codalab-cli)
+## Worksheets and the bundle service
 * [README](https://github.com/codalab/codalab-cli/README.md)
+* [CodaLab CLI GitHub repository](https://github.com/codalab/codalab-cli)
+* [Execution environment](https://github.com/codalab/codalab/wiki/Execution_Environment)
 
 ## Developers
 * [How to Contribute](Dev_How-to-Contribute)
@@ -61,4 +59,3 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.
 * [Terms of Use](http://codalab.github.io/codalab/terms.html)
 * [Notices](http://codalab.github.io/codalab/notices.html)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)
-

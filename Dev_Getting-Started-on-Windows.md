@@ -18,8 +18,9 @@ Assuming a fresh Windows environment the following should get you started:
     ```
 
     This will put easy_install.exe in the _Scripts _directory of your Python installation. 
+    ```
 
-Next, you're ready to install pip from a command prompt:
+    Next, you're ready to install **pip.py**from a command prompt:
     ```
     C:\Python27\Scripts\easy_install.exe pip
     ```

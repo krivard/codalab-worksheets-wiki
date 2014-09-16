@@ -32,6 +32,8 @@ image: logo.jpg
 has_registration: True
 # When is this competition finished. It is valid to not include an end_date, which means the competition remains open perpetually.
 end_date: 2013-12-31
+# You can specify admins here, use their codalab username (CaSe sensitive!) they will automatically be added as participants
+admin_names: tony,eric
 # Each competition has a set of html pages for potential participants to read and review and for participants to use to interact with the competition. These are the specifications for those pages.
 html: 
     # Basic overview (first impression) of the challenge

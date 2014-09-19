@@ -44,6 +44,8 @@ html:
     terms: terms_and_conditions.html
     # Where to find the data, how to download it.
     data: data.html
+    # An extra page
+    page_name: extra.html
 # Competitions are broken up into phases. Every competition has at least one phase, some have multiple phases.
 phases:
     # Phase 1
@@ -63,6 +65,10 @@ phases:
         # You can select from these colors:
         # white, orange, yellow, green, blue, purple
         color: orange
+        # Maximum execution time of the submission (in seconds), default = 300
+        execution_time_limit: 300
+        # Maximum number of submissions a user can make in a day. default = unlimited
+        max_submissions_per_day: 15
         # The datasets used for this phase, all references are URLs to externally stored data
         datasets: 
             # The first data set
@@ -154,3 +160,7 @@ The program.zip metadata file contains command syntax to use, along with a short
 command: python $program/evaluate.py $input $output
 description: Example competition evaluation program.
 ```
+
+## Automatic datasets
+
+When you upload a competition the `reference_data`, `scoring_program` and `input_data` all are turned into datasets automatically. You can re-use or share these via the secret key!

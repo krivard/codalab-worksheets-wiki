@@ -60,6 +60,9 @@ phases:
         scoring_program: program.zip
         # A bundle containing reference data to compare submitted data with for scoring.
         reference_data: reference.zip
+        # You can select from these colors:
+        # white, orange, yellow, green, blue, purple
+        color: orange
         # The datasets used for this phase, all references are URLs to externally stored data
         datasets: 
             # The first data set

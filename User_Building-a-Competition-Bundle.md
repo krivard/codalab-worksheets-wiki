@@ -167,6 +167,6 @@ When you upload a competition the `reference_data`, `scoring_program` and `input
 
 ## Sharing competition before publishing
 
-If you want to share your competition before publishing, you can give users the "Secret Key" url underneath the title of your competition on the main page.
+If you want to share your competition before publishing, you can give users the "Secret Key" url underneath the title of your competition on its main page.
 
 ![](http://i.imgur.com/UDkkmz1.png)

@@ -66,9 +66,9 @@ If you need to modify any JavaScript files, you'll need the [JavaScript Closure 
 
 You can also make this easier by `pip install watchdog` and then:
 
-    `cd codalab/codalab/apps/web/static`
+`cd codalab/codalab/apps/web/static`
 
-    `watchmedo shell-command --patterns="*.js" --recursive --command "python ../../../../scripts/javascript.py ~/java/compiler.jar" js/`
+`watchmedo shell-command --patterns="*.js" --recursive --command "python ../../../../scripts/javascript.py ~/java/compiler.jar" js/`
 
 ## Next steps
 - [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)

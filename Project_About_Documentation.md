@@ -1,7 +1,9 @@
 # About CodaLab Documentation
 This topic explains how CodaLab documentation is set up, and shows you how to work with the documentation. CodaLab documentation is presented from two resources:
 - The CodaLab wiki, which you are now reading, contains the main CodaLab documentation. When accessed from codalab.org, wiki pages open in a new window.
-- [CodaLab GitHub IO pages](http://codalab.github.io/codalab) contain a subset of documentation and other content which is more closely integrated with the site. This includes the About Page, the CodaLab forum, and competition overview topics.
+- CodaLab GitHub IO pages contain a subset of documentation and other content which is more closely integrated with the site. This includes the About Page, the CodaLab forum, and competition overview topics.
+
+    **Note:** The main page of the CodaLab GitHub IO Pages (http://codalab.github.io/codalab) contains a redirect to codalab.org.
 
 No documentation is stored with the main site, relieving contributors of the need to re-deploy whenever documentation changes are made.
 

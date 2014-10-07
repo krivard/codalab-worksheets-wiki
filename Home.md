@@ -29,7 +29,7 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
 * [Example Competitions](https://github.com/codalab/competition-examples)
 
 ## Worksheets and the bundle service
-* [README](https://github.com/codalab/codalab-cli/README.md)
+* [README](https://github.com/codalab/codalab-cli/blob/master/README.md)
 * [CodaLab CLI GitHub repository](https://github.com/codalab/codalab-cli)
 * [Execution environment](https://github.com/codalab/codalab/wiki/Execution_Environment)
 

@@ -51,7 +51,6 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
     * [Dev: Deploying CodaLab](Dev_Deploying-CodaLab)
 * **Design and implementation notes**
     * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
-    * [Bundles](https://github.com/codalab/codalab/blob/master/bundles/BUNDLES.md) and [local execution prototype](https://github.com/codalab/codalab/tree/master/bundles)
     * [E-mail notification](E-mail-notifications)
     * [Progressive registration](User_Progressive-Registration)
 

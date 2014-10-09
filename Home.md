@@ -13,8 +13,9 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
 
 # CONTENTS
 ## General
+* [About CodaLab](Project_About_CodaLab)
 * [CodaLab FAQ](Project_CodaLab_FAQ)
-* [CodaLab Users Group](http://codalab.github.io/codalab/forum.html)
+* [CodaLab Users Group](https://groups.google.com/forum/#!forum/codalab-users)
 * [CodaLab Dev Group](https://groups.google.com/forum/#!forum/codalabdev)
 
 ## Competitions

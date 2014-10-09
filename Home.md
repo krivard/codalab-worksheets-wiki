@@ -1,8 +1,8 @@
 <p><a href="http://www.codalab.org"><img src="images/codalab-logo-dinky-pos.png"></a></p>
-![](images/codalab-logo-dinky-pos.png)
+
 Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki contains information for both the website and the [bundle service](https://github.com/codalab/codalab-cli).
 
-*What can you do with CodaLab?*
+*What can you do with CodaLab?* 
 
 * **Join a competition.** Visit the [CodaLab.org competitions page](https://www.codalab.org/competitions) to see a list of current competitions. [Find out how to join a competition](User_Participating-in-a-Competition).
 * **Host a competition.** The [Competition Roadmap](User_Competition-Roadmap) shows you everything you need to know to host a CodaLab competition.

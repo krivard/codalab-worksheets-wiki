@@ -1,3 +1,5 @@
+# CodaLab Wiki
+
 <a href="http://www.codalab.org"><img src="images/codalab-logo.png" /></a>
 
 Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki contains information for both the website and the [bundle service](https://github.com/codalab/codalab-cli).

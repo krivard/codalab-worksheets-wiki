@@ -1,4 +1,4 @@
-[![CodaLab.org](http://willum070.github.io/docteam/images/codalab-logo-dinky-pos.png)](http://www.codalab.org)
+[![CodaLab.org](images/codalab-logo-dinky-pos.png)](http://www.codalab.org)
 
 Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki contains information for both the website and the [bundle service](https://github.com/codalab/codalab-cli).
 
@@ -56,6 +56,6 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
     * [Progressive registration](User_Progressive-Registration)
 
 ## CodaLab Project
-* [Terms of Use](http://codalab.github.io/codalab/terms.html)
-* [Notices](http://codalab.github.io/codalab/notices.html)
+* [Terms of Use](Project_Terms_and_Conditions)
+* [Privacy Policy](Project_Privacy_Policy)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)

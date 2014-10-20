@@ -34,7 +34,6 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
 ## Worksheets and the bundle service
 * [README](https://github.com/codalab/codalab-cli/blob/master/README.md)
 * [CodaLab CLI GitHub repository](https://github.com/codalab/codalab-cli)
-* [Execution environment](https://github.com/codalab/codalab/wiki/Execution_Environment)
 
 ## Developers
 * [How to Contribute](Dev_How-to-Contribute)

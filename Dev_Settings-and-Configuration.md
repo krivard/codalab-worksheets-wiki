@@ -1,6 +1,6 @@
 # Settings
 
-The package django-configurations provides a class-based approach to Django settings. The manage.py and wsgi.py have been modified to support this extra capability. 
+The package django-configurations provides a class-based approach to Django settings. For CodaLab, the `manage.py` and `wsgi.py` files have been modified to support this extra capability. 
 
 The settings are located in `codalab/codalab/settings/`. There is a base and default set of settings. For local development, you'll need to create a new `local.py`. This overrides default settings and is used only for developing on a local computer. For server deployments, create a `deploy.py` file to store configuration settings. To find out more about configuring Django, read the following documentation: https://django-configurations.readthedocs.org/en/latest/#usage-patterns 
 

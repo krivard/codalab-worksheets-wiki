@@ -1,30 +1,37 @@
 # Settings
 
-The package django-configurations is employed to provide a class-based approach to Django settings. The manage.py and wsgi.py ( and perhaps a fcgi script at a later time ) have been modified to support the extra capability. 
+The package django-configurations provides a class-based approach to Django settings. The manage.py and wsgi.py have been modified to support this extra capability. 
 
-The location of the settings are in codalab/codalab/settings/. There is a base and default set of settings. One can create a local.py which can override settings and then for deployment one would create a deploy.py file. To see how it is used the docs for configurations is here: https://django-configurations.readthedocs.org/en/latest/#usage-patterns 
+The settings are located in `codalab/codalab/settings/`. There is a base and default set of settings. For local development, you'll need to create a new `local.py`. This overrides default settings and is used only for developing on a local computer. For server deployments, create a `deploy.py` file to store configuration settings. To find out more about configuring Django, read the following documentation: https://django-configurations.readthedocs.org/en/latest/#usage-patterns 
 
-There is a sample configuration file in settings/ named local_configuration_examples.py which demonstrates how to update the settings as needed for a particular environment. The base.py contains the majority of settings and would be updated when functionality is added and core packages need updating. If one wishes to test using other third-party Django apps it is recommended that a local.py file is created to add the apps so that the base.py file does not need to be updated.
+There is a sample configuration file in `settings/` named `local_sample.py` which demonstrates the typical settings that are needed for a particular environment. You can use this as a basis for creating your own customized settings files. The  file `base.py` contains the majority of the settings and is typically updated when functionality is added and core packages need updating. If one wishes to test using other third-party Django apps, create a custom `local.py` file for the apps. It is recommended to use a custom `local.py` rather than updating `base.py`.
 
-The local.py and deploy.py files are never checked into the repository. For server deployments, the files need to be created with the appropriate settings and deployed separately from the repository.
+The `local.py` and `deploy.py` files are never checked in to the repository. For server deployments, the files need to be created with the appropriate settings and deployed separately from the repository.
 
 # Configuration
 
-A package named config_gen is used to templatize configuration files needed for deployment and testing. codalab/config/templates contains the templates for the configuration files. Some of the may be used, some of them may not be. One runs:
+A package named `config_gen` is used to templatize configuration files needed for deployment and testing. The folder `codalab/config/templates` contains the templates for the configuration files. Note that not all of these files may be used for a particular configuration. To generate configuration files, run the following command:
 
 `python manage.py config_gen`
 
-The templates expand settings that are defined in the settings files to build them. The location of the templates and the generated files is configurable with the settings: CONFIG_GEN_TEMPLATES_DIR and CONFIG_GEN_GENERATED_DIR
+The generated files are output to `\codalab\config\generated`.
+
+The configuration files are built by using templates defined in the following 
+
+You can configure the location of the templates and the generated files by updating the `CONFIG_GEN_TEMPLATES_DIR` and `CONFIG_GEN_GENERATED_DIR` parameters defined in `\codalab\settings\base.py`.
 
 ***
 
 ## Azure
-A number of services such a Blob storage, SQL Azure and ServiceBus can be used with Django.
+You can use Azure services with Django, including:
+- SQL Azure
+- Blob storage
+- Azure service bus
 
 ### SQL Azure 
-SQL Azure is Microsoft SQL Server, but has some slightly different options for connecting to the DB.
+SQL Azure is similar to Microsoft SQL Server, but has some slightly different options for connecting to the database.
 
-From the Azure management console [Azure Mangement](https://manage.windowsazure.com/) A SQL Database will need to be configured if one does not exist. The settings such as the server name, database name and user will be needed. Be mindful of the user name, which needs to be in the format, username@server (servername, not the fully qualified host name). If connecting to the database from outside the Azure services under the subscription, in the Management console from the Dashboard for the database server select "Manage allowed IP addresses" and add the appropriate entries to allow access from the outside.
+You will need to configure a SQL Database if one does not already exist. You can use the [Azure management console](https://manage.windowsazure.com/) to do this. During the process you'll need to provide (and record) settings such as the server name, database name, user, and so on. You will need to update your configuration files with these values. Be mindful of the user name, which needs to be in the format, `username@server` (servername, not the fully qualified host name). If you are connecting to the database from outside the Azure services under the subscription, in the Management console from the Dashboard for the database server select "Manage allowed IP addresses" and add the appropriate entries to allow access from the outside.
 
 #### Windows Specifics
 Requirements:
@@ -32,10 +39,9 @@ Requirements:
 * [PyODBC package](http://code.google.com/p/pyodbc/)
 * [PyWin32](http://starship.python.net/crew/mhammond/win32/Downloads.html)
 
+In the case of Windows Server 2012, select **Tools->ODBC Datasources** from the **Tools** tab. You need to set up a driver if the SQL Server driver does not appear. Next you will need to set up a Datasource using one of the drivers, using the settings and credentials for the database server, or alternatively the settings provided by a DBA managing the databases.
 
-In the case of Windows Server 2012, select Tools->ODBC Datasources from the Tools tab. A driver needs to be setup if the SQL Server driver does not appear, then a Datasource, using one of the drivers, needs to be setup with the settings and credentials from setting up the database server, or the settings provided by a DBA managing the databases.
-
-The settings for the SQL Azure database and the ODBC datasource(s) will need to be setup in a deploy.py or local.py configuration in codalab/codalab/settings/ with the needed settings described in codalab/codalab/settings/local_configuration_examples.py
+You will need to configure the settings for the SQL Azure database and the ODBC datasource(s) in a `deploy.py` or `local.py` configuration in `codalab/codalab/settings/` using the settings described in `codalab/codalab/settings/local_examples.py` as a base for your own configuration.
 
 #### Linux Specifics
 Ubuntu has all the requirements available assuming version 13.04 or later is used:
@@ -48,6 +54,6 @@ Python dependencies:
 
 `pip install pyodbc django-pyodbc-azure`
 
-The settings also need to be put unto a local.py or deploy.py settings files in codalab/codalab/settings/ with the needed settings described in codalab/codalab/settings/local_configuration_examples.py
+You will need to update either the `local.py` or `deploy.py` settings file in `codalab/codalab/settings/` using the settings described in `codalab/codalab/settings/local_examples.py` as a base for your own configuration.
 
-The odbc.ini freetds.conf and odbcinst.ini are generated by manage.py config_gen so that no extra odbc configuration is necessary. See the settings example in local_configuration_examples.py: LocalSQLAzureLinux
+The `odbc.ini`, `freetds.conf,` and `odbcinst.ini` files are generated by `manage.py config_gen` so that no extra odbc configuration is necessary. See the settings example in `local_examples.py`: LocalSQLAzureLinux.

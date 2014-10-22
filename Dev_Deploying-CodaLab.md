@@ -9,6 +9,8 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 - Remote Git repository with cloned fork of the CodaLab repo. Follow these instructions: [Dev: Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-Codalab-For-Development).
 
 ### Install and configure Cygwin
+**NOTE:** These steps apply to Windows only. Linux users can skip ahead.
+
 1. Download the appropriate installer from [Cygwin.com](http://cygwin.com/install.html).
 2. Install the following packages (listed here by category):
 
@@ -29,6 +31,17 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 - If you are prompted to install dependencies, click **OK** to install them (default option).
 
 ### Install and configure Fabric
+**Linux**
+1. Install the following packages (in this order):
+    ```
+    $ apt-get install python-setuptools
+    $ easy_install pip
+    $ pip install fabric
+    $ pip install azure pyyaml
+    $ pip install ecdsa
+    ```
+
+**Windows**
 1. Launch Cygwin.
 1. Install the following packages (in this order):
 
@@ -70,14 +83,14 @@ For help with **Makecert**, see [Makecert.exe (Certificate Creation Tool)](http:
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.
 1. Right-click **Developer Command Prompt** and select **Run as administrator**.
 1. Run the following command to create a new self-signed management certificate:
-    `makecert -sky exchange -r -n "CN=AzureCertificate" -pe -a sha1 -len 2048 -ss My "C:\Users\<user>\Desktop\AzureCertificate.cer"`
+    `makecert -sky exchange -r -n "CN=<CertificateName>" -pe -a sha1 -len 2048 -ss My "C:\Users\<user>\Desktop\<CertificateName>.cer"`
     The command will create the .cer file at the specified path, and install it in your Personal certificate store. 
 
 1. Go to the Azure [management portal](https://manage.windowsazure.com/).
 1. Click the **Settings** tab, then click **Management Certificates**.
 1. Click **Upload**.
 1. Browse to the .cer file you just created and upload it.
-1. Copy the .cer file to ``.
+1. Copy the .cer file to a safe place.
 
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
 
@@ -92,9 +105,11 @@ For more information, see [Create and Upload a Management Certificate for Window
 1. Run the following command to convert the .key to .pfx.
     `pvk2pfx -pvk azureuser.pvk -spc azureuser.key -pfx azureuser.pfx -po password`
     Where `password` is the password you entered when creating the keypair.
+
+1. When prompted, enter the password you created in the previous steps.
     
 ### Import certificates to your local store
-1. Copy the .key, .pfx, and .cer files from `C:\Windows\SysWOW64` into your `C:\cygwin64\home\<user>\.ssh` directory.
+1. Copy the .pvk, .pfx, and .cer files from `C:\Windows\SysWOW64` into your `C:\cygwin64\home\<user>\.ssh` directory.
 1. Click **Start**, then type `certmgr.msc`.
 1. Expand **Personal** then expand **Certificates**.
 1. Click **Action**, **All Tasks**, **Import**.
@@ -223,6 +238,7 @@ logging:
 ```
 
 ## Create Azure VMs and deploy to Azure
+1. Launch PowerShell as an administrator.
 1. Navigate to the deploy directory.
     `cd "C:\Users\[USER]\Documents\GitHub\codalab\codalab\codalabtools\deploy"`
 

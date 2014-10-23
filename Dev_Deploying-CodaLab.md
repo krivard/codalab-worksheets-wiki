@@ -34,6 +34,7 @@ This guide will show you how to deploy a CodaLab instance to Azure. The CodaLab 
 **Linux**
 
 1. Install the following packages (in this order):
+
     ```
     $ apt-get install python-setuptools
     $ easy_install pip
@@ -318,9 +319,10 @@ If you are receiving errors during the initial parts of the provisioning process
     from azure import *
     from azure.servicemanagement import *
     
-    SUBSCRIPTION_ID = "[AZURE_SUBSCRIPTION_ID]"
+    subscription_id = "[AZURE_SUBSCRIPTION_ID]"
+    certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
     
-    sms = ServiceManagementService(SUBSCRIPTION_ID, "CURRENT_USER\\my\\[AZURE_CERT_NAME]")
+    sms = ServiceManagementService(subscription_id, certificate_path)
     print sms.list_locations()
     results = sms.list_locations()
     for location in results:

@@ -72,8 +72,6 @@ If Fabric returns a list of commands, you're good to go. If not, you'll need to 
 ## Set up Azure certificates and SSL keys
 In this section you will create a set of Azure certificates and SSL keys. These certificates and keys provide the necessary authentication for CodaLab to interact with Azure.
 
-**Note:** If you are a project committer, there is a set of predefined certificates for you to use, so you can skip these steps. Contact the project coordinator to get access to the certificates and credentials you will need.
-
 There are two sets of certificates. 
 - The self-signed management certificate used to authenticate the connection to Azure so that you can send commands to the Azure VMs.
 - The .key and .pfx files which are used by the Azure VMs.
@@ -96,6 +94,8 @@ For help with **Makecert**, see [Makecert.exe (Certificate Creation Tool)](http:
 1. Copy the .cer file to a safe place.
 
 For more information, see [Create and Upload a Management Certificate for Windows Azure](http://msdn.microsoft.com/en-us/library/windowsazure/gg551722.aspx).
+
+**Note:** If you are a project committer, there is a set of predefined certificates for you to use, so you can skip the remaining steps. Contact the project coordinator to get access to the certificates and credentials you will need.
 
 ### Create the Azure VM keys
 1. On the taskbar, click **Start**, click **All Programs**, click **Microsoft Visual Studio**, then click **Visual Studio Tools**.

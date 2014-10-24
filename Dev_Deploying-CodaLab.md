@@ -313,73 +313,73 @@ Due to the complexity of the deployment process, things might not always go in a
 ### Check your certificate
 If you are receiving errors during the initial parts of the provisioning process, it could be due to an issue with your certificate. Use this Python script to verify whether your certificate is valid (if the script fails, your certificate is most likely bad).
 
-    ```
-    import sys
-    import os, os.path
-    from azure import *
-    from azure.servicemanagement import *
-    
-    subscription_id = "[AZURE_SUBSCRIPTION_ID]"
-    certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
-    
-    sms = ServiceManagementService(subscription_id, certificate_path)
-    print sms.list_locations()
-    results = sms.list_locations()
-    for location in results:
-        print location.name
-    ```
+```
+import sys
+import os, os.path
+from azure import *
+from azure.servicemanagement import *
+
+subscription_id = "[AZURE_SUBSCRIPTION_ID]"
+certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+print sms.list_locations()
+results = sms.list_locations()
+for location in results:
+    print location.name
+```
 
 ### List all local certificates
 You can list all of your local certificates by running a few commands in PowerShell. This is a good way to get certificate thumbprints.
 
-    ```
-    PS C:\dev> cd cert:
-    PS Cert:\> ls
-     
-     
-    Location   : CurrentUser
-    StoreNames : {TrustedPublisher, ClientAuthIssuer, Root, UserDS...}
-     
-    Location   : LocalMachine
-    StoreNames : {TrustedPublisher, ClientAuthIssuer, Remote Desktop, Root...}
-     
-     
-     
-    PS Cert:\> cd .\\CurrentUser
-    PS Cert:\CurrentUser> cd .\My
-    PS Cert:\CurrentUser\My> ls
-     
-     
-        Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
-     
-     
-    Thumbprint                                Subject
-    ----------                                -------
-    ADD5BA24A11C2935C0000040C35199BC964E63E7  CN=####@microsoft.com
-    00000B2042C77E2A35656822C5CDFFACA30A8E72  CN=#####DC...
-    9B000007A54112C3FD15E4AE21CCA97EFB69B786  CN=#####
-    963A1A1214F0700000A361A2A8D7F0000DFD22B0  CN=#####
-    ```
+```
+PS C:\dev> cd cert:
+PS Cert:\> ls
+ 
+ 
+Location   : CurrentUser
+StoreNames : {TrustedPublisher, ClientAuthIssuer, Root, UserDS...}
+ 
+Location   : LocalMachine
+StoreNames : {TrustedPublisher, ClientAuthIssuer, Remote Desktop, Root...}
+ 
+ 
+ 
+PS Cert:\> cd .\\CurrentUser
+PS Cert:\CurrentUser> cd .\My
+PS Cert:\CurrentUser\My> ls
+ 
+ 
+    Directory: Microsoft.PowerShell.Security\Certificate::CurrentUser\My
+ 
+ 
+Thumbprint                                Subject
+----------                                -------
+ADD5BA24A11C2935C0000040C35199BC964E63E7  CN=####@microsoft.com
+00000B2042C77E2A35656822C5CDFFACA30A8E72  CN=#####DC...
+9B000007A54112C3FD15E4AE21CCA97EFB69B786  CN=#####
+963A1A1214F0700000A361A2A8D7F0000DFD22B0  CN=#####
+```
 
 
 ### List available OS images
 From time to time the OS images available on Azure will change. If, while in the provisioning stage, you receive an error stating that an OS image cannot be located, you may need to check for a new one. This Python script outputs a list of all Ubuntu OS images.
 
-    ```
-    from azure import *
-    from azure.servicemanagement import *
-    
-    subscription_id = "[AZURE_SUBSCRIPTION_ID]"
-    certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
-    
-    sms = ServiceManagementService(subscription_id, certificate_path)
-    
-    result = sms.list_os_images()
-    
-    for os in result:
-        if "Ubuntu" in os.name:
-            print("Name: " + os.name)
-    ```
+```
+from azure import *
+from azure.servicemanagement import *
+
+subscription_id = "[AZURE_SUBSCRIPTION_ID]"
+certificate_path = "CURRENT_USER\\my\\[AZURE_CERT_NAME]"
+
+sms = ServiceManagementService(subscription_id, certificate_path)
+
+result = sms.list_os_images()
+
+for os in result:
+    if "Ubuntu" in os.name:
+        print("Name: " + os.name)
+```
 
 The OS image names look like this:
     `b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-13_10-amd64-server-20131015-en-us-30GB`

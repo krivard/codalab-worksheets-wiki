@@ -1,4 +1,4 @@
-CodaLab API
+##Accessing Codalab data remotely
 CodaLab provides an API to access various models using REST framework. 
 ### Accessing a competition
   To access a competition, you need to know the competition ID which can be found on https://www.codalab.org/. 

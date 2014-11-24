@@ -5,7 +5,7 @@ CodaLab provides an API to access various models using REST framework.
   The competition ID can be seen by clicking on one of the competitions. The URL of the competition looks like https://www.codalab.org/competitions/1#learn_the_details, and the competition ID here is 1. The competition can be accessed using a “GET” request. 
 
   Function to make a GET request which returns JSON data for a competition using java script and Ajax:
-
+  ```
     GET http://codalabtest.cloudapp.net/api/competition/<Competition ID>/
     <script>
         function getJson(url) {
@@ -21,8 +21,9 @@ CodaLab provides an API to access various models using REST framework.
            }).responseText);
          }
     </script> 
-
+   ``` 
     Java script to access the JSON data for a competition and then display it on your own website:
+   ```
     <script>	
         // get the competition data using GET ajax call
         var competition = getJson("http://codalabtest.cloudapp.net/api/competition/1/");
@@ -38,4 +39,4 @@ CodaLab provides an API to access various models using REST framework.
         //link the competition to CodaLab
         document.getElementById("competition").href = "http://codalabtest.cloudapp.net/competitions/" + competition.id + "#learn_the_details";
     </script>
-
+  ```

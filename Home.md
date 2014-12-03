@@ -57,6 +57,5 @@ Welcome to the CodaLab Wiki, the home of CodaLab documentation.  This Wiki conta
     * [Progressive registration](User_Progressive-Registration)
 
 ## CodaLab Project
-* [Terms of Use](Project_Terms_and_Conditions)
-* [Privacy Policy](Project_Privacy_Policy)
+* [Privacy](Privacy)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)

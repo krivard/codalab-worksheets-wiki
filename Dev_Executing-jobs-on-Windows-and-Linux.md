@@ -64,3 +64,7 @@ First, the organizer comes to CodaLab web site to create a competition and speci
 1. There is an assumption that the compute workers have read-write access to bundles via a service. Without the service, they could access Blob storage directly but Shared Access Signature would have to be given appropriately.
 1. The compute worker will execute user-provided code. An open question is how to sandbox the user-provided program on each target platform (Windows + Linux). What did MLCOMP do? Is this a technology issue or a terms of use issue?
 2. What long term management issues will arise? Patches need to be applied to software, certificates expire...
+
+### Notes
+
+1. The compute workers should execute one task at a time so they aren't fighting over resources

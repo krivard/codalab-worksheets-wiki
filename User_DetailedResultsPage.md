@@ -9,21 +9,20 @@ After enabling this feature, the scoring program should take care of the creatio
 `matplotlib.use('Agg') #very important to make it work on Linux`
 
 Example scoring program to create an html page with figures and tables:
+    `import matplotlib`
+    `matplotlib.use('Agg')`
+    `import os, os.path, sys`
+    `import math`
+    `import matplotlib.pyplot as plt`
+    `import shutil`
+    `from pylab import *`
+    `import itertools`
+    `import numpy as np`
 
-`import matplotlib`
-`matplotlib.use('Agg')`
-`import os, os.path, sys`
-`import math`
-`import matplotlib.pyplot as plt`
-`import shutil`
-`from pylab import *`
-`import itertools`
-`import numpy as np`
+    `def f(t):`
+        `return np.exp(-t) * np.cos(2*np.pi*t)`
 
-`def f(t):`
-    `return np.exp(-t) * np.cos(2*np.pi*t)`
-
-`def createHTML(outputDir):`
+    `def createHTML(outputDir):`
 	`htmlOutputDir = os.path.join(outputDir, "html")`
 	`imagesOutputDir = os.path.join(htmlOutputDir, "images")`
 	`if not os.path.exists(htmlOutputDir):`
@@ -46,8 +45,8 @@ Example scoring program to create an html page with figures and tables:
 	`<html>`
 	`<head>`
     `<title>Demo Html</title>`
-    `<link href="https://azuretraining2350.blob.core.windows.net/anode09/theme.default.css" rel="stylesheet">     `
-    `<script type="text/javascript" src="https://azuretraining2350.blob.core.windows.net/anode09/jquery.min.js"></script> `
+    `<link href="https://azuretraining2350.blob.core.windows.net/anode09/theme.default.css" rel="stylesheet">`
+    `<script type="text/javascript" src="https://azuretraining2350.blob.core.windows.net/anode09/jquery.min.js">  </script> `
     `<script type="text/javascript" src="https://azuretraining2350.blob.core.windows.net/anode09/jquery.tablesorter.min.js"></script>`
      
     `<script>`

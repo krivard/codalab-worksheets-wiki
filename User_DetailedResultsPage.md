@@ -36,9 +36,9 @@ Example scoring program to create an html page with figures and tables:
 	plt.plot(t1, f(t1), 'bo', t2, f(t2), 'k')
 	plt.savefig(os.path.join(outputDir,"testCurve.png"), bbox_inches=0, dpi=300)
 	
-	#image 1
+	#image 1 (Example)
 	imageOrg = os.path.join(outputDir, "testCurve.png")
-	data_uri1 = open(imageOrg, 'rb').read().encode('base64').replace('\n', '')
+	data_uri1 = open(imageOrg, 'rb').read().encode('base64').replace('\n', '') #encode the image as base64 to embed it in the html
 	img_tag1 = 'src="data:image/png;base64,{0}"'.format(data_uri1)
 	
 			
@@ -65,10 +65,9 @@ Example scoring program to create an html page with figures and tables:
         </style>  
 	</head>
 	<body>
+	<p>Description here</p>
 	<p>
-	Results are plotted for all nodules and subsets of nodules. The subsets are small nodules (diameter smaller than 5 mm) and large nodules (diameter larger than 5mm) and isolated, juxtapleural, juxtavascular and peri-fissural nodules.</p>
-	<p>
-	The overal score of this system is given in the lower right cell of the table below. This is the average sensitivity at an average number of false positives per scan of 1/8, 1/4, 1/2, 1, 2, 4 and 8. The sensitivities at these false positive rates for all nodules and all subsets of nodules are tabulated below.</p>
+	The overall score and the scores in different categories of this system is given in the below table. </p>
 	<p>
 	<img border="0" %s alt="FROC" width="576pt" height="432pt">
 	<p>
@@ -85,12 +84,9 @@ Example scoring program to create an html page with figures and tables:
         </tr>
         </thead>
         <tbody>
-			<tr class = ""><td class="left-align">small nodules</td><td>0.470</td><td>0.491</td><td>0.573</td><td>0.658</td><td>0.711</td><td>0.761</td><td>0.778</td><td>0.634</td></tr>
-			<tr class = ""><td class="left-align">large nodules</td><td>0.423</td><td>0.483</td><td>0.567</td><td>0.611</td><td>0.714</td><td>0.778</td><td>0.822</td><td>0.628</td></tr>
-			<tr class = ""><td class="left-align">isolated nodules</td><td>0.548</td><td>0.595</td><td>0.595</td><td>0.619</td><td>0.619</td><td>0.643</td><td>0.643</td><td>0.609</td></tr>
-			<tr class = ""><td class="left-align">vascular nodules</td><td>0.570</td><td>0.573</td><td>0.616</td><td>0.686</td><td>0.757</td><td>0.802</td><td>0.849</td><td>0.693</td></tr>
-			<tr class = ""><td class="left-align">peri-fissural nodules</td><td>0.629</td><td>0.643</td><td>0.743</td><td>0.771</td><td>0.804</td><td>0.886</td><td>0.886</td><td>0.766</td></tr>
-			<tr class = ""><td class="left-align">all nodules</td><td>0.450</td><td>0.488</td><td>0.570</td><td>0.638</td><td>0.712</td><td>0.768</td><td>0.797</td><td>0.632</td></tr></tbody>        
+			<tr class = ""><td class="left-align">Category 1</td><td>0.470</td><td>0.491</td><td>0.573</td><td>0.658</td><td>0.711</td><td>0.761</td><td>0.778</td><td>0.634</td></tr>
+			<tr class = ""><td class="left-align">Category 2</td><td>0.423</td><td>0.483</td><td>0.567</td><td>0.611</td><td>0.714</td><td>0.778</td><td>0.822</td><td>0.628</td></tr>
+			<tr class = ""><td class="left-align">All</td><td>0.450</td><td>0.488</td><td>0.570</td><td>0.638</td><td>0.712</td><td>0.768</td><td>0.797</td><td>0.632</td></tr></tbody>        
 		</tbody>
 	</table>	
 	</div>	
@@ -133,5 +129,3 @@ Example scoring program to create an html page with figures and tables:
 	
 	##CodaLab stuff ends	
 	createHTML(outputDir)`
-
-

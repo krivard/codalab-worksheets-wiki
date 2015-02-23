@@ -10,7 +10,7 @@ If you want to contribute code to the CodaLab framework, you'll need to sign a C
 
 Take the following steps.
 
-1. Email contributions@outercurve.org@outercurve.org to start the CLA process.
+1. Email contributions@outercurve.org to start the CLA process.
 1. Upon completing the CLA signing process, email Eric Schultz (eschultz@outercurve.org) with the following information:
 
 - First Name

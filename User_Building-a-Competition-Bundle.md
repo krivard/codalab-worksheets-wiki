@@ -13,7 +13,7 @@ competition.zip
   |- terms_and_conditions.html
 ```
 
-Here is an example [competition.yaml](https://github.com/Tivix/competition-examples/blob/master/hello_world/competition/competition.yaml). If you are not familiar with how competitions look in CodaLab, you might browse competitions before you read the configuration to get a basic understanding of the components of a competition.
+Here is an example [competition.yaml](https://github.com/codalab/competition-examples/blob/master/hello_world/competition/competition.yaml). If you are not familiar with how competitions look in CodaLab, you might browse competitions before you read the configuration to get a basic understanding of the components of a competition.
 
 This competition is a construed example for illustrative purposes. Assume the competition goal is to compute the value of pi (3.14...). The submission that contains the closest value of pi is the winner, each participant a single float value as their submission.
 

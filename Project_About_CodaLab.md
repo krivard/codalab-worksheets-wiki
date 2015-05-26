@@ -30,7 +30,7 @@ On GitHub:
 
 <p>
 ### Acknowledgments
-CodaLab has received the attention and contribution from many people. They all have contributed to making CodaLab what it is today. We would like to thank all the people below and starting by acknowledging the following people who helped us pioneer CodaLab from the competition early features where Simon Mercer and Christophe Poulain played a crucial role in the development of competition functions for medical imaging to Shaunak Kishore who was instrumental in bringing the vision of worksheets to reality. 
+CodaLab has received attention and contributions from many people. They have all contributed to making CodaLab what it is today. We would like to thank all the people below and start by acknowledging the following people who helped us pioneer CodaLab from the earliest competition features where Simon Mercer and Christophe Poulain played a crucial role in the development of competition functions for medical imaging to Shaunak Kishore who was instrumental in bringing the vision of worksheets to reality. Other key contributors include:
 
 Lori Ada Kilty, Xavier Baro Sole, Eric Camichael, Justin Carden, Richard Caruana, Francis Cleary, Sergio Escalera, Ivan Judson, Shaunak Kishore, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Paul Viola, Erick Watson, and Michael Zyskowski.
 

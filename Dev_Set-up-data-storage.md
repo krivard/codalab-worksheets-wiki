@@ -13,9 +13,9 @@ In order to test uploading and running bundles in CodaLab, you will need to have
 
 ## Add a service bus namespace
 
+1. Install [azure-cli](https://azure.microsoft.com/en-us/documentation/articles/xplat-cli/)
+1. From azure-cli `sb namespace create <name> <location>` where `<location>` can be "West US"
 1. Log on to the [Azure Portal](https://manage.windowsazure.com/).
-1. In the left pane, click **Service Bus**.
-1. At the bottom of the dashboard, click **Create**, enter a name and select a region for the namespace, then click the check icon to create it.
 1. In the left pane, click **Service Bus**.
 1. Select the service bus you just created.
 1. At the top of the screen click **Queues**.

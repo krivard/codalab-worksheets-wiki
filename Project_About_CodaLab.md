@@ -23,7 +23,7 @@ On GitHub:
     </tr>
 
     <tr>
-        <td width=200px><img src="images/isabelle.png" alt="" style="max-width:100%;"></td>
+        <td width=200px><img src="![](http://m.c.lnkd.licdn.com/mpr/pub/image-5K-9cuteberW2LPi1xWkgO3kdQNlqKG4jiqPCqqidcYFqcoy5K-PhtoedSjlbiGGZiCT/sergio-escalera.jpg)" alt="" style="max-width:100%;"></td>
         <td><p><a href="http://sergioescalera.com/">Sergio Escalera</a> leads the Human Analysis group (HuPBA) at the University of Barcelona and the Computer Vision Center. He is one of the directors of ChaLearn. He pioneered the implementation of several Computer Vision challenges on Codalab within the field of Looking at People.</p></td>
     </tr>
     <tr>

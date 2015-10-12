@@ -23,6 +23,10 @@ On GitHub:
     </tr>
 
     <tr>
+        <td width=200px><img src="images/isabelle.png" alt="" style="max-width:100%;"></td>
+        <td><p><a href="http://sergioescalera.com/">Sergio Escalera</a> leads the Human Analysis group (HuPBA) at the University of Barcelona and the Computer Vision Center. He is one of the directors of ChaLearn. He pioneered the implementation of several Computer Vision challenges on Codalab within the field of Looking at People.</p></td>
+    </tr>
+    <tr>
         <td width=200px><img src="images/EvelyneViegas.jpg" alt="" style="max-width:100%;"></td>
         <td><p><a href="http://research.microsoft.com/~evelynev/">Evelyne Viegas</a> is a Director at Microsoft Research responsible for the outreach artificial intelligence program. She leads the CodaLab project working in collaboration with Isabelle Guyon, Percy Liang and the machine learning and artificial intelligence communities.</p></td>
     </tr>

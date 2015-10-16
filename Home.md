@@ -4,11 +4,6 @@
 
 Welcome to the CodaLab Wiki, the home of [CodaLab](https://www.codalab.org) documentation.
 
-## Forums
-
-* [CodaLab Users Group](https://groups.google.com/forum/#!forum/codalab-users)
-* [CodaLab Dev Group](https://groups.google.com/forum/#!forum/codalabdev)
-
 ## Worksheets
 
 Fittingly, all documentation about worksheets is on or linked from the [main worksheet](https://www.codalab.org/worksheets).
@@ -50,6 +45,8 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [E-mail notification](E-mail-notifications)
     * [Progressive registration](User_Progressive-Registration)
 
-## CodaLab Project
+## CodaLab Project and Community
+* [CodaLab Users Group](https://groups.google.com/forum/#!forum/codalab-users)
+* [CodaLab Dev Group](https://groups.google.com/forum/#!forum/codalabdev)
 * [Privacy](Privacy)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)

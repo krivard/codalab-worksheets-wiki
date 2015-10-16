@@ -4,11 +4,13 @@
 
 Welcome to the CodaLab Wiki, the home of [CodaLab](https://www.codalab.org) documentation.
 
-## Worksheets
+## CodaLab.org Help and Tutorials
+
+### Worksheets
 
 Fittingly, all documentation about worksheets is on or linked from the [main worksheet](https://www.codalab.org/worksheets).
 
-## Competitions
+### Competitions
 
 * [List of Current Competitions](https://www.codalab.org/competitions)
 * [Participating in a Competition](User_Participating-in-a-Competition)
@@ -20,6 +22,11 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
 * [Running a Competition](User_Running-a-Competition)
 * [Groups and Permissions Discussion](Dev_Groups-and-permissions-discussion)
 * [Example Competitions](https://github.com/codalab/competition-examples)
+
+## CodaLab CLI Reference
+
+* [Install CodaLab CLI Locally](User_Install CodaLab CLI)
+* [CodaLab CLI Tutorial](User_CodaLab CLI Tutorial)
 
 ## Developers
 

@@ -42,8 +42,8 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
     * [CodaLab Linux Quickstart](Dev_Linux Quickstart)
 * **CodaLab CLI**
-    * [CodeLab CLI Code Design](Dev_CodaLab CLI Code Design)
-    * [CodaLab CLI Database Migrations](Dev_CodaLab CLI Database Migrations)
+    * [Code Design](Dev_CodaLab CLI Code Design)
+    * [Database Migrations](Dev_CodaLab CLI Database Migrations)
     * [Execution in Docker](Dev_CodaLab CLI Execution in Docker)
     * [Unit Tests](Dev_CodaLab CLI Unit Tests)
     * [Set up data storage](Dev_Set-up-data-storage)

@@ -36,12 +36,15 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
     * [Windows](Dev_Getting-Started-on-Windows)
     * [Mac](Dev_Getting-Started-on-Mac)
-* [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
 * [Set up data storage](Dev_Set-up-data-storage)
 * [CodaLab Linux Quickstart](Dev_Linux Quickstart)
 * [Run the Website and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
-* [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
-
+* **CodaLab Web Application**
+    * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
+    * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
+* **CodaLab CLI**
+    * [CodeLab CLI Code Design](Dev_CodaLab CLI Code Design)
+    * [CodaLab CLI Database Migrations](Dev_CodaLab CLI Database Migrations)
 * **Process**
     * [Developer Guidelines](Dev_Developer-Guidelines)
     * [Process for Tracking Issues](Dev_Issue-tracking)
@@ -51,7 +54,6 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [Dev: Deploying CodaLab](Dev_Deploying-CodaLab)
 * **Design and implementation notes**
     * [Design overview](https://github.com/codalab/codalab/blob/master/docs/SPECIFICATION.md)
-    * [CodeLab CLI Code Design](Dev_CodaLab CLI Code Design)
     * [E-mail notification](E-mail-notifications)
     * [Progressive registration](User_Progressive-Registration)
 

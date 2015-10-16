@@ -748,7 +748,7 @@ Notes:
   permission.
 - There is a designated root user (`codalab`) that has `all` permission to
   all bundles and worksheets.
-- Each user has `all` permission to all bundles and worksheets that he/she owns.
+- Each user has `all` permission to all bundles and worksheets that she/he owns.
 
 To grant/revoke permissions:
 
@@ -957,7 +957,7 @@ For example, in vim, you could define a *save* and *load* command by adding the
 following two lines to your `.vimrc`:
 
     map mk :wa<CR>:!cl wedit % -f %<CR>
-    map mr :wa<CR>:!cl print -r % > %<CR>
+    map ms :wa<CR>:!cl print -r % > %<CR>
 
 The file that you load is in general not identical to the one you save (because
 references get interpreted and commands get executed), so it's a good idea to

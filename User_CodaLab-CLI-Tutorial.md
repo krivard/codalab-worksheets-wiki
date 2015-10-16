@@ -1,51 +1,3 @@
-# CodaLab Bundle Service [![Build Status](https://travis-ci.org/codalab/codalab-cli.png?branch=master)](https://travis-ci.org/codalab/codalab-cli)
-
-The goal of CodaLab is to faciliate transparent, reproducible, and
-collaborative research in computation- and data-intensive areas such as machine
-learning.  Think Git for experiments.  This repository contains the code for
-the CodaLab Bundle Service and provides the foundation on which the [CodaLab
-website](https://github.com/codalab/codalab) is built.
-
-The CodaLab Bundle Service allows users to create *bundles*, which are
-immutable directories containing code or data.  Bundles are either
-uploaded or created from other bundles by executing arbitrary commands.
-When the latter happens, all the provenance information is preserved.  In
-addition, users can create *worksheets*, which interleave bundles with
-free-form textual descriptions, allowing one to easily describe an experimental
-workflow.
-
-This package also contains a command-line interface `cl` that provides flexible
-access to the CodaLab Bundle Service.  The [CodaLab
-website](https://github.com/codalab/codalab) provides a graphical interface to
-the service, as well as supporting competitions.
-
-## Installation
-
-Skip this section if your administrator has already installed CodaLab for you.
-
-1. Make sure you have the dependencies (Python 2.7 and virtualenv).  If you're running Ubuntu:
-
-        sudo apt-get install python2.7 python2.7-dev python-virtualenv
-
-2. Clone the CodaLab repository:
-
-        git clone https://github.com/codalab/codalab-cli
-        cd codalab-cli
-
-3. Run the setup script (will install things into a Python virtual environment):
-
-        ./setup.sh
-
-4. Set your path to include CodaLab (add this line to your `.bashrc`):
-
-        export PATH=$PATH:<path to codalab-cli>/codalab/bin
-
-5. Optional: include some handy macros (add this line to your `.bashrc`):
-
-        . <path to codalab-cli>/rc
-
-Now you are ready to start using CodaLab!
-
 ## Filesystem analogy
 
 CodaLab is structured much like a classic operating system, so it's useful to
@@ -748,7 +700,7 @@ Notes:
   permission.
 - There is a designated root user (`codalab`) that has `all` permission to
   all bundles and worksheets.
-- Each user has `all` permission to all bundles and worksheets that she/he owns.
+- Each user has `all` permission to all bundles and worksheets that he/she owns.
 
 To grant/revoke permissions:
 
@@ -957,7 +909,7 @@ For example, in vim, you could define a *save* and *load* command by adding the
 following two lines to your `.vimrc`:
 
     map mk :wa<CR>:!cl wedit % -f %<CR>
-    map ms :wa<CR>:!cl print -r % > %<CR>
+    map mr :wa<CR>:!cl print -r % > %<CR>
 
 The file that you load is in general not identical to the one you save (because
 references get interpreted and commands get executed), so it's a good idea to

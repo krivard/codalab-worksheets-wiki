@@ -83,4 +83,4 @@ You can back up the contents of the database:
 ## Authentication
 
 If you want to make your server public, then you need to set up OAuth
-authentication.  Follow the instructions in the [Linux Quickstart tutorial](Dev_CodaLab Linux Quickstart).
+authentication.  Follow the instructions in the [Linux Quickstart tutorial](Dev_Linux Quickstart).

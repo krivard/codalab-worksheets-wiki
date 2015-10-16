@@ -4,6 +4,8 @@
 
 Welcome to the CodaLab Wiki, the home of [CodaLab](https://www.codalab.org) documentation.
 
+## Table of Contents
+
 * [Worksheets](#worksheets)
 * [Competitions](#competitions)
 * [Developers](#developers)

@@ -548,41 +548,6 @@ so you now just need to type:
 
 This will prompt you for your username and password.
 
-### Starting your own server
-
-Setting up a CodaLab instance for you or your group, you can do the following
-in another shell:
-
-    cl server
-
-By default, the server is running at `http://localhost:2800`.  You can change
-this in `~/.codalab/config.json`.
-
-For security reasons, the server is only accessible from localhost.  To make
-the server accessible from anywhere, under "server" / "host" in
-`~/.codalab/config.json`, change "localhost" to "".  In this case, you should
-change the authentication from `MockAuthHandler` to `OAuthHandler` or else you
-will have a bad security vulnerability.  Setting this requires have an OAuth
-endpoint, which the CodaLab web server happens to provide (see the README
-there).
-
-Now we can connect to this server:
-
-    cl work http://localhost:2800::
-
-or
-
-    cl alias localhost http://localhost:2800
-    cl work localhost::
-
-To switch back to the `local` instance, type:
-
-    cl work local::
-
-Note that when you are on `localhost`, you are accessing the same CodaLab
-instance as when you are on `local`, but all requests go through the network,
-which means that this CodaLab instance can be accessed from another machine.
-
 ### Copying between instances
 
 It is easy to copy bundles and other worksheet items between instances.
@@ -626,60 +591,6 @@ Note that worksheets themselves are not copied, just the items within a
 worksheet.  Any bundles that don't exist on the destination CodaLab instance
 are copied over.
 
-## Using MySQL
-
-By default, CodaLab is configured to use SQLite, and the database file is just a single
-file in `~/.codalab`.  While this is a quick way to get started, SQLite is not a very
-scalable solution (and also doesn't handle database migrations properly, so
-don't put valuable stuff in a SQLite-backed database). Here are instructions to
-set up MySQL:
-
-Install the MySQL server.  On Ubuntu, run:
-
-    sudo apt-get install mysql-server
-
-Install the MySQL Python if it hasn't been done already:
-
-    venv/bin/pip install MySQL-python
-
-Create a user in the `mysql -u root -p` prompt:
-
-    CREATE USER '<username>'@'localhost' IDENTIFIED BY '<password>';
-    CREATE DATABASE codalab_bundles;
-    GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
-
-In the configuration file `.codalab/config.json`,
-change `"class": "SQLiteModel"` to
-
-    "class": "MySQLModel",
-    "engine_url": "mysql://<username>:<password>@<host>:<port>/<database>",
-
-For example:
-
-    "engine_url": "mysql://codalab@localhost:3306/codalab_bundles",
-
-If you already have data in SQLite, you can load it into MySQL as follows:
-
-    sqlite3 ~/.codalab/bundle.db .dump > bundles.sqlite
-    python scripts/sqlite_to_mysql.py < bundles.sqlite > bundles.mysql 
-    mysql -u codalab -p codalab_bundles < bundles.mysql
-
-Once you set up your database, run the following so that future migrations
-start from the right place (this is important!):
-
-    venv/bin/alembic stamp head
-
-You can back up the contents of the database:
-
-    mysqldump -u codalab -p codalab_bundles > bundles.mysql
-
-## Authentication
-
-If you want to make your server public, then you need to set up OAuth
-authentication.  Follow the instructions in the Linux Quickstart section of the
-[CodaLab website
-README](https://github.com/codalab/codalab/blob/master/README.md).
-
 ### Permissions
 
 CodaLab implements the following permissions model:
@@ -700,7 +611,7 @@ Notes:
   permission.
 - There is a designated root user (`codalab`) that has `all` permission to
   all bundles and worksheets.
-- Each user has `all` permission to all bundles and worksheets that she/he owns.
+- Each user has `all` permission to all bundles and worksheets that he/she owns.
 
 To grant/revoke permissions:
 
@@ -909,7 +820,7 @@ For example, in vim, you could define a *save* and *load* command by adding the
 following two lines to your `.vimrc`:
 
     map mk :wa<CR>:!cl wedit % -f %<CR>
-    map ms :wa<CR>:!cl print -r % > %<CR>
+    map mr :wa<CR>:!cl print -r % > %<CR>
 
 The file that you load is in general not identical to the one you save (because
 references get interpreted and commands get executed), so it's a good idea to

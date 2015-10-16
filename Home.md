@@ -36,6 +36,7 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [Mac](Dev_Getting-Started-on-Mac)
 * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
 * [Set up data storage](Dev_Set-up-data-storage)
+* [CodaLab Linux Quickstart](Dev_Linux Quickstart)
 * [Run the Website and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
 * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
 * **Process**

@@ -700,7 +700,7 @@ Notes:
   permission.
 - There is a designated root user (`codalab`) that has `all` permission to
   all bundles and worksheets.
-- Each user has `all` permission to all bundles and worksheets that he/she owns.
+- Each user has `all` permission to all bundles and worksheets that she/he owns.
 
 To grant/revoke permissions:
 
@@ -909,7 +909,7 @@ For example, in vim, you could define a *save* and *load* command by adding the
 following two lines to your `.vimrc`:
 
     map mk :wa<CR>:!cl wedit % -f %<CR>
-    map mr :wa<CR>:!cl print -r % > %<CR>
+    map ms :wa<CR>:!cl print -r % > %<CR>
 
 The file that you load is in general not identical to the one you save (because
 references get interpreted and commands get executed), so it's a good idea to
@@ -917,161 +917,3 @@ load right after you save.
 
 Also, if you add bundles to the worksheet on the CLI, then you should reload
 the worksheet before you make edits or else you will lose those changes.
-
-# For developers
-
-Here are some helpful links:
-
-- [CodaLab instance](http://codalab.org/)
-- [GitHub site](http://codalab.github.io/codalab/)
-- [GitHub repository](https://github.com/codalab/codalab)
-- [Codalab Wiki](https://github.com/codalab/codalab/wiki)
-
-## Code design
-
-The main components of the CodaLab CLI are as follows:
-
-- Command-line interface (`bundle_cli.py`): main entry point, talks to a `BundleClient`.
-  This should be the only code that prints to stdout and is command-line specific.
-
-- `LocalBundleClient` and `RemoteBundleClient`.  All the functionality here
-  should be used by the CLI and the website.  `LocalBundleClient` does most of the work;
-  `RemoteBundleClient` mostly forwards its requests to the `LocalBundleClient`
-  with a few exceptions which require more involved access to CodaLab
-  (uploading/downloading files).
-
-- `bundle_model.py`: in charge of updates to the database
-
-- `bundle_store.py`: in charge of updates to the filesystem
-
-- `work_manager.py`: manages workers/execution
-
-[TODO]
-
-Bundle hierarchy:
-
-    Bundle
-      NamedBundle
-        UploadedBundle
-          ProgramBundle
-          DatasetBundle
-        MakeBundle [DerivedBundle]
-        RunBundle [DerivedBundle]
-
-## Unit tests
-
-To run tests on the code, first install the libraries for testing:
-
-    venv/bin/pip install mock nose
-
-Then run all the tests:
-
-    venv/bin/nosetests
-
-## Database migrations
-
-Migrations are handled with [Alembic](http://alembic.readthedocs.org/en/latest/).
-
-If you are planning to add a migration, please check whether:
-
-* You have a fresh DB with no migrations, or
-* You have already done a migration and wish to add/upgrade to another.
-
-By running this command:
-
-    venv/bin/alembic current
-
-If you have a migration, it will show you your last migration (head).  (In this
-case it's `341ee10697f1`.)
-
-    INFO  [alembic.migration] Context impl SQLiteImpl.
-    INFO  [alembic.migration] Will assume non-transactional DDL.
-    Current revision for sqlite:////Users/Dave/.codalab/bundle.db: 531ace385q2 -> 341ee10697f1 (head), name of migration
-
-If the DB has no migrations and is all set, the output will be:
-
-    INFO  [alembic.migration] Context impl SQLiteImpl.
-    INFO  [alembic.migration] Will assume non-transactional DDL.
-    Current revision for sqlite:////Users/Dave/.codalab/bundle.db: None
-
-##### You have a fresh DB with no migrations.
-
-Simply stamp your current to head and add your migration:
-
-    venv/bin/alembic stamp head
-
-##### You have already done a migration and wish to upgrade to another.
-
-    venv/bin/alembic upgrade head
-
-[TODO write about edge cases]
-
-### Adding a new migration
-
-1. Make modifications to the database schema in `tables.py`.
-
-2. If necessary, update COLUMNS in the corresponding ORM objects (e.g., `objects/worksheet.py`).
-
-3. Add a migration:
-
-        venv/bin/alembic revision -m "<your commit message here>" --autogenerate
-
-This will handle most use cases but **check the file it generates**.  If it is
-not correct please see the [Alembic
-Docs](http://alembic.readthedocs.org/en/latest/tutorial.html#create-a-migration-script)
-for more information on the migration script.
-
-4. Upgrade to your migration (modifies the underlying database):
-
-        venv/bin/alembic upgrade head
-
-## Execution using docker
-
-Every execution on CodaLab (should ideally) happen in a
-[docker](https://www.docker.com/) container, which provides a standardized
-Linux environment that is lighterweight than a full virtual machine.
-
-The current official docker image is `codalab/ubuntu`, which consists of
-Ubuntu 14.04 plus some standard packages.  See the [CodaLab docker
-registery](https://registry.hub.docker.com/u/codalab/ubuntu/).
-
-To install docker on your local machine (either if you want see what's actually
-in the environment or to run your own local CodaLab instance), follow these
-[instructions](http://docs.docker.com/installation/ubuntulinux/):
-
-    sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
-    sudo apt-get update
-    sudo apt-get install lxc-docker
-    sudo useradd $USER docker
-
-Then, to test out your environment, open a shell (the first time you do this,
-it will take some time to download the image):
-
-    docker run -t -i codalab/ubuntu:1.8
-
-Now, let us integrate docker into CodaLab.  First, we need to setup a job
-scheduling system (that manages the deployment of runs on machines).  Note that
-CodaLab itself doesn't do this, so that it can be easily integrated into
-different systems.  An easy way to set this up is to use `q` from Percy Liang's `fig` package:
-
-    git clone https://github.com/percyliang/fig
-    # Add fig/bin/q to your $PATH
-    q -mode master   # Run in a different terminal
-    q -mode worker   # Run in a different terminal
-
-Now, let us tell CodaLab to use `q` and run things in docker (these two things
-are orthogonal choices).  Edit the `.codalab/config.json` as follows:
-
-    "workers": {
-        "q": {
-            "verbose": 1,
-            "docker_image": "codalab/ubuntu:1.8"
-            "dispatch_command": "python $CODALAB_CLI/scripts/dispatch-q.py"
-        }
-    }
-
-To test it out:
-
-    cl work-manager -t q                 # Run in a different terminal
-    cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`

@@ -1,5 +1,3 @@
-(for CodaLab CLI only?)
-
 ## Unit tests
 
 To run tests on the code, first install the libraries for testing:

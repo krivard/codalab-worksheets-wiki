@@ -4,7 +4,7 @@
 
 Welcome to the CodaLab Wiki, the home of [CodaLab](https://www.codalab.org) documentation.
 
-## CodaLab.org Help and Tutorials
+## CodaLab.org Help
 
 ### Worksheets
 

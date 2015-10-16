@@ -27,6 +27,7 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
 
 * [Install CodaLab CLI Locally](User_Install CodaLab CLI)
 * [CodaLab CLI Tutorial](User_CodaLab CLI Tutorial)
+* [Host Your Own Bundle Service](User_CodaLab CLI Server)
 
 ## Developers
 

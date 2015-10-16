@@ -33,11 +33,11 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
 
 * [How to Contribute](Dev_How-to-Contribute)
 * [How to Contribute to the Documentation](Project_About_Documentation)
-* **Getting Started**
-    * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
-    * [Windows](Dev_Getting-Started-on-Windows)
-    * [Mac](Dev_Getting-Started-on-Mac)
 * **CodaLab Web Application**
+    * **Getting Started**
+        * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
+        * [Windows](Dev_Getting-Started-on-Windows)
+        * [Mac](Dev_Getting-Started-on-Mac)
     * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
     * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
     * [CodaLab Linux Quickstart](Dev_Linux Quickstart)

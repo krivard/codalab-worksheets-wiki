@@ -37,8 +37,6 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
     * [Windows](Dev_Getting-Started-on-Windows)
     * [Mac](Dev_Getting-Started-on-Mac)
-* [Set up data storage](Dev_Set-up-data-storage)
-* [Run the Website and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
 * **CodaLab Web Application**
     * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
     * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
@@ -48,6 +46,8 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [CodaLab CLI Database Migrations](Dev_CodaLab CLI Database Migrations)
     * [Execution in Docker](Dev_CodaLab CLI Execution in Docker)
     * [Unit Tests](Dev_CodaLab CLI Unit Tests)
+    * [Set up data storage](Dev_Set-up-data-storage)
+    * [Run the Website and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
 * **Process**
     * [Developer Guidelines](Dev_Developer-Guidelines)
     * [Process for Tracking Issues](Dev_Issue-tracking)

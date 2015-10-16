@@ -43,7 +43,7 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
     * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
     * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
     * [CodaLab Linux Quickstart](Dev_Linux Quickstart)
-* **CodaLab CLI**
+* **CodaLab CLI and Bundle Service**
     * [CodeLab CLI Code Design](Dev_CodaLab CLI Code Design)
     * [CodaLab CLI Database Migrations](Dev_CodaLab CLI Database Migrations)
     * [Execution in Docker](Dev_CodaLab CLI Execution in Docker)

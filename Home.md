@@ -45,6 +45,7 @@ Fittingly, all documentation about worksheets is on or linked from the [main wor
 * **CodaLab CLI**
     * [CodeLab CLI Code Design](Dev_CodaLab CLI Code Design)
     * [CodaLab CLI Database Migrations](Dev_CodaLab CLI Database Migrations)
+    * [Execution in Docker](Dev_CodaLab CLI Execution in Docker)
 * **Process**
     * [Developer Guidelines](Dev_Developer-Guidelines)
     * [Process for Tracking Issues](Dev_Issue-tracking)

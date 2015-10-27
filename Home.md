@@ -8,7 +8,7 @@ Welcome to the CodaLab Wiki, the home of [CodaLab](https://www.codalab.org) docu
 
 ### Worksheets
 
-* [CodaLab Worksheets Tutorial](https://www.codalab.org/worksheets).
+* [CodaLab Worksheets Tutorial](https://www.codalab.org/worksheets)
 * [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown)
 
 ### Competitions

@@ -107,9 +107,29 @@ or a file inside the bundle (if prefixed by a '/'):
 
     /stdout
 
-If the file is a JSON or TSV file, we can access particular fields inside:
+If a file `stats` is a JSON file
 
-    /stats.json:errorRate
+    {"errorRate": 0.2, "method": "simple"}
+
+or a YAML file
+
+    errorRate: 0.2
+    method: simple
+
+or a tab-separated file
+
+    errorRate   0.2
+    method	    simple
+
+then we we can access particular fields inside:
+
+    /stats:errorRate
+
+If you have a nested JSON dictionary,
+
+    {"train": {"errorRate": 0.2}}
+
+you can access it with something like `/output/stats:train/errorRate`.
 
 The post-processor, which is optional, specifies a function that transforms the
 string value of the generalized path into another (usually more friendly)

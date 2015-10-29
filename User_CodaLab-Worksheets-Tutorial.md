@@ -1,11 +1,17 @@
+This tutorial provides an in depth explanation of how to use CodaLab
+Worksheets.
+
+The commands below can be typed into the [CodaLab CLI](User_Install CodaLab
+CLI) or into the web terminal on a CodaLab website, although currently
+not all commands are supported on the website.
+
 ## Filesystem analogy
 
-CodaLab is structured much like a classic operating system, so it's useful to
-keep the following analogy in mind:
+To understand CodaLab, it's useful to keep the following analogy in mind:
 
-- shell = CodaLab session (usually identified by the process ID of the shell)
-- drive = CodaLab instance (e.g., `http://localhost:2800`)
-- directory = CodaLab worksheet (e.g., `codalab`)
+- shell = CodaLab session
+- drive = CodaLab instance (e.g., `http://codalab.org/bundleservice`)
+- directory = CodaLab worksheet (e.g., `home-pliang`)
 - file = CodaLab bundle (e.g., `stanford-corenlp`)
 - line in a file = CodaLab target (e.g., `stanford-corenlp/src`)
 
@@ -19,41 +25,18 @@ There are some differences, however:
 
 ## Basic Local Usage
 
-### Orienting oneself
-
 Print out the list of available commands:
 
-    cl
+    cl help
 
 Print out options for a specific command (e.g., upload):
 
     cl upload -h
 
-Each shell is associated with a CodaLab session.  To get the status of the
-current session (like running `pwd`):
+If you're on the CLI, you need to connect to a CodaLab instance.
 
-    cl status
-
-Your session is associated with a session ID, which identifies the current
-address/worksheet pair (usually, by default, address will be 'local' and
-worksheet your username, which in this document is `codalab`).
-
-For reference, your CodaLab settings here:
-
-    ~/.codalab/config.json
-
-The session state and authentication tokens are stored here:
-
-    ~/.codalab/state.json
-
-By default, the metadata is stored in a SQLite database (you should switch to a
-real database such as MySQL if you're going to do anything serious):
-
-    ~/.codalab/bundle.db
-
-All the bundles corresonding to the `local` address are stored here:
-
-    ~/.codalab/data
+    cl work main::   # Connects to the main CodaLab server
+    cl work local::  # Connects to the local instance (temporary)
 
 Let's walk through a simple example to demonstrate the capabilities of
 CodaLab.  The goal is to sort a file.
@@ -61,22 +44,26 @@ CodaLab.  The goal is to sort a file.
 ### Uploading bundles
 
 To use CodaLab, you first need to create bundles.  You can do this by uploading
-a bundle from your filesystem into a CodaLab instance (identified by an address
-such as `local`).
+a bundle from your filesystem into a CodaLab instance.
 
-Let's create an example dataset bundle to upload:
+Let's create an example dataset bundle called `a.txt` with the following contents:
 
-    echo -e "foo\nbar\nbaz" > a.txt
+    foo
+    bar
+    baz
 
-Upload the dataset into CodaLab as follows.  (The `--edit` (or `-e`) will pop
-up a text editor to allow you to edit the metadata of this bundle.  You are
-encouraged to fill this information out!)
+Let's upload this dataset into CodaLab.  If you're in the web terminal, simply type
 
-    cl upload dataset a.txt --edit
+    cl upload
+
+to popup a dialog box to select the desired file (if you want to upload a
+directory, you need to zip it up).  If you're on the CLI, simply type:
+
+    cl upload dataset a.txt
 
 After you quit the editor, a 32-character UUID will be printed.  This UUID
 uniquely identifies the Bundle.  Forever.  You can't edit the contents since
-bundles are immutable, but you can go back and edit the metadata:
+bundles are immutable, but you can edit the metadata:
 
     cl edit a.txt
 
@@ -88,9 +75,14 @@ You can see the statistics about the bundle:
 
     cl info -v a.txt
 
-Let's now create and upload the sorting program:
+Let's now create and upload the following sorting program `sort.py`:
 
-    echo -e "import sys\nfor line in sorted(sys.stdin.readlines()): print line," > sort.py
+    import sys
+    for line in sorted(sys.stdin.readlines()):
+        print line,
+
+like this:
+
     cl upload program sort.py
 
 Note that while `a.txt` and `sort.py` are dataset and programs, respectively,
@@ -118,7 +110,7 @@ inside (e.g., `a.txt/file1`). During the run, targets are read-only.
 
 Note that `cl run` doesn't actually run anything directly; it just creates the run
 bundle and returns immediately.  You can see by doing `cl ls` that it's been
-created, but it's state is `created`, not `ready`.  (You can add `-t` or
+created, but it's state is `created`, not `ready`.  (On the CLI, you can add `-t` or
 `--tail` to make `cl run` block and print out stdout/stderr, more like how you
 would normally run a program.)
 
@@ -139,14 +131,7 @@ doesn't:
 
     cl run 'echo hello'
 
-Now let's actually execute these run bundles.  In general, a CodaLab instance
-would already have workers constantly executing run bundles, but we're running
-locally, so we have to start up our own worker.  Run this in another shell:
-
-    cl work-manager
-
-(See `~/.codalab/config.json` to customize the worker.)  You should see that this
-shell immediately executes the run.  In our original shell, we can check that
+In our original shell, we can check that
 the run completed successfully.
 
     cl info -v sort-run
@@ -161,7 +146,7 @@ inside the last bundle:
     cl make sort-run/output -n a-sorted.txt
     cl cat a-sorted.txt
 
-We can also download the results to local disk:
+On the CLI, we can also download the results to local disk:
 
     cl download a-sorted.txt
 
@@ -209,9 +194,14 @@ bundle I', how can we produce the analogous O'.  The *mimic* command does
 exactly this.
 
 First, recall that we have created `a.txt` (I) and `sort-run` (O).  Let us
-create another bundle and upload it:
+create another bundle called `b.txt`:
 
-    echo -e "6\n3\n8" > b.txt
+    6
+    3
+    8
+
+and upload it:
+
     cl upload dataset b.txt
 
 Now we can apply the same thing to `b.txt` that we did to `a.txt`:
@@ -267,9 +257,8 @@ We can add another worksheet:
 
     cl new scratch
 
-This creates a new worksheet called `scratch` and adds it as an item to the
-current worksheet `codalab`.  We can switch back and forth between worksheets
-(analogous to switching directories using `cd`):
+This creates a new worksheet called `scratch`.  We can switch back and forth
+between worksheets (analogous to switching directories using `cd`):
 
     cl work scratch
     cl work codalab
@@ -283,13 +272,12 @@ With this in mind, we can edit the contents of this worksheet in a text editor.
 
     cl wedit
 
-In the popped up editor (determined by our `EDITOR` environment variable),
-you'll see documentation (starting with `//`) about the worksheet syntax, which
-is markdown interleaved with bundles, worksheets, and formatting directives
-(which we'll describe later).  For example, the editor might look like this:
+On the CLI, in the popped up editor (determined by the `EDITOR` environment variable),
+you'll see markdown interleaved with bundles, worksheets, and formatting directives.
+See documentation of the [markdown syntax](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
+For example, the editor might look like this:
 
     // Editing worksheet codalab(0x4734384f503944dfb15c23d7e466007a).
-    // ... (documentation) ...
     Arbitrary text describing a bundle.
     [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
     Arbitrary text describing a worksheet.
@@ -301,13 +289,11 @@ order.  You can list a bundle multiple times.  You can do edit another
 worksheet (e.g., `cl wedit scratch`) and transfer contents between the two.
 This all works because the worksheet contents are merely pointers.  When you
 remove a bundle or worksheet item, the item still exist; only the references to
-them are removed.  At the end, you can display the fruits of your labor:
+them are removed.  At the end, you can display the fruits of your labor in the CLI:
 
     cl print
 
-If you have set up the CodaLab server, you can use the web interface to view
-and edit the worksheet.  Using the web interface in conjunction with the
-command line is probably the most effective way.
+In the web interface, you can view and edit the worksheet.
 
 To remove the worksheet, you need to first remove all the items by opening a
 text editor and deleting all its contents and then running:
@@ -355,151 +341,10 @@ and third!  The intended behavior is:
 Also, if someone else is adding to your worksheet while you're editing it, you
 might end up referring to the wrong bundle.
 
-### Displaying worksheets
-
-A worksheet contains an ordered list of *items*, which are either bundles,
-worksheets, text, and *directives* (so far, we've seen only the first three).
-Directives tell the `cl print` command how to render bundle items.
-
-When you do `cl wedit`, the beginning of the document marked with comments
-('//') give some documentation about what directives do, but we will talk about
-them in more detail now.
-
-All directives have the following form:
-
-    % <command> <arg-1> ... <arg-n>
-
-The command and arguments are separated by spaces, and an argument with spaces
-should be quoted.
-
-The `title` directive sets the title of a worksheet:
-
-    % title "My Worksheet"
-
-The `display` directive changes the way the bundles after it are displayed.
-The general form is:
-
-    % display <mode> <arg>
-
-Here are the specific instances.  To hide the bundle completely:
-
-    % display hidden
-
-To display only a link to the bundle with the given anchor text:
-
-    % display link "this program"
-
-A directive applies exactly to the block of consecutive bundles immediately
-following it.  For example:
-
-    % display hidden
-    [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
-    [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
-    And now this bundle is not hidden:
-    [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
-
-### Displaying parts of bundles
-
-We can also display the contents of bundles using either the inline, contents,
-image, or html modes, all of which take one argument `<genpath>`, which is a
-*generalized path*, which specifies either a metadata field of the bundle
-(e.g., name, command) or a (part of a) file/directory inside the bundle.
-
-The `inline` mode just prints out the corresponding value.  Here, `uuid` and
-`command` are the metadata values.  You can do `cl info -r <bundle_spec>` to
-see the available `<genpath>`s.
-
-    % display inline uuid
-    % display inline command
-    % display inline /output/stats:errorRate
-
-The third example is interesting.  Here, `/output/stats` is a file inside the
-bundle (the leading '/' is required).  The colon signals that we don't want
-to display the entire file, but only part of it.  Here, we are assuming that the file
-is either a JSON file:
-
-    {"errorRate": 0.2, "method": "simple"}
-
-a YAML file,
-
-    errorRate: 0.2
-    method: simple
-
-or a tab-separated file,
-
-    errorRate   0.2
-    method	    simple
-
-If you have a nested JSON dictionary, you can access it with
-`/output/stats:train/errorRate`:
-
-    {"train": {"errorRate": 0.2}}
-
-For directories or large files, use `contents` rather than `inline`:
-
-    % display contents /stdout
-    % display contents /stdout maxlines=10
-
-If your file is an image or HTML file, then you can tell CodaLab to render it
-directly.  Note that these two modes are only really useful for displaying on
-the webpage.
-
-    % display image /graph.png
-    % display image /graph.png width=100
-    % display html /visualization.html
-
-### Displaying records and tables
-
-The final two modes are `record` and `table`.  Both display a bundle as a set
-of key-value pairs.  Like `inline`, each key-value pair is based on a `<genpath>`.
-
-A *schema* specifies the set of key-value pairs to be printed out.  A schema is
-created as follows:
-
-    % schema <schema-name>
-    % addschema <schema-name>
-    % add <key-name> <genpath> [<post-processor>]
-    % ...
-
-A number of standard schemas are defined: `program`, `dataset`, `run`, and
-`default`.
-
-For example:
-
-    % schema my-run
-    % addschema run
-    % add error /stats:errorRate %.3f
-    % add method /options.map:method "s/-method// | [0:5]"
-
-This creates a new schema called `my-run` which contains all the key-value
-pairs from the standard schema `run`, and adds two more with keys `error` and
-`method`.  The `<genpath>` is the same format as we described above for
-`inline`.  The `<post-processor>` is optional, and is a sequence (separated by " |
-"; note the spaces before and after the pipe are important) of primitive
-post-processors, which are applied, one after the other.  There are four types
-of primitive post-processors:
-
-- `duration`, `date`, `size` for special formatting
-- `%...` for sprintf-style formatting
-- `s/<old>/<new>` for regular expression substitution
-- `[<start index>:<end index>]` for taking substrings
-
-Having defined a schema, you can enable it for all following bundles by:
-
-    % display record <schema-name> ... <schema-name>
-    % display table <schema-name> ... <schema-name>
-
-A *record* displays each bundle separately, where each row is a key-value pair,
-like the `cl info` output.
-
-A *table* groups all the consecutive bundles immediately following into one
-table where each row is a bundle, each column is a key, and each cell is the
-corresponding value.
-
 ### Executing commands
 
-When editing a worksheet, you can specify CLI commands to execute right in the worksheet.
-For example, if you add `!rm ^`` after a bundle:
+On the CLI, when editing a worksheet, you can specify commands to execute right
+in the worksheet.  For example, if you add `!rm ^`` after a bundle:
 
     [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
     !rm ^
@@ -521,8 +366,6 @@ immediately preceding the command.
 So far, we have been doing everything locally, but one advantage of CodaLab is
 to have a centralized instance so that both the data and the computational
 resources can be shared and scaled.
-
-In the following, you can use `codalab` for `<username>`.
 
 ### Connecting to an existing server
 
@@ -828,3 +671,22 @@ load right after you save.
 
 Also, if you add bundles to the worksheet on the CLI, then you should reload
 the worksheet before you make edits or else you will lose those changes.
+
+## Where things are stored
+
+For reference, your CodaLab settings here:
+
+    ~/.codalab/config.json
+
+The session state and authentication tokens are stored here:
+
+    ~/.codalab/state.json
+
+By default, the metadata is stored in a SQLite database (you should switch to a
+real database such as MySQL if you're going to do anything serious):
+
+    ~/.codalab/bundle.db
+
+All the bundles corresonding to the `local` address are stored here:
+
+    ~/.codalab/data

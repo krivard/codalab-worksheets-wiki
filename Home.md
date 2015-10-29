@@ -4,8 +4,9 @@
 
 Welcome to the CodaLab Wiki, the central place for documentation.  CodaLab has many faces:
 
-- You can create reproducible papers using worksheets or host or participate in competitions.
-- You can use the public instance [codalab.org](https://www.codalab.org) or create your own private instance.
+- You can create reproducible papers using **worksheets** or host or participate in **competitions**.
+- You can use the public instance at [codalab.org](https://www.codalab.org) as
+  a **user** or setup your own private instance as a **developer**.
 
 The documentation is divided into a number of sections, each of which target a
 particular audience, so jump to the section of interest to you!

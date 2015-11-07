@@ -244,8 +244,8 @@ contain other items besides bundles.
 We can add items (text or bundles) to the current worksheet, which appends to
 the end:
 
-    cl add -m "Here's a simple bundle:"
-    cl add sort.py
+    cl add text "Here's a simple bundle:"
+    cl add bundle sort.py
 
 A worksheet just contains pointers to bundles, and unlike bundles, they are
 mutable.  We can display the contents of a worksheet as follows:
@@ -253,7 +253,7 @@ mutable.  We can display the contents of a worksheet as follows:
     cl print    # Shows all items (bundles, text, and worksheets)
     cl ls       # Only shows the bundles
 
-We can add another worksheet:
+We can create another worksheet:
 
     cl new scratch
 
@@ -408,27 +408,27 @@ the situation is as follows:
 
 We can copy bundles between CodaLab instances by doing:
 
-    cl cp localhost::a.txt local::
+    cl add bundle localhost::a.txt local::
 
 Now there are two physical copies of the bundle `a.txt`, and they have the same
 bundle UUID.  We can create a bundle and copy it in the other direction too:
 
     echo hello > hello.txt
     cl upload dataset hello.txt
-    cl cp hello.txt localhost::
+    cl add bundle hello.txt localhost::
 
-By default, `cl cp` does not copy the dependencies of a bundle.  If you want to
+By default, `cl add bundle` does not copy the dependencies of a bundle.  If you want to
 copy the dependencies (for example, to reproduce a run on another machine),
-then use `cl cp -d`.  The dependencies of the dependencies are not copied,
+then use `cl add bundle -d`.  The dependencies of the dependencies are not copied,
 since only the immediate dependencies are required to execute a run.
 
-In general, the `cp` command is as follows:
+In general, the `add bundle` command is as follows:
 
-    cl cp [<address>::]<bundle> [<address>::]<worksheet>
+    cl add bundle [<address>::]<bundle> [<address>::]<worksheet>
 
 To copy all the items from a worksheet (except worksheet items) to another:
     
-    cl wcp [<address>::]<worksheet> [<address>::]<worksheet>
+    cl wadd [<address>::]<worksheet> [<address>::]<worksheet>
 
 Note that worksheets themselves are not copied, just the items within a
 worksheet.  Any bundles that don't exist on the destination CodaLab instance
@@ -631,7 +631,7 @@ this, since all the contents of worksheet1 are removed, although the bundles
 themselves are not removed and will be floating):
 
     cl wedit -f /dev/null -w worksheet2
-    cl wcp worksheet1 worksheet2
+    cl wadd worksheet1 worksheet2
 
 To change the metadata of a worksheet (e.g., rename or change the owner):
 

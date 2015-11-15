@@ -10,6 +10,5 @@ Welcome to the CodaLab Wiki, the central place for CodaLab documentation.
 * [Process for Tracking Issues](Dev_Issue-tracking)
 * [Developer Guidelines](Dev_Developer-Guidelines)
 * [How to Contribute](Dev_How-to-Contribute)
-* [How to Contribute to the Documentation](Project_About_Documentation)
 * [Privacy](Privacy)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)

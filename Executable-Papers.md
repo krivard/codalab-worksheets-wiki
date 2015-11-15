@@ -1,15 +1,15 @@
+A CodaLab executable paper is a worksheet that contains the code, data, and importantly, main experiments, tables, and graphs used in a published paper (think of it as an appendix or supplementary material).
+
+Executable papers allow anyone in the community to verify the results in a published work since CodaLab keeps track of the full provenance generating a particular result.  It is likely that the original authors did not explore the full space of possible experiments, one can run variants of the paper to answer new questions (`cl mimic` makes this super easy).
+
+> ***Executable papers make it easy to verify, explore, and extend publish work.***
+
 One of the principal aims of CodaLab is to make research more reproducible.  We
 encourage all authors with published papers to create a worksheet which
 contains the main code, data, experiments, tables, graphs associated with the
 paper.  This makes it easier to extend other people's work.
 
-## **Executable papers in CodaLab**
-
-% wsearch tag=paper id=.sort-
-
 ## **Creating your own executable paper**
-
-[worksheet executable-papers-tutorial]{{0xe46995c96e9e44e38922efea2c431905}}
 
 Remember to add the `paper` tag to your worksheet so that your paper will show up here:
 
@@ -59,10 +59,6 @@ Here are some general tips:
 - To copy someone's executable paper, simply copy the contents of the worksheet
   (you can use `cl wadd`) to your own worksheet, and then start using `cl mimic`
   to make modifications!
-
-Finally, there are probably many ways to use CodaLab, so be creative!
-
-This tutorial walks through how to prepare an executable paper for CodaLab.
 
 # **Setup**
 

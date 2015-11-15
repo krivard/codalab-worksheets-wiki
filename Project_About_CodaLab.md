@@ -1,14 +1,11 @@
 # About CodaLab
+
 CodaLab is an open-source platform that provides an ecosystem for conducting computational research in a more efficient, reproducible, and collaborative manner.  There are two aspects of CodaLab:
 worksheets and competitions.
 
 **Worksheets** allow you to capture complex research pipelines in a reproducible way and create "executable papers". Use any data format or programming language — great for the power user!
 
 **Competitions** bring together the entire community to tackle the most challenging data and computational problems today. You can win prizes and also create your own competition.
-
-On GitHub:
-- [CodaLab website](https://github.com/codalab/codalab)
-- [CodaLab backend](https://github.com/codalab/codalab-cli)
 
 ## The CodaLab Team
 <table>
@@ -34,8 +31,9 @@ On GitHub:
 
 <p>
 ### Acknowledgments
-CodaLab has received attention and contributions from many people. They have all contributed to making CodaLab what it is today. We would like to thank all the people below and start by acknowledging the following people who helped us pioneer CodaLab from the earliest competition features where Simon Mercer and Christophe Poulain played a crucial role in the development of competition functions for medical imaging to Shaunak Kishore who was instrumental in bringing the vision of worksheets to reality. Other key contributors include:
 
-Lori Ada Kilty, Xavier Baro Sole, Eric Camichael, Justin Carden, Richard Caruana, Francis Cleary, Sergio Escalera, Ivan Judson, Shaunak Kishore, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Paul Viola, Erick Watson, and Michael Zyskowski.
+CodaLab has received important contributions from many people, and we would like to thank their efforts in making CodaLab what it is today:
+
+Pujun Bhatnagar, Eric Carmichael, Justin Carden, Richard Caruana, Francis Cleary, Sergio Escalera, Ivan Judson, Lori Ada Kilty, Shaunak Kishore, Stephen Koo, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Xavier Baro Sole, Paul Viola, Erick Watson, Tony Yang, Flavio Zhingri, Michael Zyskowski.
 
 ![](images/logo_collage.png)

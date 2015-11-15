@@ -2,7 +2,7 @@
 
 While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is imperfect.  Most of the time, the product of the research is simply the published paper.  Even when people release their data and code (a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
 
-> Today, people spend excrutiating amounts of time reproducing published results.
+> ***Today, researchers spend excrutiating amounts of time reproducing published results.***
 
 ## **How does CodaLab Worksheets work?**
 
@@ -16,7 +16,6 @@ There are two important concepts: ***bundles*** and ***worksheets***.
   way.  Worksheets are written in a special [markdown
   language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
 
-% display image / width=800
 [dataset worksheets-schema.png]{0x466cd19aeb204b59a13b213289de795a}
 
 Here are some examples of commands you can run in CodaLab:

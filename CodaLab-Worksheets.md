@@ -45,22 +45,10 @@ Here are some examples of commands you can run in CodaLab:
     cl search .mine .count                        # How many bundles do I have?
     cl search .mine size=.sum                     # How much disk space are my bundles taking up?
 
-## **What environment are my bundles being run in?**
+## **Where are my bundles being run?**
 
-Whenever you create a run bundle (e.g., `cl run 'echo hello'`), that run will
-be performed in well-defined [Ubuntu Linux 14.04 docker
-container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has
-standard libraries installed.  You can also specify your own image if you have
-special needs.
-
-On the `worksheets.codalab.org` instance, these docker containers are currently hosted on
-a small cluster of machines on Microsoft Windows Azure.  Each machine
-has 4 cores and 14GB of memory, but this could change.
-
-1. **What environment is my program running in?** By default, Ubuntu Linux
-14.04 is used (inside a [docker](http://www.docker.com) container).  There are
-many workers, some with 4 cores, 14 GB ram, and some with less.  For a more
-detailed answer, you can do run a command to find out:
+**Machines**.  When you create a run bundle via `cl run`, the command will be executed on a worker machine.  On the `worksheets.codalab.org` instance, the workers are on Windows Azure, and currently, each machine
+has 4 cores and 14GB of memory (but this could change).  To find out the exact specs, just execute this run:
 
         cl run 'cat /proc/cpuinfo; free; df'
 
@@ -70,15 +58,15 @@ detailed answer, you can do run a command to find out:
 
   However, if no machine matches the spec, your job will just wait forever.
 
-1. **How do I get packages installed?**  If you think this is a generic package
-that many people will use, contact Percy and he can install it as part of the
-default CodaLab installation.  Otherwise, you can create your own docker image
-(please build it off of the default CodaLab image `codalab/ubuntu:1.9`) and run with that:
+**Enviroment**.  By default, run bundles are executed in a [Ubuntu Linux 14.04 docker
+container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has
+standard libraries (e.g., Python, Ruby, R, Java, Scala, g++) installed.
 
-        cl run ... --request_docker_image <custom image>
+If you need other libraries, you can specify another docker image:
 
-  Read about how to setup docker [under "Execution using
-  docker"](https://github.com/codalab/codalab-cli).  Then do this:
+    cl run '...' --request_docker_image <docker image>
+
+To create your own image with custom libraries, first [install docker](Dev_CodaLab-CLI-Execution-in-Docker).  Then you can create your custom image:
 
         docker run -t -i codalab/ubuntu:1.9                           # Start the existing docker container
         sudo apt-get install <custom package>                         # Install inside the docker container

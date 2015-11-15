@@ -13,3 +13,14 @@
 * [Running a Competition](User_Running-a-Competition)
 * [Groups and Permissions Discussion](Dev_Groups-and-permissions-discussion)
 * [Example Competitions](https://github.com/codalab/competition-examples)
+
+### For Developers
+
+* Getting Started
+  * [UNIX](Dev_Getting-Started-on-UNIX-based-Systems)
+  * [Windows](Dev_Getting-Started-on-Windows)
+  * [Mac](Dev_Getting-Started-on-Mac)
+* [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
+* [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
+* [Set up data storage](Dev_Set-up-data-storage)
+

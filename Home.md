@@ -8,7 +8,6 @@ Welcome to the CodaLab Wiki, the central place for CodaLab documentation.
 ### For Developers
 
 * [E-mail notification](E-mail-notifications)
-* [Run the Website and Bundle Service on the Same Development Machine](Dev_Run-web-site-and-bundle-service-on-the-same-development-machine)
 * [Developer Guidelines](Dev_Developer-Guidelines)
 * [Process for Tracking Issues](Dev_Issue-tracking)
 * [Process for Stories and Tasks](Dev_Scenarios,-Stories-and-Tasks)

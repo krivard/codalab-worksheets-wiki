@@ -27,7 +27,7 @@ CODALAB_SITE_DOMAIN = 'codalab.org'
 CODALAB_SITE_NAME = 'CodaLab'
 ```
 
-The `initialize.py` script inserts these names in the database. Recall that `initialize.py` is located in `codalab\scripts` and is used to insert constants into the database. To illustrate how the site info is used, consider the e-mail sent to a user resetting his password:
+The `initialize.py` script inserts these names in the database. Recall that `initialize.py` is located in `codalab/scripts` and is used to insert constants into the database. To illustrate how the site info is used, consider the e-mail sent to a user resetting his password:
 
 ```
 Subject: [CodaLab] Password Reset E-mail

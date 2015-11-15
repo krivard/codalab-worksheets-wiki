@@ -23,4 +23,5 @@
 * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
 * [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
 * [Set up data storage](Dev_Set-up-data-storage)
+* [E-mail notification](E-mail-notifications)
 

@@ -1,18 +1,20 @@
 ## **Why CodaLab Worksheets?**
 
-While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is imperfect.  Most of the time, the product of the research is simply the published paper.  Even when people release their data and code (a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
+While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is far from optimal.  Most of the time, the output of research is simply a PDF file (published paper).  Even when people release their data and code (which is a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
 
 > ***Today, researchers spend excrutiating amounts of time reproducing published results.***
 
+The goal of CodaLab Worksheets is to fix this in order to both accelerate the rate of research and make it more sound.
+
 ## **How does CodaLab Worksheets work?**
 
-There are two important concepts: ***bundles*** and ***worksheets***.
+There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
 - Users upload ***bundles*** (datasets in any format or programs in any programming
   language) and create new bundles by running new bundles that *depend* on
   previous bundles.  This forms a graph over bundles that captures the research
   process in an *immutable* way.
-- At the same time, users create ***worksheets*** to present the information in a comprehensible
+- Users create ***worksheets*** to present the information in a comprehensible
   way.  Worksheets are written in a special [markdown
   language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
 
@@ -22,7 +24,7 @@ There are two important concepts: ***bundles*** and ***worksheets***.
 
 ## **How do I use CodaLab Worksheets?**
 
-The easiest way to get started with CodaLab Worksheets is to use the web interface, which allows you to browse content, edit worksheets, upload bundles, and execute new commands.  For the power user, we provide a flexible command-line tool, `cl`, which can be either used from your own shell or the web interface.  The philosophy is to give you the power to run whatever commands you want; CodaLab simply captures this process and allows you to present it in a nice way via worksheets.
+The easiest way to get started with CodaLab Worksheets is to use the web interface, which allows you to browse content, edit worksheets, upload bundles, and execute new commands.  For the power user, we provide a flexible command-line tool, `cl`, which can be either used from your own shell or the web interface.  The philosophy of `cl` is to give you the power to run whatever commands you want.  CodaLab is meant to be a thin layer that captures this process and allows you to present your results easily in a worksheet.
 
 > ***Execute whatever commands you want.  CodaLab captures the provenance and allows you document and visualize the results.***
 

@@ -215,4 +215,4 @@ script to make sure you have comparable numbers:
 
 1. Add the `paper` tag to your worksheet so that your paper will be easily searchable:
 
-    cl wedit magic-acl2015 --tags paper
+        cl wedit magic-acl2015 --tags paper

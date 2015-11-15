@@ -5,6 +5,7 @@ This page describes how to file and track issues for the CodaLab project. All bu
 * Add a meaningful title.
 * Add the 'Bug' and 'New' labels, to identify the issue as a bug.
 * Assign a priority - 'P1' or 'P2' or 'P3' (see priority definitions below).
+* Mark the but as either 'Worksheets' or 'Competitions'.
 * Assign the issue to the appropriate person if known, otherwise leave it unassigned.
 * Select the appropriate milestone if known, otherwise leave it unselected.
 * Use the Comment field to describe the issue. Be sure to include the appropriate repro steps, screen shots, and so forth, as well as the expected outcome. 

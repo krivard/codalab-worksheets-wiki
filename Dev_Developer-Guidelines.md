@@ -1,5 +1,6 @@
 # Basic Requirements
-Before working on CodaLab, you should be able to successfully build and run the project. See [Configure CodaLab for Development](https://github.com/codalab/codalab/wiki/Dev_Configure-CodaLab-for-Development) for details. It is also important that you understand how to comply with basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). CodaLab is built using [Python](http://www.python.org/) and [Django](https://www.djangoproject.com/), so you should be familiar with these technologies.
+
+Before working on CodaLab, you should be able to successfully build and run the project.  Remember to follow basic [Git hygiene](http://blog.ericbmerritt.com/2011/09/21/commit-hygiene-and-git.html). CodaLab is built using [Python](http://www.python.org/) and [Django](https://www.djangoproject.com/), so you should be familiar with these technologies.
 
 # Branches
 In the [CodaLab Github Repo](http://github.com/codalab/codalab) there may be many branches. We want to be very careful about two specific branches to ensure the quality of the codebase stays high.

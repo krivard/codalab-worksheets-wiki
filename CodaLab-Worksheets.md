@@ -30,7 +30,7 @@ The easiest way to get started with CodaLab Worksheets is to use the web interfa
 
 Here are some examples of commands you can run in CodaLab:
 
-    cl upload dataset news.txt                    # Uploads a dataset bundle to CodaLab
+    cl upload news.txt                            # Uploads a bundle to CodaLab
     cl run 'grep California %news.txt% | wc -l'   # Count the number of occurrences of "California"
     cl run date --request_memory 100m             # Run jobs with resource constraints
     cl kill ^                                     # Kill the last run bundle

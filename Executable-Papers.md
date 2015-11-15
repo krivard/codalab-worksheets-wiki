@@ -1,19 +1,8 @@
-A CodaLab executable paper is a worksheet that contains the code, data, and importantly, main experiments, tables, and graphs used in a published paper (think of it as an appendix or supplementary material).
+A CodaLab executable paper is a worksheet that contains the code, data, main experiments, tables, and graphs used in a published paper (think of it as an appendix or supplementary material).
 
-Executable papers allow anyone in the community to verify the results in a published work since CodaLab keeps track of the full provenance generating a particular result.  It is likely that the original authors did not explore the full space of possible experiments, one can run variants of the paper to answer new questions (`cl mimic` makes this super easy).
+Since CodaLab keeps track of the full provenance generating a particular result, executable papers allow someone to independently verify the results in a published paper.  Furthermore, it is likely that the original authors did not explore the full space of possible experiments, but one can easily use CodaLab to run variants of the paper to answer new questions (`cl mimic` makes this super easy).
 
 > ***Executable papers make it easy to verify, explore, and extend publish work.***
-
-One of the principal aims of CodaLab is to make research more reproducible.  We
-encourage all authors with published papers to create a worksheet which
-contains the main code, data, experiments, tables, graphs associated with the
-paper.  This makes it easier to extend other people's work.
-
-## **Creating your own executable paper**
-
-Remember to add the `paper` tag to your worksheet so that your paper will show up here:
-
-    cl wedit --tags paper
 
 ## **Guidelines for an executable paper**
 
@@ -60,35 +49,36 @@ Here are some general tips:
   (you can use `cl wadd`) to your own worksheet, and then start using `cl mimic`
   to make modifications!
 
-# **Setup**
+## **An example walkthrough**
 
+Here is a concrete example of how to create an executable paper.  You should 
 Note: in the following, replace `pliang` with your username.
 
+### ***Setup***
+
 1. Create an account by going to [CodaLab website](http://codalab.org),
-clicking 'Sign Up' in the upper right corner and then 'Sign up for a new
-account'.  You will get an email confirmation; click on the link to activate
+clicking 'Sign Up'.  You will get an email confirmation; click on the link to activate
 your account.  Now you can sign in through the browser.
 
 1. By default, you can enter commands via the web terminal.
    You can also download the [Codalab command-line interface
-   (CLI)](https://github.com/codalab/codalab-cli/) to use the `cl` command from
+   (CLI)](User_Install-CodaLab-CLI) to use the `cl` command from
    the comfort of your own shell.  The CLI gives you additional some additional
    functionality.
 
-1. If you're using the CLI, CodaLab is initially pointing to the local instance of CodaLab
-on your laptop.  To point to the main CodaLab server:
+1. If you're using the CLI, connect to the main CodaLab server:
 
         cl work main::
 
   This will print out:
 
-        Switched to worksheet https://codalab.org/bundleservice::pliang(0x58df10bc8ea04c84845141d551ca0999).
+        Switched to worksheet https://codalab.org/bundleservice::home-pliang(0x58df10bc8ea04c84845141d551ca0999).
 
-  Note that `main` refers to the CodaLab instance and `pliang` is the worksheet
-  name (which defaults to your username, like a home directory).
+  Note that `main` refers to the CodaLab instance and `home-pliang` is your home worksheet
+  name.
 
 1. For your new executable paper, create a new worksheet (you should use a
-different worksheet name):
+different worksheet name than the one below):
 
         cl new magic-acl2015
 
@@ -100,7 +90,7 @@ different worksheet name):
 
   You can easily switch back and forth between worksheets (like `cd`):
 
-        cl work pliang          # Go to your home worksheet
+        cl work home-pliang     # Go to your home worksheet
         cl work magic-acl2015   # Go to the worksheet you just created
 
 1. Here are some commands to orient yourself:
@@ -134,21 +124,22 @@ different worksheet name):
 
         cl wedit main::sempre-tables-acl2015
 
-1. You can now go to `http://codalab.org/worksheets/<uuid>` to view your worksheet.
+1. You can now go to `https://worksheets.codalab.org/worksheets/<uuid>` to view your worksheet.
 
-# **Uploading your executable paper**
+### **Uploading your executable paper**
 
 Now you are ready to actually upload content.  The plan is to upload your
 source code, libraries, datasets, evaluation program as separate bundles.  You
 then compile the source code, run your algorithm, and run the evaluation
-program.
+program.  Note: for your particular paper, you might choose to structure things differently,
+so treat this only as a rough guide.
 
 1. From the CLI, you can upload bundles (with meaningful descriptions):
 
-        cl upload program src -d "Source code for magic."
-        cl upload program lib -d "Libraries needed for magic."
-        cl upload program evaluation.py -d "Magical evaluation program."
-        cl upload dataset data -d "Magical data."
+        cl upload src -d "Source code for magic."
+        cl upload lib -d "Libraries needed for magic."
+        cl upload evaluation.py -d "Magical evaluation program."
+        cl upload data -d "Magical data."
 
         cl ls    # Make sure that everything is uploaded correctly
 
@@ -222,34 +213,6 @@ script to make sure you have comparable numbers:
 
   Note that you can name the dependencies (`true` and `pred`) that the program sees.
 
-# **FAQ**
+1. Add the `paper` tag to your worksheet so that your paper will be easily searchable:
 
-1. **What environment is my program running in?** By default, Ubuntu Linux
-14.04 is used (inside a [docker](http://www.docker.com) container).  There are
-many workers, some with 4 cores, 14 GB ram, and some with less.  For a more
-detailed answer, you can do run a command to find out:
-
-        cl run 'cat /proc/cpuinfo; free; df'
-
-  If you want to request particular specs, do the following:
-
-        cl run ... --request_memory 10g --request_cpus 4
-
-  However, if no machine matches the spec, your job will just wait forever.
-
-1. **How do I get packages installed?**  If you think this is a generic package
-that many people will use, contact Percy and he can install it as part of the
-default CodaLab installation.  Otherwise, you can create your own docker image
-(please build it off of the default CodaLab image `codalab/ubuntu:1.9`) and run with that:
-
-        cl run ... --request_docker_image <custom image>
-
-  Read about how to setup docker [under "Execution using
-  docker"](https://github.com/codalab/codalab-cli).  Then do this:
-
-        docker run -t -i codalab/ubuntu:1.9                           # Start the existing docker container
-        sudo apt-get install <custom package>                         # Install inside the docker container
-        exit                                                          # Exit the docker container
-        docker ps -a                                                  # Get ID of this last container
-        docker commit -m "<description> <container ID> <custom image> # Save the container as an image
-        docker push                                                   # Send this up to docker.com
+    cl wedit magic-acl2015 --tags paper

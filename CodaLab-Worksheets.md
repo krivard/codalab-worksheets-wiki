@@ -16,7 +16,15 @@ There are two important concepts: ***bundles*** and ***worksheets***.
   way.  Worksheets are written in a special [markdown
   language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
 
-[dataset worksheets-schema.png]{0x466cd19aeb204b59a13b213289de795a}
+> ***CodaLab keeps the full provenance of an experiment, from raw data to the graph that you put in your paper.***
+
+<a href="http://www.codalab.org"><img src="https://github.com/codalab/codalab/wiki/images/worksheets-schema.png" /></a>
+
+## **How do I use CodaLab Worksheets?**
+
+The easiest way to get started with CodaLab Worksheets is to use the web interface, which allows you to browse content, edit worksheets, upload bundles, and execute new commands.  For the power user, we provide a flexible command-line tool, `cl`, which can be either used from your own shell or the web interface.  The philosophy is to give you the power to run whatever commands you want; CodaLab simply captures this process and allows you to present it in a nice way via worksheets.
+
+> ***Execute whatever commands you want.  CodaLab captures the provenance and allows you document and visualize the results.***
 
 Here are some examples of commands you can run in CodaLab:
 
@@ -55,12 +63,11 @@ requests, please file a GitHub issue:
 - [for the website](https://github.com/codalab/codalab/issues/new)
 - [for the command-line tool](https://github.com/codalab/codalab-cli/issues/new)
 
-### For Users
+## **How do I learn more?***
 
-* [CodaLab Worksheets Tutorial](User_CodaLab Worksheets Tutorial)
-* [Creating an Executable Paper in CodaLab](https://www.codalab.org/worksheets/0xe46995c96e9e44e38922efea2c431905/)
-* [Installing the CodaLab CLI](User_Install CodaLab CLI)
-* [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown)
+* [CodaLab Worksheets Tutorial](User_CodaLab Worksheets Tutorial): start here to dive into CodaLab Worksheets and learn the concepts.
+* [Installing the CodaLab CLI](User_Install CodaLab CLI): if you want to use CodaLab from the comfort of your own shell.
+* [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
 
 ### For Developers
 

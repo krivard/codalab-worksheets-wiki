@@ -86,8 +86,8 @@ requests, please file a GitHub issue:
 
 ### For Developers
 
-* [Host Your Own Bundle Service](User_CodaLab CLI Server)
-* [Code Design](Dev_CodaLab CLI Code Design)
-* [Database Migrations](Dev_CodaLab CLI Database Migrations)
-* [Execution in Docker](Dev_CodaLab CLI Execution in Docker)
-* [Unit Tests](Dev_CodaLab CLI Unit Tests)
+* [Host Your Own Bundle Service](User_CodaLab-CLI-Server)
+* [Code Design](Dev_CodaLab-CLI-Code-Design)
+* [Database Migrations](Dev_CodaLab-CLI-Database-Migrations)
+* [Execution in Docker](Dev_CodaLab-CLI-Execution-in-Docker)
+* [Unit Tests](Dev_CodaLab-CLI-Unit-Tests)

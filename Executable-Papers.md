@@ -54,7 +54,7 @@ Here are some general tips:
 Here is a concrete example of how to create an executable paper.  You should 
 Note: in the following, replace `pliang` with your username.
 
-### ***Setup***
+### **Setup**
 
 1. Create an account by going to [CodaLab website](http://codalab.org),
 clicking 'Sign Up'.  You will get an email confirmation; click on the link to activate

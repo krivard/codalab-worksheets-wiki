@@ -25,3 +25,9 @@
 * [Set up data storage](Dev_Set-up-data-storage)
 * [E-mail notification](E-mail-notifications)
 
+### How you can contribute
+
+* Use [CodaLab Competitions](https://competitions.codalab.org) by either participating in a competition or hosting a new competition.
+- Find a bug? Got a feature request? Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open). Follow the [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking).
+- Submit pull requests on GitHub to implement new features or fix bugs.  Follow the [Developer Guidelines](Dev_Developer-Guidelines).
+- Let others know about CodaLab!

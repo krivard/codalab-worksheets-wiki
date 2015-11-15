@@ -9,7 +9,7 @@ Welcome to the CodaLab Wiki, the central place for CodaLab documentation.
 
 CodaLab is an open-source project with the mission of building a community around reproducible research.  We would love for you to join us and contribute!  There are many ways to do this:
 
-- Simply use CodaLab and add content.  CodaLab is a platform and the true value comes from having a wealth of code and datasets.
+- Simply use [CodaLab Worksheets](https://worksheets.codalab.org) and [CodaLab Competitions](https://competitions.codalab.org) and add content.  CodaLab is a platform and the true value comes from having a wealth of code and datasets.
 - Find a bug? Got a feature request? Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open). Follow the [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking).
 - Submit pull requests on GitHub to implement new features or fix bugs.  Follow the [Developer Guidelines](Dev_Developer-Guidelines).
 - Let others know about CodaLab!

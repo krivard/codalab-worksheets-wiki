@@ -55,7 +55,37 @@ special needs.
 
 On the `worksheets.codalab.org` instance, these docker containers are currently hosted on
 a small cluster of machines on Microsoft Windows Azure.  Each machine
-has 8 cores and 14GB of memory.  But this could change.
+has 4 cores and 14GB of memory, but this could change.
+
+1. **What environment is my program running in?** By default, Ubuntu Linux
+14.04 is used (inside a [docker](http://www.docker.com) container).  There are
+many workers, some with 4 cores, 14 GB ram, and some with less.  For a more
+detailed answer, you can do run a command to find out:
+
+        cl run 'cat /proc/cpuinfo; free; df'
+
+  If you want to request particular specs, do the following:
+
+        cl run ... --request_memory 10g --request_cpus 4
+
+  However, if no machine matches the spec, your job will just wait forever.
+
+1. **How do I get packages installed?**  If you think this is a generic package
+that many people will use, contact Percy and he can install it as part of the
+default CodaLab installation.  Otherwise, you can create your own docker image
+(please build it off of the default CodaLab image `codalab/ubuntu:1.9`) and run with that:
+
+        cl run ... --request_docker_image <custom image>
+
+  Read about how to setup docker [under "Execution using
+  docker"](https://github.com/codalab/codalab-cli).  Then do this:
+
+        docker run -t -i codalab/ubuntu:1.9                           # Start the existing docker container
+        sudo apt-get install <custom package>                         # Install inside the docker container
+        exit                                                          # Exit the docker container
+        docker ps -a                                                  # Get ID of this last container
+        docker commit -m "<description> <container ID> <custom image> # Save the container as an image
+        docker push                                                   # Send this up to docker.com
 
 ## **Where do I report bugs?**
 

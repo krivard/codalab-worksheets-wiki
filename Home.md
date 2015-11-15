@@ -13,6 +13,3 @@ CodaLab is an open-source project with the mission of building a community aroun
 - Find a bug? Got a feature request? Submit a [GitHub issue](https://github.com/codalab/codalab/issues?state=open). Follow the [Process for Bugs and Issues](https://github.com/codalab/codalab/wiki/Dev_Issue-tracking).
 - Submit pull requests on GitHub to implement new features or fix bugs.  Follow the [Developer Guidelines](Dev_Developer-Guidelines).
 - Let others know about CodaLab!
-
-* [Privacy](Privacy)
-* [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)

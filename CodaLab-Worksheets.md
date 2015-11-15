@@ -26,7 +26,7 @@ There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
 The easiest way to get started with CodaLab Worksheets is to use the web interface, which allows you to browse content, edit worksheets, upload bundles, and execute new commands.  For the power user, we provide a flexible command-line tool, `cl`, which can be either used from your own shell or the web interface.  The philosophy of `cl` is to give you the power to run whatever commands you want.  CodaLab is meant to be a thin layer that captures this process and allows you to present your results easily in a worksheet.
 
-> ***Execute whatever commands you want.  CodaLab captures the provenance and allows you document and visualize the results.***
+> ***Execute whatever commands you want.  CodaLab captures the full provenance and allows you to document and visualize the results.***
 
 Here are some examples of commands you can run in CodaLab:
 

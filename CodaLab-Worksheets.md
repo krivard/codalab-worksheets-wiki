@@ -52,12 +52,6 @@ has 4 cores and 14GB of memory (but this could change).  To find out the exact s
 
         cl run 'cat /proc/cpuinfo; free; df'
 
-  If you want to request particular specs, do the following:
-
-        cl run ... --request_memory 10g --request_cpus 4
-
-  However, if no machine matches the spec, your job will just wait forever.
-
 **Enviroment**.  By default, run bundles are executed in a [Ubuntu Linux 14.04 docker
 container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has
 standard libraries (e.g., Python, Ruby, R, Java, Scala, g++) installed.

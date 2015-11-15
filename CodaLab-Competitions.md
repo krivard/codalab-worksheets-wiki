@@ -1,3 +1,5 @@
+CodaLab Competitions is a powerful framework for running competitions that involve code submission.  You can either participate in an existing competition or host a new competition.
+
 ### For Participants
 
 * [List of Current Competitions](https://www.codalab.org/competitions)

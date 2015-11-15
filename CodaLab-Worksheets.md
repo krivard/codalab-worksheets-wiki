@@ -1,8 +1,8 @@
 ## **Why CodaLab Worksheets?**
 
-While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is imperfect.  Most of the time, the product of the research is simply the published paper.  Even when people release their data and code (a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Even mundane things like getting third-party code to compile and run, and preprocessing datasets can be extremely time consuming.  Simply put:
+While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is imperfect.  Most of the time, the product of the research is simply the published paper.  Even when people release their data and code (a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
 
-    Today, people spend excrutiating amounts of time reproducing published results.
+> Today, people spend excrutiating amounts of time reproducing published results.
 
 ## **How does CodaLab Worksheets work?**
 

@@ -79,8 +79,8 @@ requests, please file a GitHub issue:
 
 ## **How do I learn more?**
 
-* [CodaLab Worksheets Tutorial](User_CodaLab Worksheets Tutorial): start here to dive into CodaLab Worksheets and learn the concepts.
-* [Installing the CodaLab CLI](User_Install CodaLab CLI): if you want to use CodaLab from the comfort of your own shell.
+* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): start here to dive into CodaLab Worksheets and learn the concepts.
+* [Installing the CodaLab CLI](User_Install-CodaLab-CLI): if you want to use CodaLab from the comfort of your own shell.
 * [Creating Executable Papers](Executable-Papers): how to put your paper on CodaLab
 * [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
 

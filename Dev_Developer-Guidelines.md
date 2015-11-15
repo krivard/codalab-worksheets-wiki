@@ -4,10 +4,9 @@ Before working on CodaLab, you should be able to successfully build and run the 
 # Branches
 In the [CodaLab Github Repo](http://github.com/codalab/codalab) there may be many branches. We want to be very careful about two specific branches to ensure the quality of the codebase stays high.
 
-1. **production** - This is the gold standard codebase in production at any given time. It should be well tested and deployable to the production site http://www.codalab.org/ at any and all times.
+1. **master** - This is the stable version that is in production at any given time. It should be well tested and deployable.
 
-2. **master** - This is the integration branch. This is the branch that has all of the work that is thought to have been completed but has not yet undergone final testing before deployment to production. The master branch is where automated builds and QA happens.
-
+2. **develop** - This is the development branch. This is the branch that has all of the work that is thought to have been completed but has not yet undergone final testing before deployment to production. The develop branch is where automated builds and QA happens.
 
 ## Get the Source Code
 Follow these instructions to create a local clone of the CodaLab source code.

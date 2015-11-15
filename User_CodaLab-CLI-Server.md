@@ -79,8 +79,3 @@ start from the right place (this is important!):
 You can back up the contents of the database:
 
     mysqldump -u codalab -p codalab_bundles > bundles.mysql
-
-## Authentication
-
-If you want to make your server public, then you need to set up OAuth
-authentication.  Follow the instructions in the [Linux Quickstart tutorial](Dev_Linux Quickstart).

@@ -67,7 +67,7 @@ To create your own image with custom libraries, first [install docker](Dev_CodaL
         exit                                                          # Exit the docker container
         docker ps -a                                                  # Get ID of this last container
         docker commit -m <description> <container ID> <custom image>  # Save the container as an image
-        docker push                                                   # Send this up to docker.com
+        docker push <custom image>                                    # Send this up to dockerhub.com
 
 ## **Where do I report bugs?**
 

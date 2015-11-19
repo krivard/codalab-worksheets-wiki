@@ -60,7 +60,7 @@ If you need other libraries, you can specify another docker image:
 
     cl run '...' --request_docker_image <docker image>
 
-To create your own image with custom libraries, first [install docker](Dev_CodaLab-CLI-Execution-in-Docker).  Then you can create your custom image:
+To create your own image with custom libraries, first [install docker](Installing-Docker).  Then you can create your custom image:
 
         docker run -t -i codalab/ubuntu:1.9                           # Start the existing docker container
         sudo apt-get install <custom package>                         # Install inside the docker container

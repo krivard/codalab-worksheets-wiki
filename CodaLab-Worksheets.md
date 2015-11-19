@@ -86,7 +86,7 @@ requests, please file a GitHub issue:
 
 ### For Developers
 
-* [Host Your Own Bundle Service](User_CodaLab-CLI-Server)
+* [Setting up a Local Server](Setup-Local-Worksheets)
 * [Code Design](Dev_CodaLab-CLI-Code-Design)
 * [Database Migrations](Dev_CodaLab-CLI-Database-Migrations)
 * [Execution in Docker](Dev_CodaLab-CLI-Execution-in-Docker)

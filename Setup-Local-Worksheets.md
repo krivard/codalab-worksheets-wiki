@@ -56,7 +56,8 @@ Now we can generate the OAuth credentials from the website to use in the bundle 
 by running the following command and replacing `~/.codalab/config.json` with the output:
 
     cd $HOME/codalab/codalab
-    ../venv/bin/python scripts/set-oauth-key.py ~/.codalab/config.json
+    ./manage set_oauth_key ~/.codalab/config.json
+    ./manage set_site your_host_name.com
 
 Start the bundle server:
 
@@ -64,3 +65,50 @@ Start the bundle server:
     ../../codalab-cli/codalab/bin/cl server
 
 That is it!
+
+## Using MySQL
+
+By default, CodaLab is configured to use SQLite, and the database file is just a single
+file in `~/.codalab`.  While this is a quick way to get started, SQLite is not a very
+scalable solution (and also doesn't handle database migrations properly, so
+don't put valuable stuff in a SQLite-backed database). Here are instructions to
+set up MySQL:
+
+Install the MySQL server.  On Ubuntu, run:
+
+    sudo apt-get install mysql-server
+
+Install the MySQL Python if it hasn't been done already:
+
+    venv/bin/pip install MySQL-python
+
+Create a user in the `mysql -u root -p` prompt:
+
+    CREATE USER '<username>'@'localhost' IDENTIFIED BY '<password>';
+    CREATE DATABASE codalab_bundles;
+    GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
+
+In the configuration file `.codalab/config.json`,
+change `"class": "SQLiteModel"` to
+
+    "class": "MySQLModel",
+    "engine_url": "mysql://<username>:<password>@<host>:<port>/<database>",
+
+For example:
+
+    "engine_url": "mysql://codalab@localhost:3306/codalab_bundles",
+
+If you already have data in SQLite, you can load it into MySQL as follows:
+
+    sqlite3 ~/.codalab/bundle.db .dump > bundles.sqlite
+    python scripts/sqlite_to_mysql.py < bundles.sqlite > bundles.mysql 
+    mysql -u codalab -p codalab_bundles < bundles.mysql
+
+Once you set up your database, run the following so that future migrations
+start from the right place (this is important!):
+
+    venv/bin/alembic stamp head
+
+You can back up the contents of the database:
+
+    mysqldump -u codalab -p codalab_bundles > bundles.mysql

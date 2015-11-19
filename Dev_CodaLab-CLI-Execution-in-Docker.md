@@ -1,8 +1,8 @@
-## Execution using docker
+## Installing docker
 
 Every execution on CodaLab (should ideally) happen in a
 [docker](https://www.docker.com/) container, which provides a standardized
-Linux environment that is lighterweight than a full virtual machine.
+Linux environment that is lighter-weight than a full virtual machine.
 
 The current official docker image is `codalab/ubuntu`, which consists of
 Ubuntu 14.04 plus some standard packages.  See the [CodaLab docker

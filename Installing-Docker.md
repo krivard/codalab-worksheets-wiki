@@ -1,5 +1,3 @@
-## Installing docker
-
 Every execution on CodaLab (should ideally) happen in a
 [docker](https://www.docker.com/) container, which provides a standardized
 Linux environment that is lighter-weight than a full virtual machine.

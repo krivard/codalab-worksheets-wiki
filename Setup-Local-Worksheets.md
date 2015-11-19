@@ -103,7 +103,7 @@ For example:
 
     "engine_url": "mysql://codalab@localhost:3306/codalab_bundles",
 
-### Copying data from SQLite to MySQL
+#### Copying data from SQLite to MySQL
 
 If you already have data in SQLite, you can load it into MySQL as follows:
 

@@ -7,7 +7,7 @@ Check out the [codalab](https://github.com/codalab/codalab) repository for the w
 
 In the following, `$HOME` will refer to the directory where `codalab` and `codalab-cli` reside.
 
-Run the following setup script to set up the bundle service.  It will ask you whether you want to set up MySQL and docker.
+Run the following setup script to install the necessary packages and set up the bundle service:
 
     cd $HOME/codalab-cli
     ./setup.sh
@@ -17,8 +17,8 @@ Now let us set up the website.  Install all the required Python packages:
     cd $HOME/codalab
     ./dev_setup.sh
 
-Install the standard configuration file.  Edit DATABASES if want to use MySQL
-instead of sqlite (need to create a MySQL database separately):
+Next, install the standard configuration file.  Edit DATABASES if want to use MySQL
+instead of SQLite (need to create a MySQL database separately):
 
     cd $HOME/codalab/codalab
     cp codalab/settings/local_sample.py codalab/settings/local.py
@@ -33,6 +33,7 @@ Update the database schema and generate all the configuration files:
     cd $HOME/codalab/codalab
     ./manage syncdb --migrate
     ./manage config_gen
+    ./manage set_site your_domain_name.com
 
 If you want to use CodaLab in offline mode, run the following to download
 MathJax:
@@ -43,6 +44,7 @@ MathJax:
 and add this to your `codalab/settings/local.py` file:
 
     LOCAL_MATHJAX = True
+    LOCAL_ACE_EDITOR = True
 
 Start the web server:
 
@@ -57,6 +59,9 @@ by running the following command and replacing `~/.codalab/config.json` with the
 
     cd $HOME/codalab/codalab
     ./manage set_oauth_key ~/.codalab/config.json
+
+Set the site name (for sending out sending out confirmation emails with the right links to verify login):
+
     ./manage set_site your_host_name.com
 
 Start the bundle server:
@@ -98,6 +103,8 @@ For example:
 
     "engine_url": "mysql://codalab@localhost:3306/codalab_bundles",
 
+## Copying data from SQLite to MySQL
+
 If you already have data in SQLite, you can load it into MySQL as follows:
 
     sqlite3 ~/.codalab/bundle.db .dump > bundles.sqlite
@@ -115,7 +122,7 @@ You can back up the contents of the database:
 
 ## Workers
 
-First, we need to setup a job scheduling system (that manages the deployment of runs on machines).  The default one is `q` from Percy Liang's `fig` package, which can be found in `codalab-cli/scripts/q`.
+Workers actually execute the commands to create run bundles.  First, we need to setup a job scheduling system (that manages the deployment of runs on machines).  The default one is `q` from Percy Liang's `fig` package, which can be found in `codalab-cli/scripts/q`.
 Start the job scheduling system with one master and one worker:
 
     q -mode master   # Run in a different terminal

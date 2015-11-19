@@ -21,15 +21,15 @@ in the environment or to run your own local CodaLab instance), follow these
 Then, to test out your environment, open a shell (the first time you do this,
 it will take some time to download the image):
 
-    docker run -t -i codalab/ubuntu:1.8
+    docker run -t -i codalab/ubuntu:1.9
+
+## Making the bundle service use docker for execution
 
 Now, let us integrate docker into CodaLab.  First, we need to setup a job
-scheduling system (that manages the deployment of runs on machines).  Note that
-CodaLab itself doesn't do this, so that it can be easily integrated into
-different systems.  An easy way to set this up is to use `q` from Percy Liang's `fig` package:
+scheduling system (that manages the deployment of runs on machines).  The default
+one is `q` from Percy Liang's `fig` package, which can be found in `codalab-cli/scripts/q`.
+Start the job scheduling system with one master and one worker:
 
-    git clone https://github.com/percyliang/fig
-    # Add fig/bin/q to your $PATH
     q -mode master   # Run in a different terminal
     q -mode worker   # Run in a different terminal
 
@@ -39,7 +39,7 @@ are orthogonal choices).  Edit the `.codalab/config.json` as follows:
     "workers": {
         "q": {
             "verbose": 1,
-            "docker_image": "codalab/ubuntu:1.8"
+            "docker_image": "codalab/ubuntu:1.9"
             "dispatch_command": "python $CODALAB_CLI/scripts/dispatch-q.py"
         }
     }

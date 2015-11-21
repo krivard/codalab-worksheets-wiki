@@ -138,7 +138,17 @@ Second, [install docker](Installing-Docker), and tell CodaLab to use `q` and run
         }
     }
 
-To test it out:
+Third, you need to configure your machine so that you can ssh from the worker to the master and vice-versa without typing in your password.  To do this, do `ssh-keygen` on the one machine and add the `.ssh/id_rsa.pub` line to `.ssh/authorized_keys` of the other machine.  This is needed because `q` relies on `rsync` to transfer files between the master and worker.
+
+Note: the default requested memory of a job in `q` is 1.5 GB, so make sure your worker machine has at least that number.  Otherwise, your jobs will just hang indefinitely.  To test out `q` by itself:
+
+    q -add ls    # Create a job
+    q -l -header # List the jobs
+    q -w -header # List the workers
+
+The job's status should go from `ready` to `done` (note that `ready` means `done` in CodaLab).
+
+To test it out the worker system end-to-end:
 
     cl work-manager -t q                 # Run in a different terminal
     cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`

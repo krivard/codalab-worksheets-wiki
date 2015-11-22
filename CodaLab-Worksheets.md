@@ -1,3 +1,5 @@
+Check out the [latest features](Worksheet-Features) or go through the [tutorial](User_CodaLab-Worksheets-Tutorial).
+
 ## **Why CodaLab Worksheets?**
 
 While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is far from optimal.  Most of the time, the output of research is simply a PDF file (published paper).  Even when people release their data and code (which is a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:

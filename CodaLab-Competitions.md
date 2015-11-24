@@ -2,7 +2,7 @@ CodaLab Competitions is a powerful framework for running competitions that invol
 
 ### For Participants
 
-* [List of Current Competitions](https://www.codalab.org/competitions)
+* [List of Current Competitions](https://competitions.codalab.org/competitions)
 * [Participating in a Competition](User_Participating-in-a-Competition)
 
 ### For Organizers

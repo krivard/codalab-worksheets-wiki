@@ -1,4 +1,4 @@
-To dive in, check out the [latest features](Worksheet-Features), go through the [tutorial](User_CodaLab-Worksheets-Tutorial), [install the CLI](User_Install-CodaLab-CLI) or view the [worksheet markdown reference](User_Worksheet-Markdown).
+To dive in, check out the [latest features](Worksheet-Features), go through the [tutorial](User_CodaLab-Worksheets-Tutorial), [install the CLI](User_Install-CodaLab-CLI), view the [worksheet markdown reference](User_Worksheet-Markdown), or go to the [official CodaLab Worksheets instance](https://worksheets.codalab.org).
 
 ## **Why CodaLab Worksheets?**
 

@@ -1,3 +1,5 @@
+To dive in, check out the [latest features](Worksheet-Features), go through the [tutorial](User_CodaLab-Worksheets-Tutorial), [install the CLI](User_Install-CodaLab-CLI), view the [worksheet markdown reference](User_Worksheet-Markdown), or go to the [official CodaLab Worksheets instance](https://worksheets.codalab.org).
+
 ## **Why CodaLab Worksheets?**
 
 While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is far from optimal.  Most of the time, the output of research is simply a PDF file (published paper).  Even when people release their data and code (which is a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
@@ -60,14 +62,14 @@ If you need other libraries, you can specify another docker image:
 
     cl run '...' --request_docker_image <docker image>
 
-To create your own image with custom libraries, first [install docker](Dev_CodaLab-CLI-Execution-in-Docker).  Then you can create your custom image:
+To create your own image with custom libraries, first [install docker](Installing-Docker).  Then you can create your custom image:
 
         docker run -t -i codalab/ubuntu:1.9                           # Start the existing docker container
         sudo apt-get install <custom package>                         # Install inside the docker container
         exit                                                          # Exit the docker container
         docker ps -a                                                  # Get ID of this last container
-        docker commit -m "<description> <container ID> <custom image> # Save the container as an image
-        docker push                                                   # Send this up to docker.com
+        docker commit -m <description> <container ID> <custom image>  # Save the container as an image
+        docker push <custom image>                                    # Send this up to dockerhub.com
 
 ## **Where do I report bugs?**
 
@@ -86,8 +88,7 @@ requests, please file a GitHub issue:
 
 ### For Developers
 
-* [Host Your Own Bundle Service](User_CodaLab-CLI-Server)
+* [Setting up a Local Server](Setup-Local-Worksheets)
 * [Code Design](Dev_CodaLab-CLI-Code-Design)
 * [Database Migrations](Dev_CodaLab-CLI-Database-Migrations)
-* [Execution in Docker](Dev_CodaLab-CLI-Execution-in-Docker)
 * [Unit Tests](Dev_CodaLab-CLI-Unit-Tests)

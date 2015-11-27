@@ -2,3 +2,4 @@
 * [CodaLab Worksheets](CodaLab-Worksheets)
 * [CodaLab Competitions](CodaLab-Competitions)
 * [Governance Document](https://github.com/codalab/codalab/blob/master/docs/Community-Governance.md)
+* [About](Project_About_CodaLab)

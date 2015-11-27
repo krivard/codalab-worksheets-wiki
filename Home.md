@@ -1,4 +1,4 @@
-<a href="http://www.codalab.org"><img src="https://github.com/codalab/codalab/wiki/images/codalab-logo.png" /></a>
+<a href="http://www.codalab.org"><img src="https://github.com/codalab/codalab/wiki/images/codalab-logo.png" width="200"/></a>
 
 Welcome to the CodaLab Wiki, the central place for CodaLab documentation.  Click on one of the following two links to get started:
 

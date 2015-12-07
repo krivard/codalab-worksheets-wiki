@@ -60,7 +60,7 @@ standard libraries (e.g., Python, Ruby, R, Java, Scala, g++) installed.
 
 If you need other libraries, you can specify another docker image:
 
-    cl run '...' --request_docker_image <docker image>
+    cl run '...' --request-docker-image <docker image>
 
 To create your own image with custom libraries, first [install docker](Installing-Docker).  Then you can create your custom image:
 

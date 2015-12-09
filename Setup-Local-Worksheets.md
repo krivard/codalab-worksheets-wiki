@@ -133,7 +133,7 @@ Second, [install docker](Installing-Docker), and tell CodaLab to use `q` and run
     "workers": {
         "q": {
             "verbose": 1,
-            "docker_image": "codalab/ubuntu:1.9"
+            "docker_image": "codalab/ubuntu:1.9",
             "dispatch_command": "python $CODALAB_CLI/scripts/dispatch-q.py"
         }
     }

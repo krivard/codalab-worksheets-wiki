@@ -1,3 +1,9 @@
+Version 0.1.1 (master):
+- Improved behavior and robustness for editable fields on website
+- Better support for long commands on web terminal
+- Change worksheets on website without reloading application
+- Uploading bundles on website no longer uses modal
+
 Version 0.1.0 (master):
 - Support for user time/disk quotas (`cl status` to show quotas and `cl uedit` to change if you're an admin)
 - Support for writing to files inside a running bundle (usage: `cl write <target> "string to write"`)

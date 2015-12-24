@@ -6,24 +6,30 @@ The current official docker image is `codalab/ubuntu`, which consists of
 Ubuntu 14.04 plus some standard packages.  See the [CodaLab docker
 registery](https://registry.hub.docker.com/u/codalab/ubuntu/).
 
-# Installing on Ubuntu Linux
+# Installing on Ubuntu Linux 14.04
 
 To install docker on your local machine (either if you want see what's actually
 in the environment or to run your own local CodaLab instance), follow these
-[instructions](http://docs.docker.com/installation/ubuntulinux/):
+[instructions](https://docs.docker.com/engine/installation/ubuntulinux/):
 
-    sudo sh -c "echo deb https://get.docker.io/ubuntu docker main > /etc/apt/sources.list.d/docker.list"
-    sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+    sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+    sudo sh -c "echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list"
     sudo apt-get update
-    sudo apt-get install lxc-docker
+    sudo apt-get install docker-engine
     sudo useradd $USER docker
+
+If you are upgrading docker, then you might need to remove `devicemapper` by [doing this](https://github.com/docker/docker/issues/14088).
+
+To start docker:
+
+    sudo service docker start
 
 Then, to test out your environment, open a shell (the first time you do this,
 it will take some time to download the image):
 
-    docker run -t -i codalab/ubuntu:1.9
+    docker run -ti ubuntu bash
 
-# For OS X / Windows
+# Installing on OS X / Windows
 
 Because Windows and OS X don't support LXC natively, you need to actually install Docker in a VM that you access from your machine. Thankfully, Docker has already packaged a solution for this that they release whenever they have a version bump of docker: [Docker Toolbox (click for download page)](https://www.docker.com/docker-toolbox). After selecting the download for your OS, go through and follow the setup instructions for your platform:
 

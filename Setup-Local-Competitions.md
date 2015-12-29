@@ -12,8 +12,7 @@
 * [Windows](Dev_Getting-Started-on-Windows)
 * [Unix](Dev_Getting-Started-on-UNIX-based-Systems)
 * [Mac](Dev_Getting-Started-on-Mac)
-
-<a name='A'/> ## Get the source code
+## Get the source code
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
 
 1. Clone your fork.

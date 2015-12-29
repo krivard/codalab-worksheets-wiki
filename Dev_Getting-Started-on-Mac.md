@@ -73,3 +73,5 @@ You can also make this easier by `pip install watchdog` and then:
 ## Next steps
 - [Configure CodaLab for Development](Setup-Local-Competitions##Get-the-source-code)
 - Review the [Developer Guidelines](Dev_Developer-Guidelines) of the CodaLab team.
+
+[create an anchor](#anchors-in-markdown)

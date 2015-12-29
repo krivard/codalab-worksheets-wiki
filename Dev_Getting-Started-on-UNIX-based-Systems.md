@@ -67,5 +67,5 @@ If you need to modify any JavaScript files, you'll need the [JavaScript Closure 
      `python ../../../../scripts/javascript.py ~/java/compiler.jar`
 
 ## Next steps
-- [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
+- [Configure CodaLab for Development](Setup-Local-Competitions#user-content-get-the-source-code)
 - Review the [Developer Guidelines](Dev_Developer-Guidelines) of the CodaLab team.

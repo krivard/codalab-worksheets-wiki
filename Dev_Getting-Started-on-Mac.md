@@ -71,5 +71,5 @@ You can also make this easier by `pip install watchdog` and then:
 `watchmedo shell-command --patterns="*.js" --recursive --command "python ../../../../scripts/javascript.py ~/java/compiler.jar" js/`
 
 ## Next steps
-- [Configure CodaLab for Development](Setup-Local-Competitions##Get the source code)
+- [Configure CodaLab for Development](Setup-Local-Competitions##Get-the-source-code)
 - Review the [Developer Guidelines](Dev_Developer-Guidelines) of the CodaLab team.

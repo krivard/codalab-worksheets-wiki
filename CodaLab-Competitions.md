@@ -23,7 +23,7 @@ CodaLab Competitions is a powerful framework for running competitions that invol
   * [Windows](Dev_Getting-Started-on-Windows)
   * [Mac](Dev_Getting-Started-on-Mac)
 * [Configure CodaLab to work with Visual Studio](Dev_Configure-CodaLab-Visual-Studio)
-* [Configure CodaLab for Development](Dev_Configure-Codalab-For-Development)
+* [Configure CodaLab for Development](Setup-Local-Competitions#user-content-get-the-source-code)
 * [Set up data storage](Dev_Set-up-data-storage)
 * [E-mail notification](E-mail-notifications)
 

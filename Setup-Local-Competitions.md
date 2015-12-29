@@ -13,7 +13,7 @@
 * [Unix](Dev_Getting-Started-on-UNIX-based-Systems)
 * [Mac](Dev_Getting-Started-on-Mac)
 
-## Get the source code
+<a name='A'/> ## Get the source code <a name='A'/>
 
 1. [Fork](https://help.github.com/articles/fork-a-repo) the [CodaLab repo](https://github.com/codalab/codalab) from GitHub.
 

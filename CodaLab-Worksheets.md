@@ -76,7 +76,7 @@ To create your own image with custom libraries, first [install docker](Installin
 CodaLab is still in alpha and under active development.  If you find `bugs` or have feature
 requests, please file a GitHub issue:
 
-- [for the website](https://github.com/codalab/codalab/issues/new)
+- [for the website](https://github.com/codalab/codalab-worksheets/issues/new)
 - [for the command-line tool](https://github.com/codalab/codalab-cli/issues/new)
 
 ## **How do I learn more?**

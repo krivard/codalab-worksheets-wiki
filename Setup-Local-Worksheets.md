@@ -43,7 +43,7 @@ and add this to your `codalab/settings/local.py` file:
 Start the web server:
 
     cd $HOME/codalab/codalab-worksheets
-    ./runserver 0.0.0.0:8000
+    ./manage runserver 0.0.0.0:8000
 
 Create an account for `codalab` by navigating to `http://localhost:8000`,
 clicking `Sign Up`.  Use any email address starting with

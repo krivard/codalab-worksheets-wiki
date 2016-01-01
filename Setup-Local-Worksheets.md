@@ -1,8 +1,8 @@
 Follow these instructions to setup an instance of CodaLab Worksheets on your local machine.
 
-Check out the [codalab](https://github.com/codalab/codalab) repository for the website and the [codalab-cli](https://github.com/codalab/codalab-cli) repository for the bundle service:
+Check out the [codalab-worksheets](https://github.com/codalab/codalab-worksheets) repository for the website and the [codalab-cli](https://github.com/codalab/codalab-cli) repository for the bundle service:
 
-    git clone https://github.com/codalab/codalab
+    git clone https://github.com/codalab/codalab-worksheets
     git clone https://github.com/codalab/codalab-cli
 
 In the following, `$HOME` will refer to the directory where `codalab` and `codalab-cli` reside.
@@ -20,17 +20,11 @@ Now let us set up the website.  Install all the required Python packages:
 Next, install the standard configuration file.  Edit DATABASES if want to use MySQL
 instead of SQLite (need to create a MySQL database separately):
 
-    cd $HOME/codalab/codalab
-    cp codalab/settings/local_sample.py codalab/settings/local.py
-
-Modify the following lines in `codalab/settings/local.py`:
-
-    ENABLE_WORKSHEETS = True
-    ENABLE_COMPETITIONS = False
+    touch ~/.codalab/website-config.json
 
 Update the database schema and generate all the configuration files:
 
-    cd $HOME/codalab/codalab
+    cd $HOME/codalab/codalab-worksheets
     ./manage syncdb --migrate
     ./manage config_gen
     ./manage set_site your_domain_name.com
@@ -38,7 +32,7 @@ Update the database schema and generate all the configuration files:
 If you want to use CodaLab in offline mode, run the following to download
 MathJax:
 
-    cd $HOME/codalab/codalab
+    cd $HOME/codalab/codalab-worksheets
     ./manage prep_for_offline
 
 and add this to your `codalab/settings/local.py` file:
@@ -48,7 +42,7 @@ and add this to your `codalab/settings/local.py` file:
 
 Start the web server:
 
-    cd $HOME/codalab/codalab
+    cd $HOME/codalab/codalab-worksheets
     ./runserver 0.0.0.0:8000
 
 Create an account for `codalab` by navigating to `http://localhost:8000`,
@@ -57,7 +51,7 @@ clicking `Sign Up`.  Use any email address starting with
 Now we can generate the OAuth credentials from the website to use in the bundle service
 by running the following command and replacing `~/.codalab/config.json` with the output:
 
-    cd $HOME/codalab/codalab
+    cd $HOME/codalab/codalab-worksheets
     ./manage set_oauth_key ~/.codalab/config.json
 
 Set the site name (for sending out sending out confirmation emails with the right links to verify login):
@@ -66,7 +60,7 @@ Set the site name (for sending out sending out confirmation emails with the righ
 
 Start the bundle server:
 
-    cd $HOME/codalab/codalab
+    cd $HOME/codalab/codalab-worksheets
     ../../codalab-cli/codalab/bin/cl server
 
 That is it!
@@ -138,7 +132,7 @@ Second, [install docker](Installing-Docker), and tell CodaLab to use `q` and run
         }
     }
 
-Third, you need to configure your machine so that you can ssh from the worker to the master and vice-versa without typing in your password.  To do this, do `ssh-keygen` on the one machine and add the `.ssh/id_rsa.pub` line to `.ssh/authorized_keys` of the other machine.  This is needed because `q` relies on `rsync` to transfer files between the master and worker.
+Third, you need to configure your machine so that you can ssh from the worker to the master and vice-versa without typing in your password (this is important!).  To do this, do `ssh-keygen` on the one machine and add the `.ssh/id_rsa.pub` line to `.ssh/authorized_keys` of the other machine.  This is needed because `q` relies on `rsync` to transfer files between the master and worker.
 
 Note: the default requested memory of a job in `q` is 1.5 GB, so make sure your worker machine has at least that much free memory (so you probably need at least 2 GB total).  Otherwise, your jobs will just hang indefinitely.  To test out `q` by itself:
 

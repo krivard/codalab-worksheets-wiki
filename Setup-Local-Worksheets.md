@@ -5,7 +5,7 @@ Check out the [codalab-worksheets](https://github.com/codalab/codalab-worksheets
     git clone https://github.com/codalab/codalab-worksheets
     git clone https://github.com/codalab/codalab-cli
 
-In the following, `$HOME` will refer to the directory where `codalab` and `codalab-cli` reside.
+In the following, `$HOME` will refer to the directory where `codalab-worksheets` and `codalab-cli` reside.
 
 Run the following setup script to install the necessary packages and set up the bundle service:
 
@@ -14,17 +14,19 @@ Run the following setup script to install the necessary packages and set up the 
 
 Now let us set up the website.  Install all the required Python packages:
 
-    cd $HOME/codalab
-    ./dev_setup.sh
+    cd $HOME/codalab-worksheets
+    ./setup.sh
 
 Next, install the standard configuration file.  Edit DATABASES if want to use MySQL
 instead of SQLite (need to create a MySQL database separately):
 
     touch ~/.codalab/website-config.json
 
+Then as for now, just put a trivial JSON object {} in the file.  
+
 Update the database schema and generate all the configuration files:
 
-    cd $HOME/codalab/codalab-worksheets
+    cd $HOME/codalab-worksheets/codalab
     ./manage syncdb --migrate
     ./manage config_gen
     ./manage set_site your_domain_name.com
@@ -32,7 +34,7 @@ Update the database schema and generate all the configuration files:
 If you want to use CodaLab in offline mode, run the following to download
 MathJax:
 
-    cd $HOME/codalab/codalab-worksheets
+    cd $HOME/codalab-worksheets/codalab
     ./manage prep_for_offline
 
 and add this to your `codalab/settings/local.py` file:

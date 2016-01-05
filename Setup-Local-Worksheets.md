@@ -44,7 +44,7 @@ and add this to your `codalab/settings/local.py` file:
 
 Start the web server:
 
-    cd $HOME/codalab/codalab-worksheets
+    cd $HOME/codalab-worksheets/codalab
     ./manage runserver 0.0.0.0:8000
 
 Create an account for `codalab` by navigating to `http://localhost:8000`,
@@ -53,7 +53,7 @@ clicking `Sign Up`.  Use any email address starting with
 Now we can generate the OAuth credentials from the website to use in the bundle service
 by running the following command and replacing `~/.codalab/config.json` with the output:
 
-    cd $HOME/codalab/codalab-worksheets
+    cd $HOME/codalab-worksheets/codalab
     ./manage set_oauth_key ~/.codalab/config.json
 
 Set the site name (for sending out sending out confirmation emails with the right links to verify login):
@@ -62,7 +62,7 @@ Set the site name (for sending out sending out confirmation emails with the righ
 
 Start the bundle server:
 
-    cd $HOME/codalab/codalab-worksheets
+    cd $HOME/codalab-worksheets/codalab
     ../../codalab-cli/codalab/bin/cl server
 
 That is it!

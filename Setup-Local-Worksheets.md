@@ -37,7 +37,7 @@ MathJax:
     cd $HOME/codalab-worksheets/codalab
     ./manage prep_for_offline
 
-and add this to your `codalab/settings/local.py` file:
+and add this to your `codalab/settings/__init__.py` file (TODO: put this in `website-config.json`):
 
     LOCAL_MATHJAX = True
     LOCAL_ACE_EDITOR = True

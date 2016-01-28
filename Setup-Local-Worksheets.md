@@ -17,14 +17,28 @@ Now let us set up the website.  Install all the required Python packages:
     cd $HOME/codalab-worksheets
     ./setup.sh
 
-Next, install the standard configuration file.  Edit DATABASES if want to use MySQL
-instead of SQLite (need to create a MySQL database separately):
+Next, install the standard configuration file at `~/.codalab/website-config.json`.
+You can start with just an empty configuration file:
 
-    touch ~/.codalab/website-config.json
+    echo "{}" > ~/.codalab/website-config.json
 
-Then as for now, just put a trivial JSON object {} in the file.  
+By default, the website will create and use a SQLite database at `$HOME/codalab-worksheets/codalab/codalab.sqlite3`.
+If you want to use MySQL instead, add a "databases" field to your config file:
+    
+    {
+        "database": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "YOUR DATABASE NAME",
+            "USER": "YOUR MYSQL USER NAME",
+            "PASSWORD": "YOUR PASSWORD HERE",
+            "HOST": "YOUR MYSQL HOST NAME",
+            "PORT": "YOUR MYSQL PORT (OR EMPTY FOR DEFAULT)"
+        }
+    }
 
-Update the database schema and generate all the configuration files:
+> For more details about what you can put in your website config, look in `$HOME/codalab-worksheets/codalab/codalab/settings/__init__.py`.
+
+Now update the database schema and generate all the configuration files:
 
     cd $HOME/codalab-worksheets/codalab
     ./manage syncdb --migrate

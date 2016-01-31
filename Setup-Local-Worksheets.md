@@ -17,14 +17,28 @@ Now let us set up the website.  Install all the required Python packages:
     cd $HOME/codalab-worksheets
     ./setup.sh
 
-Next, install the standard configuration file.  Edit DATABASES if want to use MySQL
-instead of SQLite (need to create a MySQL database separately):
+Next, install the standard configuration file at `~/.codalab/website-config.json`.
+You can start with just an empty configuration file:
 
-    touch ~/.codalab/website-config.json
+    echo "{}" > ~/.codalab/website-config.json
 
-Then as for now, just put a trivial JSON object {} in the file.  
+By default, the website will create and use a SQLite database at `$HOME/codalab-worksheets/codalab/codalab.sqlite3`.
+If you want to use MySQL instead, add a "databases" field to your config file:
+    
+    {
+        "database": {
+            "ENGINE": "django.db.backends.mysql",
+            "NAME": "YOUR DATABASE NAME",
+            "USER": "YOUR MYSQL USER NAME",
+            "PASSWORD": "YOUR PASSWORD HERE",
+            "HOST": "YOUR MYSQL HOST NAME",
+            "PORT": "YOUR MYSQL PORT (OR EMPTY FOR DEFAULT)"
+        }
+    }
 
-Update the database schema and generate all the configuration files:
+> For more details about what you can put in your website config, look in `$HOME/codalab-worksheets/codalab/codalab/settings/__init__.py`.
+
+Now update the database schema and generate all the configuration files:
 
     cd $HOME/codalab-worksheets/codalab
     ./manage syncdb --migrate
@@ -37,10 +51,15 @@ MathJax:
     cd $HOME/codalab-worksheets/codalab
     ./manage prep_for_offline
 
-and add this to your `codalab/settings/local.py` file:
+and add this to your `codalab/settings/__init__.py` file (TODO: put this in `website-config.json`):
 
     LOCAL_MATHJAX = True
     LOCAL_ACE_EDITOR = True
+
+Because we use LESS and [React](http://facebook.github.io/react/)––and JSX in particular––we have an extra build step, which is entirely automated through NPM. Look at the [README](https://github.com/codalab/codalab-worksheets/tree/develop/codalab/apps/web/README.md) for specifics, but concisely, you should install Node.js for your system and then do the following (it will compile JSX into JS and LESS into CSS):
+
+    cd $HOME/codalab-worksheets/codalab/apps/web
+    npm run build
 
 Start the web server:
 

@@ -45,17 +45,6 @@ Now update the database schema and generate all the configuration files:
     ./manage config_gen
     ./manage set_site your_domain_name.com
 
-If you want to use CodaLab in offline mode, run the following to download
-MathJax:
-
-    cd $HOME/codalab-worksheets/codalab
-    ./manage prep_for_offline
-
-and add this to your `codalab/settings/__init__.py` file (TODO: put this in `website-config.json`):
-
-    LOCAL_MATHJAX = True
-    LOCAL_ACE_EDITOR = True
-
 Because we use LESS and [React](http://facebook.github.io/react/)––and JSX in particular––we have an extra build step, which is entirely automated through NPM. Look at the [README](https://github.com/codalab/codalab-worksheets/tree/develop/codalab/apps/web/README.md) for specifics, but concisely, you should install Node.js for your system and then do the following (it will compile JSX into JS and LESS into CSS):
 
     cd $HOME/codalab-worksheets/codalab/apps/web

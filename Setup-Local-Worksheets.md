@@ -50,6 +50,11 @@ Because we use LESS and [React](http://facebook.github.io/react/)––and JSX i
     cd $HOME/codalab-worksheets/codalab/apps/web
     npm run build
 
+You also need to install all of the third-party dependencies, which are managed by [Bower](https://bower.io):
+
+    cd $HOME/codalab-worksheets/codalab/apps/web
+    npm run bower
+
 Start the web server:
 
     cd $HOME/codalab-worksheets/codalab

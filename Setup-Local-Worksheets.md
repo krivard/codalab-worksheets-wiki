@@ -74,11 +74,6 @@ by running the following command and replacing `~/.codalab/config.json` with the
     cd $HOME/codalab-worksheets/codalab
     ./manage set_oauth_key ~/.codalab/config.json
 
-Set the site name (for sending out sending out confirmation emails with the right links to verify login):
-
-    ./manage set_site your_host_name.com
-
-
 
 That is it!
 

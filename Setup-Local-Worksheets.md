@@ -12,7 +12,7 @@ Run the following setup script to install the necessary packages and set up the 
     cd $HOME/codalab-cli
     ./setup.sh server
 
-Start the bundle server:
+If you want to use MySQL, set up MySQL per the instructions below. Then, start the bundle server:
 
     cd $HOME/codalab-worksheets/codalab
     ../../codalab-cli/codalab/bin/cl server

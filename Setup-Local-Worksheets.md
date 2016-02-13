@@ -101,7 +101,7 @@ Install the MySQL Python if it hasn't been done already:
 
 Create a user in the `mysql -u root -p` prompt:
 
-    CREATE USER '<username>'@'localhost' IDENTIFIED BY '<password>';
+    CREATE USER 'codalab'@'localhost' IDENTIFIED BY '<password>';
     CREATE DATABASE codalab_bundles;
     GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
 

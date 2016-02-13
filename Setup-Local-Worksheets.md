@@ -105,8 +105,7 @@ Create a user in the `mysql -u root -p` prompt:
     CREATE DATABASE codalab_bundles;
     GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
 
-In the configuration file `.codalab/config.json`,
-change `"class": "SQLiteModel"` to
+You can then provide the credentials and database name during the set up step when first starting the Bundle Service. Alternativel, in the configuration file `.codalab/config.json`, change `"class": "SQLiteModel"` to
 
     "class": "MySQLModel",
     "engine_url": "mysql://<username>:<password>@<host>:<port>/<database>",

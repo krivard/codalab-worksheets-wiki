@@ -12,6 +12,11 @@ Run the following setup script to install the necessary packages and set up the 
     cd $HOME/codalab-cli
     ./setup.sh server
 
+Start the bundle server:
+
+    cd $HOME/codalab-worksheets/codalab
+    ../../codalab-cli/codalab/bin/cl server
+
 Now let us set up the website.  Install all the required Python packages:
 
     cd $HOME/codalab-worksheets
@@ -73,10 +78,7 @@ Set the site name (for sending out sending out confirmation emails with the righ
 
     ./manage set_site your_host_name.com
 
-Start the bundle server:
 
-    cd $HOME/codalab-worksheets/codalab
-    ../../codalab-cli/codalab/bin/cl server
 
 That is it!
 

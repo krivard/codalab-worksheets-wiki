@@ -96,6 +96,7 @@ Install the MySQL server.  On Ubuntu, run:
 
 Install the MySQL Python if it hasn't been done already:
 
+    cd $HOME/codalab-cli
     venv/bin/pip install MySQL-python
 
 Create a user in the `mysql -u root -p` prompt:

@@ -10,7 +10,7 @@ In the following, `$HOME` will refer to the directory where `codalab-worksheets`
 Run the following setup script to install the necessary packages and set up the bundle service:
 
     cd $HOME/codalab-cli
-    ./setup.sh
+    ./setup.sh server
 
 Now let us set up the website.  Install all the required Python packages:
 

@@ -3,7 +3,7 @@ Version 0.1.2 (master):
 - Improved performance on worksheets web client with precompiled JSX
 - Web terminal now prints usage help
 - Disabled autocomplete for `cl` command aliases
-- Bugfixes for [cli#287](https://github.com/codalab/codalab-cli/issues/287), [cli#307](https://github.com/codalab/codalab-cli/issues/307), [cli#330](https://github.com/codalab/codalab-cli/pull/330)
+- Bugfixes for [cli#287](https://github.com/codalab/codalab-cli/issues/287), [cli#307](https://github.com/codalab/codalab-cli/issues/307), [cli#330](https://github.com/codalab/codalab-cli/pull/330), [worksheets#32](https://github.com/codalab/codalab-worksheets/pull/32)
 
 
 Version 0.1.1 (master):

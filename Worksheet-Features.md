@@ -1,3 +1,11 @@
+Version 0.1.2 (master):
+- Worksheets officially decoupled from Competitions
+- Improved performance on worksheets web client with precompiled JSX
+- Web terminal now prints usage help
+- Disabled autocomplete for `cl` command aliases
+- Bugfixes for codalab/codalab-worksheets#38
+- 
+
 Version 0.1.1 (master):
 - Improved behavior and robustness for editable fields on website
 - Better support for long commands on web terminal

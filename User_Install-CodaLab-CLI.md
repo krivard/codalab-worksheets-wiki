@@ -1,3 +1,5 @@
+While one can perform most things on the CodaLab web interface via the web terminal, a power-user might seek a command-line interface (CLI), which allows you to do additional things like copy bundles between CodaLab instances and use your own editor to edit worksheets.  You will also need the CLI to run your own local server.
+
 ## Installation
 
 Skip this section if your administrator has already installed CodaLab for you.
@@ -23,4 +25,10 @@ Skip this section if your administrator has already installed CodaLab for you.
 
         . <path to codalab-cli>/rc
 
-Now you are ready to start using CodaLab!
+Now you are ready to start using the CodaLab CLI!
+
+## Usage
+
+All commands start with `cl`.  Type the following to learn more:
+
+    cl help

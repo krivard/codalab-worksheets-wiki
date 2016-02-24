@@ -86,7 +86,7 @@ set up MySQL:
 
 Install the MySQL server.  On Ubuntu, run:
 
-    sudo apt-get install mysql-server
+    sudo apt-get install mysql-server libmysqlclient-dev
 
 Install the MySQL Python if it hasn't been done already:
 

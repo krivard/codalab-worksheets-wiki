@@ -52,18 +52,11 @@ Create a file called `a.txt` with the following contents:
     bar
     baz
 
-Let's upload this dataset into CodaLab.  If you're in the web terminal, simply type
-
-    cl upload
-
-to popup a dialog box to select the desired file (if you want to upload a
-directory, you need to zip it up).  If you're on the CLI, simply type:
+Let's upload this dataset into CodaLab.  If you're in the web terminal, simply click on `Upload Bundle` to popup a dialog box to select the desired file (if you want to upload a directory, you need to zip it up).  If you're on the CLI, simply type:
 
     cl upload a.txt
 
-After you quit the editor, a 32-character UUID will be printed.  This UUID
-uniquely identifies the Bundle.  Forever.  You can't edit the contents since
-bundles are immutable, but you can edit the metadata:
+A 32-character UUID will be printed.  This UUID uniquely identifies the Bundle.  Forever.  You can't edit the contents since bundles are immutable, but you can edit the metadata:
 
     cl edit a.txt
 

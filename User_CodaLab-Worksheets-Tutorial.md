@@ -1,9 +1,10 @@
-This tutorial provides an in depth explanation of how to use CodaLab
-Worksheets.
+Welcome to CodaLab Worksheets!  This tutorial shows you how to use CodaLab Worksheets to run experiments and explains the basic CodaLab concepts.  Running experiments in CodaLab is quite simple but does require a slight shift in thinking (not unlike switching from a procedural language to a functional language).
 
-The commands below can be typed into the [CodaLab CLI](User_Install CodaLab
-CLI) or into the web terminal on a CodaLab website, although currently
-not all commands are supported on the website.
+CodaLab's philosophy is to give you full control of how you want to run your experiments and get out of your way.  It just maintains the dependency structure of your experiments and takes care of the actual execution.  A good analogy is Git, which gives you total freedom in terms of what to put in your repository, but just maintains the revision history.
+
+One interacts with CodaLab mainly through a set of CodaLab commands for uploading, deleting, adding, running, etc.  These commands are to be typed either into the web terminal (at the top of the website where it says `CodaLab>`) or into the [command-line interface (CLI)](User_Install CodaLab CLI), if you prefer working from your shell.
+
+Once you sign up for a CodaLab account and sign in, click on `My Home`.  Let's get started!
 
 ## Filesystem analogy
 
@@ -24,6 +25,7 @@ There are some differences, however:
 - CodaLab maintains the provenance information for each bundle.
 
 ## Basic Local Usage
+
 
 Print out the list of available commands:
 

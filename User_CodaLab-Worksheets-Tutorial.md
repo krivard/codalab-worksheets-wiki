@@ -207,13 +207,10 @@ manage your runs.  Use CodaLab markdown to create worksheets that document your
 experiments, either for a private research log or a public executable paper.
 There are many possibilities!
 
-Print out the list of available commands:
+To get more information:
 
-    cl help
-
-Print out options for a specific command (e.g., `rm`):
-
-    cl rm -h
+    cl help     # Print out the list of all commands
+    cl help rm  # Print out usage for a particular command
 
 ## Delving deeper
 

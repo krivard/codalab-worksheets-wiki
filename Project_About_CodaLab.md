@@ -34,6 +34,6 @@ worksheets and competitions.
 
 CodaLab has received important contributions from many people, and we would like to thank their efforts in making CodaLab what it is today:
 
-Pujun Bhatnagar, Eric Carmichael, Justin Carden, Richard Caruana, Francis Cleary, Sergio Escalera, Ivan Judson, Lori Ada Kilty, Shaunak Kishore, Stephen Koo, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Xavier Baro Sole, Paul Viola, Erick Watson, Tony Yang, Flavio Zhingri, Michael Zyskowski.
+Pujun Bhatnagar, Eric Carmichael, Justin Carden, Richard Caruana, Francis Cleary, Andrew Duffy, Sergio Escalera, Ivan Judson, Lori Ada Kilty, Shaunak Kishore, Stephen Koo, Konstantin Kopyrev, Eric Li, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Xavier Baro Sole, Paul Viola, Erick Watson, Tony Yang, Flavio Zhingri, Michael Zyskowski.
 
 ![](images/logo_collage.png)

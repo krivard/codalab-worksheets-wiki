@@ -1,52 +1,31 @@
-Welcome to CodaLab Worksheets!  This tutorial shows you how to use CodaLab Worksheets to run experiments and explains the basic CodaLab concepts.  Running experiments in CodaLab is quite simple but does require a slight shift in thinking (not unlike switching from a procedural language to a functional language).
+Welcome to CodaLab Worksheets!  This tutorial shows you how to use CodaLab
+Worksheets to run experiments and explains the basic CodaLab concepts.  Running
+experiments in CodaLab is quite simple but does require a slight shift in
+thinking (not unlike switching from a procedural language to a functional
+language).
 
-CodaLab's philosophy is to give you full control of how you want to run your experiments and get out of your way.  It just maintains the dependency structure of your experiments and takes care of the actual execution.  A good analogy is Git, which gives you total freedom in terms of what to put in your repository, but just maintains the revision history.
+CodaLab's philosophy is to give you full control of how you want to run your
+experiments and get out of your way.  It just maintains the dependency
+structure of your experiments and takes care of the actual execution.  A good
+analogy is Git, which gives you total freedom in terms of what to put in your
+repository, but just maintains the revision history.
 
-One interacts with CodaLab mainly through a set of CodaLab commands for uploading, deleting, adding, running, etc.  These commands are to be typed either into the web terminal (at the top of the website where it says `CodaLab>`) or into the [command-line interface (CLI)](User_Install CodaLab CLI), if you prefer working from your shell.
+One interacts with CodaLab mainly through a set of CodaLab commands for
+uploading, deleting, adding, running, etc.  These commands are to be typed
+either into the web terminal (at the top of the web interface at the
+`CodaLab>` prompt) or into the [command-line interface (CLI)](User_Install
+CodaLab CLI), if you prefer working from your shell.
 
-Once you sign up for a CodaLab account and sign in, click on `My Home`.  Let's get started!
+Once you sign up for a CodaLab account and sign in, click on `My Home`.  Let's
+get started!
 
-## Filesystem analogy
+## 5-minute Quick Start
 
-To understand CodaLab, it's useful to keep the following analogy in mind:
+After signing up for a CodaLab account and signing in, click on `My Home` (your
+home worksheet, which is like your home directory).  Let's do a simple sorting
+example.
 
-- shell = CodaLab session
-- drive = CodaLab instance (e.g., `http://codalab.org/bundleservice`)
-- directory = CodaLab worksheet (e.g., `home-pliang`)
-- file = CodaLab bundle (e.g., `stanford-corenlp`)
-- line in a file = CodaLab target (e.g., `stanford-corenlp/src`)
-
-There are some differences, however:
-
-- The contents of bundles are immutable (only the metadata is mutable), whereas
-  files on a filesystem are mutable.
-- A worksheet contains bundles in a user-specified order interleaved with text,
-  whereas a directory in a file system contains an unordered set of files.
-- CodaLab maintains the provenance information for each bundle.
-
-## Basic Local Usage
-
-
-Print out the list of available commands:
-
-    cl help
-
-Print out options for a specific command (e.g., upload):
-
-    cl upload -h
-
-If you're on the CLI, you need to connect to a CodaLab instance.
-
-    cl work main::   # Connects to the main CodaLab server
-    cl work local::  # Connects to the local instance (temporary)
-
-Let's walk through a simple example to demonstrate the capabilities of
-CodaLab.  The goal is to sort a file.
-
-### Uploading bundles
-
-To use CodaLab, you first need to create bundles.  You can do this by uploading
-a bundle from your filesystem into a CodaLab instance.
+### Step 1: Uploading bundles
 
 Create a file called `a.txt` with the following contents:
 
@@ -54,11 +33,33 @@ Create a file called `a.txt` with the following contents:
     bar
     baz
 
-Let's upload this dataset into CodaLab.  If you're in the web terminal, simply click on `Upload Bundle` to popup a dialog box to select the desired file (if you want to upload a directory, you need to zip it up).  If you're on the CLI, simply type:
+Create another file called `sort.py` with the following contents:
+
+    import sys
+    for line in sorted(sys.stdin.readlines()):
+        print line,
+
+**Web interface.**
+
+Click on `Upload Bundle` on the right panel to popup a file browser to select
+`a.txt` (if you want to upload a directory, you need to zip up the directory
+and upload the zip file).  Do the same with `sort.py`.
+
+Once each bundle is uploaded, it is appended to the current worksheet, and
+it shows up as a row in a table (as the default view).  The bundle has a
+32-character **UUID**, a globally unique identifier, which can be used to refer
+to this particular bundle; its contents cannot be changed.  You can, however,
+edit its metadata (name, description, etc.) by clicking on the right panel.
+
+**CLI.**
+
+You can alternatively use the [CLI](User_Install CodaLab CLI).
+To upload local files `a.txt` and `sort.py`:
 
     cl upload a.txt
+    cl upload sort.py
 
-A 32-character UUID will be printed.  This UUID uniquely identifies the Bundle.  Forever.  You can't edit the contents since bundles are immutable, but you can edit the metadata:
+To edit the metadata (you can also type these commands in the web terminal):
 
     cl edit a.txt
 
@@ -66,81 +67,183 @@ To list the bundles (one so far) you've uploaded, type:
 
     cl ls
 
-You can see the statistics about the bundle:
+You can see the metadata of a bundle:
 
     cl info -v a.txt
 
-Let's now create and upload the following sorting program `sort.py`:
-
-    import sys
-    for line in sorted(sys.stdin.readlines()):
-        print line,
-
-like this:
-
-    cl upload sort.py
-
 Note that while `a.txt` and `sort.py` are dataset and programs, respectively,
-from CodaLab's perspective, these are just bundles.  Bundles can also be
-directories.
+from CodaLab's perspective, these are just bundles (research assets).
 
-### Creating runs
+### Step 2: Run a command
 
-One can upload bundles, but the interesting part about CodaLab is that new
-bundles can be generated by running commands.  A *run* bundle consists of a set
-of dependencies on existing bundles and an arbitrary *command* to execute.
-When CodaLab runs this command behind the scenes, it makes sure the
-dependencies are put into the right place.
+Having uploaded some bundles, let's run some commands.  CodaLab allows you to
+run arbitrary shell commands, and each command also creates a bundle to
+encapsulate the computation.
 
-Let us create our first run bundle:
+To create our first run bundle, type the following into the `CodaLab>` prompt
+(hit `c` to get focus) or your shell if you're using the CLI:
 
-    cl run sort.py:sort.py input:a.txt 'python sort.py < input > output' -n sort-run
+    cl run sort.py:sort.py input:a.txt 'python sort.py < input' -n sort-run
 
-The first two arguments specify the dependencies and the third is the command.
-Each dependency has the form `<key>:<target>`; think of it as creating a
-symlink called `<key>` pointing to `<target>`.  The target can be a bundle (e.g., `a.txt`),
-or if the bundle is a directory rather than a file, we can references files
-inside (e.g., `a.txt/file1`). During the run, targets are read-only.
+This should append a new bundle named `sort-run` to the current worksheet.  If
+you wait a few seconds, the output of the bundle will be shown on the right
+panel.  You might need to refresh the worksheet by typing `shift-r`.
 
-Note that `cl run` doesn't actually run anything directly; it just creates the run
-bundle and returns immediately.  You can see by doing `cl ls` that it's been
-created, but it's state is `created`, not `ready`.  (On the CLI, you can add `-t` or
-`--tail` to make `cl run` block and print out stdout/stderr, more like how you
-would normally run a program.)
+Let's study what happened here.  The first two arguments of `cl run` specify the
+dependencies and the third is the command, which is run in the presence of the
+dependencies.  In this specific example, it is as if you ran the command in the
+following environment:
 
-The `-n` (`--name`) can be used to set the name of a bundle (which doesn't have
-to be unique).  Names must only contain alphanumeric characters (think of them
-as variable names).
+    $ ls
+    sort.py       [contains contents of bundle sort.py]
+    input         [contains contents of bundle a.txt]
+    $ python sort.py < input
 
-Look inside the bundle:
+CodaLab captures all the files and directories that are written to the current
+directory, as well as stdout and stderr.  These form the contents of the
+newly-created run bundle.  When the command terminates, the contents of the
+bundle become immutable.
 
-    cl info sort-run
+In general, a CodaLab run can depend on zero or more dependencies.  Each
+dependency has the form
 
-You'll see that like any bundle, it consists of a set of files and directories.
-Under *dependencies*, you will see two files (*keys*), `sort.py` and `input`,
-which point to the *targets* `sort.py` and `a.txt`.
+    <key>:<target>
+    
+The target can be a bundle (e.g., `a.txt`), or if the bundle is a directory, a
+file/directory inside a bundle (e.g., `a.txt/file1`).  When the command (e.g.,
+`python sort.py < input`) is executed, it is done so in a (temporary)
+directory which with a read-only file/directory named `<key>` whose contents
+are `<target>`.  The run should write to the current directory to populate the
+contents of the bundle.
 
-Note that runs need not have dependencies.  Here's a trivial run bundle that
-doesn't:
+The actual execution happens inside a [docker
+container](https://www.docker.com) on a separate worker machine, which allows
+you to specify a desired Linux environment with the requisite libraries /
+software packages.  If you're curious about the exact environment, you can
+always run diagnostic commands to find out:
 
-    cl run 'echo hello'
+    cl run 'python --version'
+    cl run 'uname -a'
+    cl run 'cat /proc/cpuinfo'
+    ...
 
-In our original shell, we can check that
-the run completed successfully.
+A run bundle has a `state` metadata field, which goes through the following sequence:
+
+- `created`: initial state
+- `staged`: dependencies of the bundle are now in the `ready` state
+- `running`: the worker is setting up the execution environment or the command is executing
+- `ready`: the run is complete and the exit code was 0 (success)
+- `failed`: the run is complete and the exit code was not 0 or something else went wrong (failure)
+
+You should treat the current worksheet as your current directory, where you're
+running commands that depend on the existing bundles and generate new ones.
+There are two differences:
+
+1. You must be explicit about dependencies.  CodaLab will run your command only
+in the presence of the dependencies you explicitly specify.
+
+2. When your command outputs to the current directory, these files/directories
+end up in the run bundle.  Therefore subsequent commands must specify the run
+bundle to refer to them.  For example:
+
+        cl run 'echo hello > message' -n run1
+        cl run :run1/message 'cat message'     # right
+        cl run :message      'cat message'     # wrong
+
+Note that you can start off multiple runs in parallel, and even ones that
+depend on previous runs that haven't yet finished.  Since CodaLab knows about
+dependencies, it will wait for all the dependencies of a run to finish before
+starting the run.
+
+### Step 3: Present your results
+
+So far, your worksheet just contain a default table with one bundle per row.
+But we can customize this view to better document and present our results.  To
+edit the worksheet, click `Edit Source` button (or hitting `e`) or in the CLI, type:
+
+    cl wedit
+
+You will be taken to a screen with a plain-text interface, where you can freely edit
+the worksheet using [CodaLab markdown](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
+CodaLab markdown is an extension of markdown that allows you to interleave
+bundles and formatting directives.
+
+For example, you might edit your worksheet to the following (your worksheet
+will show different UUIDs):
+
+    This is my **first** [CodaLab worksheet](https://worksheets.codalab.org).
+    I uploaded some bundles:
+    [dataset a.txt]{0x34a1fa62acc840ec96da98f17dbddf66}
+    [dataset sort.py]{0xf9fc733b19894eb2a97f6b47f35d7ea0}
+    Here's my first CodaLab run:
+    % display table name command /stdout time
+    [run sort-run -- :sort.py,input:a.txt : python sort.py < input]{0x08908cc6cb594b9394ed7ba6a0bd25f6}
+
+The directive `% display table ...` tells CodaLab to render the bundle as a table
+with certain columns.  For example, the `/stdout` column tells CodaLab to display
+the contents of the `stdout` file inside the bundle.  This custom formatting
+is extremely useful if you are monitoring multiple runs, and you want to print
+out various metrics such as time, accuracy, number of iterations, etc.
+
+Remember that worksheets are just views on the underlying bundle graph, and the
+lines that look like `[run sort-run ...]` are just pointers to a bundle.
+Therefore, you can re-order, remove, duplicate the bundles in the worksheet,
+and even move/copy bundles across worksheets as easily as text editing.
+
+Note that deleting a reference to a bundle does not actually delete the bundle.
+To delete an actual bundle, type the following command:
+
+    cl rm sort.py
+
+See the [CodaLab markdown
+documentation](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown)
+for more information about the formatting.
+
+### Summary
+
+So there you have it: Upload code and data as bundles.  Run commands to
+preprocess the data, run algorithms with different settings, using CodaLab to
+manage your runs.  Use CodaLab markdown to create worksheets that document your
+experiments, either for a private research log or a public executable paper.
+There are many possibilities!
+
+Print out the list of available commands:
+
+    cl help
+
+Print out options for a specific command (e.g., `rm`):
+
+    cl rm -h
+
+## Delving deeper
+
+Now let's explore some more features of CodaLab.  Specifically, how to refer to
+bundles, managing bundles, create macros, manging worksheets, manage
+permissions, copy between multiple CodaLab instances.
+
+### Continuing the sorting example
+
+Recall that we last run the following command to sort a simple file:
+
+    cl run sort.py:sort.py input:a.txt 'python sort.py < input' -n sort-run
+
+To look at the metadata of the run bundle:
 
     cl info -v sort-run
 
-We can look at individual targets inside the bundle:
+We can look at individual files inside the bundle:
 
-    cl cat sort-run/output
+    cl cat sort-run/stdout
 
-To make things more convenient, we can define a bundle that points to a target
-inside the last bundle:
+To make things more convenient, we can define a bundle whose contents are set
+to be a target inside a bundle (note that `cl make` copies the contents rather
+than just creating a simple link):
 
-    cl make sort-run/output -n a-sorted.txt
+    cl make sort-run/stdout -n a-sorted.txt
     cl cat a-sorted.txt
 
-On the CLI, we can also download the results to local disk:
+On the CLI, we can download the results to local disk (in the web interface,
+just click the download button):
 
     cl download a-sorted.txt
 
@@ -160,19 +263,19 @@ Note: be *very careful* with `rm -r` because it might delete a lot of bundles!
 You can also include bundle references directly in your run command, which
 might be more natural than listing the dependencies ahead of time:
 
-    cl run 'python %sort.py% < %a.txt% > output' -n sort-run
-    cl run 'python %arg1:sort.py% < %arg2:a.txt% > output' -n sort-run
-    cl run 'python %:sort.py% < %:a.txt% > output' -n sort-run
+    cl run 'python %sort.py% < %a.txt%' -n sort-run
+    cl run 'python %arg1:sort.py% < %arg2:a.txt%' -n sort-run
+    cl run 'python %:sort.py% < %:a.txt%' -n sort-run
 
 These are equivalent to the following, respectively:
 
-    cl run b1:sort.py b2:a.txt 'python b1 < b2 > output' -n sort-run
-    cl run arg1:sort.py arg2:a.txt 'python arg1 < arg2 > output' -n sort-run
-    cl run sort.py:sort.py a.txt:a.txt 'python sort.py < a.txt > output' -n sort-run
+    cl run b1:sort.py b2:a.txt 'python b1 < b2' -n sort-run
+    cl run arg1:sort.py arg2:a.txt 'python arg1 < arg2' -n sort-run
+    cl run sort.py:sort.py a.txt:a.txt 'python sort.py < a.txt' -n sort-run
 
 Note that the last line is also equivalent to:
 
-    cl run :sort.py :a.txt 'python sort.py < a.txt > output' -n sort-run
+    cl run :sort.py :a.txt 'python sort.py < a.txt' -n sort-run
 
 ### Macros
 
@@ -224,10 +327,11 @@ Then we can use the following syntactic sugar:
 In CodaLab, macros are not defined ahead of time, but are constructed on the
 fly from the bundle DAG.
 
-### Worksheet basics
+### Worksheets
 
 So far, we've focused on creating (and deleting) new bundles, and these bundles
-automatically added to the current worksheet (`codalab`):
+automatically added to your home worksheet (e.g., `home-pliang`).  You can
+always type the following to see what worksheet you're on:
 
     cl work
 
@@ -238,8 +342,8 @@ contain other items besides bundles.
 We can add items (text or bundles) to the current worksheet, which appends to
 the end:
 
-    cl add text "Here's a simple bundle:"
-    cl add bundle sort.py
+    cl add text "Here's a simple bundle:" .  # '.' refers to the current worksheet
+    cl add bundle sort.py .
 
 A worksheet just contains pointers to bundles, and unlike bundles, they are
 mutable.  We can display the contents of a worksheet as follows:
@@ -249,13 +353,13 @@ mutable.  We can display the contents of a worksheet as follows:
 
 We can create another worksheet:
 
-    cl new scratch
+    cl new pliang-scratch
 
-This creates a new worksheet called `scratch`.  We can switch back and forth
-between worksheets (analogous to switching directories using `cd`):
+This creates a new worksheet called `pliang-scratch`.  We can switch back and
+forth between worksheets (analogous to switching directories using `cd`):
 
-    cl work scratch
-    cl work codalab
+    cl work pliang-scratch      # Use the <username>-<name> convention
+    cl work /                   # '/' refers to your home worksheet
 
 At this point, it is important to note that a worksheet only contains
 *pointers* to bundles and other worksheets.  Their existence is independent of
@@ -271,11 +375,10 @@ you'll see markdown interleaved with bundles, worksheets, and formatting directi
 See documentation of the [markdown syntax](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
 For example, the editor might look like this:
 
-    // Editing worksheet codalab(0x4734384f503944dfb15c23d7e466007a).
     Arbitrary text describing a bundle.
     [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
     Arbitrary text describing a worksheet.
-    [worksheet scratch]{{0xfdd5d68b64c9450da918b24ce7708f34}}
+    [worksheet pliang-scratch]{{0xfdd5d68b64c9450da918b24ce7708f34}}
 
 You can leverage the full power of the editor to change the list of worksheet
 items: you can add and remove text, bundles, worksheets.  You can switch the
@@ -316,6 +419,9 @@ There are a number of ways to reference bundles:
 - Named ordering (`foo^, foo^2, foo^3`): returns the first, second, and third
   bundles from the end with the given name.
 - You can refer to a range of bundles: `^1-3` resolves to `^1 ^2 ^3`.
+- In the worksheet interface, if you press 'u', then this will paste the UUID
+  of the current bundle into the command.  This is a very convenient way of mixing
+  command-line and graphical interfaces.
 
 In practice, `^` and `^2` are used frequently because future operations tend to
 depend on the bundles you just created.
@@ -335,81 +441,56 @@ and third!  The intended behavior is:
 Also, if someone else is adding to your worksheet while you're editing it, you
 might end up referring to the wrong bundle.
 
-### Executing commands
+### CodaLab instances (CLI only)
 
-On the CLI, when editing a worksheet, you can specify commands to execute right
-in the worksheet.  For example, if you add `!rm ^`` after a bundle:
+When you're using the web interface, you are connected to one particular
+CodaLab instance (e.g., `worksheets.codalab.org`).  If you're using the CLI,
+you can connect to multiple CodaLab instances and copy information between
+them.
 
-    [run run-echo-hello : echo hello]{0xa113e342f21347e4a65d1be833c3aaa8}
-    !rm ^
+By default, there are two instances:
 
-Then when you save the worksheet, then it is as if the following command was executed:
+    local
+    https://worksheets.codalab.org/bundleservice
 
-    cl rm 0xa113e342f21347e4a65d1be833c3aaa8
+To save typing, you can create an alias for instances:
 
-One common use case of these embedded commands is to move bundles around and
-mark some as ones to `rm` or `kill`.
+    cl alias  # shows all aliases
+    cl alias main https://worksheets.codalab.org/bundleservice
 
-In the general case, after a worksheet has been processed, every line of the
-form `!<command>` is converted into `cl <subst-command>`, where
-`<subst-command>` is `<command>` where `^` is replaced with the bundle
-immediately preceding the command.
+At any point in time, your CodaLab session (identified usually by your shell)
+is pointing to a particular worksheet on a particular instance.
 
-## Working remotely
+    cl work                     # Show the current instance and worksheet
+    cl work local::
+    cl work local::home-pliang
+    cl work main::
+    cl work main::home-pliang
 
-So far, we have been doing everything locally, but one advantage of CodaLab is
-to have a centralized instance so that both the data and the computational
-resources can be shared and scaled.
+The general form is:
 
-### Connecting to an existing server
+    cl work <instance>::<worksheet>
+    cl work <instance>::             # Defaults to <worksheet>=/
 
-Usually, a CodaLab instance will already be set up and you can just connect to
-it directly.  For example, suppose a CodaLab instance is running at
-`http://example.com:2800`.  Then you can connect to it by typing:
+Just as in Git, sometimes you want to work locally and then once things are
+ready, push things to the main server.  You can do the same with CodaLab.  The
+difference is that bundles are atomic and mutable, so there is no merging.
 
-    cl work http://example.com:2800::<username>
+Suppose we are on the home worksheet of `local`:
 
-This sets your current worksheet to `<username>` (think directory in the filesystem
-analogy) on the remote machine (think drive).  The general form is:
+    cl work local::
 
-    cl work <address>::<worksheet>
-    cl work <address>::             # Defaults to <worksheet>=<username>
+To copy a bundle `a.txt` from `local` to `main`, do the following:
 
-It is convenient to create an alias so you don't have to type the address every time:
+    cl add bundle a.txt main::
 
-    cl alias ex http://example.com:2800
+If the bundle `a.txt` (identified by UUID) already exists on `main`, then
+nothing will be copied.  Otherwise, the contents of the bundle are copied from `local` to `main`.
+In either case, a reference to the bundle is appended to the home worksheet on `main`.
 
-so you now just need to type:
+You can also copy a bundle from `main` to `local`:
 
-    cl work ex::
-
-This will prompt you for your username and password.
-
-### Copying between instances
-
-It is easy to copy bundles and other worksheet items between instances.
-To illustrate this concept, let us create a separate CodaLab instance:
-
-    export CODALAB_HOME=~/.codalab2
-    cl ls
-
-You should see that there's nothing there because we are now accessing the new
-CodaLab instance backed by `~/.codalab2` rather than `~/.codalab`.  In this shell,
-the situation is as follows:
-
-    local => ~/.codalab2
-    localhost => ~/.codalab
-
-We can copy bundles between CodaLab instances by doing:
-
-    cl add bundle localhost::a.txt local::
-
-Now there are two physical copies of the bundle `a.txt`, and they have the same
-bundle UUID.  We can create a bundle and copy it in the other direction too:
-
-    echo hello > hello.txt
-    cl upload hello.txt
-    cl add bundle hello.txt localhost::
+    cl add bundle main::a.txt .
 
 By default, `cl add bundle` does not copy the dependencies of a bundle.  If you want to
 copy the dependencies (for example, to reproduce a run on another machine),
@@ -420,7 +501,7 @@ In general, the `add bundle` command is as follows:
 
     cl add bundle [<address>::]<bundle> [<address>::]<worksheet>
 
-To copy all the items from a worksheet (except worksheet items) to another:
+To copy all the items from a worksheet (except nested worksheets) to another:
     
     cl wadd [<address>::]<worksheet> [<address>::]<worksheet>
 
@@ -487,7 +568,7 @@ To look more into a given group `g1`:
 
     cl ginfo g1
 
-## Search
+### Search
 
 The `cl search` command allows us to find bundles and compute various
 statistics over them.  The search performs a conjunction over keywords.
@@ -551,19 +632,7 @@ We can list and search worksheets in a similar fashion:
     cl wls owner=codalab         # worksheets owned by `codalab`
     cl wls =%Hello%              # worksheets containing 'Hello'
 
-## Updating CodaLab
-
-To update to the newest version of CodaLab, run:
-
-    git pull
-
-When you do this, the database schema might have changed, and you need to
-perform a *database migration*.  To be on the safe side, first backup your
-database.  Then run:
-
-    venv/bin/alembic upgrade head
-
-# User tips
+### User tips
 
 The following describes some common tip and tricks to make the most out of CodaLab.
 
@@ -637,7 +706,7 @@ To change the metadata of a bundle (e.g., rename or change the description):
     cl edit <bundle> -n <new name>
     cl edit <bundle> -d <new description>
 
-## Editing worksheets
+### Editing worksheets
 
 By default, you will use `cl wedit` to edit worksheets.  However, it is
 convenient to just keep a text editor open.  Here's one way to do this.
@@ -666,7 +735,19 @@ load right after you save.
 Also, if you add bundles to the worksheet on the CLI, then you should reload
 the worksheet before you make edits or else you will lose those changes.
 
-## Where things are stored
+### Updating CodaLab CLI
+
+To update to the newest version of CodaLab, run:
+
+    git pull
+
+When you do this, the database schema might have changed, and you need to
+perform a *database migration*.  To be on the safe side, first backup your
+database.  Then run:
+
+    venv/bin/alembic upgrade head
+
+### Where things are stored
 
 For reference, your CodaLab settings here:
 
@@ -683,4 +764,4 @@ real database such as MySQL if you're going to do anything serious):
 
 All the bundles corresonding to the `local` address are stored here:
 
-    ~/.codalab/data
+    ~/.codalab/partitions

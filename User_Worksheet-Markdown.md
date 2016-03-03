@@ -146,6 +146,18 @@ Here is a more complex post-processor example that prints out only the year:
 
     date | [0:4]
 
+To display links, do:
+
+    % add out uuid "key uuid | add path /stdout"
+
+This should display a link labeled `out` that points to the `stdout` file in the given UUID.  Here's how it works:
+
+    `uuid`                                 => '0x223abce2364c439596f05b5da0fa7e5d'
+    `uuid` "key uuid"                      => {'uuid': '0x223abce2364c439596f05b5da0fa7e5d'}
+    `uuid` "key uuid | add path /stdout"   => {'uuid': '0x223abce2364c439596f05b5da0fa7e5d', path: '/stdout'}
+
+This dictionary is processed by the frontend to render the link.
+
 ### Display modes
 
 By default, a bundle will be displayed as a table with default fields.

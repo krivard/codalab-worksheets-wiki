@@ -156,6 +156,10 @@ This should display a link labeled `out` that points to the `stdout` file in the
     `uuid` "key uuid"                      => {'uuid': '0x223abce2364c439596f05b5da0fa7e5d'}
     `uuid` "key uuid | add path /stdout"   => {'uuid': '0x223abce2364c439596f05b5da0fa7e5d', path: '/stdout'}
 
+To change the text of the link do:
+
+    % add out uuid "key uuid | add path /stdout | add text StandardOutput"
+
 This dictionary is processed by the frontend to render the link.
 
 ### Display modes

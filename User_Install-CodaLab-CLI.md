@@ -15,7 +15,7 @@ Skip this section if your administrator has already installed CodaLab for you.
 
 3. Run the setup script (will install things into a Python virtual environment):
 
-        ./setup.sh
+        ./setup.sh client
 
 4. Set your path to include CodaLab (add this line to your `.bashrc`):
 

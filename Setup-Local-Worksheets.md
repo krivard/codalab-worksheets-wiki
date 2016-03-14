@@ -67,11 +67,37 @@ That is it!
 ## Using Nginx
 
 ### Ubuntu
-On Ubuntu, install using:
+Install using:
 
     sudo apt-get install nginx
 
-start
+Add the generated config file to Nginx using:
+
+    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
+
+Restart using
+
+    sudo service nginx restart
+
+### Mac
+Installing using:
+
+    sudo /opt/local/bin/port install nginx
+
+You can also use Homebrew, but these instructions are for MacPorts.
+
+Add the generated config file to Nginx using:
+
+    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
+
+Also, make Nginx use that file by editing `/opt/local/etc/nginx/nginx.conf` and adding the following into the `http` section:
+
+    include /opt/local/etc/nginx/codalab.conf;
+
+Restart using 
+
+    sudo /opt/local/bin/port unload nginx
+    sudo /opt/local/bin/port load nginx
 
 ## Using MySQL
 

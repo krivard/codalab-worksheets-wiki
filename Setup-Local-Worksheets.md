@@ -79,16 +79,30 @@ Restart using
 
     sudo service nginx restart
 
-### Mac
+### Mac using Homebrew
+
+Install using:
+
+    brew install nginx
+
+Add the generated config file to Nginx using:
+
+    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
+
+Restart using 
+
+    sudo nginx -s reload
+
+### Mac using MacPorts
+
 Install using:
 
     sudo /opt/local/bin/port install nginx
 
-You can also use Homebrew, but these instructions are for MacPorts.
-
 Add the generated config file to Nginx using:
 
     sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
+
 
 Then, make Nginx use that file by editing `/opt/local/etc/nginx/nginx.conf` and adding the following into the `http` section:
 

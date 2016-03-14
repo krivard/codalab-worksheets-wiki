@@ -45,7 +45,7 @@ Start the web server:
     cd $HOME/codalab-worksheets/codalab
     ./manage runserver 0.0.0.0:2700
 
-We now have 3 servers running. We use Nginx to put them all behind the same host / port (localhost:8000 by default). See below for installing Nginx. Once you have it installed, generate the Nginx config using:
+We now have 3 servers running. We use Nginx to put them all behind the same host / port. See below for installing Nginx. Once you have it installed, generate the Nginx config using:
 
     cd $HOME/codalab-worksheets/codalab
     ./manage config_gen
@@ -63,6 +63,15 @@ by running the following command and replacing `~/.codalab/config.json` with the
 
 
 That is it!
+
+## Using Nginx
+
+### Ubuntu
+On Ubuntu, install using:
+
+    sudo apt-get install nginx
+
+start
 
 ## Using MySQL
 

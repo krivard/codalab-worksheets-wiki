@@ -50,7 +50,7 @@ We now have 3 servers running. We use Nginx to put them all behind the same host
     cd $HOME/codalab-worksheets/codalab
     ./manage config_gen
 
-Then, add the generated config file in $HOME/codalab-worksheets/codalab/config/generated/nginx.conf to the Nginx config, and restart Nginx. See instructions below for more information on how to do that.
+Then, add the generated config file in `$HOME/codalab-worksheets/codalab/config/generated/nginx.conf` to the Nginx config, and restart Nginx. See instructions below for more information on how to do that.
 
 Create an account for `codalab` by navigating to `http://localhost:8000`,
 clicking `Sign Up`.  Use any email address starting with

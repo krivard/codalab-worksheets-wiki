@@ -12,10 +12,11 @@ Run the following setup script to install the necessary packages and set up the 
     cd $HOME/codalab-cli
     ./setup.sh server
 
-If you want to use MySQL, set up MySQL per the instructions below. Then, start the bundle server:
+If you want to use MySQL, set up MySQL per the instructions below. Then, start the bundle server, both the XML RPC one as well as the REST one:
 
     cd $HOME/codalab-worksheets/codalab
     ../../codalab-cli/codalab/bin/cl server
+    ../../codalab-cli/codalab/bin/cl rest-server
 
 Now let us set up the website.  Install all the required Python packages:
 
@@ -27,27 +28,7 @@ You can start with just an empty configuration file:
 
     echo "{}" > ~/.codalab/website-config.json
 
-By default, the website will create and use a SQLite database at `$HOME/codalab-worksheets/codalab/codalab.sqlite3`.
-If you want to use MySQL instead, add a "databases" field to your config file:
-    
-    {
-        "database": {
-            "ENGINE": "django.db.backends.mysql",
-            "NAME": "YOUR DATABASE NAME",
-            "USER": "YOUR MYSQL USER NAME",
-            "PASSWORD": "YOUR PASSWORD HERE",
-            "HOST": "YOUR MYSQL HOST NAME",
-            "PORT": "YOUR MYSQL PORT (OR EMPTY FOR DEFAULT)"
-        }
-    }
-
 > For more details about what you can put in your website config, look in `$HOME/codalab-worksheets/codalab/codalab/settings/__init__.py`.
-
-Now update the database schema and generate all the configuration files:
-
-    cd $HOME/codalab-worksheets/codalab
-    ./manage syncdb --migrate
-    ./manage set_site your_domain_name.com
 
 Because we use LESS and [React](http://facebook.github.io/react/)––and JSX in particular––we have an extra build step, which is entirely automated through NPM. Look at the [README](https://github.com/codalab/codalab-worksheets/tree/develop/codalab/apps/web/README.md) for specifics, but concisely, you should install Node.js for your system and then do the following (it will compile JSX into JS and LESS into CSS):
 
@@ -62,7 +43,14 @@ You also need to install all of the third-party dependencies, which are managed 
 Start the web server:
 
     cd $HOME/codalab-worksheets/codalab
-    ./manage runserver 0.0.0.0:8000
+    ./manage runserver 0.0.0.0:2700
+
+We now have 3 servers running. We use Nginx to put them all behind the same host. See below for installing Nginx. Once you have it installed, generate the Nginx config using:
+
+    cd $HOME/codalab-worksheets/codalab
+    ./manage config_gen
+
+Then, add the generated Nginx config file in $HOME/codalab-worksheets/codalab/config/generated/nginx.conf to the Nginx config. See instructions below for more information on how to do that.
 
 Create an account for `codalab` by navigating to `http://localhost:8000`,
 clicking `Sign Up`.  Use any email address starting with

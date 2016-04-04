@@ -190,3 +190,17 @@ To test it out the worker system end-to-end:
 ## New Worker System
 
 Workers actually execute the commands to create run bundles. We use Docker to ensure that a run bundle is self-contained. First, [install docker](Installing-Docker).
+
+You will then need to set up one or more workers. To set up a worker that can run bundles from any user, first create the root user:
+
+    cd $HOME/codalab-cli
+    scripts/create-root-user.py
+
+which will create the 'codalab' user.
+
+Then, to start a worker, do:
+
+    cd $HOME
+    codalab-cli/worker/worker.sh --bundle-service-url http://localhost:2900
+
+You will need to specify the 'codalab' user and the password you picked when you created the root user.

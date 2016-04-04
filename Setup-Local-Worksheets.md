@@ -54,7 +54,7 @@ Then, follow the instructions below to install Nginx, add the generated config a
 
 Now, to use CodaLab, navigate to http://localhost:8000/. If you create an account, by default the verification link is printed to the console running 'cl rest-server'.
 
-That is it!
+That is it for the server setup. Note that to run bundles you need to set up some workers. See below for instructions.
 
 ## Using Nginx
 

@@ -73,7 +73,7 @@ Install using:
 
 Add the generated config file to Nginx using:
 
-    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
+    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
 
 Restart using
 
@@ -87,7 +87,7 @@ Install using:
 
 Add the generated config file to Nginx using:
 
-    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
+    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
 
 Restart using 
 
@@ -101,7 +101,7 @@ Install using:
 
 Add the generated config file to Nginx using:
 
-    sudo cp $HOME/codalab-worksheets/codalab/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
+    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
 
 
 Then, make Nginx use that file by editing `/opt/local/etc/nginx/nginx.conf` and adding the following into the `http` section:

@@ -18,7 +18,7 @@ in the environment or to run your own local CodaLab instance), follow these
     sudo apt-get install docker-engine
     sudo usermod -a -G docker $USER
 
-Note that after adding yourself to the docker group you need to log out and log back in.
+Note that after adding yourself to the docker group you need to log out and log back in for the setting to take effect.
 
 If you are upgrading docker, then you might need to remove `devicemapper` by [doing this](https://github.com/docker/docker/issues/14088).
 

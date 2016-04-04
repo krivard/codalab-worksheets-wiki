@@ -189,7 +189,7 @@ To test it out the worker system end-to-end:
 
 ## New Worker System
 
-Workers actually execute the commands to create run bundles. We use Docker to ensure that a run bundle is self-contained. First, [install docker](Installing-Docker).
+Workers actually execute the commands to run bundles. We use Docker to ensure that a run bundle is self-contained. First, [install docker](Installing-Docker).
 
 You will then need to set up one or more workers. To set up a worker that can run bundles from any user, first create the root user:
 

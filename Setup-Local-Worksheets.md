@@ -204,3 +204,12 @@ Then, to start a worker, do:
     codalab-cli/worker/worker.sh --bundle-service-url http://localhost:2900
 
 You will need to specify the `codalab` user and the password you picked when you created the root user.
+
+Finally, you will need to start the bundle manager which schedules the bundles:
+
+    cd $HOME/codalab-cli
+    codalab/bin/cl bundle-manager
+
+To test it out the worker system end-to-end:
+
+    cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`

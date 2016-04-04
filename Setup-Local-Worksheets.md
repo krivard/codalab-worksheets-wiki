@@ -52,15 +52,7 @@ We now have 3 servers running. We use Nginx to put them all behind the same host
 
 Then, follow the instructions below to install Nginx, add the generated config and restart Nginx.
 
-Create an account for `codalab` by navigating to `http://localhost:8000`,
-clicking `Sign Up`.  Use any email address starting with
-`codalab@`.  This account is the root account.
-Now we can generate the OAuth credentials from the website to use in the bundle service
-by running the following command and replacing `~/.codalab/config.json` with the output:
-
-    cd $HOME/codalab-worksheets/codalab
-    ./manage set_oauth_key ~/.codalab/config.json
-
+Now, to use CodaLab, navigate to http://localhost:8000/. If you create an account, by default the verification link is printed to the console running 'cl rest-server'.
 
 That is it!
 

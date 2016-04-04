@@ -16,7 +16,7 @@ in the environment or to run your own local CodaLab instance), follow these
     sudo sh -c "echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list"
     sudo apt-get update
     sudo apt-get install docker-engine
-    sudo useradd $USER docker
+    sudo usermod -a -G docker $USER
 
 If you are upgrading docker, then you might need to remove `devicemapper` by [doing this](https://github.com/docker/docker/issues/14088).
 

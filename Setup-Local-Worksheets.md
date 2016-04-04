@@ -186,3 +186,7 @@ To test it out the worker system end-to-end:
 
     cl work-manager -t q                 # Run in a different terminal
     cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`
+
+## New Worker System
+
+Workers actually execute the commands to create run bundles. We use Docker to ensure that a run bundle is self-contained. First, [install docker](Installing-Docker).

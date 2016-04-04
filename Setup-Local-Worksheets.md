@@ -105,6 +105,10 @@ Restart using
     sudo /opt/local/bin/port unload nginx
     sudo /opt/local/bin/port load nginx
 
+### FAQ
+
+1. What if the static files fail to load? You likely have permissions problems. Make sure that the user running nginx has permission to read the static directory in codalab-worksheets/codalab/apps/web/static. You will need to check that all the parent directories are readable all the way to /. That includes your home directory.
+
 ## Using MySQL
 
 By default, CodaLab is configured to use SQLite, and the database file is just a single

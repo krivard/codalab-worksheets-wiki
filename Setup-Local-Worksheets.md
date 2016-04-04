@@ -14,9 +14,9 @@ Run the following setup script to install the necessary packages and set up the 
 
 If you want to use MySQL, set up MySQL per the instructions below. Then, start the bundle server, both the XML RPC one as well as the REST one:
 
-    cd $HOME/codalab-worksheets/codalab
-    ../../codalab-cli/codalab/bin/cl server
-    ../../codalab-cli/codalab/bin/cl rest-server
+    cd $HOME/codalab-cli
+    codalab/bin/cl server
+    codalab/bin/cl rest-server
 
 Now let us set up the website.  Install all the required Python packages:
 

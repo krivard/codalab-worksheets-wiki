@@ -43,7 +43,7 @@ You also need to install all of the third-party dependencies, which are managed 
 Start the web server:
 
     cd $HOME/codalab-worksheets/codalab
-    ./manage runserver 0.0.0.0:2700
+    ./manage runserver 127.0.0.1:2700
 
 We now have 3 servers running. We use Nginx to put them all behind the same host / port. Generate the Nginx config using:
 

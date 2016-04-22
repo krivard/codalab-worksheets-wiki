@@ -1,4 +1,7 @@
-Version 0.1.2 (master):
+Version 0.1.3:
+- Bugfixes for [cli#339](https://github.com/codalab/codalab-cli/pull/341)
+
+Version 0.1.2:
 - Worksheets officially decoupled from Competitions
 - Improved performance on worksheets web client with precompiled JSX
 - Web terminal now prints usage help
@@ -6,13 +9,13 @@ Version 0.1.2 (master):
 - Bugfixes for [cli#287](https://github.com/codalab/codalab-cli/issues/287), [cli#307](https://github.com/codalab/codalab-cli/issues/307), [cli#330](https://github.com/codalab/codalab-cli/pull/330), [worksheets#32](https://github.com/codalab/codalab-worksheets/issues/32), [worksheets#26](https://github.com/codalab/codalab-worksheets/issues/26)
 
 
-Version 0.1.1 (master):
+Version 0.1.1:
 - Improved behavior and robustness for editable fields on website
 - Better support for long commands on web terminal
 - Change worksheets on website without reloading application
 - Uploading bundles on website no longer uses modal
 
-Version 0.1.0 (master):
+Version 0.1.0:
 - Support for user time/disk quotas (`cl status` to show quotas and `cl uedit` to change if you're an admin)
 - Support for writing to files inside a running bundle (usage: `cl write <target> "string to write"`)
 - Support for graphing (usage: `% display graph <path-to-tsv-file> xlabel=... ylabel=...`)

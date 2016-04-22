@@ -1,5 +1,21 @@
+Version 0.1.6:
+ - Migrate user tables from the Django DB to the Bundles DB, get rid of Django DB.
+ - Migrate the REST APIs from DJANGO to the new REST server.
+ - Refactoring of download logic.
+ - New Run button
+ - Chatbox backend
+
+Version 0.1.5:
+ - Implement saving bundles to multiple disks
+ - Add a script to check bundle store sanity (scripts/sanity-check-bundlestore.py)
+ - Add the --allow-failed-dependencies flag to the run command.
+ - Bugfixes for [worksheets#103](https://github.com/codalab/codalab-worksheets/issues/103), [cli#345](https://github.com/codalab/codalab-cli/issues/345), 
+
+Version 0.1.4:
+- Bugfixes for [cli#339](https://github.com/codalab/codalab-cli/pull/341), [worksheets#85](https://github.com/codalab/codalab-worksheets/issues/85)
+
 Version 0.1.3:
-- Bugfixes for [cli#339](https://github.com/codalab/codalab-cli/pull/341)
+- Store bundles in directories named using the UUID, instead of data hash.
 
 Version 0.1.2:
 - Worksheets officially decoupled from Competitions

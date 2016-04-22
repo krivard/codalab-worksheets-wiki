@@ -1,23 +1,26 @@
-Version 0.1.6:
+Version 0.1.6 (Mar. 16, 2016):
  - Migrate user tables from the Django DB to the Bundles DB, get rid of Django DB.
  - Migrate the REST APIs from DJANGO to the new REST server.
  - Refactoring of download logic.
  - New Run button
+ - New Worksheet button
  - Chatbox backend
+ - More sane handling of symbolic links
 
-Version 0.1.5:
+Version 0.1.5 (Mar. 4, 2016):
  - Implement saving bundles to multiple disks
  - Add a script to check bundle store sanity (scripts/sanity-check-bundlestore.py)
  - Add the --allow-failed-dependencies flag to the run command.
  - Bugfixes for [worksheets#103](https://github.com/codalab/codalab-worksheets/issues/103), [cli#345](https://github.com/codalab/codalab-cli/issues/345), 
 
-Version 0.1.4:
+Version 0.1.4 (Feb. 22, 2016):
 - Bugfixes for [cli#339](https://github.com/codalab/codalab-cli/pull/341), [worksheets#85](https://github.com/codalab/codalab-worksheets/issues/85)
 
-Version 0.1.3:
+Version 0.1.3 (Feb. 20, 2016):
 - Store bundles in directories named using the UUID, instead of data hash.
+- Makeover of front page to make it easier for people to figure out what CodaLab is
 
-Version 0.1.2:
+Version 0.1.2 (Feb. 13, 2016):
 - Worksheets officially decoupled from Competitions
 - Improved performance on worksheets web client with precompiled JSX
 - Web terminal now prints usage help
@@ -25,7 +28,7 @@ Version 0.1.2:
 - Bugfixes for [cli#287](https://github.com/codalab/codalab-cli/issues/287), [cli#307](https://github.com/codalab/codalab-cli/issues/307), [cli#330](https://github.com/codalab/codalab-cli/pull/330), [worksheets#32](https://github.com/codalab/codalab-worksheets/issues/32), [worksheets#26](https://github.com/codalab/codalab-worksheets/issues/26)
 
 
-Version 0.1.1:
+Version 0.1.1 (Dec. 8, 2015):
 - Improved behavior and robustness for editable fields on website
 - Better support for long commands on web terminal
 - Change worksheets on website without reloading application

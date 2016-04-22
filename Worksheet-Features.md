@@ -1,3 +1,10 @@
+Version 0.1.7 (Apr. 21, 2016)
+ - Bring back the My Account page and password reset link removed during the user table migration.
+ - Refactoring of upload logic.
+ - Log last login
+ - Bug fix for private bundles
+ - Bug fixes for [worksheets#130](https://github.com/codalab/codalab-worksheets/issues/130), [worksheets#133](https://github.com/codalab/codalab-worksheets/issues/133)
+
 Version 0.1.6 (Mar. 16, 2016):
  - Migrate user tables from the Django DB to the Bundles DB, get rid of Django DB.
  - Migrate the REST APIs from DJANGO to the new REST server.

@@ -36,7 +36,7 @@ We have a few build steps that are automated using npm, documented at the [READM
     cd $HOME/codalab-worksheets/codalab/apps/web
     npm install
 
-We use LESS and [React](http://facebook.github.io/react/)––and JSX in particular. Run the following to compile JSX into JS and LESS into CSS:
+We use LESS and [React](http://facebook.github.io/react/)––and JSX in particular. Run the following to compile JSX into JS and LESS into CSS. You need to do this every time you change a JSX or LESS file during development:
 
     cd $HOME/codalab-worksheets/codalab/apps/web
     npm run build

@@ -1,3 +1,7 @@
+Version 0.1.8 (May 19, 2016)
+ - Add ability to change passwords.
+ - New worker system
+
 Version 0.1.7 (Apr. 21, 2016)
  - Bring back the My Account page and password reset link removed during the user table migration.
  - Refactoring of upload logic.

@@ -199,6 +199,13 @@ there is a bit more room if you have schemas with lots of fields):
 
         % display record <schema-name-1> ... <schema-name-n>
 
+1. Display a graph:
+
+        % display graph <generalized-path> [display_name=<field>,x=<int>,y=<int>,xlabel=<string>,ylabel=<string>]
+        % display /progress.tsv display_name=command xlabel=iteration ylabel=accuracy
+
+The <generalized-path> should point to a TSV file.  For each subsequent bundle, the TSV file inside that bundle is read, and the columns corresponding to `x` and `y` are pulled out (defaulting to 0 and 1).  These are the points that are graphed in a line.  For display, `display_name` specifies the field that is used to pull out a name for the bundle in the legend, and `xlabel`/`ylabel` are just the labels of the axes.
+
 ### Displaying a dynamic set of bundles
 
 To reference a set of bundles by a search criteria:

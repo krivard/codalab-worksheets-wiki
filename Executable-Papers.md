@@ -157,7 +157,7 @@ In this case, we will run a command that first copies `src` to `build` and runs
 and `make` presumably creates new files (e.g., `bin`) in the directory from
 which it's run.
 
-        cl run :src :lib 'cp -a src build && cd build && ln -s ../lib && make' -n compile
+        cl run :src :lib 'cp -aL src build && cd build && ln -s ../lib && make' -n compile
         cl make compile/build/bin -n bin  # Copy the output of the build (say it's called bin)
 
   The `cl run` runs the bash command in a temporary directory with only access

@@ -39,7 +39,7 @@ Detailed instructions for building images are available on the Docker website [h
 
     ```
     RUN mkdir -m 777 /user
-    RUN printf "PYTHONPATH=src\n" > /user/.bashrc
+    RUN printf "export PYTHONPATH=src\n" > /user/.bashrc
     WORKDIR /user
     ```
 

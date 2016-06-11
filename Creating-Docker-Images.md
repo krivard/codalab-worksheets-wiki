@@ -70,4 +70,13 @@ Detailed instructions for building images are available on the Docker website [h
 12. Make your Dockerfile available. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Using GPUs with CUDA
-[worksheets.codalab.org](https://worksheets.codalab.org) doesn't have any machines with GPUs, but if you [run your own worker](Running Workers) or are using a worker set up on a machine with GPUs then keep reading.
+[worksheets.codalab.org](https://worksheets.codalab.org) doesn't have any machines with GPUs, but if you [run your own worker](Running Workers) or are using a worker already set up by someone else on a machine with GPUs then keep reading.
+
+CUDA consists of several components:
+
+1. The NVIDIA driver, a kernel module, working with the /dev/nvidia device files.
+2. CUDA driver, a shared library, working with the NVIDIA driver. This driver is different
+for different versions of the NVIDIA driver and thus the two need to agree.
+3. CUDA Toolkit containing code for using CUDA.
+
+CodaLab makes 1 and 2 available inside the Docker container, as long as they are installed on the machine running the worker. However, to use the CUDA Toolkit you need to include it in your image. Your image also should not include the CUDA driver, or it will override the driver from the host machine. A good base image that is set up this way is `nvidia/cuda:7.5-cudnn4-devel`. The Tensorflow image `gcr.io/tensorflow/tensorflow:latest-gpu` is also set up correctly. Note, the Theano image available from the Theano website is not set up correctly at the time of writing, since it includes the CUDA driver that works with a specific NVIDIA driver version which may not match the version running on the host machine.

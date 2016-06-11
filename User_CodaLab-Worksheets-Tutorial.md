@@ -127,7 +127,7 @@ always run diagnostic commands to find out:
     cl run 'cat /proc/cpuinfo'
     ...
 
-By default, the container is run using our custom [Ubuntu Linux 14.04 image](https://registry.hub.docker.com/u/codalab/ubuntu/), but you can use images created by others or [create your own](Creating-Docker-Images), specifying the image to use with the `--request-docker-image` flag.
+By default, the container is run using our custom [Ubuntu Linux 14.04 image](https://registry.hub.docker.com/u/codalab/ubuntu/) that includes a few standard libraries, but you can use images created by others or [create your own](Creating-Docker-Images), specifying the image to use with the `--request-docker-image` flag.
 
 A run bundle has a `state` metadata field, which goes through the following sequence:
 

@@ -49,6 +49,7 @@ Detailed instructions for building images are available on the Docker website [h
 
    ```
    docker build -t humblepeople/theano:1.0 .
+   ```
 
 9. (Optional) Verify your image looks good to you by running a few test commands.
 

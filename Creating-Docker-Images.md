@@ -35,7 +35,7 @@ Detailed instructions for building images are available on the Docker website [h
     RUN apt-get -y install python2.7
     ```
 
-6. (Optional) You can set up environment variables and so on with a `.bashrc` file. This file should go into a working directory and will be sourced when your container starts executing on CodaLab. Note that your base image may already have a working directory and `.bashrc` file that you should keep and add to. See what is inside your base image by running it: `docker run -it --rm codalab/ubuntu:1.9 /bin/bash`
+6. (Optional) You can set up environment variables and so on with a `.bashrc` file. This file should go into a working directory and will be sourced when your container starts executing on CodaLab (more below). Note that your base image may already have a working directory and `.bashrc` file that you should keep and add to. See what is inside your base image by running it: `docker run -it --rm codalab/ubuntu:1.9 /bin/bash`
 
     ```
     RUN mkdir -m 777 /user

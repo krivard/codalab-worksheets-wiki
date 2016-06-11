@@ -47,13 +47,13 @@ Detailed instructions for building images are available on the Docker website [h
 8. Finish editing the `Dockerfile` and build your image, specifying your Docker HUB ID, a name and a tag:
 
    ```
-   docker build -t humblepeople/theano:1.0 .
+   docker build -t humblepeople/python:1.0 .
    ```
 
 9. (Optional) Verify your image looks good to you by running a few test commands. If it doesn't, update your Dockerfile and rerun the build command.
 
    ```
-   docker run -it --rm humblepeople/theano:1.0 /bin/bash
+   docker run -it --rm humblepeople/python:1.0 /bin/bash
    root@fb586e56ac91:/user# python2.7
    >>> exit()
    root@fb586e56ac91:/user# exit
@@ -62,10 +62,10 @@ Detailed instructions for building images are available on the Docker website [h
 10. Upload your image to Docker Hub:
 
    ```
-   docker push humblepeople/theano:1.0
+   docker push humblepeople/python:1.0
    ```
 
-11. Use your image on Codalab by specifying the `--request-docker-image humblepeople/theano:1.0` flag.
+11. Use your image on Codalab by specifying the `--request-docker-image humblepeople/python:1.0` flag.
 
 12. Make your Dockerfile available. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 

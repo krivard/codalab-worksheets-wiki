@@ -44,7 +44,7 @@ Detailed instructions for building images are available on the Docker website [h
     ```
 
 7. Create an account on [Docker Hub](https://hub.docker.com/) where you will upload the image. Note your Docker Hub ID which you will use below (for our example, we use the ID `humblepeople`).
-8. Finish editing the `Dockerfile` and build your image, specifying your Docker HUB ID, a name and a tag:
+8. Finish editing the `Dockerfile` and build your image, specifying your Docker Hub ID, a name and a tag:
 
    ```
    docker build -t humblepeople/python:1.0 .

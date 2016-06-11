@@ -734,19 +734,7 @@ load right after you save.
 Also, if you add bundles to the worksheet on the CLI, then you should reload
 the worksheet before you make edits or else you will lose those changes.
 
-### Updating CodaLab CLI
-
-To update to the newest version of CodaLab, run:
-
-    git pull
-
-When you do this, the database schema might have changed, and you need to
-perform a *database migration*.  To be on the safe side, first backup your
-database.  Then run:
-
-    venv/bin/alembic upgrade head
-
-### Running on our own machines
+### Running bundles on our own machines
 
 By default, your code is run on machines owned by CodaLab. However, these are mostly for testing. You should use your own machines if you are doing large amounts of computation or need specialized hardware.
 
@@ -759,6 +747,18 @@ For information on all the supported flags, run the script with `--help`. Aside 
 If you are running multiple workers and need granular control over which workers run which bundles, you can start each worker with a tag specified using the `--tag <tag>` flag and then specify the tag when creating the run bundle with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run on any of the workers with the specified tag.
 
 If you would like to use your GPUs with CUDA, you can find more information about how you should set up your machine and Docker images on [this page](Creating-Docker-Images).
+
+### Updating CodaLab CLI
+
+To update to the newest version of CodaLab, run:
+
+    git pull
+
+When you do this, the database schema might have changed, and you need to
+perform a *database migration*.  To be on the safe side, first backup your
+database.  Then run:
+
+    venv/bin/alembic upgrade head
 
 ### Where things are stored
 

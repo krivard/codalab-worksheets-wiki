@@ -65,7 +65,7 @@ Detailed instructions for building images are available on the Docker website [h
    docker push humblepeople/python:1.0
    ```
 
-11. Use your image on Codalab by specifying the `--request-docker-image humblepeople/python:1.0` flag.
+11. Use your image on Codalab by specifying the `--request-docker-image humblepeople/python:1.0` flag with the `cl run` command.
 
 12. Make your Dockerfile available. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 

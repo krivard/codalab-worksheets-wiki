@@ -32,16 +32,15 @@ Detailed instructions for building images are available on the Docker website [h
 
     ```
     RUN apt-get -y update
-    RUN apt-get -y install python2.7 python-pip
-    RUN pip install Theano
+    RUN apt-get -y install python2.7
     ```
 
-6. (Optional) You can set up environment variables and so on with a `.bashrc` file. This file should go into a working directory and will be sourced when your container starts executing on CodaLab. Note that this working directory is also where commands are run when building the image. Note that your base image may already have a working directory and `.bashrc` file that you should keep and add to. See what is inside your base image by running it: `docker run -it --rm codalab/ubuntu:1.9 /bin/bash`
+6. (Optional) You can set up environment variables and so on with a `.bashrc` file. This file should go into a working directory and will be sourced when your container starts executing on CodaLab. Note that your base image may already have a working directory and `.bashrc` file that you should keep and add to. See what is inside your base image by running it: `docker run -it --rm codalab/ubuntu:1.9 /bin/bash`
 
     ```
+    RUN mkdir -p -m 777 /user
+    RUN printf "PYTHONPATH=src\n" > /user/.bashrc
     WORKDIR /user
-    RUN mkdir -m 777 /user
-    RUN printf "THEANO_FLAGS='floatX=float32'\n" > /user/.bashrc
     ```
 
 7. Create an account on [Docker Hub](https://hub.docker.com/) where you will upload the image. Now, supposing your Docker Hub ID is `humblepeople`.
@@ -51,10 +50,14 @@ Detailed instructions for building images are available on the Docker website [h
    docker build -t humblepeople/theano:1.0 .
    ```
 
-9. (Optional) Verify your image looks good to you by running a few test commands.
+9. (Optional) Verify your image looks good to you by running a few test commands. If it doesn't, update your Dockerfile and rerun the build command.
 
    ```
    docker run -it --rm humblepeople/theano:1.0 /bin/bash
+   python
+   >> import Theano
+   >> exit()
+   exit
    ```
 
 10. Upload your image to Docker Hub:

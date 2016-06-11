@@ -22,7 +22,7 @@ Detailed instructions for building images are available on the Docker website [h
     FROM ubuntu:14.04
     ```
 
-4. Specify a maintainer documention who maintains the image:
+4. Specify a maintainer documenting who maintains the image:
 
     ```
     MAINTAINER My Humble Self <me@humblepeople.com>

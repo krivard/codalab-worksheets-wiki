@@ -67,4 +67,6 @@ Detailed instructions for building images are available on the Docker website [h
 
 11. Use your image on Codalab by specifying the `--request-docker-image humblepeople/theano:1.0` flag.
 
+12. Make your Dockerfile available. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
+
 ### CodaLab Docker execution

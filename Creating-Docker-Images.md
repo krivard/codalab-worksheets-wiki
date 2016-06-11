@@ -54,10 +54,9 @@ Detailed instructions for building images are available on the Docker website [h
 
    ```
    docker run -it --rm humblepeople/theano:1.0 /bin/bash
-   python
-   >> import Theano
-   >> exit()
-   exit
+   root@fb586e56ac91:/user# python2.7
+   >>> exit()
+   root@fb586e56ac91:/user# exit
    ```
 
 10. Upload your image to Docker Hub:

@@ -512,7 +512,7 @@ are copied over.
 
 By default, your code is run on machines owned by CodaLab. However, these are mostly for testing. You should use your own machines if you are doing large amounts of computation or need specialized hardware.
 
-To run your own worker, first [install Docker](Installing-Docker) which will be used to run your bundles in an isolated environment. Then, you can start your own worker using the code from the `codalab-cli` git repository or by downloading it from [here](https://worksheets.codalab.org/rest/worker/code.tar.gz):
+To run your own worker, first [install Docker](Installing-Docker) which will be used to run your bundles in an isolated environment. Then, start the worker using the code from the `codalab-cli` git repository or by downloading it from [here](https://worksheets.codalab.org/rest/worker/code.tar.gz).
 
     codalab-cli/worker/worker.sh --bundle-service-url https://worksheets.codalab.org
 

@@ -69,5 +69,5 @@ Detailed instructions for building images are available on the Docker website [h
 
 12. Make your Dockerfile available. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 
-### Using GPUs
-When CodaLab runs a Docker container using your Docker image, it performs some set up, including:
+### Using GPUs with CUDA
+[worksheets.codalab.org]((https://worksheets.codalab.org) doesn't have any machines with GPUs, but if you [run your own worker](Running Workers) or are using a worker set up on a machine with GPUs then keep reading.

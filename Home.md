@@ -64,7 +64,7 @@ If you need other libraries, you can specify another docker image:
 
     cl run '...' --request-docker-image <docker image>
 
-You can also [create your own images with custom libraries]Creating-Docker-Images).
+You can also [create your own images with custom libraries](Creating-Docker-Images).
 
 ## **Where do I report bugs?**
 

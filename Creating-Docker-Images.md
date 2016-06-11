@@ -70,7 +70,7 @@ Detailed instructions for building images are available on the Docker website [h
 12. Make your Dockerfile available when your share your worksheets. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 
 ### Using GPUs with CUDA
-[worksheets.codalab.org](https://worksheets.codalab.org) doesn't have any machines with GPUs, but if you [run your own worker](Running-Workers) or are using a worker already set up by someone else on a machine with GPUs then keep reading.
+[worksheets.codalab.org](https://worksheets.codalab.org) doesn't have any machines with GPUs, but if you [run your own worker](User_CodaLab Worksheets Tutorial) or are using a worker already set up by someone else on a machine with GPUs then keep reading.
 
 CUDA consists of several components:
 

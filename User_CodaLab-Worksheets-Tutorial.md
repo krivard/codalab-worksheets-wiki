@@ -758,6 +758,8 @@ For information on all the supported flags, run the script with `--help`. Aside 
 
 If you are running multiple workers and need granular control over which workers run which bundles, you can start each worker with a tag specified using the `--tag <tag>` flag and then specify the tag when creating the run bundle with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run on any of the workers with the specified tag.
 
+If you would like to use your GPUs with CUDA, you can find more information about how you should set up your machine and Docker images on [this page](Creating-Docker-Images).
+
 ### Where things are stored
 
 For reference, your CodaLab settings here:

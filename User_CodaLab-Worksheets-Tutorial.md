@@ -760,6 +760,8 @@ database.  Then run:
 
     venv/bin/alembic upgrade head
 
+Additionally, note that if you run your own worker, it will upgrade itself automatically. To avoid having to type in your password after a worker upgrades, you can pass in a file containing your credentials using the `--password-file` flag.
+
 ### Where things are stored
 
 For reference, your CodaLab settings here:

@@ -54,7 +54,7 @@ has 4 cores and 14GB of memory (but this could change).  To find out the exact s
 
         cl run 'cat /proc/cpuinfo; free; df'
 
-You can also [run your bundles on your own machines](Running-Workers).
+You can also run your bundles on your own machines, as described in the [tutorial](User_CodaLab Worksheets Tutorial).
 
 **Enviroment**.  By default, run bundles are executed in a [Ubuntu Linux 14.04 docker
 container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has

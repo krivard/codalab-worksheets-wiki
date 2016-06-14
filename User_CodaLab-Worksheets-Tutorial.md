@@ -508,9 +508,9 @@ Note that worksheets themselves are not copied, just the items within a
 worksheet.  Any bundles that don't exist on the destination CodaLab instance
 are copied over.
 
-### Running bundles on our own machines
+### Running bundles on your own machines
 
-By default, your code is run on machines owned by CodaLab. However, these are mostly for testing. You should use your own machines if you are doing large amounts of computation or need specialized hardware.
+By default, all bundles are run on machines backing a CodaLab server.  In case you need to perform large amounts of computation or need specialized hardware such as GPUs, then you can connect your own machines to CodaLab by running your own worker.
 
 To run your own worker, first [install Docker](Installing-Docker) which will be used to run your bundles in an isolated environment. Then, start the worker using the code from the `codalab-cli` git repository or by downloading it from [here](https://worksheets.codalab.org/rest/worker/code.tar.gz).
 
@@ -520,7 +520,7 @@ For information on all the supported flags, run the script with `--help`. Aside 
 
 If you are running multiple workers and need granular control over which workers run which bundles, you can start each worker with a tag specified using the `--tag <tag>` flag and then specify the tag when creating the run bundle with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run on any of the workers with the specified tag.
 
-If you would like to use your GPUs with CUDA, you can find more information about how you should set up your machine and Docker images on [this page](Creating-Docker-Images).
+You can find more information about how you should set up your machine and Docker images on [this page](Creating-Docker-Images).
 
 ### Permissions
 

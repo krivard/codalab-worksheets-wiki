@@ -21,17 +21,17 @@ There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
   process in an *immutable* way.
 - Users create ***worksheets*** to present the information in a comprehensible
   way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
-  language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
+  language](https://github.com/codalab/codalab-worksheets/wiki/User_Worksheet-Markdown).
 
 The figure below shows the dependency graph over four bundles, along with two worksheets,
 which contain both text and pointers to the bundles:
-<img src="images/worksheets-schema.png" />
+<img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
 
 A run bundle is specified by a set of bundle dependencies and an arbitrary shell command.
 This shell command is executed in a [docker container](https://www.docker.com) in a directory
 with the dependencies.  The contents of the run bundle are the files/directories which are
 written to the current directory by the shell command:
-<img src="images/execution.png" />
+<img src="https://github.com/codalab/codalab-worksheets/wiki/images/execution.png" />
 
 ## **How do I learn more?**
 
@@ -58,4 +58,3 @@ requests, please file a GitHub issue:
 
 - [for the website](https://github.com/codalab/codalab-worksheets/issues/new)
 - [for the command-line interace](https://github.com/codalab/codalab-cli/issues/new)
-

@@ -31,6 +31,12 @@ with the dependencies.  The contents of the run bundle are the files/directories
 written to the current directory by the shell command:
 <img src="https://github.com/codalab/codalab-worksheets/wiki/images/execution.png" />
 
+CodaLab's philosophy is to give you full control of how you want to run your
+experiments and get out of your way.  It just maintains the dependency
+structure of your experiments and takes care of the actual execution.  A good
+analogy is Git, which just maintains the revision history,
+but gives you total freedom in terms of what to put in your repository.
+
 ## **How do I learn more?**
 
 * [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): learn how to create bundles and worksheets (start here).

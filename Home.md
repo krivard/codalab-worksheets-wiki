@@ -1,14 +1,22 @@
 ## **Why CodaLab Worksheets?**
 
-While there has been tremendous progress in machine learning, data science, natural language processing, computer vision, and many other data- and computation-intensive fields, the research process is far from optimal.  Most of the time, the output of research is simply a PDF file (published paper).  Even when people release their data and code (which is a big step forward), it is often not obvious how to run it to obtain the results in a paper.  Simply put:
+While there has been tremendous progress in machine learning, data science,
+natural language processing, computer vision, and many other data- and
+computation-intensive fields, the research process is far from optimal.  Most
+of the time, the output of research is simply a PDF file (published paper).
+Even when people release their data and code (which is a big step forward), it
+is often not obvious how to run it to obtain the results in a paper.  Simply
+put:
 
 > ***Today, researchers spend excrutiating amounts of time reproducing published results.***
 
-The goal of CodaLab Worksheets is to fix this in order to both accelerate the rate of research and make it more sound.
+The goal of CodaLab Worksheets is to fix this in order to both accelerate the
+rate of research and make it more sound.
 
 ## **How does CodaLab Worksheets work?**
 
-> ***CodaLab keeps the full provenance of an experiment, from raw data to the final performance numbers that you put in your paper.***
+> ***CodaLab keeps the full provenance of an experiment, from raw data to the
+> final performance numbers that you put in your paper.***
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
@@ -19,7 +27,7 @@ There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
   process in an *immutable* way.
 - Users create ***worksheets*** to present the information in a comprehensible
   way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
-  language](https://github.com/codalab/codalab-worksheets/wiki/User_Worksheet-Markdown).
+  language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
 
 The figure below shows the dependency graph over four bundles, along with two worksheets,
 which contain both text and pointers to the bundles:
@@ -39,14 +47,14 @@ but gives you total freedom in terms of what to put in your repository.
 
 ## **How do I learn more?**
 
-* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): learn how to create bundles and worksheets (start here).
-* [Installing the CodaLab CLI](User_Install-CodaLab-CLI): learn how to use CodaLab from the comfort of your own shell.
-* [Workflow](User_Workflow): learn how to use CodaLab in your daily research.
-* [Creating Executable Papers](Executable-Papers): learn how to put your research paper on CodaLab.
-* [Advanced CLI features](User_CLI): learn how to be an expert CodaLab user.
+* [Quickstart](Quickstart): learn how to create bundles and worksheets (start here).
+* [CLI Basics](CLI-Basics): learn how to use CodaLab from the comfort of your own shell.
+* [Workflow](Workflow): learn how to use CodaLab in your daily research.
+* [Executable Papers](Executable-Papers): learn how to put your research paper on CodaLab.
+* [CLI Reference](CLI-Reference): learn how to be an expert CodaLab user.
 * [Execution](Execution): learn how bundles are executed in docker.
-* [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
-* [Setting up a Local Server](Setup-Local-Worksheets): if you want to run a CodaLab server for your own group.
+* [Worksheet Markdown](Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
+* [Server Setup](Server-Setup): if you want to run a CodaLab server for your own group.
 
 ## **Where do I report bugs?**
 

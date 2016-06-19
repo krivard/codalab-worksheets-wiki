@@ -1,7 +1,7 @@
 Now let's explore some more features of CodaLab.  Specifically, how to refer to
 bundles, managing bundles, create macros, manging worksheets, manage
 permissions, copy between multiple CodaLab instances.  This section
-is most conveniently done from the [CLI](User_Install-CodaLab-CLI),
+is most conveniently done from the [CLI](CLI-Basics#Installation),
 though some of the commands work in the web terminal.
 
 ## Some examples

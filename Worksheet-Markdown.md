@@ -1,5 +1,3 @@
-# CodaLab Worksheet Markdown
-
 CodaLab worksheets are represented using the standard
 [markdown](http://daringfireball.net/projects/markdown/syntax) with a few modifications.
 

@@ -1,20 +1,3 @@
-Welcome to CodaLab Worksheets!  This tutorial shows you how to use CodaLab
-Worksheets to run experiments and explains the basic CodaLab concepts.  Running
-experiments in CodaLab is quite simple but does require a slight shift in
-thinking (not unlike switching from a procedural language to a functional
-language).
-
-CodaLab's philosophy is to give you full control of how you want to run your
-experiments and get out of your way.  It just maintains the dependency
-structure of your experiments and takes care of the actual execution.  A good
-analogy is Git, which gives you total freedom in terms of what to put in your
-repository, but just maintains the revision history.
-
-Once you sign up for a CodaLab account and sign in, click on `My Home`.  Let's
-get started!
-
-## 5-minute Quick Start
-
 After signing up for a CodaLab account and signing in, click on `My Home` (your
 home worksheet, which is like your home directory).  Let's do a simple sorting
 example.

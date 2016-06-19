@@ -1,7 +1,8 @@
-You can perform basic things in the CodaLab web terminal, but the command-line
-interface (CLI) gives you the ability to use CodaLab more effectively.  For
-example, you can copy bundles between CodaLab servers, use your own editor to
-edit worksheets, and write scripts that interact with CodaLab.
+The command-line interface (CLI) gives you the ability to use CodaLab more
+efficiently and programatically.  For example, you can copy bundles between
+CodaLab servers, use your own editor to edit worksheets, and write scripts that
+interact with CodaLab.  It is common to use the CLI in conjunction with the web
+interface.
 
 ## Installation
 
@@ -39,16 +40,16 @@ environment in the `codalab-cli/venv` directory):
 
 Now you are ready to start using the CodaLab CLI!
 
-## 5-minute Quick Start
+## Quickstart
 
 After having installed the CLI, let's upload a program, a dataset, and perform
-a run to see how it works.
+a run, similar to what we did in the [Quickstart](Quickstart).
 
 ### Step 0: Orienting yourself
 
-At any point in time, `cl` has a current CodaLab server and a current worksheet
-(think of it like a current working directory).  This state is stored in
-`~/.codalab/state.json`.
+At any point in time, `cl` is pointing to a current CodaLab server and a
+current worksheet (think of it like a current working directory).  This state
+is stored in `~/.codalab/state.json`.
 
 To see where you're pointed to, type:
 
@@ -110,19 +111,15 @@ To get more information about a command:
 
 ### Step 2: Run a command
 
-Having uploaded some bundles, let's run some commands.  CodaLab allows you to
-run arbitrary shell commands, and each command also creates a bundle to
-encapsulate the computation.
-
 To create our first run bundle, type:
 
     cl run sort.py:sort.py input:a.txt 'python sort.py < input' -n sort-run
 
-This should append a new bundle named `sort-run` to the current worksheet
-(verify this by typing `cl ls` and see the state go from `created` to `staged`
-to `running` to `ready`).
+This should append a new bundle named `sort-run` to the current worksheet.
+Verify this by typing `cl ls` and see the state go from `created` to `staged`
+to `running` to `ready`.
 
-Let's study what happened here.  The first two arguments of `cl run` specify the
+Let's unpack the command a bit.  The first two arguments of `cl run` specify the
 dependencies and the third is the command, which is run in the presence of the
 dependencies.  In this specific example, it is as if you ran the command in the
 following environment:
@@ -143,25 +140,16 @@ To look at the output of the run (you can do this while the run is in progress):
     cl cat sort-run/stdout  # Shows the stdout (which CodaLab redirects to a file)
     cl info -v sort-run     # Shows metadata and a preview of the contents
 
-You should treat the current worksheet as your current directory, where you're
-running commands that depend on the existing bundles and generate new ones.
-There are two differences:
-
-1. You must be explicit about dependencies.  CodaLab will run your command only
-in the presence of the dependencies you explicitly specify.
-
-2. When your command outputs to the current directory, these files/directories
-end up in the run bundle.  Therefore subsequent commands must specify the run
-bundle to refer to them.  For example:
+You can treat the current worksheet like a current directory, and each new run
+adds files/directories.  This is almost right, with the exception of two
+differences: First, you need to explicitly specify the exact dependencies.
+Second, when a command outputs a file, it is under the run bundle, not at the
+top-level.  Therefore subsequent commands must specify the run bundle to refer
+to them.  For example:
 
         cl run 'echo hello > message' -n run1
         cl run :run1/message 'cat message'     # right
         cl run :message      'cat message'     # wrong
-
-Note that you can start off multiple runs in parallel, and even ones that
-depend on previous runs that haven't yet finished.  Since CodaLab knows about
-dependencies, it will wait for all the dependencies of a run to finish before
-starting the run.
 
 ### Step 3: Present your results
 
@@ -177,8 +165,7 @@ edit the worksheet, type:
     cl wedit
 
 You will open up your favorite editor, where you can freely edit the worksheet
-using [CodaLab
-markdown](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
+using [CodaLab markdown](Worksheet-Markdown).
 CodaLab markdown is an extension of markdown that allows you to interleave
 bundles and formatting directives.
 
@@ -204,24 +191,19 @@ lines that look like `[run sort-run ...]` are just pointers to a bundle.
 Therefore, you can re-order, remove, duplicate the bundles in the worksheet,
 and even move/copy bundles across worksheets as easily as text editing.
 
-Note that deleting a reference to a bundle does not actually delete the bundle.
-To delete an actual bundle, type the following command:
+Note that deleting a reference to a bundle does not actually delete the bundle;
+it merely detaches it.  To delete an actual bundle, type the following command:
 
     cl rm sort.py
 
-See the [CodaLab markdown
-documentation](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown)
-for more information about the formatting.
+See the [CodaLab markdown documentation](Worksheet-Markdown) for more
+information about the formatting.
 
 ### Summary
-
-So there you have it: Upload code and data as bundles.  Run commands to
-preprocess the data, run algorithms with different settings, using CodaLab to
-manage your runs.  Use CodaLab markdown to create worksheets that document your
-experiments, either for a private research log or a public executable paper.
-There are many possibilities!
 
 For more information:
 
     cl help     # Print out the list of all commands
     cl help rm  # Print out usage for a particular command
+
+The CLI has many more features; see the [reference](CLI-Reference) for more details.

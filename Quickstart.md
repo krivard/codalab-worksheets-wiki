@@ -1,10 +1,15 @@
-After signing up for a CodaLab account and signing in, click on `My Home` (your
-home worksheet, which is like your home directory).  Let's do a simple sorting
-example.
+This document will in five minutes show you how to upload a program, a dataset,
+and execute your first run in CodaLab.
 
-### Step 1: Uploading bundles
+After signing up for a CodaLab account and signing in, click on `My Home` in
+the top-right navigation bar.  This takes to your home worksheet (named
+something like `home-pliang`, which behaves like your home directory.
+directory).
 
-Create a file on your local computer called `a.txt` with the following contents:
+### Step 1: Upload files
+
+Create a file on your local computer called `a.txt` with the following contents
+(with your favorite editor):
 
     foo
     bar
@@ -16,82 +21,84 @@ Create another file called `sort.py` with the following contents:
     for line in sorted(sys.stdin.readlines()):
         print line,
 
-Click on `Upload Bundle` on the right panel to popup a file browser to select
-`a.txt` (if you want to upload a directory, you need to zip up the directory
-and upload the zip file).  Do the same with `sort.py`.
+Click on the `Upload` button on the right panel to popup a file browser to select
+`a.txt`.  Do the same with `sort.py`.
 
-Once each bundle is uploaded, it is appended to the current worksheet, and
-it shows up as a row in a table (as the default view).  The bundle has a
-32-character **UUID**, a globally unique identifier, which can be used to refer
-to this particular bundle; its contents cannot be changed.  You can, however,
-edit its metadata (name, description, etc.) by clicking on the right panel.
+When a file is uploaded, it is appended to the current worksheet as a **bundle**
+and shows up as a row in a table (as the default view).  Each bundle has a
+32-character **UUID**, a globally unique identifier, which can be used to
+unambiguously refer to that bundle; its contents cannot be changed.
+You can, however, edit its metadata (name, description, etc.) by clicking on
+the fields in the right panel.
 
-Note that while `a.txt` and `sort.py` are dataset and programs, respectively,
-from CodaLab's perspective, these are just bundles (research assets).
+While `a.txt` and `sort.py` are dataset and programs, respectively,
+from CodaLab's perspective, these are just bundles.  Bundles can also be
+directories; to upload a directory, you need to zip up the directory and upload
+the zip file.
 
 ### Step 2: Run a command
 
-Having uploaded some bundles, let's run some commands.  CodaLab allows you to
-run arbitrary shell commands, and each command also creates a bundle to
-encapsulate the computation.
+Having uploaded some bundles, let's do something with them.  CodaLab allows you
+to run arbitrary shell commands.  Each each command also a **run bundle** that
+encapsulates the computation.
 
-To create our first run bundle, click `New Run`.  Select `sort.py` and `a.txt`
-(Step 1), and enter the following command (Step 2):
+To create our first run bundle, click `New Run` on the right panel.
+Select `sort.py` and `a.txt` as the dependencies (Step 1), and enter the
+following command (Step 2):
 
-    python sort.py < input
+    python sort.py < a.txt
 
-This should append a new bundle named `sort-run` to the current worksheet.  If
-you wait a few seconds, the output of the bundle will be shown on the right
-panel.
+Click `Run`.  This should append a new bundle to the current worksheet.  If you
+wait a few seconds, the state will turn from `created` to `staged` to `running` to `ready`.
+You should see the `stdout` on the right panel show the result:
 
-CodaLab just ran your command in the following environment:
+    bar
+    baz
+    foo
+
+To explain what just happened, CodaLab just ran your command in a [sandbox
+environment](Execution) where the current directory contains only the
+dependencies you specified, not other bundles in the worksheet.  It's like you
+did this:
 
     $ ls
-    sort.py       [contains contents of bundle sort.py]
-    input         [contains contents of bundle a.txt]
-    $ python sort.py < input
+    sort.py
+    a.txt
+    $ python sort.py < a.txt
 
-CodaLab captures all the files and directories that are written to the current
-directory, as well as stdout and stderr.  These form the contents of the
-newly-created run bundle.  When the command terminates, the contents of the
-bundle become immutable.
+All the files and directories that are written to the current directory
+(including stdout and stderr) are the contents of the newly-created run bundle.
+When the command terminates, the contents of the bundle become immutable.
+Files written elsewhere are not stored.  If you wish to install a system-level
+package, you have to [build a new docker image](Execution).
 
-The actual execution happens inside a [docker
-container](https://www.docker.com) on a separate worker machine, which allows
-you to specify a desired Linux environment with the requisite libraries /
-software packages.
+**Parallelism**.  You can start off multiple runs in parallel, and even ones
+that depend on previous runs that haven't yet finished.  Since CodaLab knows
+about dependencies, it will wait for all the dependencies of a run to finish
+before starting the run.
 
-By default, the container is run using our custom [Ubuntu Linux 14.04
-image](https://registry.hub.docker.com/u/codalab/ubuntu/) that includes a few
-standard libraries, but you can use images created by others or [create your
-own](Creating-Docker-Images), specifying the image to use with the
-`--request-docker-image` flag.
+**Dependencies**.  You should treat the current worksheet as your current
+directory, where you're running commands that depend on the existing bundles
+and generate new ones.  However, you must be explicit about dependencies!
+CodaLab will run your command only in the presence of the dependencies you
+explicitly specify, not all the bundles in the current worksheet.
 
-You should treat the current worksheet as your current directory, where you're
-running commands that depend on the existing bundles and generate new ones.
-However, you must be explicit about dependencies!  CodaLab will run your
-command only in the presence of the dependencies you explicitly specify.
-
-Note that you can start off multiple runs in parallel, and even ones that
-depend on previous runs that haven't yet finished.  Since CodaLab knows about
-dependencies, it will wait for all the dependencies of a run to finish before
-starting the run.
+**Operations**.  If you made a mistake, you can kill the process for
+your bundle by right-clicking on the corresponding row in the table and
+selecting "Kill".  You can remove non-running bundles by selecting "Remove".
 
 ### Step 3: Present your results
 
-So far, your worksheet just contain a default table with one bundle per row.
+So far, your worksheet just contains a table with one bundle per row.
 But we can customize this view to better document and present our results.  To
-edit the worksheet, click `Edit Source` button (or hitting `e`) or in the CLI, type:
+edit the worksheet, click `Edit Source` button (or hitting `e`).
 
-    cl wedit
+You will be taken to an editor with plain-text markdown source of the
+worksheet.  [CodaLab markdown](Worksheet-Markdown) is an extension of markdown
+that allows you to interleave bundles and formatting directives.
 
-You will be taken to a screen with a plain-text interface, where you can freely edit
-the worksheet using [CodaLab markdown](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
-CodaLab markdown is an extension of markdown that allows you to interleave
-bundles and formatting directives.
-
-For example, you might edit your worksheet to the following (your worksheet
-will show different UUIDs):
+You can edit the source freely.  For example, you might change your worksheet to
+the following (your worksheet will have different UUIDs):
 
     This is my **first** [CodaLab worksheet](https://worksheets.codalab.org).
     I uploaded some bundles:
@@ -111,23 +118,19 @@ Remember that worksheets are just views on the underlying bundle graph, and the
 lines that look like `[run sort-run ...]` are just pointers to a bundle.
 Therefore, you can re-order, remove, duplicate the bundles in the worksheet,
 and even move/copy bundles across worksheets as easily as text editing.
-
-Note that deleting a reference to a bundle does not actually delete the bundle.
-To delete an actual bundle, type the following command:
-
-    cl rm sort.py
-
-See the [CodaLab markdown
-documentation](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown)
-for more information about the formatting.
+Note that deleting a reference to a bundle does not actually delete the bundle;
+it merely detaches it.
 
 ### Summary
 
-So there you have it: Upload code and data as bundles.  Run commands to
-preprocess the data, run algorithms with different settings, using CodaLab to
-manage your runs.  Use CodaLab markdown to create worksheets that document your
+Congratulations - you have successfully used CodaLab to upload programs, data,
+and performs runs!  In practice, you might have more [complex
+workflows](Workflow), running commands to preprocess the data, running
+algorithms with different settings, using CodaLab to
+manage your runs.  [CodaLab markdown](Worksheet-Markdown)
+is a powerful way to create worksheets that document your
 experiments, either for a private research log or a public executable paper.
 There are many possibilities!
 
 If you prefer working from the shell, check out the [command-line interface
-(CLI)](User_Install CodaLab CLI).
+(CLI)](CLI-Basics).

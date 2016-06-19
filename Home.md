@@ -52,9 +52,12 @@ but gives you total freedom in terms of what to put in your repository.
 * [Workflow](Workflow): learn how to use CodaLab in your daily research.
 * [Executable Papers](Executable-Papers): learn how to put your research paper on CodaLab.
 * [CLI Reference](CLI-Reference): learn how to be an expert CodaLab user.
-* [Execution](Execution): learn how bundles are executed in docker.
 * [Worksheet Markdown](Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
+* [Execution](Execution): learn how bundles are executed in docker.
 * [Server Setup](Server-Setup): if you want to run a CodaLab server for your own group.
+* [Latest Features](Worksheet-Features): what features have been recently added CodaLab lately?
+* [worksheets.codalab.org](https://worksheets.codalab.org): the official CodaLab server.
+* [About](About): who's behind CodaLab?
 
 ## **Where do I report bugs?**
 

@@ -4,6 +4,8 @@ permissions, copy between multiple CodaLab instances.  This section
 is most conveniently done from the [CLI](CLI-Basics#Installation),
 though some of the commands work in the web terminal.
 
+***Under construction***
+
 ## Some examples
 
 Here are some examples of commands you can run in CodaLab:

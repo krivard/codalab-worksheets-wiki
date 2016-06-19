@@ -10,7 +10,7 @@ The goal of CodaLab Worksheets is to fix this in order to both accelerate the ra
 
 ## **How does CodaLab Worksheets work?**
 
-> ***CodaLab keeps the full provenance of an experiment, from raw data to the graph that you put in your paper.***
+> ***CodaLab keeps the full provenance of an experiment, from raw data to the final performance numbers that you put in your paper.***
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
@@ -35,21 +35,14 @@ written to the current directory by the shell command:
 
 ## **How do I learn more?**
 
-* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): start here to learn how to create bundles and worksheets.
-* [Installing the CodaLab CLI](User_Install-CodaLab-CLI): if you want to use CodaLab from the comfort of your own shell.
-
-* [Workflow](User_Workflow): how to use CodaLab in your daily research.
-* [Creating Executable Papers](Executable-Papers): how to put your paper on CodaLab.
-
+* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): learn how to create bundles and worksheets (start here).
+* [Installing the CodaLab CLI](User_Install-CodaLab-CLI): learn how to use CodaLab from the comfort of your own shell.
+* [Workflow](User_Workflow): learn how to use CodaLab in your daily research.
+* [Creating Executable Papers](Executable-Papers): learn how to put your research paper on CodaLab.
 * [Advanced CLI features](User_CLI): learn how to be an expert CodaLab user.
-* [Execution](Execution): learn more about how bundles are executed in docker.
+* [Execution](Execution): learn how bundles are executed in docker.
 * [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
 * [Setting up a Local Server](Setup-Local-Worksheets): if you want to run a CodaLab server for your own group.
-
-### For Developers
-
-* [Database Migrations](Dev_CodaLab-CLI-Database-Migrations)
-* [Unit Tests](Dev_CodaLab-CLI-Unit-Tests)
 
 ## **Where do I report bugs?**
 

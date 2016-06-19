@@ -10,80 +10,52 @@ The goal of CodaLab Worksheets is to fix this in order to both accelerate the ra
 
 ## **How does CodaLab Worksheets work?**
 
-There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
-
-- Users upload ***bundles*** (datasets in any format or programs in any programming
-  language) and create new bundles by running new bundles that *depend* on
-  previous bundles.  This forms a graph over bundles that captures the research
-  process in an *immutable* way.
-- Users create ***worksheets*** to present the information in a comprehensible
-  way.  Worksheets are written in a special [markdown
-  language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
-
 > ***CodaLab keeps the full provenance of an experiment, from raw data to the graph that you put in your paper.***
 
-<a href="http://www.codalab.org"><img src="https://github.com/codalab/codalab/wiki/images/worksheets-schema.png" /></a>
+There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
-## **How do I use CodaLab Worksheets?**
+- Users upload ***bundles***, which are datasets in any format or programs in
+  any programming language).  They can also create new run bundles by executing
+  shell commands that *depend* on the contents of previous bundles.
+  This forms a graph over bundles that captures the research
+  process in an *immutable* way.
+- Users create ***worksheets*** to present the information in a comprehensible
+  way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
+  language](https://github.com/codalab/codalab/wiki/User_Worksheet-Markdown).
 
-The easiest way to get started with CodaLab Worksheets is to use the web interface, which allows you to browse content, edit worksheets, upload bundles, and execute new commands.  For the power user, we provide a flexible command-line tool, `cl`, which can be either used from your own shell or the web interface.  The philosophy of `cl` is to give you the power to run whatever commands you want.  CodaLab is meant to be a thin layer that captures this process and allows you to present your results easily in a worksheet.
+The figure below shows the dependency graph over four bundles, along with two worksheets,
+which contain both text and pointers to the bundles:
+<img src="images/worksheets-schema.png" />
 
-> ***Execute whatever commands you want.  CodaLab captures the full provenance and allows you to document and visualize the results.***
-
-Here are some examples of commands you can run in CodaLab:
-
-    cl upload news.txt                            # Uploads a bundle to CodaLab
-    cl run 'grep California %news.txt% | wc -l'   # Count the number of occurrences of "California"
-    cl run date --request_memory 100m             # Run jobs with resource constraints
-    cl kill ^                                     # Kill the last run bundle
-    cl mimic a.txt news.txt                       # Run the same commands for a.txt on news.txt
-    cl macro corenlp/corenlp news.txt             # Run Stanford CoreNLP
-    cl new pliang-data                            # Create a worksheet
-    cl perm news.txt public (read|none)           # Make the bundle publicly readable or not
-    cl wperm pliang-data public (read|none)       # Make the worksheet publicly readable or not
-    cl search mnist                               # Find a bundle by name
-    cl search state=running                       # Bundles that are currently running
-    cl search .mine .last                         # Show my last bundles
-    cl search .mine .count                        # How many bundles do I have?
-    cl search .mine size=.sum                     # How much disk space are my bundles taking up?
-
-## **Where are my bundles being run?**
-
-**Machines**.  When you create a run bundle via `cl run`, the command will be executed on a worker machine.  On the `worksheets.codalab.org` instance, the workers are on Windows Azure, and currently, each machine
-has 4 cores and 14GB of memory (but this could change).  To find out the exact specs, just execute this run:
-
-        cl run 'cat /proc/cpuinfo; free; df'
-
-You can also run your bundles on your own machines, as described in the [tutorial](User_CodaLab Worksheets Tutorial).
-
-**Enviroment**.  By default, run bundles are executed in a [Ubuntu Linux 14.04 docker
-container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has
-standard libraries (e.g., Python, Ruby, R, Java, Scala, g++) installed.
-
-If you need other libraries, you can specify another docker image:
-
-    cl run '...' --request-docker-image <docker image>
-
-You can also [create your own images with custom libraries](Creating-Docker-Images).
-
-## **Where do I report bugs?**
-
-CodaLab is still in alpha and under active development.  If you find `bugs` or have feature
-requests, please file a GitHub issue:
-
-- [for the website](https://github.com/codalab/codalab-worksheets/issues/new)
-- [for the command-line tool](https://github.com/codalab/codalab-cli/issues/new)
+A run bundle is specified by a set of bundle dependencies and an arbitrary shell command.
+This shell command is executed in a [docker container](https://www.docker.com) in a directory
+with the dependencies.  The contents of the run bundle are the files/directories which are
+written to the current directory by the shell command:
+<img src="images/execution.png" />
 
 ## **How do I learn more?**
 
-* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): start here to dive into CodaLab Worksheets and learn the concepts.
+* [CodaLab Worksheets Tutorial](User_CodaLab-Worksheets-Tutorial): start here to learn how to create bundles and worksheets.
 * [Installing the CodaLab CLI](User_Install-CodaLab-CLI): if you want to use CodaLab from the comfort of your own shell.
-* [Creating Executable Papers](Executable-Papers): how to put your paper on CodaLab
+
+* [Workflow](User_Workflow): how to use CodaLab in your daily research.
+* [Creating Executable Papers](Executable-Papers): how to put your paper on CodaLab.
+
+* [Advanced CLI features](User_CLI): learn how to be an expert CodaLab user.
+* [Execution](Execution): learn more about how bundles are executed in docker.
 * [CodaLab Worksheet Markdown Reference](User_Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
+* [Setting up a Local Server](Setup-Local-Worksheets): if you want to run a CodaLab server for your own group.
 
 ### For Developers
 
-* [Setting up a Local Server](Setup-Local-Worksheets)
-* [Code Design](Dev_CodaLab-CLI-Code-Design)
 * [Database Migrations](Dev_CodaLab-CLI-Database-Migrations)
 * [Unit Tests](Dev_CodaLab-CLI-Unit-Tests)
+
+## **Where do I report bugs?**
+
+CodaLab is under active development.  If you find `bugs` or have feature
+requests, please file a GitHub issue:
+
+- [for the website](https://github.com/codalab/codalab-worksheets/issues/new)
+- [for the command-line interace](https://github.com/codalab/codalab-cli/issues/new)
+

@@ -1,7 +1,7 @@
 * [Home](Home)
 * [5-minute quickstart](User_CodaLab-Worksheets-Tutorial)
+* [Command-line interface (CLI)](User_Install-CodaLab-CLI)
 * [Latest features](Worksheet-Features)
 * [Worksheet markdown](User_Worksheet-Markdown)
-* [Command-line interface (CLI)](User_Install-CodaLab-CLI)
 * [worksheets.codalab.org](https://worksheets.codalab.org)
 * [About](Project_About_CodaLab)

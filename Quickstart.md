@@ -41,7 +41,7 @@ While the contents of the bundle are immutable, you can, edit its metadata
 (name, description, etc.) by clicking on the fields in the side panel.
 
 While `a.txt` is a dataset and `sort.py` is a program, from CodaLab's
-perspective, these are just bundles.  You can 
+perspective, these are just bundles.
 
 Bundles can also be directories.  To upload a directory, zip (or tar) up the
 directory and upload the zip file.  The zip file will be unpacked

@@ -62,12 +62,15 @@ Most likely, you'll see something like:
 Here, `https://worksheets.codalab.org/bundleservice` is the CodaLab server and
 `home-pliang` is the worksheet (this acts like a home directory).
 
-You can switch to the main CodaLab server by typing any of the following
-equivalent commands:
+If you have [set up your own CodaLab server](Server-Setup) at `http://localhost:2800`,
+then you might switch to it like this:
+
+    cl work http://localhost:2800::
+
+and switch back with either of these (`main` is an alias, type `cl alias` to see):
 
     cl work main::
-    cl work main::home-pliang
-    cl work https://worksheets.codalab.org/bundleservice::home-pliang
+    cl work https://worksheets.codalab.org/bundleservice::
 
 ### Step 1: Uploading bundles
 
@@ -88,7 +91,7 @@ To upload local files `a.txt` and `sort.py`:
     cl upload a.txt
     cl upload sort.py
 
-To edit the metadata (to change the name, description, etc.):
+To edit the metadata (to change the name, description, etc.) in a text editor:
 
     cl edit a.txt
 
@@ -100,10 +103,11 @@ You can see the metadata of a bundle:
 
     cl info -v a.txt
 
-Note that while `a.txt` and `sort.py` are dataset and programs, respectively,
-from CodaLab's perspective, these are just bundles (research assets).
+While `a.txt` is a dataset and `sort.py` is a program, from CodaLab's
+perspective, these are just bundles.  Directories can be passed directly to `cl
+upload`.
 
-To get more information about a command:
+In general, to get more information about a command:
 
     cl upload --help
     cl edit --help
@@ -113,7 +117,7 @@ To get more information about a command:
 
 To create our first run bundle, type:
 
-    cl run sort.py:sort.py input:a.txt 'python sort.py < input' -n sort-run
+    cl run :sort.py :a.txt 'python sort.py < a.txt' -n sort-run
 
 This should append a new bundle named `sort-run` to the current worksheet.
 Verify this by typing `cl ls` and see the state go from `created` to `staged`
@@ -125,9 +129,9 @@ dependencies.  In this specific example, it is as if you ran the command in the
 following environment:
 
     $ ls
-    sort.py       [contains contents of bundle sort.py]
-    input         [contains contents of bundle a.txt]
-    $ python sort.py < input
+    sort.py
+    a.txt
+    $ python sort.py < a.txt
 
 CodaLab captures all the files and directories that are written to the current
 directory, as well as stdout and stderr.  These form the contents of the
@@ -142,10 +146,10 @@ To look at the output of the run (you can do this while the run is in progress):
 
 You can treat the current worksheet like a current directory, and each new run
 adds files/directories.  This is almost right, with the exception of two
-differences: First, you need to explicitly specify the exact dependencies.
+differences: First, you need to explicitly specify the dependencies.
 Second, when a command outputs a file, it is under the run bundle, not at the
 top-level.  Therefore subsequent commands must specify the run bundle to refer
-to them.  For example:
+to them.  This example illustrates the idea:
 
         cl run 'echo hello > message' -n run1
         cl run :run1/message 'cat message'     # right
@@ -158,8 +162,7 @@ we can type the following (or go to the web interface):
 
     cl print
 
-So far, your worksheet just contain a default table with one bundle per row.
-But we can customize this view to better document and present our results.  To
+We can customize this view to better document and present our results.  To
 edit the worksheet, type:
 
     cl wedit
@@ -178,7 +181,7 @@ will show different UUIDs):
     [dataset sort.py]{0xf9fc733b19894eb2a97f6b47f35d7ea0}
     Here's my first CodaLab run:
     % display table name command /stdout time
-    [run sort-run -- :sort.py,input:a.txt : python sort.py < input]{0x08908cc6cb594b9394ed7ba6a0bd25f6}
+    [run sort-run -- :sort.py,:a.txt : python sort.py < a.txt]{0x08908cc6cb594b9394ed7ba6a0bd25f6}
 
 The directive `% display table ...` tells CodaLab to render the bundle as a table
 with certain columns.  For example, the `/stdout` column tells CodaLab to display
@@ -194,7 +197,7 @@ and even move/copy bundles across worksheets as easily as text editing.
 Note that deleting a reference to a bundle does not actually delete the bundle;
 it merely detaches it.  To delete an actual bundle, type the following command:
 
-    cl rm sort.py
+    cl rm sort-run
 
 See the [CodaLab markdown documentation](Worksheet-Markdown) for more
 information about the formatting.

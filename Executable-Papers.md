@@ -56,31 +56,17 @@ Note: in the following, replace `pliang` with your username.
 
 ### **Setup**
 
-1. Create an account by going to [CodaLab website](http://codalab.org),
+1. Create an account by going to [CodaLab website](https://worksheets.codalab.org),
 clicking 'Sign Up'.  You will get an email confirmation; click on the link to activate
-your account.  Now you can sign in through the browser.
-
-1. By default, you can enter commands via the web terminal.
-   You can also download the [Codalab command-line interface
-   (CLI)](User_Install-CodaLab-CLI) to use the `cl` command from
-   the comfort of your own shell.  The CLI gives you additional some additional
-   functionality.
-
-1. If you're using the CLI, connect to the main CodaLab server:
-
-        cl work main::
-
-  This will print out:
-
-        Switched to worksheet https://codalab.org/bundleservice::home-pliang(0x58df10bc8ea04c84845141d551ca0999).
-
-  Note that `main` refers to the CodaLab instance and `home-pliang` is your home worksheet
-  name.
+your account.  Now you can sign in through the browser.  Optionally, you can install the
+[command-line interface (CLI)](CLI-Basics).
 
 1. For your new executable paper, create a new worksheet (you should use a
-different worksheet name than the one below):
+different worksheet name than the one below).  Click on 'New Worksheet'
+in the top of the side panel on the web interface or type the following:
 
         cl new magic-acl2015
+        cl work magic-acl2015   # Switch to this worksheet
 
   This should print out the UUID of your worksheet.  For the name of
   worksheets, try to follow the convention of having a brief description
@@ -88,25 +74,11 @@ different worksheet name than the one below):
   identifier names in programs and cannot contain spaces or other weird
   characters.
 
-  You can easily switch back and forth between worksheets (like `cd`):
-
-        cl work home-pliang     # Go to your home worksheet
-        cl work magic-acl2015   # Go to the worksheet you just created
-
-1. Here are some commands to orient yourself:
-
-        cl help         # Print out all possible commands
-        cl ls           # List the bundles in your worksheet
-        cl print        # Pretty-print your worksheet (bundles, subworksheets, text)
-        cl wls .mine    # List your worksheets
-
-1. Add a description of your worksheet:
+1. Add a description of your worksheet.  Click 'Edit Source' or type:
 
         cl wedit
 
-  This will popup an editor.  Add a description of your paper:
-
-        # Language Understanding via Magic
+  Add a description of your paper:
 
         This worksheet contains the experiments from the following paper:
 
@@ -124,15 +96,14 @@ different worksheet name than the one below):
 
         cl wedit main::sempre-tables-acl2015
 
-1. You can now go to `https://worksheets.codalab.org/worksheets/<uuid>` to view your worksheet.
-
 ### **Uploading your executable paper**
 
 Now you are ready to actually upload content.  The plan is to upload your
 source code, libraries, datasets, evaluation program as separate bundles.  You
 then compile the source code, run your algorithm, and run the evaluation
 program.  Note: for your particular paper, you might choose to structure things differently,
-so treat this only as a rough guide.
+so treat this only as a rough guide.  See [the workflow](Workflow) for a
+similar example.
 
 1. From the CLI, you can upload bundles (with meaningful descriptions):
 
@@ -140,14 +111,12 @@ so treat this only as a rough guide.
         cl upload lib -d "Libraries needed for magic."
         cl upload evaluation.py -d "Magical evaluation program."
         cl upload data -d "Magical data."
+        cl upload Makefile -d "For compiling."
 
         cl ls    # Make sure that everything is uploaded correctly
 
     From the web terminal, you can upload bundles by first zipping them up and
-    then simply typing the following and selecting the file from your local
-    file system:
-
-        cl upload
+    clicking the "Upload" button on the top of the side panel.
 
 1. Compile the source code.  The details of this depend on how you have your
 code setup.  As an example, suppose `src` contains your source code and it has
@@ -157,20 +126,10 @@ In this case, we will run a command that first copies `src` to `build` and runs
 and `make` presumably creates new files (e.g., `bin`) in the directory from
 which it's run.
 
-        cl run :src :lib 'cp -aL src build && cd build && ln -s ../lib && make' -n compile
-        cl make compile/build/bin -n bin  # Copy the output of the build (say it's called bin)
+        cl run :Makefile :src :lib 'make' -n compile
 
   The `cl run` runs the bash command in a temporary directory with only access
   to the dependent bundles `src` and `lib`.  The resulting bundle is called `compile`.
-
-  You can get information about any bundle:
-
-        cl info compile     # Look at metadata of a bundle
-        cl cat compile      # Look inside a bundle
-
-  If your run fails, you can delete it:
-
-        cl rm compile
 
 1. Run your program with different settings:
 
@@ -189,9 +148,7 @@ which it's run.
   putting the following directives before the two bundles:
 
         % schema custom
-        % add uuid uuid [0:8]
-        % add command
-        % add time time duration
+        % addschema run
         % add trainError /stats.json:trainError %.3f
         % add testError /stats.json:testError %.3f
         % display table custom
@@ -201,9 +158,7 @@ which it's run.
         % display image /graph.png
 
   You can have two instances of the same bundle on a worksheet, so you can have
-  both a graph and a table.  See the [worksheet markdown
-  documentation](http://github.com/codalab/codalab-cli/worksheet-syntax.md) for
-  full details.
+  both a graph and a table.  See the [worksheet markdown](Worksheet-Markdown) for full details.
 
 1. Run the official evaluation script on the predictions output by your system,
 so if other people use your dataset, they can use the exact same evaluation
@@ -213,6 +168,6 @@ script to make sure you have comparable numbers:
 
   Note that you can name the dependencies (`true` and `pred`) that the program sees.
 
-1. Add the `paper` tag to your worksheet so that your paper will be easily searchable:
+1. **Important**: Add the `paper` tag to your worksheet so that your paper will be easily searchable:
 
         cl wedit magic-acl2015 --tags paper

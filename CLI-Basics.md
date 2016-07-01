@@ -33,10 +33,9 @@ environment in the `codalab-cli/venv` directory):
 
         cl
 
-  This will bring up an interactive prompt and ask you which CodaLab server you
-  want to connect to (the default is the main one, `worksheets.codalab.org`).
-  You should create an account through the CodaLab website if you haven't done
-  so already.
+  This will prompt you for your username/password at `worksheets.codalab.org`.
+  You should create an account on the [CodaLab website](worksheets.codalab.org)
+  if you haven't done so already.
 
 Now you are ready to start using the CodaLab CLI!
 

@@ -61,7 +61,7 @@ but gives you total freedom in terms of what to put in your repository.
 
 ## **Where do I report bugs?**
 
-CodaLab is under active development.  If you find `bugs` or have feature
+CodaLab is under active development.  If you find bugs or have feature
 requests, please file a GitHub issue:
 
 - [for the website](https://github.com/codalab/codalab-worksheets/issues/new)

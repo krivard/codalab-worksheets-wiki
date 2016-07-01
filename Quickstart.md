@@ -111,6 +111,11 @@ your bundle by right-clicking on the corresponding row in the table and
 selecting **Kill this run bundle**.  You can remove non-running bundles by selecting
 **Remove bundle permanently**.
 
+Note that whenever you run a bundle or perform an operation, a command is sent
+to the **web terminal** (`CodaLab>` prompt) at the top of the screen.  This
+terminal allows you to use most of the [command-line interface
+(CLI)](CLI-Basics) commands.  Type `help` to get more information.
+
 ### Step 3: Present your results
 
 So far, your worksheet just contains a table with one bundle per row.

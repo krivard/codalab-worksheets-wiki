@@ -1,40 +1,32 @@
-The actual execution happens inside a [docker
-container](https://www.docker.com) on a separate worker machine, which allows
-you to specify a desired Linux environment with the requisite libraries /
-software packages.
+## Docker
 
-By default, the container is run using our custom [Ubuntu Linux 14.04
-image](https://registry.hub.docker.com/u/codalab/ubuntu/) that includes a few
-standard libraries, but you can use images created by others or [create your
-own](Creating-Docker-Images), specifying the image to use with the
-`--request-docker-image` flag.
-
-A **docker image** specifies the full environment, including which Linux kernel
+The execution of a run bundle happens inside a [Docker
+container](https://www.docker.com) on a worker machine.
+Each docker container is based on a **docker image**,
+which specifies the full environment, including which Linux kernel
 version, which libraries, etc.
 The current official docker image is `codalab/ubuntu:1.9`, which consists of
-Ubuntu 14.04 plus some standard packages (see the entry in the [CodaLab docker
-registery](https://registry.hub.docker.com/u/codalab/ubuntu/).
+Ubuntu 14.04 plus some standard packages (e.g., Python, Ruby, R, Java, Scala, g++).
+See the entry in the [CodaLab Docker
+registery](https://registry.hub.docker.com/u/codalab/ubuntu/) for more
+information.
 
-## **Where are my bundles being run?**
+In general, when you create a run, you can specify which docker container you want to use.
 
-**Machines**.  When you create a run bundle via `cl run`, the command will be executed on a worker machine.  On the `worksheets.codalab.org` instance, the workers are on Windows Azure, and currently, each machine
-has 4 cores and 14GB of memory (but this could change).  To find out the exact specs, just execute this run:
+    cl run <command> --request-docker-image codalab/ubuntu:1.9
 
-        cl run 'cat /proc/cpuinfo; free; df'
+To see what Docker images are available, you can do a search on [Docker
+hub](https://hub.docker.com).  If nothing satisfies your needs, you can
+[install Docker](Installing-Docker) and [create your own
+image](Creating-Docker-Images).
 
-You can also run your bundles on your own machines, as described in the [tutorial](User_CodaLab Worksheets Tutorial).
+## Running on worksheets.codalab.org
 
-**Enviroment**.  By default, run bundles are executed in a [Ubuntu Linux 14.04 docker
-container](https://registry.hub.docker.com/u/codalab/ubuntu/), which has
-standard libraries (e.g., Python, Ruby, R, Java, Scala, g++) installed.
+On the `worksheets.codalab.org` CodaLab server, the workers are on Windows
+Azure, and currently, each machine has 4 cores and 14GB of memory (but this
+could change).  You can always find out the exact specs by executing the command:
 
-If you need other libraries, you can specify another docker image:
-
-    cl run '...' --request-docker-image <docker image>
-
-You can also [create your own images with custom libraries](Creating-Docker-Images).
-
-[worker system design doc](worker-design.pdf)
+    cl run 'cat /proc/cpuinfo; free; df'
 
 ## Running your own worker
 
@@ -61,3 +53,16 @@ the `--tag <tag>` flag and then specify the tag when creating the run bundle
 with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run
 on any of the workers with the specified tag.
 
+## How the worker system works
+
+In brief, a worker machine connects to the CodaLab server and asks for run
+bundles to run.  The CodaLab server finds a run that hasn't been executed yet,
+and assigns the worker to it.  The worker then downloads all the relevant
+bundle dependencies from the CodaLab server (if not downloaded already), the
+Docker image from Docker hub (if not downloaded already).  The worker then
+executes the run in the Docker container, sending back status updates to the
+CodaLab server (e.g., memory usage, etc.), and sees if there are any requests
+to kill the worker.  Any requests to download files in the bundle are forwarded
+from the CodaLab server to the worker.  At the end of the run, the worker sends
+back all the bundle contents.  See the [worker system design
+doc](worker-design.pdf) for more information.

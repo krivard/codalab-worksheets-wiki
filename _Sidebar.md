@@ -5,7 +5,7 @@
 * [Executable Papers](Executable-Papers)
 * [CLI Reference](CLI-Reference)
 * [Worksheet Markdown](Worksheet-Markdown)
-* [Execution Environment](Execution)
+* [Execution](Execution)
 * [Server Setup](Server-Setup)
 * [Latest Features](Worksheet-Features)
 * [worksheets.codalab.org](https://worksheets.codalab.org)

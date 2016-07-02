@@ -150,6 +150,33 @@ and even move/copy bundles across worksheets as easily as text editing.
 Note that deleting a reference to a bundle does not actually delete the bundle;
 it merely **detaches** it.
 
+### Step 4: Finding / browsing content in CodaLab
+
+One of the benefits of CodaLab is it provides a global ecosystem for sharing
+code, data, and results.  That is, once someone puts their content in CodaLab,
+anyone else can find and build on top of it easily.
+
+Click on **Public Home** on navigation bar to see the list of executable
+papers, datasets in CodaLab.  Click on **My Dashboard** to see your own bundles
+and worksheets.
+
+You can search for bundles and worksheets using keywords.  Click on the web
+terminal (the `CodaLab>` prompt) at the top of the screen and type in a command
+for finding bundles:
+
+    search <bundle keywords>                    # General form
+    search mnist                                # Find all bundles matching "mnist"
+    search .mine .limit=20 created=.sort-       # List your most recent bundles
+    search .mine .floating                      # List your bundles not on any worksheet
+    search .last                                # List the latest bundles
+
+and finding worksheets:
+
+    wsearch <worksheet keywords>                # General form
+    wsearch acl2016                             # Find all worksheets matching "acl2016"
+
+Look at the [CLI reference](CLI-Reference) for more information.
+
 ### Summary
 
 Congratulations - you have successfully used CodaLab to upload a program, a dataset,

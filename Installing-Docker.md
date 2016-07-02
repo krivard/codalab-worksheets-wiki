@@ -1,16 +1,17 @@
-Every execution on CodaLab (should ideally) happen in a
-[docker](https://www.docker.com/) container, which provides a standardized
+Every run bundle is created by executing a command in a
+[Docker](https://www.docker.com/) container, which provides a standardized
 Linux environment that is lighter-weight than a full virtual machine.
 
-The current official docker image is `codalab/ubuntu`, which consists of
-Ubuntu 14.04 plus some standard packages.  See the [CodaLab docker
-registery](https://registry.hub.docker.com/u/codalab/ubuntu/).
+You need to install Docker if you intend to execute CodaLab runs yourself.
+There are two use cases:
+
+1. You have set up [your own CodaLab server](Server-Setup).
+1. You want to run [your own worker](Execution#running-your-own-worker) that
+   connects to the main CodaLab server ([worksheets.codalab.org](https://worksheets.codalab.org)).
 
 # Installing on Ubuntu Linux 14.04
 
-To install docker on your local machine (either if you want see what's actually
-in the environment or to run your own local CodaLab instance), follow these
-[instructions](https://docs.docker.com/engine/installation/ubuntulinux/):
+Follow these [instructions](https://docs.docker.com/engine/installation/ubuntulinux/):
 
     sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
     sudo sh -c "echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list"
@@ -20,32 +21,37 @@ in the environment or to run your own local CodaLab instance), follow these
 
 Note that after adding yourself to the docker group you need to log out and log back in for the setting to take effect.
 
-If you are upgrading docker, then you might need to remove `devicemapper` by [doing this](https://github.com/docker/docker/issues/14088).
+If you are upgrading Docker, then you might need to remove `devicemapper` by [doing this](https://github.com/docker/docker/issues/14088).
 
-To start docker:
+To start Docker:
 
     sudo service docker start
 
-Then, to test out your environment, open a shell (the first time you do this,
-it will take some time to download the image):
+To test that everything is working, type:
 
-    docker run -ti ubuntu bash
+    docker run codalab/ubuntu:1.9 cat /etc/issue
 
 # Installing on OS X / Windows
 
-Because Windows and OS X don't support LXC natively, you need to actually install Docker in a VM that you access from your machine. Thankfully, Docker has already packaged a solution for this that they release whenever they have a version bump of docker: [Docker Toolbox (click for download page)](https://www.docker.com/docker-toolbox). After selecting the download for your OS, go through and follow the setup instructions for your platform:
+Because Windows and OS X don't support LXC natively, you need to actually
+install Docker in a VM that you access from your machine. Thankfully, Docker
+has already packaged a solution for this that they release whenever they have a
+version bump of Docker: [Docker Toolbox (click for download
+page)](https://www.docker.com/docker-toolbox). After selecting the download for
+your OS, go through and follow the setup instructions for your platform:
 
 * [Mac OS X](https://docs.docker.com/mac/). Also see the OS X Environment Settings section below.
 * [Windows](https://docs.docker.com/windows/)
 
-# OS X Environment Settings
-The `docker-machine` binary is used to control the VM running Docker. By default, there is a VM named `"default"` that you can start and stop when you would like to use Docker.
+## OS X environment settings
 
-## Starting Docker
+The `docker-machine` binary is used to control the VM running Docker. By
+default, there is a VM named `"default"` that you can start and stop when you
+would like to use Docker.
 
-To start the VM and allow you to use Docker:
+To start the VM:
 
 ```bash
-> docker-machine start default
-> eval $(docker-machine env default)
+docker-machine start default
+eval $(docker-machine env default)
 ```

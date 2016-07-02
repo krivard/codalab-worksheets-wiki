@@ -1,136 +1,48 @@
-Follow these instructions to setup an instance of CodaLab Worksheets on your local machine.
+Follow these instructions to setup your own CodaLab server.
 
-Check out the [codalab-worksheets](https://github.com/codalab/codalab-worksheets) repository for the website and the [codalab-cli](https://github.com/codalab/codalab-cli) repository for the bundle service:
+## Get the source code
+
+Check out the
+[codalab-worksheets](https://github.com/codalab/codalab-worksheets) repository
+for the website and the [codalab-cli](https://github.com/codalab/codalab-cli)
+repository for the bundle service, respectively:
 
     git clone https://github.com/codalab/codalab-worksheets
     git clone https://github.com/codalab/codalab-cli
 
 In the following, `$HOME` will refer to the directory where `codalab-worksheets` and `codalab-cli` reside.
 
-Run the following setup script to install the necessary packages and set up the bundle service:
+For reference, look at the automatic deployment script, which will not be run
+here, but provides the commands needed to install everything:
 
-    cd $HOME/codalab-cli
-    ./setup.sh server
+    $HOME/codalab-worksheets/deployment/fabfile.py
 
-If you want to use MySQL, set up MySQL per the instructions below. Then, start the bundle server, both the XML RPC one as well as the REST one:
+## Installing basics
 
-    cd $HOME/codalab-cli
-    codalab/bin/cl server
-    codalab/bin/cl rest-server
+Make sure you have the dependencies (Python 2.7 and virtualenv). If you're
+running Ubuntu 14.04, you can just install them:
 
-Now let us set up the website.  Install all the required Python packages:
+    sudo apt-get install python2.7 python2.7-dev python-virtualenv
+
+Install node:
+
+    sudo apt-get install npm node-legacy
+
+Install MySQL:
+
+    sudo apt-get install mysql-server libmysqlclient-dev
+
+[Install Docker](Installing-Docker).
+
+Run the setup scripts to install the necessary packages:
 
     cd $HOME/codalab-worksheets
     ./setup.sh
 
-Next, install the standard configuration file at `~/.codalab/website-config.json`.
-You can start with just an empty configuration file:
-
-    echo "{}" > ~/.codalab/website-config.json
-
-> For more details about what you can put in your website config, look in `$HOME/codalab-worksheets/codalab/codalab/settings/__init__.py`.
-
-
-We have a few build steps that are automated using npm, documented at the [README](https://github.com/codalab/codalab-worksheets/tree/develop/codalab/apps/web/README.md). Concisely, you should install Node.js for your system first. Then, install dependencies using:
-
-    cd $HOME/codalab-worksheets/codalab/apps/web
-    npm install
-
-We use LESS and [React](http://facebook.github.io/react/)––and JSX in particular. Run the following to compile JSX into JS and LESS into CSS. You need to do this every time you change a JSX or LESS file during development:
-
-    cd $HOME/codalab-worksheets/codalab/apps/web
-    npm run build
-
-You also need to install all of the third-party dependencies, which are managed by [Bower](https://bower.io):
-
-    cd $HOME/codalab-worksheets/codalab/apps/web
-    npm run bower
-
-Start the web server:
-
-    cd $HOME/codalab-worksheets/codalab
-    ./manage runserver 127.0.0.1:2700
-
-We now have 3 servers running. We use Nginx to put them all behind the same host / port. Generate the Nginx config using:
-
-    cd $HOME/codalab-worksheets/codalab
-    ./manage config_gen
-
-Then, follow the instructions below to install Nginx, add the generated config and restart Nginx.
-
-Now, to use CodaLab, navigate to http://localhost:8000/. If you create an account, by default the verification link is printed to the console running 'cl rest-server'.
-
-That is it for the server setup. Note that to run bundles you need to set up some workers. See below for instructions.
-
-## Using Nginx
-
-### Ubuntu
-Install using:
-
-    sudo apt-get install nginx
-
-Add the generated config file to Nginx using:
-
-    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
-
-Restart using
-
-    sudo service nginx restart
-
-### Mac using Homebrew
-
-Install using:
-
-    brew install nginx
-
-Add the generated config file to Nginx using:
-
-    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
-
-Restart using 
-
-    sudo nginx -s reload
-
-### Mac using MacPorts
-
-Install using:
-
-    sudo /opt/local/bin/port install nginx
-
-Add the generated config file to Nginx using:
-
-    sudo cp $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
-
-
-Then, make Nginx use that file by editing `/opt/local/etc/nginx/nginx.conf` and adding the following into the `http` section:
-
-    include /opt/local/etc/nginx/codalab.conf;
-
-Restart using 
-
-    sudo /opt/local/bin/port unload nginx
-    sudo /opt/local/bin/port load nginx
-
-### FAQ
-
-1. What if the static files fail to load? You likely have permissions problems. Make sure that the user running nginx has permission to read the static directory in codalab-worksheets/codalab/apps/web/static. You will need to check that all the parent directories are readable all the way to /. That includes your home directory.
-
-## Using MySQL
-
-By default, CodaLab is configured to use SQLite, and the database file is just a single
-file in `~/.codalab`.  While this is a quick way to get started, SQLite is not a very
-scalable solution (and also doesn't handle database migrations properly, so
-don't put valuable stuff in a SQLite-backed database). Here are instructions to
-set up MySQL:
-
-Install the MySQL server.  On Ubuntu, run:
-
-    sudo apt-get install mysql-server libmysqlclient-dev
-
-Install the MySQL Python if it hasn't been done already:
-
     cd $HOME/codalab-cli
-    venv/bin/pip install MySQL-python
+    ./setup.sh server
+
+## Creating a MySQL database
 
 Create a user in the `mysql -u root -p` prompt:
 
@@ -138,70 +50,68 @@ Create a user in the `mysql -u root -p` prompt:
     CREATE DATABASE codalab_bundles;
     GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
 
-You can then provide the credentials and database name during the set up step when first starting the bundle server. Alternatively, in the configuration file `.codalab/config.json`, change `"class": "SQLiteModel"` to
+Then configure CodaLab to use the database:
 
-    "class": "MySQLModel",
-    "engine_url": "mysql://<username>:<password>@<host>:<port>/<database>",
+    cd $HOME/codalab-cli
+    codalab/bin/cl config server/engine_url mysql://codalab:<password>@localhost:3306/codalab_bundles
 
-For example:
+## Configuring email
 
-    "engine_url": "mysql://codalab@localhost:3306/codalab_bundles",
+To allow users to register and receive email from your CodaLab server, you
+should specify where email will be sent from:
 
-#### Copying data from SQLite to MySQL
+    cd $HOME/codalab-cli
+    codalab/bin/cl config email/host <host, e.g., smtp.gmail.com>
+    codalab/bin/cl config email/user <username>
+    codalab/bin/cl config email/password <password>
 
-If you already have data in SQLite, you can load it into MySQL as follows:
+Notifications/errors will be sent to an admin email address, which you can
+specify as follows:
 
-    sqlite3 ~/.codalab/bundle.db .dump > bundles.sqlite
-    python scripts/sqlite_to_mysql.py < bundles.sqlite > bundles.mysql 
-    mysql -u codalab -p codalab_bundles < bundles.mysql
+    codalab/bin/cl config admin-email <email>
 
-Once you set up your database, run the following so that future migrations
-start from the right place (this is important!):
+## Starting Nginx
 
-    venv/bin/alembic stamp head
+Nginx puts all the services behind one endpoint.  First we need to generate the
+configuration file (this also generates a file for supervisord which is used in production,
+but we won't use it here):
 
-You can back up the contents of the database:
+    cd $HOME/codalab-worksheets/codalab
+    ./manage config_gen
 
-    mysqldump -u codalab -p codalab_bundles > bundles.mysql
+### Ubuntu
 
-## Workers
+    sudo apt-get install nginx
+    sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
+    sudo service nginx restart
 
-Workers actually execute the commands to create run bundles.  First, we need to setup a job scheduling system (that manages the deployment of runs on machines).  The default one is `q` from Percy Liang's `fig` package, which can be found in `codalab-cli/scripts/q`.
-Start the job scheduling system with one master and one worker:
+### Mac using Homebrew
 
-    q -mode master   # Run in a different terminal
-    q -mode worker   # Run in a different terminal
+    brew install nginx
+    sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
+    sudo nginx -s reload
 
-Second, [install docker](Installing-Docker), and tell CodaLab to use `q` and run things in docker (these two things are orthogonal choices).  Edit the `.codalab/config.json` as follows:
+### Mac using MacPorts
 
-    "workers": {
-        "q": {
-            "verbose": 1,
-            "docker_image": "codalab/ubuntu:1.9",
-            "dispatch_command": "python $CODALAB_CLI/scripts/dispatch-q.py"
-        }
-    }
+    sudo /opt/local/bin/port install nginx
+    sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /opt/local/etc/nginx/codalab.conf
 
-Third, you need to configure your machine so that you can ssh from the worker to the master and vice-versa without typing in your password (this is important!).  To do this, do `ssh-keygen` on the one machine and add the `.ssh/id_rsa.pub` line to `.ssh/authorized_keys` of the other machine.  This is needed because `q` relies on `rsync` to transfer files between the master and worker.
+Make Nginx use that file by editing `/opt/local/etc/nginx/nginx.conf` and adding the following into the `http` section:
 
-Note: the default requested memory of a job in `q` is 1.5 GB, so make sure your worker machine has at least that much free memory (so you probably need at least 2 GB total).  Otherwise, your jobs will just hang indefinitely.  To test out `q` by itself:
+    include /opt/local/etc/nginx/codalab.conf;
 
-    q -add ls    # Create a job
-    q -l -header # List the jobs
-    q -w -header # List the workers
+Restart:
 
-The job's status should go from `ready` to `done` (note that `ready` means `done` in CodaLab).
+    sudo /opt/local/bin/port unload nginx
+    sudo /opt/local/bin/port load nginx
 
-To test it out the worker system end-to-end:
+## Running the worker
 
-    cl work-manager -t q                 # Run in a different terminal
-    cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`
+Workers actually execute the commands to run bundles.  First, [install
+docker](Installing-Docker).
 
-## New Worker System
-
-Workers actually execute the commands to run bundles. Note that workers don't work with SQLite, so use MySQL. We use Docker to ensure that a run bundle is self-contained. First, [install docker](Installing-Docker).
-
-You will then need to set up one or more workers. To set up a worker that can run bundles from any user, first create the root user:
+To set up a worker that can run bundles from any user, first create the root
+`codalab` user:
 
     cd $HOME/codalab-cli
     scripts/create-root-user.py
@@ -211,15 +121,42 @@ which will create the `codalab` user.
 Then, to start a worker, do:
 
     cd $HOME
-    codalab-cli/worker/worker.sh --bundle-service-url http://localhost:2900
+    codalab-cli/worker/worker.sh --server http://localhost:2900
 
-You will need to specify the `codalab` user and the password you picked when you created the root user.
+This will prompt you for a username/password.  Put in your root `codalab` user
+and its password.
 
 Finally, you will need to start the bundle manager which schedules the bundles:
 
     cd $HOME/codalab-cli
     codalab/bin/cl bundle-manager
 
-To test it out the worker system end-to-end:
+## Summary
 
-    cl run 'cat /proc/self/cgroup' -t    # Should eventually print out lines containing the string `docker`
+To summarize, there are five processes to start to make up the full CodaLab system:
+
+    cd $HOME/codalab-worksheets/codalab
+    ./manage runserver 127.0.0.1:2700
+
+    cd $HOME/codalab-cli
+    codalab/bin/cl server
+    codalab/bin/cl rest-server
+    codalab/bin/cl bundle-manager
+    codalab-cli/worker/worker.sh --server http://localhost:2900
+
+Now, to use CodaLab, navigate to
+[http://localhost:8000](http://localhost:8000).
+
+To test it out the system, try running a job:
+
+    cl run date -t
+
+That's it!
+
+## FAQ
+
+1. What if the static files fail to load? You likely have permissions problems.
+   Make sure that the user running nginx has permission to read the static
+   directory in codalab-worksheets/codalab/apps/web/static. You will need to
+   check that all the parent directories are readable all the way to /. That
+   includes your home directory.

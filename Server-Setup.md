@@ -200,7 +200,8 @@ You can run
 This script backs up the database periodically and does basic sanity checks
 (tries to run jobs) to make sure that everything is behaving properly:
 
-    ./monitor.py
+    cd $HOME
+    codalab-cli/monitor.py
 
 ### Test it out
 

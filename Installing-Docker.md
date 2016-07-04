@@ -29,7 +29,7 @@ To start Docker:
 
 To test that everything is working, type:
 
-    docker run codalab/ubuntu:1.9 cat /etc/issue
+    docker run --rm codalab/ubuntu:1.9 cat /etc/issue
 
 # Installing on OS X / Windows
 

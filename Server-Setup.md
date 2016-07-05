@@ -45,7 +45,7 @@ packages (in user space):
     cd $HOME/codalab-cli
     ./setup.sh server
 
-## Configuring MySQL
+## Configuring database
 
 The `codalab-cli` repository uses a MySQL database to store all the bundle
 information.
@@ -61,7 +61,7 @@ and at the MySQL prompt type the following to create a `codalab` user and a
     CREATE DATABASE codalab_bundles;
     GRANT ALL ON codalab_bundles.* TO 'codalab'@'localhost';
 
-Finally, configure CodaLab to use the database:
+Configure CodaLab to use the database:
 
     cd $HOME/codalab-cli
     codalab/bin/cl config server/engine_url mysql://codalab:<password>@localhost:3306/codalab_bundles
@@ -106,6 +106,14 @@ and the password on the second:
 Make sure this file is only accessible to you:
 
     chmod 600 $CODALAB_HOME/root.password
+
+## Creating initial worksheets
+
+Create the default worksheets and populate with initial content:
+
+    cd $HOME/codalab-cli
+    codalab/bin/cl new home
+    codalab/bin/cl new dashboard
 
 ## Starting Nginx
 

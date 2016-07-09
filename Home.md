@@ -20,24 +20,26 @@ rate of research and make it more sound.
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
-- Users can ***upload bundles***, which are datasets in any format or programs in
-  any programming language.  Users can also create ***run bundles*** by executing
-  shell commands that *depend* on the contents of previous bundles.
-  This forms a graph over bundles that captures the research
-  process in an *immutable* way.
-- Users can create ***worksheets*** to present the information in a comprehensible
-  way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
-  language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
+***Bundles***.  Users can ***upload*** bundles, which are datasets in any format or programs in
+any programming language.
 
-The figure below shows the dependency graph over four bundles, along with two worksheets,
-which contain both text and pointers to the bundles:
-<img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
-
+Users can also create ***run bundles*** by executing
+shell commands that *depend* on the contents of previous bundles.
 A run bundle is specified by a set of bundle dependencies and an arbitrary shell command.
 This shell command is executed in a [docker container](https://www.docker.com) in a directory
 with the dependencies.  The contents of the run bundle are the files/directories which are
 written to the current directory by the shell command:
 <img src="https://github.com/codalab/codalab-worksheets/wiki/images/execution.png" />
+In the end, this forms a graph over bundles that captures the research
+process in an *immutable* way.
+
+***Worksheets***.  Users can create worksheets to present the information in a comprehensible
+way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
+language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
+
+The figure below shows the dependency graph over four bundles, along with two worksheets,
+which contain both text and pointers to the bundles:
+<img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
 
 CodaLab's philosophy is to give you full control of how you want to run your
 experiments and get out of your way.  It just maintains the dependency

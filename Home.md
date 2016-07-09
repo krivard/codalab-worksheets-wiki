@@ -57,7 +57,7 @@ but gives you total freedom in terms of what to put in your repository.
 * [Execution](Execution): learn how bundles are executed in docker.
 * [Server Setup](Server-Setup): if you want to run a CodaLab server for your own group.
 * [Latest Features](Worksheet-Features): what features have been recently added CodaLab lately?
-* [worksheets.codalab.org](https://worksheets.codalab.org): the official CodaLab server.
+* [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home): from the official CodaLab server.
 * [About](About): who's behind CodaLab?
 
 ## **Where do I report bugs?**

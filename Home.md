@@ -20,10 +20,8 @@ rate of research and make it more sound.
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
-***Bundles***.  Users can ***upload*** bundles, which are datasets in any format or programs in
-any programming language.
-
-Users can also create ***run bundles*** by executing
+***Bundles*** are immutable files/directories that represent the code, data, and results of a experimental pipeline.  There are two ways to create bundles.  First, users can ***upload*** bundles, which are datasets in any format or programs in any programming language.
+Second, users can create ***run bundles*** by executing
 shell commands that *depend* on the contents of previous bundles.
 A run bundle is specified by a set of bundle dependencies and an arbitrary shell command.
 This shell command is executed in a [docker container](https://www.docker.com) in a directory
@@ -33,11 +31,11 @@ written to the current directory by the shell command:
 In the end, this forms a graph over bundles that captures the research
 process in an *immutable* way.
 
-***Worksheets***.  Users can create worksheets to present the information in a comprehensible
-way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
+***Worksheets*** present an experimental pipeline in a comprehensible
+way.  Worksheets contain references to bundles, and are written in a custom [markdown
 language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
 
-The figure below shows the dependency graph over four bundles, along with two worksheets,
+As an example, the figure below shows the dependency graph over four bundles, along with two worksheets,
 which contain both text and pointers to the bundles:
 <img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
 

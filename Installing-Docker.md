@@ -55,3 +55,5 @@ To start the VM:
 docker-machine start default
 eval $(docker-machine env default)
 ```
+
+This should be run in the same shell session before you start the worker. In the shell session you can run any of the `docker` commands to check that docker can connect to the local docker "machine". The commands will usually hang for a long time if the machine is not started or the environment variables are set incorrectly.

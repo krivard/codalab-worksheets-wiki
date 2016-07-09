@@ -20,8 +20,8 @@ rate of research and make it more sound.
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
-- Users can upload ***bundles***, which are datasets in any format or programs in
-  any programming language).  Users can also create run bundles by executing
+- Users can ***upload bundles***, which are datasets in any format or programs in
+  any programming language).  Users can also create ***run bundles*** by executing
   shell commands that *depend* on the contents of previous bundles.
   This forms a graph over bundles that captures the research
   process in an *immutable* way.

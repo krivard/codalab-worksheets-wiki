@@ -43,8 +43,8 @@ which contain both text and pointers to the bundles:
 CodaLab's philosophy is to give you full control of how you want to run your
 experiments and get out of your way.  It just maintains the dependency
 structure of your experiments and takes care of the actual execution.  A good
-analogy is Git, which just maintains the revision history,
-but gives you total freedom in terms of what to put in your repository.
+analogy is Git, which maintains the revision history
+and gives you total freedom in terms of what to put in your repository.
 
 ## **How do I learn more?**
 

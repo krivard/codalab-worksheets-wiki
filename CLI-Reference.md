@@ -1007,11 +1007,8 @@ The session state and authentication tokens are stored here:
 
     ~/.codalab/state.json
 
-By default, the metadata is stored in a SQLite database (you should switch to a
-real database such as MySQL if you're going to do anything serious):
-
-    ~/.codalab/bundle.db
-
-If you're running a server, all the bundles are stored here:
+If you're running a server, all the bundle contents are stored here:
 
     ~/.codalab/partitions
+
+and the metadata is stored in a MySQL database.

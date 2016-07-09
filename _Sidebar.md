@@ -9,5 +9,5 @@
 * [Server Setup](Server-Setup)
 * [REST API Reference](REST-API-Reference)
 * [Latest Features](Worksheet-Features)
-* [Worksheet Examples](https://worksheets.codalab.org/?name=home)
+* [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home)
 * [About](About)

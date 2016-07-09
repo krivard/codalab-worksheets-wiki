@@ -1,3 +1,8 @@
+Version 0.1.9 (July 9, 2016)
+- Simplify worksheets page, layout of the metadata, and default bundle fields.
+- Consolidate setup/update into `./setup.sh` and simplify deployment process.
+- Fix monitor script.
+
 Version 0.1.8 (May 19, 2016)
  - Add ability to change passwords.
  - New worker system.

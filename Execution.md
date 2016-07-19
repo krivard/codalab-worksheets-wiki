@@ -33,7 +33,7 @@ Here are some examples of docker images:
 
 - Torch:
 
-        cl run 'th' --request-docker-image codalab/torch:1.0
+        cl run 'th' --request-docker-image codalab/torch
 
 ## Running on worksheets.codalab.org
 

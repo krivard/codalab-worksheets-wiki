@@ -52,7 +52,7 @@ information.
 
 Type 
 
-    mysql -u root -p
+    sudo mysql -u root -p
 
 and at the MySQL prompt type the following to create a `codalab` user and a
 `codalab_bundles` database:

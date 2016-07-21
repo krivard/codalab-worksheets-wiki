@@ -132,7 +132,7 @@ NGINX and points it to the `nginx.conf` file that CodaLab generated.
 ### Ubuntu
 
     sudo apt-get install nginx
-    sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
+    sudo ln -sf $PWD/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
     sudo service nginx restart
 
 ### Mac using Homebrew

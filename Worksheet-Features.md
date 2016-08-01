@@ -1,3 +1,11 @@
+Version 0.1.10 (unreleased)
+- Add bundle contents API, with improvements to upload/download speed from the CLI
+- Allow addition of tags to bundles with `cl edit --tags`
+- Fix login issues
+- Fix public worksheets
+- New Docker image for Torch
+- Add colors to setup script
+
 Version 0.1.9 (July 9, 2016)
 - Simplify worksheets page, layout of the metadata, and default bundle fields.
 - Consolidate setup/update into `./setup.sh` and simplify deployment process.

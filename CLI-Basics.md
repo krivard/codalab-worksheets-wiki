@@ -193,8 +193,9 @@ lines that look like `[run sort-run ...]` are just pointers to a bundle.
 Therefore, you can re-order, remove, duplicate the bundles in the worksheet,
 and even move/copy bundles across worksheets as easily as text editing.
 
-Note that deleting a reference to a bundle does not actually delete the bundle;
-it merely detaches it.  To delete an actual bundle, type the following command:
+Note that deleting a reference to a bundle (in CodaLab parlance, detaching a bundle from a worksheet)
+does not actually delete the bundle.
+To delete an actual bundle, type the following command:
 
     cl rm sort-run
 

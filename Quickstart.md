@@ -37,7 +37,7 @@ Each bundle has a 32-character **UUID**, a globally unique identifier, which
 can be used to unambiguously refer to that bundle forever.
 You can send someone the UUID and they will know exactly what you're referring to.
 
-While the contents of the bundle are immutable, you can, edit its metadata
+While the contents of the bundle are immutable, you can edit its metadata
 (name, description, etc.) by clicking on the fields in the side panel.
 
 While `a.txt` is a dataset and `sort.py` is a program, from CodaLab's
@@ -85,7 +85,8 @@ It's like you did this:
     $ python sort.py < a.txt
 
 All the files and directories that are written to the current directory
-(including stdout and stderr) are saved as the contents of the newly-created
+(including stdout and stderr, which are written as files)
+are saved as the contents of the newly-created
 run bundle.  The contents are changing as the command is executing, but once
 the command terminates, the contents of the bundle become immutable.  Files
 that you write elsewhere are not stored.  So a common convention in CodaLab is
@@ -157,7 +158,7 @@ code, data, and results.  That is, once someone puts their content in CodaLab,
 anyone else can find and build on top of it easily.
 
 Click on **Public Home** on navigation bar to see the list of executable
-papers, datasets in CodaLab.  Click on **My Dashboard** to see your own bundles
+papers and datasets in CodaLab.  Click on **My Dashboard** to see your own bundles
 and worksheets.
 
 You can search for bundles and worksheets using keywords.  Click on the web

@@ -20,6 +20,21 @@ hub](https://hub.docker.com).  If nothing satisfies your needs, you can
 [install Docker](Installing-Docker) and [create your own
 image](Creating-Docker-Images).
 
+Here are some examples of docker images:
+
+- TensorFlow:
+
+        cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0
+        cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu
+
+- Theano:
+
+        cl run 'python -c "import theano"'  # Defaults to standard CodaLab Ubuntu image (codalab/ubuntu:1.9)
+
+- Torch:
+
+        cl run 'th' --request-docker-image codalab/torch:1.1
+
 ## Running on worksheets.codalab.org
 
 On the `worksheets.codalab.org` CodaLab server, the workers are on Windows

@@ -20,30 +20,31 @@ rate of research and make it more sound.
 
 There are two important concepts in CodaLab: ***bundles*** and ***worksheets***.
 
-- Users upload ***bundles***, which are datasets in any format or programs in
-  any programming language).  They can also create new run bundles by executing
-  shell commands that *depend* on the contents of previous bundles.
-  This forms a graph over bundles that captures the research
-  process in an *immutable* way.
-- Users create ***worksheets*** to present the information in a comprehensible
-  way, which contain pointers to the bundles.  Worksheets are written in a custom [markdown
-  language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
-
-The figure below shows the dependency graph over four bundles, along with two worksheets,
-which contain both text and pointers to the bundles:
-<img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
-
+***Bundles*** are immutable files/directories that represent the code, data, and results of an experimental pipeline.  There are two ways to create bundles.  First, users can ***upload*** bundles, datasets in any format or programs in any programming language.
+Second, users can create ***run bundles*** by executing
+shell commands that *depend* on the contents of previous bundles.
 A run bundle is specified by a set of bundle dependencies and an arbitrary shell command.
 This shell command is executed in a [docker container](https://www.docker.com) in a directory
 with the dependencies.  The contents of the run bundle are the files/directories which are
 written to the current directory by the shell command:
 <img src="https://github.com/codalab/codalab-worksheets/wiki/images/execution.png" />
+In the end, the dependency graph over bundles precisely captures the research
+process in an *immutable* way.
+
+***Worksheets*** organize and present an experimental pipeline in a comprehensible
+way, and can be used as a lab notebook, a tutorial, or an executable paper.
+Worksheets contain references to bundles, and are written in a custom [markdown
+language](https://github.com/codalab/codalab-worksheets/wiki/Worksheet-Markdown).
+
+As an example, the figure below shows the dependency graph over four bundles, along with two worksheets,
+which contain both text and pointers to the bundles:
+<img src="https://github.com/codalab/codalab-worksheets/wiki/images/worksheets-schema.png" />
 
 CodaLab's philosophy is to give you full control of how you want to run your
 experiments and get out of your way.  It just maintains the dependency
 structure of your experiments and takes care of the actual execution.  A good
-analogy is Git, which just maintains the revision history,
-but gives you total freedom in terms of what to put in your repository.
+analogy is Git, which maintains the revision history
+and gives you total freedom in terms of what to put in your repository.
 
 ## **How do I learn more?**
 
@@ -56,7 +57,7 @@ but gives you total freedom in terms of what to put in your repository.
 * [Execution](Execution): learn how bundles are executed in docker.
 * [Server Setup](Server-Setup): if you want to run a CodaLab server for your own group.
 * [Latest Features](Worksheet-Features): what features have been recently added CodaLab lately?
-* [worksheets.codalab.org](https://worksheets.codalab.org): the official CodaLab server.
+* [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home): from the official CodaLab server.
 * [About](About): who's behind CodaLab?
 
 ## **Where do I report bugs?**

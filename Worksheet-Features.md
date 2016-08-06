@@ -1,10 +1,9 @@
 Version 0.1.10 (unreleased)
 - Add bundle contents API, with improvements to upload/download speed from the CLI
 - Allow addition of tags to bundles with `cl edit --tags`
-- Fix login issues
-- Fix public worksheets
 - New Docker image for Torch
 - Add colors to setup script
+- Bug fixes: login issues, public worksheets, uedit disk command
 
 Version 0.1.9 (July 9, 2016)
 - Simplify worksheets page, layout of the metadata, and default bundle fields.

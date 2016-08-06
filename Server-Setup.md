@@ -24,15 +24,15 @@ here, but provides the commands needed to install everything:
 Make sure you have the dependencies (Python 2.7 and virtualenv). If you're
 running Ubuntu 14.04, you can just install them:
 
-    sudo apt-get install python2.7 python2.7-dev python-virtualenv
+    sudo apt-get install -y python2.7 python2.7-dev python-virtualenv
 
 Install node.js for the website:
 
-    sudo apt-get install npm nodejs-legacy
+    sudo apt-get install -y npm nodejs-legacy
 
 Install MySQL for the backend:
 
-    sudo apt-get install mysql-server libmysqlclient-dev
+    sudo apt-get install -y mysql-server libmysqlclient-dev
 
 [Install Docker](Installing-Docker) so that you can run commands.
 

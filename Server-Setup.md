@@ -34,7 +34,7 @@ Install MySQL for the backend:
 
     sudo apt-get install -y mysql-server libmysqlclient-dev
 
-[Install Docker](Installing-Docker) so that you can run commands.
+[Install Docker](Installing-Docker) so that you can run commands (instructions in the link).
 
 Now, run the setup scripts for each repository to install the necessary
 packages (in user space):

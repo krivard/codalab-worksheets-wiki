@@ -28,7 +28,7 @@ running Ubuntu 14.04, you can just install them:
 
 Install node.js for the website:
 
-    sudo apt-get install npm node-legacy
+    sudo apt-get install npm nodejs-legacy
 
 Install MySQL for the backend:
 

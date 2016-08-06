@@ -3,7 +3,7 @@ Version 0.1.10 (unreleased)
 - Allow addition of tags to bundles with `cl edit --tags`
 - New Docker image for Torch
 - Add colors to setup script
-- Bug fixes: login issues, public worksheets, uedit disk command
+- Bug fixes: login issues, public worksheets, `uedit` disk command
 
 Version 0.1.9 (July 9, 2016)
 - Simplify worksheets page, layout of the metadata, and default bundle fields.

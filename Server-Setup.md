@@ -39,11 +39,8 @@ Install MySQL for the backend:
 Now, run the setup scripts for each repository to install the necessary
 packages (in user space):
 
-    cd $HOME/codalab-worksheets
-    ./setup.sh
-
-    cd $HOME/codalab-cli
-    ./setup.sh server
+    (cd $HOME/codalab-worksheets && ./setup.sh)
+    (cd $HOME/codalab-cli && ./setup.sh server)
 
 ## Configuring database
 

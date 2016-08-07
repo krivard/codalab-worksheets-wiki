@@ -123,22 +123,22 @@ First we need to generate the `nginx.conf` file (this also generates a
     cd $HOME/codalab-worksheets/codalab
     ./manage config_gen
 
-Follow the instructions corresponding to your installation, which installs
-NGINX and points it to the `nginx.conf` file that CodaLab generated.
+Follow the instructions below corresponding to your installation, which will guide you through
+how to install NGINX and to point it at the `nginx.conf` file that CodaLab generated.
 
-### Ubuntu
+#### Ubuntu
 
     sudo apt-get install nginx
     sudo ln -sf $PWD/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
     sudo service nginx restart
 
-### Mac using Homebrew
+#### Mac using Homebrew
 
     brew install nginx
     sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /usr/local/etc/nginx/servers/codalab.conf
     sudo nginx -s reload
 
-### Mac using MacPorts
+#### Mac using MacPorts
 
     sudo /opt/local/bin/port install nginx
     sudo ln -sf $HOME/codalab-worksheets/codalab/config/generated/nginx.conf /opt/local/etc/nginx/codalab.conf

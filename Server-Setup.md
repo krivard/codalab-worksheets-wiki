@@ -104,14 +104,6 @@ Make sure this file is only accessible to you:
 
     chmod 600 $CODALAB_HOME/root.password
 
-## Creating initial worksheets
-
-Create the default worksheets and populate with initial content:
-
-    cd $HOME/codalab-cli
-    codalab/bin/cl new home
-    codalab/bin/cl new dashboard
-
 ## Starting Nginx
 
 We use NGINX to put all CodaLab servers (website, bundle service) behind one
@@ -208,7 +200,15 @@ This script backs up the database periodically and does basic sanity checks
     cd $HOME
     codalab-cli/monitor.py
 
-### Test it out
+## Creating initial worksheets
+
+Create the default worksheets and populate with initial content:
+
+    cd $HOME/codalab-cli
+    codalab/bin/cl new home
+    codalab/bin/cl new dashboard
+
+## Test it out
 
 Navigate to [http://localhost:8000](http://localhost:8000).  Try signing up for
 an account, creating some worksheets and bundles.

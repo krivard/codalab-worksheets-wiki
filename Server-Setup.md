@@ -19,7 +19,7 @@ here, but provides the commands needed to install everything:
 
     $HOME/codalab-worksheets/deployment/fabfile.py
 
-## Installing packages
+## Install packages
 
 Make sure you have the dependencies (Python 2.7 and virtualenv). If you're
 running Ubuntu 14.04, you can just install them:
@@ -42,7 +42,7 @@ packages (in user space):
     (cd $HOME/codalab-worksheets && ./setup.sh)
     (cd $HOME/codalab-cli && ./setup.sh server)
 
-## Configuring database
+## Configure the database
 
 The `codalab-cli` repository uses a MySQL database to store all the bundle
 information.
@@ -63,7 +63,7 @@ Configure CodaLab to use the database:
     cd $HOME/codalab-cli
     codalab/bin/cl config server/engine_url mysql://codalab:<password>@localhost:3306/codalab_bundles
 
-## Configuring email
+## Configure email service
 
 To allow users to register and receive email from your CodaLab server, you
 should specify where email will be sent from:
@@ -83,7 +83,7 @@ you can specify as follows:
 
     codalab/bin/cl config admin-email <email>
 
-## Configuring the worker
+## Configure the workers
 
 Workers actually execute the commands to run bundles.  First, [install
 docker](Installing-Docker).
@@ -104,7 +104,7 @@ Make sure this file is only accessible to you:
 
     chmod 600 $CODALAB_HOME/root.password
 
-## Starting Nginx
+## Start NGINX
 
 We use NGINX to put all CodaLab servers (website, bundle service) behind one
 endpoint.
@@ -144,16 +144,16 @@ Restart:
     sudo /opt/local/bin/port unload nginx
     sudo /opt/local/bin/port load nginx
 
-## Starting CodaLab
+## Start CodaLab services
 
 Now, having configured everything, we are ready to launch CodaLab.  The CodaLab
 deployment actually consists of six processes.
 
-Recommendation: start each of the processes below in a separate window inside
+_**Recommendation**_: Start each of the processes below in a separate window inside
 [GNU Screen](https://www.gnu.org/software/screen/).  Press Ctrl+C to kill
 any of the processes (though you might want to do this with some care).
 
-### Step 1: start the website
+### Step 1: Start the website
 
 This is the Django app that serves HTML and Javascript, but relies on the
 backend for data.
@@ -161,7 +161,7 @@ backend for data.
     cd $HOME/codalab-worksheets/codalab
     ./manage runserver 127.0.0.1:2700
 
-### Step 2: start the bundle service (XMLRPC server)
+### Step 2: Start the bundle service (XMLRPC server)
 
 This is the bundle service that provides access to worksheets and bundles (and
 is soon to be deprecated):
@@ -169,15 +169,15 @@ is soon to be deprecated):
     cd $HOME/codalab-cli
     codalab/bin/cl server
 
-### Step 3: start the bundle service (REST server)
+### Step 3: Start the bundle service (REST server)
 
-The bundle service provides the `/rest` endpoints which powers the website, the
+The bundle service provides the `/rest` endpoints which power the website, the
 CLI, and any third-party applications.
 
     cd $HOME/codalab-cli
     codalab/bin/cl rest-server
 
-### Step 4: start the the bundle manager
+### Step 4: Start the the bundle manager
 
 The bundle manager checks for bundles that need to be run (in the `staged`
 state) and schedules them onto workers:
@@ -185,14 +185,14 @@ state) and schedules them onto workers:
     cd $HOME/codalab-cli
     codalab/bin/cl bundle-manager
 
-### Step 5: start a worker
+### Step 5: Start a worker
 
 You can run 
 
     cd $HOME
     codalab-cli/worker/worker.sh --server http://localhost:2900 --password $CODALAB_HOME/root.password
 
-### Step 6: start the monitoring script (optional)
+### Step 6: Start the monitoring script (optional)
 
 This script backs up the database periodically and does basic sanity checks
 (tries to run jobs) to make sure that everything is behaving properly:
@@ -200,7 +200,7 @@ This script backs up the database periodically and does basic sanity checks
     cd $HOME
     codalab-cli/monitor.py
 
-## Creating initial worksheets
+## Create initial worksheets
 
 Create the default worksheets and populate with initial content:
 

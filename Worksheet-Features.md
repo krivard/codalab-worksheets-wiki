@@ -1,9 +1,11 @@
-Version 0.1.10 (unreleased)
+Version 0.1.11 (unreleased)
+- Automatically notify admins by email when unexpected errors occur
+
+Version 0.1.10 (August 7, 2016)
 - Add bundle contents API, with improvements to upload/download speed from the CLI
 - Allow addition of tags to bundles with `cl edit --tags`
 - New Docker image for Torch
 - Add colors to setup script
-- Automatically notify admins by email when unexpected errors occur
 - Bug fixes: login issues, public worksheets, `uedit` disk command
 
 Version 0.1.9 (July 9, 2016)

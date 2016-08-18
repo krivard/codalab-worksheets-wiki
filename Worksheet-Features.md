@@ -1,5 +1,7 @@
 Version 0.1.11 (unreleased)
 - Automatically notify admins by email when unexpected errors occur
+- Automatically refresh unfinished bundles (not 'ready' or 'failed')
+- Bug fixes: run bundle button only loads bundles when they are drilled down
 
 Version 0.1.10 (August 7, 2016)
 - Add bundle contents API, with improvements to upload/download speed from the CLI

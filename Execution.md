@@ -35,6 +35,8 @@ Here are some examples of docker images:
 
         cl run 'th' --request-docker-image codalab/torch:1.1
 
+[![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com")
+
 ## Running on worksheets.codalab.org
 
 On the `worksheets.codalab.org` CodaLab server, the workers are on Windows

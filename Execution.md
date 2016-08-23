@@ -31,11 +31,10 @@ Here are some examples of docker images:
 
         cl run 'python -c "import theano"'  # Defaults to standard CodaLab Ubuntu image (codalab/ubuntu:1.9)
 
-- Torch:
+- Torch [![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com"):
 
         cl run 'th' --request-docker-image codalab/torch:1.1
 
-[![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com")
 
 ## Running on worksheets.codalab.org
 

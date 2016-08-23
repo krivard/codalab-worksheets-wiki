@@ -27,11 +27,11 @@ Here are some examples of docker images:
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu
 
-- Theano:
+- Theano:  [![](https://images.microbadger.com/badges/image/codalab/ubuntu.svg)](https://microbadger.com/images/codalab/ubuntu "Get your own image badge on microbadger.com")
 
         cl run 'python -c "import theano"'  # Defaults to standard CodaLab Ubuntu image (codalab/ubuntu:1.9)
 
-- Torch [![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com"):
+- Torch: [![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com")
 
         cl run 'th' --request-docker-image codalab/torch:1.1
 

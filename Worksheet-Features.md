@@ -1,4 +1,7 @@
-Version 0.1.11 (unreleased)
+Version 0.1.12 (unreleased)
+- ...
+
+Version 0.1.11 (September 3, 2016)
 - Automatically notify admins by email when unexpected errors occur
 - Automatically refresh unfinished bundles (not 'ready' or 'failed')
 - Bug fixes: run bundle button only loads bundles when they are drilled down

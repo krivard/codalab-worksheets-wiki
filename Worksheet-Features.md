@@ -1,5 +1,5 @@
 Version 0.1.12 (unreleased)
-- ...
+- Bug fixes for [worksheets#216](https://github.com/codalab/codalab-worksheets/issues/216)
 
 Version 0.1.11 (September 3, 2016)
 - Automatically notify admins by email when unexpected errors occur

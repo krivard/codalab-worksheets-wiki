@@ -169,9 +169,9 @@ backend for data.
     ./manage runserver 127.0.0.1:2700
 
 
-### Step 2: Start the worksheets API service
+### Step 2: Start the API service
 
-The bundle service provides the `/rest` endpoints which power the website, the
+The worksheets API service provides the `/rest` endpoints which power the website, the
 CLI, and any third-party applications.
 
     cd $HOME/codalab-cli

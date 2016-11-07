@@ -2,7 +2,7 @@ Version 0.2.0 (November 7, 2016)
 - **Backwards-incompatible changes, please upgrade your CLI with `git pull`!**
 - Migrated last remaining APIs to the new REST API and retired the old XML-RPC API.
   - _CodaLab server administrators_: you no longer need to run `cl rest-server`.
-  - Public documentation on the API will be made available soon.
+  - [Public documentation on the API](REST-API-Reference) will be made available soon.
 - Removed remaining support for the connecting to `local` on the CLI. If you want to do CodaLab work entirely on your machine, you must [set up your own server processes](https://github.com/codalab/codalab-worksheets/wiki/Server-Setup).
 - Faster upload through both the website ([#196](https://github.com/codalab/codalab-worksheets/issues/196)) and the CLI ([#599](https://github.com/codalab/codalab-cli/issues/599)).
 - CLI notifies user when a new version is available.

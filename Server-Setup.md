@@ -116,14 +116,18 @@ First we need to generate the `nginx.conf` file (this also generates a
     ./manage config_gen
 
 Follow the instructions below corresponding to your installation, which will guide you through
-how to install NGINX and to point it at the `nginx.conf` file that CodaLab generated.
+how to install NGINX and to point it at the `nginx.conf` file that CodaLab generated. **Make sure
+that you install at least version 1.7.x!**
 
-#### Ubuntu
+#### Ubuntu 
+By default, `apt-get` on Ubuntu may install a version of NGINX older than 0.7.x. Follow these instructions to ensure that you have the latest stable version ([source](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/#ubuntu-ppa)).
 
-    sudo apt-get install -y nginx
-    cd $HOME/codalab-worksheets/codalab
-    sudo ln -sf $PWD/config/generated/nginx.conf /etc/nginx/sites-enabled/codalab.conf
-    sudo service nginx restart
+    sudo -s
+    nginx=stable # use nginx=development for latest development version
+    add-apt-repository ppa:nginx/$nginx
+    apt-get update
+    apt-get install nginx
+
 
 #### Mac using Homebrew
 
@@ -164,23 +168,17 @@ backend for data.
     cd $HOME/codalab-worksheets/codalab
     ./manage runserver 127.0.0.1:2700
 
-### Step 2: Start the bundle service (XMLRPC server)
 
-This is the bundle service that provides access to worksheets and bundles (and
-is soon to be deprecated):
-
-    cd $HOME/codalab-cli
-    codalab/bin/cl server
-
-### Step 3: Start the bundle service (REST server)
+### Step 2: Start the worksheets API service
 
 The bundle service provides the `/rest` endpoints which power the website, the
 CLI, and any third-party applications.
 
     cd $HOME/codalab-cli
-    codalab/bin/cl rest-server
+    codalab/bin/cl server
 
-### Step 4: Start the the bundle manager
+
+### Step 3: Start the the bundle manager
 
 The bundle manager checks for bundles that need to be run (in the `staged`
 state) and schedules them onto workers:
@@ -188,14 +186,14 @@ state) and schedules them onto workers:
     cd $HOME/codalab-cli
     codalab/bin/cl bundle-manager
 
-### Step 5: Start a worker
+### Step 4: Start a worker
 
 You can run 
 
     cd $HOME
     codalab-cli/worker/worker.sh --server http://localhost:2900 --password $CODALAB_HOME/root.password
 
-### Step 6: Start the monitoring script (optional)
+### Step 5: Start the monitoring script (optional)
 
 This script backs up the database periodically and does basic sanity checks
 (tries to run jobs) to make sure that everything is behaving properly:

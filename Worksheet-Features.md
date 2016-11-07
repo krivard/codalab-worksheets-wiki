@@ -1,5 +1,12 @@
-Version 0.1.12 (unreleased)
-- Bug fixes for [worksheets#216](https://github.com/codalab/codalab-worksheets/issues/216)
+Version 0.2.0 (unreleased) 
+- **Backwards-incompatible changes, please upgrade your CLI with `git pull`!**
+- Migrated last remaining APIs to the new REST API and retired the old XML-RPC API.
+  - _CodaLab server administrators_: you no longer need to run `cl rest-server`.
+  - Public documentation on the API will be made available soon.
+- Removed remaining support for the connecting to `local` on the CLI. If you want to do CodaLab work entirely on your machine, you must [set up your own server processes](https://github.com/codalab/codalab-worksheets/wiki/Server-Setup).
+- Faster upload through both the website ([#196](https://github.com/codalab/codalab-worksheets/issues/196)) and the CLI ([#599](https://github.com/codalab/codalab-cli/issues/599)).
+- CLI notifies user when a new version is available.
+- Bug fixes for [worksheets#216](https://github.com/codalab/codalab-worksheets/issues/216), [worksheets#211](https://github.com/codalab/codalab-worksheets/issues/211), [worksheets#164](https://github.com/codalab/codalab-worksheets/issues/164), [cli#326](https://github.com/codalab/codalab-cli/issues/326), [cli#575](https://github.com/codalab/codalab-cli/issues/575)
 
 Version 0.1.11 (September 3, 2016)
 - Automatically notify admins by email when unexpected errors occur

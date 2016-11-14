@@ -48,132 +48,12 @@ We follow the [JSON API](jsonapi.org) v1.0 specification for the most part, with
 
 Some complete examples will be provided to illustrate how this translated into full JSON objects.
 
+Boolean query parameters should be specified as `1` for true and `0` for false.
+
 ## Bundles
 
 ### Get bundle info
 `GET /rest/bundles/<uuid>`
-
-Example response:
-```
-{
-    "included": [
-        {
-            "attributes": {
-                "first_name": "Percy",
-                "last_name": "Liang",
-                "url": null,
-                "affiliation": "Stanford",
-                "user_name": "codalab",
-                "date_joined": null
-            },
-            "type": "users",
-            "id": "0"
-        },
-        {
-            "relationships": {
-                "group": {
-                    "data": {
-                        "type": "groups",
-                        "id": "0x20b3fdd2415d4200a0817471aa38fc58"
-                    }
-                }
-            },
-            "attributes": {
-                "permission": 1,
-                "permission_spec": "read",
-                "group_name": "public"
-            },
-            "type": "bundle-permissions",
-            "id": "2137"
-        }
-    ],
-    "meta": {
-        "version": "0.2.0"
-    },
-    "data": {
-        "relationships": {
-            "owner": {
-                "data": {
-                    "type": "users",
-                    "id": "0"
-                }
-            },
-            "group_permissions": {
-                "data": [
-                    {
-                        "type": "bundle-permissions",
-                        "id": "2137"
-                    }
-                ]
-            },
-            "children": {
-                "data": []
-            }
-        },
-        "attributes": {
-            "host_worksheets": [
-                {
-                    "uuid": "0x72a6926d82dd4b9d98f05d8c566ebdaf",
-                    "name": "home-codalab"
-                }
-            ],
-            "data_hash": "0x4bc7f3f5f4e1c02cf54c5df3ec1adb5cbda43a13",
-            "uuid": "0x491808200c7e4e2798530d5cf9bdfdd1",
-            "permission": 1,
-            "args": "run date",
-            "state": "ready",
-            "dependencies": [],
-            "command": "date",
-            "bundle_type": "run",
-            "permission_spec": "read",
-            "metadata": {
-                "allow_failed_dependencies": false,
-                "last_updated": 1479156285,
-                "actions": [],
-                "request_cpus": 0,
-                "run_status": "Finished",
-                "memory_max": 0,
-                "request_time": "",
-                "request_queue": "",
-                "request_priority": 0,
-                "data_size": 165,
-                "description": "",
-                "tags": [],
-                "started": 1479156284,
-                "request_gpus": 0,
-                "remote": "hermes-2.local",
-                "name": "run-date",
-                "request_network": false,
-                "request_memory": "",
-                "created": 1479156284,
-                "request_docker_image": "",
-                "time": 1.28475403786,
-                "request_disk": "",
-                "exitcode": 0
-            }
-        },
-        "meta": {
-            "editable_metadata_keys": [
-                "name",
-                "description",
-                "tags",
-                "allow_failed_dependencies",
-                "request_docker_image",
-                "request_time",
-                "request_memory",
-                "request_disk",
-                "request_cpus",
-                "request_gpus",
-                "request_queue",
-                "request_priority",
-                "request_network"
-            ]
-        },
-        "type": "bundles",
-        "id": "0x491808200c7e4e2798530d5cf9bdfdd1"
-    }
-}
-```
 
 ### Search bundles
 `GET /rest/bundles/`
@@ -185,6 +65,42 @@ Example response:
 | `worksheet`  | OPTIONAL. ID of the parent worksheet for resolving bundle specs.                    | 
 | `depth`      | OPTIONAL. Include all descendants of the found bundles down by this depth. | 
 
+### Create bundles
+`POST /rest/bundles`
+
+### Update bundles
+`PATCH /rest/bundles`
+
+### Delete bundles
+`DELETE /rest/bundles`
+
+| Query Parameter    | Description |
+| :---         |      :---      |
+| `force=1`   | OPTIONAL. Allow deletion of bundles that have descendants or that appear across multiple worksheets.       | 
+| `recursive=1`    | OPTIONAL. Delete all bundles downstream of the specified bundles too.         | 
+| `data-only=1`  | OPTIONAL. Only delete the bundle contents from the bundle store, but keep the bundle metadata. |
+| `dry-run=1`      | OPTIONAL. Just return list of bundles that would be deleted, but do not actually delete. | 
+
+Request Example:
+```
+{
+    "data": [
+        {"type": "bundles", "id": "0x491808200c7e4e2798530d5cf9bdfdd1"},
+        {"type": "bundles", "id": "0xfbf4b487726248bcbe349932ca6981a3"},
+     ]
+}
+```
+
+Response Example:
+```
+{
+    "meta": {
+        "deleted-ids": ["0x491808200c7e4e2798530d5cf9bdfdd1", "0xfbf4b487726248bcbe349932ca6981a3"]
+    }
+}
+```
+
+###
 
 `/rest/bundles/<uuid>/contents/info/`
 

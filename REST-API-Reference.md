@@ -17,6 +17,35 @@ Authorization: Bearer WM0vteAcGpPhXEGtKmhCGjgVIOvYbB
 
 Unauthorized requests will receive a `403 Forbidden` HTTP response.
 
+
+## Resource Owner Password Credentials Grant
+
+The easiest way to get an OAuth token is by requesting a token directly using a username and password.
+
+### `POST /rest/oauth2/token`
+```
+Content-Type: application/x-www-form-urlencoded
+Authorization: Basic Y29kYWxhYl9jbGlfY2xpZW50Og==
+```
+
+| Form Parameter    | Description |
+| :---         |      :---      |
+| `grant_type` | REQUIRED. Value MUST be set to `password`.                      | 
+| `username`   | REQUIRED. The resource owner username or email address.         | 
+| `password`   | REQUIRED. The resource owner password.                          | 
+| `scope`      | OPTIONAL. Defaults to `default`, which provides full access to the user's resources. No other scopes are currently supported, though we may introduce them in the future.   | 
+
+Example response:
+```
+{
+    "access_token": "NT4xa9noJkBQMxwoL8AikZ6wuGDlUQ",
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "refresh_token": "HWTsWyqTXmVJuran04OhyXua3k8VlL",
+    "scope": "default"
+}
+```
+
 # Bundles
 
 `/rest/bundles/`

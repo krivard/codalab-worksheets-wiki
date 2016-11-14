@@ -50,7 +50,15 @@ Some complete examples will be provided to illustrate how this translated into f
 
 ## Bundles
 
-`/rest/bundles/`
+### Search bundles
+`GET /rest/bundles/`
+
+| Query Parameter    | Description |
+| :---         |      :---      |
+| `keywords`   | MULTIPLE. Keywords for a search query, in the same form as in `cl search`.                 | 
+| `specs  `    | MULTIPLE. Bundle specs to search for.         | 
+| `worksheet`  | OPTIONAL. ID of the parent worksheet for resolving bundle specs.                    | 
+| `depth`      | OPTIONAL. Include all descendants of the found bundles down by this depth. | 
 
 `/rest/bundles/<uuid>`
 
@@ -66,6 +74,8 @@ Some complete examples will be provided to illustrate how this translated into f
 `/rest/worksheets/`
 
 ## Users
+
+
 
 ## Groups
 

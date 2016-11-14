@@ -50,6 +50,131 @@ Some complete examples will be provided to illustrate how this translated into f
 
 ## Bundles
 
+### Get bundle info
+`GET /rest/bundles/<uuid>`
+
+Example response:
+```
+{
+    "included": [
+        {
+            "attributes": {
+                "first_name": "Percy",
+                "last_name": "Liang",
+                "url": null,
+                "affiliation": "Stanford",
+                "user_name": "codalab",
+                "date_joined": null
+            },
+            "type": "users",
+            "id": "0"
+        },
+        {
+            "relationships": {
+                "group": {
+                    "data": {
+                        "type": "groups",
+                        "id": "0x20b3fdd2415d4200a0817471aa38fc58"
+                    }
+                }
+            },
+            "attributes": {
+                "permission": 1,
+                "permission_spec": "read",
+                "group_name": "public"
+            },
+            "type": "bundle-permissions",
+            "id": "2137"
+        }
+    ],
+    "meta": {
+        "version": "0.2.0"
+    },
+    "data": {
+        "relationships": {
+            "owner": {
+                "data": {
+                    "type": "users",
+                    "id": "0"
+                }
+            },
+            "group_permissions": {
+                "data": [
+                    {
+                        "type": "bundle-permissions",
+                        "id": "2137"
+                    }
+                ]
+            },
+            "children": {
+                "data": []
+            }
+        },
+        "attributes": {
+            "host_worksheets": [
+                {
+                    "uuid": "0x72a6926d82dd4b9d98f05d8c566ebdaf",
+                    "name": "home-codalab"
+                }
+            ],
+            "data_hash": "0x4bc7f3f5f4e1c02cf54c5df3ec1adb5cbda43a13",
+            "uuid": "0x491808200c7e4e2798530d5cf9bdfdd1",
+            "permission": 1,
+            "args": "run date",
+            "state": "ready",
+            "dependencies": [],
+            "command": "date",
+            "bundle_type": "run",
+            "permission_spec": "read",
+            "metadata": {
+                "allow_failed_dependencies": false,
+                "last_updated": 1479156285,
+                "actions": [],
+                "request_cpus": 0,
+                "run_status": "Finished",
+                "memory_max": 0,
+                "request_time": "",
+                "request_queue": "",
+                "request_priority": 0,
+                "data_size": 165,
+                "description": "",
+                "tags": [],
+                "started": 1479156284,
+                "request_gpus": 0,
+                "remote": "hermes-2.local",
+                "name": "run-date",
+                "request_network": false,
+                "request_memory": "",
+                "created": 1479156284,
+                "request_docker_image": "",
+                "time": 1.28475403786,
+                "request_disk": "",
+                "exitcode": 0
+            }
+        },
+        "meta": {
+            "editable_metadata_keys": [
+                "name",
+                "description",
+                "tags",
+                "allow_failed_dependencies",
+                "request_docker_image",
+                "request_time",
+                "request_memory",
+                "request_disk",
+                "request_cpus",
+                "request_gpus",
+                "request_queue",
+                "request_priority",
+                "request_network"
+            ]
+        },
+        "type": "bundles",
+        "id": "0x491808200c7e4e2798530d5cf9bdfdd1"
+    }
+}
+```
+
 ### Search bundles
 `GET /rest/bundles/`
 
@@ -60,7 +185,6 @@ Some complete examples will be provided to illustrate how this translated into f
 | `worksheet`  | OPTIONAL. ID of the parent worksheet for resolving bundle specs.                    | 
 | `depth`      | OPTIONAL. Include all descendants of the found bundles down by this depth. | 
 
-`/rest/bundles/<uuid>`
 
 `/rest/bundles/<uuid>/contents/info/`
 

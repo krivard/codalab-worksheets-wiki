@@ -8,8 +8,14 @@ Some complete examples will be provided to illustrate how this translated into f
 
 We use [OAuth 2.0](https://oauth.net/2/) for authentication and authorization.
 
+All API requests to protected resources must include a valid OAuth bearer token as a HTTP header:
+```
+GET /rest/bundles/0x491808200c7e4e2798530d5cf9bdfdd HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer WM0vteAcGpPhXEGtKmhCGjgVIOvYbB
+```
 
-# OAuth
+Unauthorized requests will receive a `403 Forbidden` HTTP response.
 
 # Bundles
 

@@ -1,3 +1,5 @@
+
+
 The CodaLab REST API is still under heavy development, and interfaces may change at any time.
 
 # Authentication
@@ -95,30 +97,137 @@ Response Example:
 ```
 {
     "meta": {
-        "deleted-ids": ["0x491808200c7e4e2798530d5cf9bdfdd1", "0xfbf4b487726248bcbe349932ca6981a3"]
+        "version": "0.2.0",
+        "ids": ["0x491808200c7e4e2798530d5cf9bdfdd1", "0xfbf4b487726248bcbe349932ca6981a3"]
     }
 }
 ```
 
-###
+## Bundle Contents
 
-`/rest/bundles/<uuid>/contents/info/`
+### Fetch Contents Metadata (non-JSON API)
+`GET /rest/bundles/<uuid>/contents/info/`
 
-`/rest/bundles/<uuid>/contents/blob/`
+| Query Parameter    | Description |
+| :---         |      :---      |
+| `depth`   | OPTIONAL. Depth to traverse directory tree.   | 
+
+Example request:
+```
+GET /rest/bundles/0x97e9d4bdbecd4a969a7f9d41e2f5dd9c/contents/info/?depth=1
+```
+
+Example response body:
+```
+{
+    "meta": {
+        "version": "0.2.0"
+    },
+    "data": {
+        "contents": [
+            {
+                "type": "file",
+                "name": "a.txt",
+                "perm": 420,
+                "size": 64
+            },
+            {
+                "type": "file",
+                "name": "b.txt",
+                "perm": 420,
+                "size": 22
+            },
+        ],
+        "type": "directory",
+        "name": "0x97e9d4bdbecd4a969a7f9d41e2f5dd9c",
+        "perm": 493,
+        "size": 408
+    }
+}
+```
+
+### Fetch Contents Blob (non-JSON API)
+`GET /rest/bundles/<uuid>/contents/blob/`
+
+Returns the raw data stream containing the contents of the bundle. If the bundle is a directory, the contents will be a tarred and gzipped archive.
+
+### Upload Contents Blob (non-JSON API)
+`PUT /rest/bundles/<uuid>/contents/blob/`
+
+Set or replace the contents of the bundle with the file uploaded in the request body. Supports chunked encoding. Directories should be uploaded as tarred+gzipped or zip archives.
+
+## Bundle Permissions
+
+### Set bundle permissions
+`POST /rest/bundle-permissions`
+
+## Bundle Actions
+
+### Queue bundle action
+`POST /rest/bundle-actions`
 
 
 ## Worksheets
 
-`/rest/worksheets/<uuid>`
+### Fetch worksheet info
+`GET /rest/worksheets/<uuid>`
 
-`/rest/worksheets/`
+### Update worksheet with raw lines
+`POST /rest/worksheets/<uuid>/raw`
+
+### Search worksheets
+`GET /rest/worksheets/`
+
+### Create worksheets
+`POST /rest/worksheets/`
+
+### Update worksheet metadata
+`PATCH /rest/worksheets/`
+
+### Delete worksheets
+`DELETE /rest/worksheets/`
+
+### Add worksheet items
+`POST /rest/worksheets-items`
+
+### Set worksheet permissions
+`POST /rest/worksheets-permissions`
 
 ## Users
 
+### Get authenticated user
+`GET /rest/user`
 
+### Update authenticated user
+`PATCH /rest/user`
+
+### Lookup user
+`GET /rest/users/<user_spec>`
+
+### Lookup users
+`GET /rest/users`
 
 ## Groups
 
-`GET /groups`
+### Lookup group
+`GET /rest/groups/<group_spec>`
+
+### Lookup groups
+`GET /rest/groups`
 
 Fetch all groups accessible by the authenticated user.
+
+### Delete group
+`DELETE /rest/groups/<group_spec>`
+
+### Create group
+`POST /rest/groups`
+
+### Add admin to group
+`POST /rest/groups/<group_spec>/relationships/admins`
+
+### Add normal member to group
+`POST /rest/groups/<group_spec>/relationships/members`
+
+### Delete members from group
+`DELETE /rest/groups/<group_spec>/relationships/members`

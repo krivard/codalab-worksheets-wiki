@@ -1,3 +1,6 @@
+Version 0.2.1 (unreleased)
+- Bug fixes for [cli#621](https://github.com/codalab/codalab-cli/issues/621)
+
 Version 0.2.0 (November 7, 2016) 
 - **Backwards-incompatible changes, please upgrade your CLI with `git pull`!**
 - Migrated last remaining APIs to the new REST API and retired the old XML-RPC API.

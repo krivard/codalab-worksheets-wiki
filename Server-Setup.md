@@ -104,6 +104,9 @@ Make sure this file is only accessible to you:
 
     chmod 600 $CODALAB_HOME/root.password
 
+If you want your workers to support jobs that use NVIDIA GPUs (e.g. CUDA, cuDNN, etc.), you should install the `nvidia-docker` plugin on your machine as well, and make sure that `nvidia-docker-plugin` is listening at `localhost:3476`. Instructions for installation are found here:
+https://github.com/NVIDIA/nvidia-docker 
+
 ## Start NGINX
 
 We use NGINX to put all CodaLab servers (website, bundle service) behind one

@@ -13,7 +13,7 @@ running Ubuntu 14.04, you can just install them:
 
 2. Clone the CodaLab repository:
 
-        git clone https://github.com/codalab/codalab-cli
+        git clone --branch release https://github.com/codalab/codalab-cli
         cd codalab-cli
 
 3. Run the setup script (this will install things into a Python virtual

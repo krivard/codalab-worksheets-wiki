@@ -1,4 +1,4 @@
-Version 0.2.1 (unreleased)
+Version 0.2.1 (January 25, 2016)
 - Integrated worker with [nvidia-docker](https://github.com/NVIDIA/nvidia-docker) to support GPU jobs
 - Bug fixes for [cli#621](https://github.com/codalab/codalab-cli/issues/621), [cli#624](https://github.com/codalab/codalab-cli/issues/624), [cli#627](https://github.com/codalab/codalab-cli/issues/627), [cli#619](https://github.com/codalab/codalab-cli/issues/619), [cli#591](https://github.com/codalab/codalab-cli/issues/591), [worksheets#235](https://github.com/codalab/codalab-worksheets/issues/235)
 

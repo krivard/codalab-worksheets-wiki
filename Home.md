@@ -56,7 +56,7 @@ and gives you total freedom in terms of what to put in your repository.
 * [Worksheet Markdown](Worksheet-Markdown): learn how to display tables of results and images in your worksheet.
 * [Execution](Execution): learn how bundles are executed in docker.
 * [Server Setup](Server-Setup): if you want to run a CodaLab server for your own group.
-* [REST API Reference](https://github.com/codalab/codalab-cli/blob/master/docs/rest.md): learn how to use the REST API
+* [REST API Reference](https://github.com/codalab/codalab-cli/blob/master/docs/rest.md): develop your own application against our REST API
 * [Latest Features](Latest-Features): what features have been recently added CodaLab lately?
 * [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home): from the official CodaLab server.
 * [About](About): who's behind CodaLab?

@@ -11,10 +11,9 @@ running Ubuntu 14.04, you can just install them:
 
         sudo apt-get install python2.7 python2.7-dev python-virtualenv
 
-2. Clone the CodaLab repository:
+2. Install the CodaLab CLI:
 
-        git clone --branch release https://github.com/codalab/codalab-cli
-        cd codalab-cli
+        pip install codalab-cli
 
 3. Run the setup script (this will install things into a Python virtual
 environment in the `codalab-cli/venv` directory):

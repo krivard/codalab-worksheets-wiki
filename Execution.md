@@ -69,6 +69,9 @@ the `--tag <tag>` flag and then specify the tag when creating the run bundle
 with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run
 on any of the workers with the specified tag.
 
+**Note for GPU users:** If you want your workers to support jobs that use NVIDIA GPUs (e.g. CUDA, cuDNN, etc.), you should install the `nvidia-docker` plugin on your machine as well, and make sure that `nvidia-docker-plugin` is listening at `localhost:3476`. Instructions for installation are found here:
+https://github.com/NVIDIA/nvidia-docker 
+
 ## How the worker system works
 
 In brief, a worker machine connects to the CodaLab server and asks for run

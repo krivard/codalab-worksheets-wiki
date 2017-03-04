@@ -54,7 +54,8 @@ running your own worker.
 To run your own worker, first [install Docker](Installing-Docker) which will be
 used to run your bundles in an isolated environment. Then, start the worker
 using the code from the `codalab-cli` git repository or by downloading it from
-[here](https://worksheets.codalab.org/rest/workers/code.tar.gz).
+[here](https://worksheets.codalab.org/rest/workers/code.tar.gz) (to inflate the
+file, run `tar -xvzf code.tar.gz` in an empty directory).
 
     codalab-cli/worker/worker.sh --server https://worksheets.codalab.org
 

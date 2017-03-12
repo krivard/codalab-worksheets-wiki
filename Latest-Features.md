@@ -1,4 +1,4 @@
-Version 0.2.3 (unreleased)
+Version 0.2.3 (March 11, 2017)
 - New commands for building and testing Docker images: `cl edit-image`, `cl commit-image`, `cl push-image`, and `cl run --local`.
 - Support for GPU workers
 

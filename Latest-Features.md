@@ -1,6 +1,6 @@
 Version 0.2.3 (March 11, 2017)
 - New commands for building and testing Docker images: `cl edit-image`, `cl commit-image`, `cl push-image`, and `cl run --local`.
-- Support for GPU workers
+- Improved support for GPU workers
 
 Version 0.2.2 (February 24, 2016)
 - CLI now available through `pip install codalab-cli`!

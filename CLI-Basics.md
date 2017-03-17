@@ -150,8 +150,8 @@ top-level.  Therefore subsequent commands must specify the run bundle to refer
 to them.  This example illustrates the idea:
 
         cl run 'echo hello > message' -n run1
-        cl run :run1/message 'cat message'     # right
-        cl run :message      'cat message'     # wrong
+        cl run message:run1/message 'cat message'     # right
+        cl run message:message      'cat message'     # wrong
 
 ### Step 3: Present your results
 

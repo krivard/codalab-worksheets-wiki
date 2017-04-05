@@ -9,4 +9,4 @@ There are two use cases:
 1. You want to run [your own worker](Execution#running-your-own-worker) that
    connects to the main CodaLab server ([worksheets.codalab.org](https://worksheets.codalab.org)).
 
-To install Docker, visit the official [Docker installation instructions](https://docs.docker.com/engine/installation/#docker-variants) or run `curl -sSL https://get.docker.com/ | sh`.
+To install Docker, visit the official [Docker installation instructions](https://docs.docker.com/engine/installation/#docker-variants) or, if you're using a Linux distro, run `curl -sSL https://get.docker.com/ | sh`.

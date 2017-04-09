@@ -1,3 +1,8 @@
+Version 0.2.4 (unreleased)
+- New algorithm for load-balancing bundle storage ([cli#711](https://github.com/codalab/codalab-cli/pull/711))
+- Script for maintaining a competition leaderboard: see `codalab-cli/scripts/competitiond.py`
+- Bugfixes: [cli#719](https://github.com/codalab/codalab-cli/issues/719), [cli#696](https://github.com/codalab/codalab-cli/issues/696), [cli#700](https://github.com/codalab/codalab-cli/issues/700)
+
 Version 0.2.3 (March 11, 2017)
 - New commands for building and testing Docker images: `cl edit-image`, `cl commit-image`, `cl push-image`, and `cl run --local`.
 - Improved support for GPU workers

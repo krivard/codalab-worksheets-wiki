@@ -1,4 +1,4 @@
-Version 0.2.4 (unreleased)
+Version 0.2.4 (April 9, 2017)
 - New algorithm for load-balancing bundle storage ([cli#711](https://github.com/codalab/codalab-cli/pull/711))
 - Script for maintaining a competition leaderboard: see `codalab-cli/scripts/competitiond.py`
 - Bugfixes: [cli#719](https://github.com/codalab/codalab-cli/issues/719), [cli#696](https://github.com/codalab/codalab-cli/issues/696), [cli#700](https://github.com/codalab/codalab-cli/issues/700)

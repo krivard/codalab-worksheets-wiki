@@ -60,10 +60,10 @@ Most likely, you'll see something like:
 Here, `https://worksheets.codalab.org/bundleservice` is the CodaLab server and
 `home-pliang` is the worksheet (this acts like a home directory).
 
-If you have [set up your own CodaLab server](Server-Setup) at `http://localhost:2800`,
+If you have [set up your own CodaLab server](Server-Setup) at `http://localhost:2900`,
 then you might switch to it like this:
 
-    cl work http://localhost:2800::
+    cl work http://localhost:2900::
 
 and switch back with either of these (`main` is an alias, type `cl alias` to see):
 

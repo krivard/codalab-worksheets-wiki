@@ -15,20 +15,11 @@ running Ubuntu 14.04, you can just install them:
 
         pip install codalab-cli
 
-3. Run the setup script (this will install things into a Python virtual
-environment in the `codalab-cli/venv` directory):
-
-        ./setup.sh client
-
-4. Set your path to include the CodaLab CLI (add this line to your `.bashrc`):
-
-        export PATH=$PATH:<path to codalab-cli>/codalab/bin
-
-5. Include some handy macros (add this line to your `.bashrc`):
+3. Include some handy macros (add this line to your `.bashrc`):
 
         . <path to codalab-cli>/rc
 
-6. To complete the configuration, type the following:
+4. To complete the configuration, type the following:
 
         cl
 

@@ -3,7 +3,7 @@ your first run in CodaLab.
 
 First, sign up for a CodaLab account at
 [worksheets.codalab.org](https://worksheets.codalab.org), and sign in.  Then
-click on `My Home` in the top-right navigation bar.  This takes to your
+click on **`My Home`** in the top-right navigation bar.  This takes to your
 home worksheet (named something like `home-pliang`), which you should think of
 as your home directory.
 

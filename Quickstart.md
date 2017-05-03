@@ -24,7 +24,9 @@ Create another file called `sort.py` with the following contents:
     for line in sorted(sys.stdin.readlines()):
         print line,
 
-Click on the `Upload` button on the top of the side panel.
+Click on the `Upload` button on the top of the side panel
+(this button may not appear if your screen width is too small; increase the
+width of your screen and it should appear).
 This pops up a file browser; select `a.txt`.
 Repeat the same thing for `sort.py`.
 

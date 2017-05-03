@@ -18,7 +18,9 @@ In general, when you create a run, you can specify which docker container you wa
 To see what Docker images are available, you can do a search on [Docker
 hub](https://hub.docker.com).  If nothing satisfies your needs, you can
 [install Docker](Installing-Docker) and [create your own
-image](Creating-Docker-Images).
+image](Creating-Docker-Images). If you're creating a Docker image in Python,
+we recommend using the [Codalab Python](https://hub.docker.com/r/codalab/python/)
+image as your base image because it comes pre-installed with `python` and `pip`.
 
 Here are some examples of docker images:
 

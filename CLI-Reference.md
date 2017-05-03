@@ -1012,3 +1012,44 @@ If you're running a server, all the bundle contents are stored here:
     ~/.codalab/partitions
 
 and the metadata is stored in a MySQL database.
+
+## Using local dev features
+
+This set of features allows one to simulate a `cl run` by running a docker container locally and mounting local dependencies, allowing quick revisions if desired.
+
+    # list files in current directory
+    fabianc:~$ ls
+    distance.py    a.txt
+
+    # take a look at contents
+    fabianc:~$ cat distance.py
+    import sys
+    import editdistance
+    
+    word = 'banana'
+    for line in sorted(sys.stdin.readlines()):
+        print 'Edit Distance between {} and {}:'.format(word, line.strip()), editdistance.eval(word, line.strip())
+
+    fabianc:~$ cat a.txt
+    foo
+    bar
+    baz
+
+    # log in to a ‘vanilla’ image (which simply has python and pip installed) for editing
+    fabianc:~$ cl edit-image --request-docker-image codalab/python :distance.py :a.txt
+
+    # install libraries, test run distance.py from inside the container, log out when everything looks good
+    fabianc:~$ sudo apt-get update && sudo pip install editdistance
+    fabianc:~$ ^D
+
+    # docker commit and tag it
+    fabianc:~$ cl commit-image --container [container-id] codalabtest-on.azurecr.io/editdistance
+
+    # do a local test run
+    fabianc:~$ cl run-local --request-docker-image codalabtest-on.azurecr.io/editdistance :distance.py :a.txt --- 'python distance.py < a.txt > out.txt'
+
+    # push image to the codalab docker registry
+    fabianc:~$ docker push codalabtest-on.azurecr.io/editdistance
+
+    # do a real run!
+    fabianc:~$ cl run --request-docker-image codalabtest-on.azurecr.io/editdistance :distance.py :a.txt --- 'python distance.py < a.txt > out.txt'

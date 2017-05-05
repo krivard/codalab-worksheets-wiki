@@ -8,6 +8,7 @@ worksheets and competitions.
 **Competitions** bring together the entire community to tackle the most challenging data and computational problems today. You can win prizes and also create your own competition.
 
 ## The CodaLab Team
+
 <table>
     <tr>
         <td width=200px><img src="images/percy.jpeg" alt="" style="max-width:100%;"></td>

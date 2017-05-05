@@ -30,9 +30,12 @@ worksheets and competitions.
 </table>
 
 <p>
+
 ### Acknowledgments
 
-CodaLab has received important contributions from many people, and we would like to thank their efforts in making CodaLab what it is today:
+The current CodaLab Worksheets team consists of Stephen Koo, Fabian Chan, and Max Wang at Stanford.
+
+Over the years, CodaLab has received important contributions from many people, and we would like to thank their efforts in making CodaLab what it is today:
 
 Pujun Bhatnagar, Eric Carmichael, Justin Carden, Richard Caruana, Francis Cleary, Andrew Duffy, Sergio Escalera, Ivan Judson, Lori Ada Kilty, Shaunak Kishore, Stephen Koo, Konstantin Kopyrev, Eric Li, Pragnya Maduskar, Simon Mercer, Arthur Pesah, Christophe Poulain, Lukasz Romaszko, Xavier Baro Sole, Paul Viola, Erick Watson, Tony Yang, Flavio Zhingri, Michael Zyskowski.
 

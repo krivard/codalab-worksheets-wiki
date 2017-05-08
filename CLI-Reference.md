@@ -1039,14 +1039,14 @@ This set of features allows one to simulate a `cl run` by running a docker conta
     fabianc:~$ cl edit-image --request-docker-image codalab/python :distance.py :a.txt
 
     # install libraries, test run distance.py from inside the container, log out when everything looks good
-    fabianc:~$ sudo apt-get update && sudo pip install editdistance
-    fabianc:~$ ^D
+    root:~$ sudo apt-get update && sudo pip install editdistance
+    root:~$ ^D
 
     # docker commit and tag it
     fabianc:~$ cl commit-image --container [container-id] codalabtest-on.azurecr.io/editdistance
 
     # do a local test run
-    fabianc:~$ cl run-local --request-docker-image codalabtest-on.azurecr.io/editdistance :distance.py :a.txt --- 'python distance.py < a.txt > out.txt'
+    fabianc:~$ cl run --local --request-docker-image codalabtest-on.azurecr.io/editdistance :distance.py :a.txt --- 'python distance.py < a.txt > out.txt'
 
     # push image to the codalab docker registry
     fabianc:~$ docker push codalabtest-on.azurecr.io/editdistance

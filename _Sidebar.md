@@ -7,7 +7,7 @@
 * [Worksheet Markdown](Worksheet-Markdown)
 * [Execution](Execution)
 * [Server Setup](Server-Setup)
-* [REST API Reference](https://github.com/codalab/codalab-cli/blob/master/docs/rest.md)
+* [REST API Reference](http://codalab.org/codalab-cli/rest.html)
 * [Latest Features](Latest-Features)
 * [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home)
 * [About](About)

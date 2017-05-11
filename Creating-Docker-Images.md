@@ -1,6 +1,7 @@
 Bundles are run inside [Docker](https://www.docker.com) containers. Containers provide an isolated Linux environment for your code containing various libraries and software packages. CodaLab uses an [Ubuntu Linux 14.04 image](https://hub.docker.com/r/codalab/ubuntu/) by default. You can specify which image to use when you are creating a run bundle using the `--request-docker-image <image>` flag. If the default image doesn't have the package you need, your options are:
 
 1. Find an image that someone else has built. Package maintainers often release Docker images containing their packages.
+[DockerHub](dockerhub.com) is a good place to look.
 
 2. Build your own image and upload it to Docker Hub. Instructions are given below.
 

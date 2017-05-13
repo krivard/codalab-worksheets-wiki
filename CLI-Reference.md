@@ -1048,7 +1048,7 @@ This set of features allows one to simulate a `cl run` by running a docker conta
     # do a local test run
     fabianc:~$ cl run --local --request-docker-image codalabtest-on.azurecr.io/editdistance :distance.py :a.txt --- 'python distance.py < a.txt > out.txt'
 
-    # push image to the codalab docker registry
+    # push image to the codalab docker registry (note: for illustration purposes, we are pushing to our private repository (which you cannot do)! You might want to push to dockerhub instead)
     fabianc:~$ docker push codalabtest-on.azurecr.io/editdistance
 
     # do a real run!

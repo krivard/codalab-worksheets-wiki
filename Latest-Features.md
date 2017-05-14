@@ -2,6 +2,9 @@ Version 0.2.6 (May 13, 2017)
 - Improved compression API ([cli#732](https://github.com/codalab/codalab-cli/pull/732))
 - Improve torque scheduler ([cli#743](https://github.com/codalab/codalab-cli/pull/743))
 - Implements human readable fields in content API ([cli#748](https://github.com/codalab/codalab-cli/pull/748))
+
+Version 0.2.5 (April 25, 2017)
+- Improve help box user interface
 - Bugfix: Slashes in bundle content links no longer escaped ([worksheets#298](https://github.com/codalab/codalab-worksheets/pull/298))
 
 Version 0.2.4 (April 9, 2017)

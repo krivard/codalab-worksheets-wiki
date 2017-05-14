@@ -1,3 +1,10 @@
+Version 0.2.6 (May 13, 2017)
+- Bugfix: Slashes in bundle content links no longer escaped ([worksheets#298](https://github.com/codalab/codalab-worksheets/pull/298))
+- Improved compression API ([cli#732](https://github.com/codalab/codalab-cli/pull/732))
+- Improve torque scheduler ([cli#743](https://github.com/codalab/codalab-cli/pull/743))
+- Implements human readable fields in content API ([cli#748](https://github.com/codalab/codalab-cli/pull/748))
+- Remove support for commands in Worksheet Markdown ([cli#747](https://github.com/codalab/codalab-cli/pull/747))
+
 Version 0.2.4 (April 9, 2017)
 - New algorithm for load-balancing bundle storage ([cli#711](https://github.com/codalab/codalab-cli/pull/711))
 - Script for maintaining a competition leaderboard: see `codalab-cli/scripts/competitiond.py`

@@ -1,4 +1,4 @@
-For a video introduction to CodaLab, view our [Overview video](https://www.youtube.com/watch?v=WwFGfgf3-5s) on Youtube.
+For a video introduction to CodaLab, view our quick, two-minute [overview video](https://www.youtube.com/watch?v=WwFGfgf3-5s) on Youtube.
 
 ## **Why CodaLab Worksheets?**
 

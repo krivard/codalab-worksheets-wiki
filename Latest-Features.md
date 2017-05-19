@@ -1,3 +1,7 @@
+Version 0.2.7 (May 18, 2017)
+- Support multiple comma-separated list of hosts for Torque scheduler (e.g. `--request-queue host=john7,john11`)
+- Various bugfixes
+
 Version 0.2.6 (May 13, 2017)
 - Improved compression API ([cli#732](https://github.com/codalab/codalab-cli/pull/732))
 - Improve torque scheduler ([cli#743](https://github.com/codalab/codalab-cli/pull/743))

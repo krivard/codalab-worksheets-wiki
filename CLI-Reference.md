@@ -388,7 +388,10 @@ Here is the output:
       server:
         Start an instance of the CodaLab bundle service.
         Arguments:
-          --watch  Restart the server on code changes.
+          --watch              Restart the server on code changes.
+          -p, --processes      Number of processes to use. A production deployment should use more than 1 process to make the best use of multiple CPUs.
+          -t, --threads        Number of threads to use. The server will be able to handle (--processes) x (--threads) requests at the same time.
+          -d, --debug          Run the development server for debugging.
 
       logout:
         Logout of the current session.

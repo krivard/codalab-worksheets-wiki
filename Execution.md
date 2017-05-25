@@ -102,8 +102,8 @@ used to run your bundles in an isolated environment.
 The `--tag` flag is optional. If you use it, when you run a command, you can tell a bundle to
 run on this particular worker, as we demonstrate in the next step.
 
-**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker_tag>` 
-to specify our worker's tag. For non-GPU workers:
+**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker_tag>` using the `worker_tag`
+from the previous step, which tells CodaLab to run this bundle on our machine. For non-GPU workers:
 
     # non-GPU workers
     # replace <worker_tag> with your own tag name

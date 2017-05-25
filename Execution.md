@@ -1,3 +1,24 @@
+This page describes how CodaLab executes run bundles, helpful commands to use,
+and setup instructions for plugging into the system.
+
+## Conceptual Overview: How the worker system works
+
+This section is a conceptual overview of CodaLab's distributed worker system,
+which is how run bundles are executed in CodaLab. CodaLab uses Docker containers
+to define the environment of a run bundle.
+
+In brief, a worker machine connects to the CodaLab server and asks for run
+bundles to run.  The CodaLab server finds a run that hasn't been executed yet,
+and assigns the worker to it.  The worker then downloads all the relevant
+bundle dependencies from the CodaLab server (if not downloaded already), the
+Docker image from Docker hub (if not downloaded already).  The worker then
+executes the run in the Docker container, sending back status updates to the
+CodaLab server (e.g., memory usage, etc.), and sees if there are any requests
+to kill the worker.  Any requests to download files in the bundle are forwarded
+from the CodaLab server to the worker.  At the end of the run, the worker sends
+back all the bundle contents.  See the [worker system design
+doc](worker-design.pdf) for more information.
+
 ## Docker
 
 The execution of a run bundle happens inside a [Docker
@@ -27,7 +48,6 @@ Here are some examples of docker images:
 - TensorFlow:
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0
-        cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu
 
 - Theano:  [![](https://images.microbadger.com/badges/image/codalab/ubuntu.svg)](https://microbadger.com/images/codalab/ubuntu "Get your own image badge on microbadger.com")
 
@@ -74,11 +94,15 @@ The output should be similar to:
 
 And that's all it takes to use the GPU!
 
-### GPU Environments
+### GPU Docker Images
 
-_Building your own GPU Docker image?_ We recommend using the appropriate NVIDIA [CUDA-supported images](https://hub.docker.com/r/nvidia/cuda/) as your base image.
+Here are some useful of docker images with GPU support:
 
-_Using Tensorflow on GPUs?_ Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+_Tensorflow_ Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+
+        cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu
+
+_Theano_ 
 
 ## Running your own worker
 
@@ -187,17 +211,3 @@ Then install by running:
     sudo nvidia-docker run --rm nvidia/cuda nvidia-smi
 
 Now head back to the worker installation instructions to start using your GPU on CodaLab!
-
-## How the worker system works
-
-In brief, a worker machine connects to the CodaLab server and asks for run
-bundles to run.  The CodaLab server finds a run that hasn't been executed yet,
-and assigns the worker to it.  The worker then downloads all the relevant
-bundle dependencies from the CodaLab server (if not downloaded already), the
-Docker image from Docker hub (if not downloaded already).  The worker then
-executes the run in the Docker container, sending back status updates to the
-CodaLab server (e.g., memory usage, etc.), and sees if there are any requests
-to kill the worker.  Any requests to download files in the bundle are forwarded
-from the CodaLab server to the worker.  At the end of the run, the worker sends
-back all the bundle contents.  See the [worker system design
-doc](worker-design.pdf) for more information.

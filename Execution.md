@@ -53,11 +53,11 @@ case you need to perform large amounts of computation or need specialized
 hardware such as GPUs, you can connect your own machines to CodaLab by
 running your own worker.
 
-**Setup Instructions**
+### Setup Instructions
 
-**Note**: If you want to use a **GPU** machine, first follow the "GPU Installation Instructions" instructions below.
+**Note**: If you want to use a **GPU** machine, first follow the [GPU Installation Instructions](https://github.com/codalab/codalab-worksheets/wiki/Execution#gpu-installation-instructions) instructions below, then return to these instructions.
 
-**Step 1**. [Install Docker](Installing Docker), which will be
+**Step 1**. [Install Docker](https://github.com/codalab/codalab-worksheets/wiki/Installing-Docker), which will be
 used to run your bundles in an isolated environment. 
 
 **Step 2**. Start the worker:

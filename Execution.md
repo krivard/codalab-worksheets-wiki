@@ -17,7 +17,7 @@ In general, when you create a run, you can specify which docker container you wa
 
 To see what Docker images are available, you can do a search on [Docker
 hub](https://hub.docker.com).  If nothing satisfies your needs, you can
-[install Docker](Installing-Docker) and [create your own
+[install Docker](Installing Docker) and [create your own
 image](Creating-Docker-Images). If you're creating a Docker image in Python,
 we recommend using the [Codalab Python](https://hub.docker.com/r/codalab/python/)
 image as your base image because it comes pre-installed with `python` and `pip`.
@@ -57,7 +57,7 @@ running your own worker.
 
 **Note**: If you want to use a **GPU** machine, first follow the "GPU Installation Instructions" instructions below.
 
-**Step 1**. [Install Docker](Installing-Docker), which will be
+**Step 1**. [Install Docker](Installing Docker), which will be
 used to run your bundles in an isolated environment. 
 
 **Step 2**. Start the worker:
@@ -128,11 +128,11 @@ If you have not installed the drivers, here are some links that may help:
 
 Then install by running: 
 
-    dpkg -i nvidia-docker*.deb
+    sudo dpkg -i nvidia-docker*.deb
 
 **Step 3**: Test your setup. Run:
 
-    nvidia-docker run --rm nvidia/cuda nvidia-smi
+    sudo nvidia-docker run --rm nvidia/cuda nvidia-smi
 
 Now head back to the worker installation instructions to start using your GPU on CodaLab!
 

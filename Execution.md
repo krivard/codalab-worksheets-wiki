@@ -64,8 +64,8 @@ used to run your bundles in an isolated environment.
 
     cl-worker --server https://worksheets.codalab.org --tag unique_worker_tag
 
-The `--tag` flag is optional but allows you to have granular control over which
-workers run which bundles. The next step will show how to run a job specifically
+The `--tag` flag is optional and it provides you granular control over which
+workers run which bundles. Next, we'll show how to run a job specifically
 on this worker.
 
 **Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker's tag>` 

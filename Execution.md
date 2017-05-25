@@ -46,6 +46,40 @@ could change).  You can always find out the exact specs by executing the command
 
     cl run 'cat /proc/cpuinfo; free; df'
 
+## Running on GPUs
+
+CodaLab has publicly available GPUs! To use them, you'll need to 1) include the `--request-gpus` flag, and 2) specify a Docker image that has `nvidia-smi` installed using the `--request-docker-image` flag. For example:
+
+    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 "nvidia-smi"
+
+The output should be similar to:
+
+    Thu May 25 18:30:49 2017       
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 367.48                 Driver Version: 367.48                    |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |===============================+======================+======================|
+    |   0  Tesla M60           Off  | B4B9:00:00.0     Off |                  Off |
+    | N/A   44C    P8    13W / 150W |      0MiB /  8123MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+                                                                               
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                       GPU Memory |
+    |  GPU       PID  Type  Process name                               Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------------------------------------------------------------------------+
+
+And that's all it takes to use the GPU!
+
+### GPU Environments
+
+_Building your own GPU Docker image?_ We recommend using the appropriate NVIDIA [CUDA-supported images](https://hub.docker.com/r/nvidia/cuda/) as your base image.
+
+_Using Tensorflow on GPUs?_ Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+
 ## Running your own worker
 
 By default, all bundles are run on worker machines connected to a CodaLab server. In
@@ -79,7 +113,7 @@ Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see th
 For GPU workers, run this command, which tests that nvidia-smi is working inside of Docker:
 
     # GPU workers
-    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 "nvidia-smi" --request-queue tag=unique_worker_tag
+    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 --request-queue tag=unique_worker_tag "nvidia-smi"
 
 Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see something similar to:
 

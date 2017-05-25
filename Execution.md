@@ -108,7 +108,7 @@ from the `--server`, other important flags include `--work-dir`
 specifying where to store intermediate data and `--slots` controlling how many
 bundles can run concurrently (generally the number of cores your machine has).
 
-**GPU Installation Instructions**
+### GPU Installation Instructions
 
 **Step 0**: Check that Docker is [installed](Installing-Docker).
 

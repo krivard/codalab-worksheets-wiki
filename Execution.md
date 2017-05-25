@@ -114,7 +114,23 @@ bundles can run concurrently (generally the number of cores your machine has).
 
 **Step 1**: Check that the appropriate drivers are installed by running `nvidia-smi`. Check for an output similar to this one:
 
-TODO
+    Thu May 25 09:39:22 2017       
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 375.51                 Driver Version: 375.51                    |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |===============================+======================+======================|
+    |   0  Tesla K80           Off  | E71B:00:00.0     Off |                    0 |
+    | N/A   38C    P8    29W / 149W |      0MiB / 11439MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+                                                                               
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                       GPU Memory |
+    |  GPU       PID  Type  Process name                               Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------------------------------------------------------------------------+
 
 If you have not installed the drivers, here are some links that may help:
 

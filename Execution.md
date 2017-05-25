@@ -53,27 +53,88 @@ case you need to perform large amounts of computation or need specialized
 hardware such as GPUs, you can connect your own machines to CodaLab by
 running your own worker.
 
-To run your own worker, first [install Docker](Installing-Docker) which will be
-used to run your bundles in an isolated environment. Then, start the worker
-using the code from the `codalab-cli` git repository or by downloading it from
-[here](https://worksheets.codalab.org/rest/workers/code.tar.gz) (to inflate the
-file, run `tar -xvzf code.tar.gz` in an empty directory).
+**Setup Instructions**
 
-    codalab-cli/worker/worker.sh --server https://worksheets.codalab.org
+**Note**: If you want to use a **GPU** machine, first follow the "GPU Installation Instructions" instructions below.
 
-For information on all the supported flags, run the script with `--help`. Aside
+**Step 1**. [Install Docker](Installing-Docker), which will be
+used to run your bundles in an isolated environment. 
+
+**Step 2**. Start the worker:
+
+    cl-worker --server https://worksheets.codalab.org --tag unique_worker_tag
+
+The `--tag` flag is optional but allows you to have granular control over which
+workers run which bundles. The next step will show how to run a job specifically
+on this worker.
+
+**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker's tag>` 
+to specify our worker's tag. For non-GPU workers:
+
+    # non-GPU workers
+    cl run --request-queue tag=unique_worker_tag date
+
+Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see the current date. Congrats!
+
+For GPU workers, run this command, which tests that nvidia-smi is working inside of Docker:
+
+    # GPU workers
+    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 "nvidia-smi" --request-queue tag=unique_worker_tag
+
+Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see something similar to:
+
+    Wed May 24 19:03:55 2017``
+    +-----------------------------------------------------------------------------+
+    | NVIDIA-SMI 367.48                 Driver Version: 367.48                    |
+    |-------------------------------+----------------------+----------------------+
+    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+    |===============================+======================+======================|
+    |   0  Tesla M60           Off  | B4B9:00:00.0     Off |                  Off |
+    | N/A   35C    P8    13W / 150W |      0MiB /  8123MiB |      0%      Default |
+    +-------------------------------+----------------------+----------------------+
+    
+    +-----------------------------------------------------------------------------+
+    | Processes:                                                       GPU Memory |
+    |  GPU       PID  Type  Process name                               Usage      |
+    |=============================================================================|
+    |  No running processes found                                                 |
+    +-----------``------------------------------------------------------------------+
+
+Congrats!
+
+**Step 4**. Run `cl-worker --help` for information on all the supported flags. Aside
 from the `--server`, other important flags include `--work-dir`
 specifying where to store intermediate data and `--slots` controlling how many
 bundles can run concurrently (generally the number of cores your machine has).
 
-If you are running multiple workers and need granular control over which
-workers run which bundles, you can start each worker with a tag specified using
-the `--tag <tag>` flag and then specify the tag when creating the run bundle
-with the `--request-queue tag=<tag>` flag. That bundle will be scheduled to run
-on any of the workers with the specified tag.
+**GPU Installation Instructions**
 
-**Note for GPU users:** If you want your workers to support jobs that use NVIDIA GPUs (e.g. CUDA, cuDNN, etc.), you should install the `nvidia-docker` plugin on your machine as well, and make sure that `nvidia-docker-plugin` is listening at `localhost:3476`. Instructions for installation are found here:
-https://github.com/NVIDIA/nvidia-docker 
+**Step 0**: Check that Docker is [installed](Installing-Docker).
+
+**Step 1**: Check that the appropriate drivers are installed by running `nvidia-smi`. Check for an output similar to this one:
+
+TODO
+
+If you have not installed the drivers, here are some links that may help:
+
+* For [Azure N Series GPUs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/n-series-driver-setup)
+* For [AWS P2 GPUs](https://aws.amazon.com/blogs/aws/new-p2-instance-type-for-amazon-ec2-up-to-16-gpus/2)
+* For [Google Cloud GPUs](https://cloud.google.com/compute/docs/gpus/add-gpus)
+
+**Step 2**: Install `nvidia-docker`. Download the package:
+
+    wget https://github.com/NVIDIA/nvidia-docker/releases/download/v1.0.1/nvidia-docker_1.0.1-1_amd64.deb
+
+Then install by running: 
+
+    dpkg -i nvidia-docker*.deb
+
+**Step 3**: Test your setup. Run:
+
+    nvidia-docker run --rm nvidia/cuda nvidia-smi
+
+Now head back to the worker installation instructions to start using your GPU on CodaLab!
 
 ## How the worker system works
 

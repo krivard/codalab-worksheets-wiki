@@ -6,10 +6,11 @@ interface.
 
 ## Installation
 
-1. Make sure you have the dependencies (Python 2.7 and virtualenv).  If you're
+1. Make sure you have the dependencies (Python 2.7, virtualenv, fuse, and an up-to-date setuptools package).  If you're
 running Ubuntu 14.04, you can just install them:
 
-        sudo apt-get install python2.7 python2.7-dev python-virtualenv
+        sudo apt-get install python2.7 python2.7-dev python-virtualenv fuse
+        pip install -U setuptools
 
 2. Install the CodaLab CLI:
 

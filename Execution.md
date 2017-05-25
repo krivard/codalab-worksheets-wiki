@@ -48,7 +48,7 @@ could change).  You can always find out the exact specs by executing the command
 
 ## Running your own worker
 
-By default, all bundles are run on worker machines behind a CodaLab server.  In
+By default, all bundles are run on worker machines connected to a CodaLab server. In
 case you need to perform large amounts of computation or need specialized
 hardware such as GPUs, you can connect your own machines to CodaLab by
 running your own worker.

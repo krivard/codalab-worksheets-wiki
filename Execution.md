@@ -96,24 +96,26 @@ used to run your bundles in an isolated environment.
 
 **Step 2**. Start the worker:
 
-    cl-worker --server https://worksheets.codalab.org --tag unique_worker_tag
+    # replace <worker_tag> with your own tag name
+    cl-worker --server https://worksheets.codalab.org --tag <worker_tag> 
 
-The `--tag` flag is optional and it provides you granular control over which
-workers run which bundles. Next, we'll show how to run a job specifically
-on this worker.
+The `--tag` flag is optional. If you use it, when you run a command, you can tell a bundle to
+run on this particular worker, as we demonstrate in the next step.
 
-**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker's tag>` 
+**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker_tag>` 
 to specify our worker's tag. For non-GPU workers:
 
     # non-GPU workers
-    cl run --request-queue tag=unique_worker_tag date
+    # replace <worker_tag> with your own tag name
+    cl run --request-queue tag=<worker_tag> date
 
 Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see the current date. Congrats!
 
 For GPU workers, run this command, which tests that nvidia-smi is working inside of Docker:
 
     # GPU workers
-    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 --request-queue tag=unique_worker_tag "nvidia-smi"
+    # replace <worker_tag> with your own tag name
+    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 --request-queue tag=<worker_tag> "nvidia-smi"
 
 Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see something similar to:
 

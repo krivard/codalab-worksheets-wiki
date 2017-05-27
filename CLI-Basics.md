@@ -18,7 +18,9 @@ running Ubuntu 14.04, you can just install them:
 
 3. Include some handy macros (add this line to your `.bashrc`):
 
-        . <path to codalab-cli>/rc
+        . <path to codalab>/rc
+
+The path your `codalab` directory can be found by running `pip show codalab`.
 
 4. To complete the configuration, type the following:
 

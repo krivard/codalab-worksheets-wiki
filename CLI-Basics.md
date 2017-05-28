@@ -14,15 +14,17 @@ running Ubuntu 14.04, you can just install them:
 
 2. Install the CodaLab CLI:
 
-        pip install codalab-cli
+        pip install codalab
 
 3. Include some handy macros (add this line to your `.bashrc`):
 
-        . <path to codalab-cli>/rc
+        . <path to codalab>/rc
+
+The path your `codalab` directory can be found by running `pip show codalab`.
 
 4. To complete the configuration, type the following:
 
-        cl
+        cl work
 
   This will prompt you for your username/password at `worksheets.codalab.org`.
   You should create an account on the [CodaLab website](worksheets.codalab.org)

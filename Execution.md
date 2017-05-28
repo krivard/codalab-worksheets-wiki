@@ -12,7 +12,7 @@ bundle dependencies from the CodaLab server and the
 Docker image from Docker hub.
 
 A quick digression about Docker: CodaLab uses Docker containers to define the 
-environment of a run bundle. Each Docker container is based on a **Docker image**,
+environment of a run bundle. Each Docker container is based on a Docker image,
 which specifies the full environment, including which Linux kernel
 version, which libraries, etc. The next section has more details on
 how to use Docker with CodaLab.

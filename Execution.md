@@ -80,15 +80,15 @@ And that's all it takes!
 
 Here are some useful of Docker images with GPU support:
 
-_Tensorflow_ Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+* Tensorflow: Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu --request-gpus 1
 
-_Theano_ Check out this [Theano GPU Docker image](https://hub.docker.com/r/nakosung/dockerfiles-1/).
+* Theano: Check out this [Theano GPU Docker image](https://hub.docker.com/r/nakosung/dockerfiles-1/).
 
         cl run 'python -c "import theano"' --request-docker-image nakosung/dockerfiles-1 --request-gpus 1
 
-_Torch_ Check out this [Torth GPU Docker image](kaixhin/cuda-torch).
+* Torch: Check out this [Torth GPU Docker image](kaixhin/cuda-torch).
 
         cl run 'th' --request-docker-image kaixhin/cuda-torch:latest --request-gpus 1
 

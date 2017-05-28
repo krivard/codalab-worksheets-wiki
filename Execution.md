@@ -84,9 +84,9 @@ _Tensorflow_ Check out [Tensorflow's latest GPU Docker image](https://hub.docker
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu --request-gpus 1
 
-_Theano_ Check out this [Theano GPU Docker image](https://hub.docker.com/r/kaixhin/cuda-theano/).
+_Theano_ Check out this [Theano GPU Docker image](https://hub.docker.com/r/nakosung/dockerfiles-1/).
 
-        cl run 'python -c "import theano"' --request-docker-image kaixhin/cuda-theano:8.0 --request-gpus 1
+        cl run 'python -c "import theano"' --request-docker-image nakosung/dockerfiles-1 --request-gpus 1
 
 _Torch_ Check out this [Torth GPU Docker image](kaixhin/cuda-torch).
 

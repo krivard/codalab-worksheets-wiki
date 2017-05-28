@@ -1,7 +1,7 @@
-This page describes a variety of topics related to how CodaLab executes run bundles and
+This page describes how CodaLab executes run bundles and
 manages the environment and hardware of those executions.
 
-## Conceptual Overview: How the worker system works
+## Overview: How the worker system works
 
 CodaLab's distributed worker system
 executes run bundles in CodaLab. To begin, a worker machine connects to 
@@ -127,35 +127,18 @@ from the `--server`, other important flags include `--work-dir`
 specifying where to store intermediate data and `--slots` controlling how many
 bundles can run concurrently (generally the number of cores your machine has).
 
-**Note**: If you want to use a **GPU** machine, follow the 
-[GPU Installation Instructions](https://github.com/codalab/codalab-worksheets/wiki/Execution#gpu-installation-instructions) instructions below
-after completing the worker setup instructions.
-
 ### Setting up workers to use GPUs
 
-These are GPU install instructions for linux machines.
+If your machine has GPUs and would like to hook them up to CodaLab, then follow these instructions.
 
 **Step 0**: Complete the worker setup instructions in the previous section.
 
-**Step 1**: Check that the appropriate drivers are installed by running `nvidia-smi`. Check for an output similar to this one:
+**Step 1**: Check that the appropriate drivers are installed by running `nvidia-smi` on your machine. Check for an output similar to this one:
 
     Thu May 25 09:39:22 2017       
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 375.51                 Driver Version: 375.51                    |
-    |-------------------------------+----------------------+----------------------+
-    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-    |===============================+======================+======================|
-    |   0  Tesla K80           Off  | E71B:00:00.0     Off |                    0 |
-    | N/A   38C    P8    29W / 149W |      0MiB / 11439MiB |      0%      Default |
-    +-------------------------------+----------------------+----------------------+
-                                                                               
-    +-----------------------------------------------------------------------------+
-    | Processes:                                                       GPU Memory |
-    |  GPU       PID  Type  Process name                               Usage      |
-    |=============================================================================|
-    |  No running processes found                                                 |
-    +-----------------------------------------------------------------------------+
+    ...
 
 If you have not installed the drivers, here are some links that may help:
 
@@ -172,28 +155,13 @@ If you have not installed the drivers, here are some links that may help:
 
 **Step 4**: Run this command, which tests that nvidia-smi is working inside of Docker:
 
-    # GPU workers
-    # replace <worker_tag> with your own tag name
-    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 --request-queue tag=<worker_tag> "nvidia-smi"
+    cl run --request-docker-image nvidia/cuda:8.0-runtime --request-gpus 1 "nvidia-smi"
 
-Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see something similar to:
+Check the bundle's `stdout`, and you should see something similar to before:
 
     Wed May 24 19:03:55 2017``
     +-----------------------------------------------------------------------------+
     | NVIDIA-SMI 367.48                 Driver Version: 367.48                    |
-    |-------------------------------+----------------------+----------------------+
-    | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-    | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-    |===============================+======================+======================|
-    |   0  Tesla M60           Off  | B4B9:00:00.0     Off |                  Off |
-    | N/A   35C    P8    13W / 150W |      0MiB /  8123MiB |      0%      Default |
-    +-------------------------------+----------------------+----------------------+
-    
-    +-----------------------------------------------------------------------------+
-    | Processes:                                                       GPU Memory |
-    |  GPU       PID  Type  Process name                               Usage      |
-    |=============================================================================|
-    |  No running processes found                                                 |
-    +-----------``------------------------------------------------------------------+
+    ...
 
-Congrats!
+And that's all.  Congrats!

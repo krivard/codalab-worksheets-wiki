@@ -3,19 +3,13 @@ manages the environment and hardware of those executions.
 
 ## Conceptual Overview: How the worker system works
 
-This section is a conceptual overview of CodaLab's distributed worker system,
-which executes run bundles in CodaLab. To begin, a worker machine connects to 
+CodaLab's distributed worker system
+executes run bundles in CodaLab. To begin, a worker machine connects to 
 the CodaLab server and asks for run bundles to run. The CodaLab server finds 
 a run that hasn't been executed yet, and assigns the worker to it. 
 The worker then downloads (if not downloaded already) all the relevant
 bundle dependencies from the CodaLab server and the
-Docker image from Docker hub.
-
-A quick digression about Docker: CodaLab uses Docker containers to define the 
-environment of a run bundle. Each Docker container is based on a Docker image,
-which specifies the full environment, including which Linux kernel
-version, which libraries, etc. The next section has more details on
-how to use Docker with CodaLab.
+Docker image from Docker Hub.
 
 Once the worker has all of the dependencies installed, the worker then
 executes the run in the Docker container, sending back status updates to the
@@ -27,7 +21,12 @@ doc](worker-design.pdf) for more detailed information.
 
 ## Specifying Environments with Docker
 
-The current official Docker image is `codalab/ubuntu:1.9`, which consists of
+CodaLab uses Docker containers to define the 
+environment of a run bundle. Each Docker container is based on a Docker image,
+which specifies the full environment, including which Linux kernel
+version, which libraries, etc.
+
+The default Docker image is `codalab/ubuntu:1.9`, which consists of
 Ubuntu 14.04 plus some standard packages (e.g., Python, Ruby, R, Java, Scala, g++).
 See the entry in the [CodaLab Docker
 registery](https://registry.hub.docker.com/u/codalab/ubuntu/) for more
@@ -58,15 +57,6 @@ Here are some other commonly used docker images with machine learning libraries:
 
         cl run 'th' --request-docker-image codalab/torch:1.1
 
-
-## Hardware specs
-
-On the `worksheets.codalab.org` CodaLab server, the workers are on Windows
-Azure, and currently, each machine has 4 cores and 14GB of memory (but this
-could change). You can always find out the exact specs by executing the command:
-
-    cl run 'cat /proc/cpuinfo; free; df'
-
 ## Running jobs that use GPUs
 
 CodaLab has publicly available GPUs! To use them, you'll need to 1) include the 
@@ -76,7 +66,7 @@ CodaLab has publicly available GPUs! To use them, you'll need to 1) include the
 
 And that's all it takes!
 
-### GPU Docker Images
+### GPU Docker images
 
 Here are some useful of Docker images with GPU support:
 
@@ -92,36 +82,47 @@ Here are some useful of Docker images with GPU support:
 
         cl run 'th' --request-docker-image kaixhin/cuda-torch:latest --request-gpus 1
 
+## Default workers
+
+On the `worksheets.codalab.org` CodaLab server, the workers are running on Microsoft
+Azure.  Currently, each non-GPU machine has 4 cores and 14 GB of memory, and each non-GPU machine has 6 cores and 56 GB of memory (but this
+is subject to change).  You can always find out the exact specs by executing the command:
+
+    cl run 'cat /proc/cpuinfo; free; df'
+
 ## Running your own worker
 
-By default, all bundles are run on worker machines connected to a CodaLab server. In
-case you need to perform large amounts of computation or need specialized
-hardware such as GPUs, you can connect your own machines to CodaLab by
-running your own worker.
+If the default workers are full or do not satisfy your needs, one of the advantages of the CodaLab worker system is that you can run a worker on your own machines.
 
 ### Setup Instructions
 
-**Step 1**. [Install Docker](https://github.com/codalab/codalab-worksheets/wiki/Installing-Docker), which will be
-used to run your bundles in an isolated environment. 
+**Step 0**. [Install the CLI](https://github.com/codalab/codalab-worksheets/wiki/CLI-Basics).
+
+**Step 1**. [Install Docker](https://github.com/codalab/codalab-worksheets/wiki/Installing-Docker), which will be used to run your bundles in an isolated environment. 
 
 **Step 2**. Start the worker:
 
-    # replace <worker_tag> with your own tag name
+    cl-worker --server https://worksheets.codalab.org
+
+**Step 3**. To test your worker, simply start any run:
+
+    cl run date
+
+You should see that the run finished, and if you look at the `remote` metadata field (e.g., via `cl info -f remote ^` on the CLI or on the side panel in the web interface), you should see your hostname.
+
+Note that only your runs will be run on your workers, so you don't have to worry about interference with other users.
+
+**Controlling where runs happen with tags**.
+
+You can tag workers and run jobs on workers with those tags.  To tag a worker, start the worker as follows:
+
     cl-worker --server https://worksheets.codalab.org --tag <worker_tag> 
 
-The `--tag` flag is optional. If you use it, when you run a command, you can tell a bundle to
-run on this particular worker, as we demonstrate in the next step.
+To run a job, simply pass the tag in:
 
-**Step 3**. Run a job on your worker. We use the `--request-queue tag=<worker_tag>` using the `worker_tag`
-from the previous step, which tells CodaLab to run this bundle on our machine. For non-GPU workers:
+    cl run date --request-queue tag=<worker_tag>
 
-    # non-GPU workers
-    # replace <worker_tag> with your own tag name
-    cl run --request-queue tag=<worker_tag> date
-
-Check the bundle's `/stdout` by running `cl cat ^1/stdout` and you should see the current date. Congrats!
-
-**Flags**. Run `cl-worker --help` for information on all the supported flags. Aside
+**Other flags**. Run `cl-worker --help` for information on all the supported flags. Aside
 from the `--server`, other important flags include `--work-dir`
 specifying where to store intermediate data and `--slots` controlling how many
 bundles can run concurrently (generally the number of cores your machine has).
@@ -130,7 +131,7 @@ bundles can run concurrently (generally the number of cores your machine has).
 [GPU Installation Instructions](https://github.com/codalab/codalab-worksheets/wiki/Execution#gpu-installation-instructions) instructions below
 after completing the worker setup instructions.
 
-### GPU Installation Instructions
+### Setting up workers to use GPUs
 
 These are GPU install instructions for linux machines.
 

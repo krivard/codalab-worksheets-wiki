@@ -4,7 +4,7 @@ manages the environment and hardware of those executions.
 ## Overview: How the worker system works
 
 CodaLab's distributed worker system
-executes run bundles in CodaLab. To begin, a worker machine connects to 
+executes the run bundles in CodaLab. To begin, a worker machine connects to 
 the CodaLab server and asks for run bundles to run. The CodaLab server finds 
 a run that hasn't been executed yet, and assigns the worker to it. 
 The worker then downloads (if not downloaded already) all the relevant

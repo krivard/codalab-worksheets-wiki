@@ -14,7 +14,7 @@ Docker image from Docker Hub.
 Once the worker has all of the dependencies installed, the worker then
 executes the run in the Docker container, sending back status updates to the
 CodaLab server (e.g., memory usage, etc.), and sees if there are any requests
-to kill the worker. Any requests to download files in the bundle are forwarded
+to kill the run bundle. Any requests to download files in the bundle are forwarded
 from the CodaLab server to the worker. At the end of the run, the worker sends
 back all the bundle contents. See the [worker system design
 doc](worker-design.pdf) for more detailed information.
@@ -51,7 +51,8 @@ Here are some other commonly used docker images with machine learning libraries:
 
 - Theano: [![](https://images.microbadger.com/badges/image/codalab/ubuntu.svg)](https://microbadger.com/images/codalab/ubuntu "Get your own image badge on microbadger.com")
 
-        cl run 'python -c "import theano"' # Defaults to standard CodaLab Ubuntu image (codalab/ubuntu:1.9)
+        # Defaults to standard CodaLab Ubuntu image (codalab/ubuntu:1.9)
+        cl run 'python -c "import theano"' 
 
 - Torch: [![](https://images.microbadger.com/badges/image/codalab/torch.svg)](https://microbadger.com/images/codalab/torch "Get your own image badge on microbadger.com")
 
@@ -74,18 +75,11 @@ Here are some useful of Docker images with GPU support:
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu --request-gpus 1
 
-* Theano: Check out this [Theano GPU Docker image](https://hub.docker.com/r/nakosung/dockerfiles-1/).
-
-        cl run 'python -c "import theano"' --request-docker-image nakosung/dockerfiles-1 --request-gpus 1
-
-* Torch: Check out this [Torth GPU Docker image](kaixhin/cuda-torch).
-
-        cl run 'th' --request-docker-image kaixhin/cuda-torch:latest --request-gpus 1
-
 ## Default workers
 
 On the `worksheets.codalab.org` CodaLab server, the workers are running on Microsoft
-Azure.  Currently, each non-GPU machine has 4 cores and 14 GB of memory, and each non-GPU machine has 6 cores and 56 GB of memory (but this
+Azure.  Currently, each non-GPU machine has 4 cores and 14 GB of memory, and 
+each non-GPU machine has 6 cores and 56 GB of memory (but this
 is subject to change).  You can always find out the exact specs by executing the command:
 
     cl run 'cat /proc/cpuinfo; free; df'

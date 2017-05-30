@@ -70,11 +70,11 @@ Detailed instructions for building images are available on the Docker website [h
 
 12. Make your Dockerfile available when your share your worksheets. Either upload it to your worksheet, add a link to it from the worksheet, or set up [automated builds](https://docs.docker.com/docker-hub/builds/).
 
-### Using GPUs with CUDA
+### Building Docker Images with CUDA support
 
-If you want to [run your own
-worker](Execution#running-your-own-worker) or are using a worker already set up
-by someone else on a machine with GPUs then keep reading.
+This section describes how to build Docker images with CUDA support. 
+There are separate instructions for [running your own](Execution#running-your-own-worker), which discusses
+GPU workers, and for using [GPUs on CodaLab](https://github.com/codalab/codalab-worksheets/wiki/Execution#running-jobs-that-use-gpus).
 
 CUDA consists of several components:
 

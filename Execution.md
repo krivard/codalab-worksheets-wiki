@@ -69,11 +69,11 @@ And that's all it takes!
 
 ### GPU Docker images
 
-Here are some useful of Docker images with GPU support:
-
-* Tensorflow: Check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+* Tensorflow GPU users should check out [Tensorflow's latest GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu --request-gpus 1
+
+* We have instructions for [creating your own Docker image with GPU support](https://github.com/codalab/codalab-worksheets/wiki/Creating-Docker-Images#building-docker-images-with-cuda-support), though we would recommend searching on [Docker Hub](dockerhub.com) first before creating your own image.
 
 ## Default workers
 

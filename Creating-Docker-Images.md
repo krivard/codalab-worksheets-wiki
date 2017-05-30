@@ -72,8 +72,7 @@ Detailed instructions for building images are available on the Docker website [h
 
 ### Using GPUs with CUDA
 
-[worksheets.codalab.org](https://worksheets.codalab.org) doesn't have any
-machines with GPUs, but if you [run your own
+If you want to [run your own
 worker](Execution#running-your-own-worker) or are using a worker already set up
 by someone else on a machine with GPUs then keep reading.
 

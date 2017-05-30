@@ -73,7 +73,7 @@ Detailed instructions for building images are available on the Docker website [h
 ### Building Docker Images with CUDA support
 
 This section describes how to build Docker images with CUDA support. 
-There are separate instructions for [running your own](Execution#running-your-own-worker), which discusses
+There are separate instructions for [running your own worker](Execution#running-your-own-worker), which discusses
 GPU workers, and for using [GPUs on CodaLab](https://github.com/codalab/codalab-worksheets/wiki/Execution#running-jobs-that-use-gpus).
 
 CUDA consists of several components:

@@ -69,7 +69,7 @@ And that's all it takes!
 
 ### GPU Docker images
 
-* Tensorflow GPU users should check out the [official Tensorflow GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/).
+* Tensorflow GPU users: check out the [official Tensorflow GPU Docker image](https://hub.docker.com/r/tensorflow/tensorflow/). For example:
 
         cl run 'python -c "import tensorflow"' --request-docker-image tensorflow/tensorflow:0.8.0-gpu --request-gpus 1
 

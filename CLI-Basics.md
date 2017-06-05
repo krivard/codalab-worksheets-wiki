@@ -6,23 +6,23 @@ interface.
 
 ## Installation
 
-1. Make sure you have the dependencies (Python 2.7, virtualenv, fuse, and an up-to-date setuptools package).  If you're
-running Ubuntu 14.04, you can install them by running:
+1. Make sure you have the dependencies (Python 2.7, virtualenv, fuse, and an up-to-date setuptools package).  
+
+* Ubuntu users can install them by running:
 
         sudo apt-get install python2.7 python2.7-dev python-virtualenv fuse
         pip install -U setuptools
 
-Mac users can install FUSE for macOS, an optional dependency, here: https://osxfuse.github.io/. Also, please run `pip install -U setuptools`.
+* Mac users can install FUSE for macOS, an optional dependency, here: https://osxfuse.github.io/. Install or upgrade setuptools by running `pip install -U setuptools`.
 
 2. Install the CodaLab CLI:
 
         pip install codalab
 
-3. Include some handy macros (add this line to your `.bashrc`):
+3. Include some handy macros by adding this line to your `.bashrc` 
+(the path of your `codalab` directory can be found by running `pip show codalab`.):
 
         . <path to codalab>/rc
-
-The path your `codalab` directory can be found by running `pip show codalab`.
 
 4. To complete the configuration, type the following:
 

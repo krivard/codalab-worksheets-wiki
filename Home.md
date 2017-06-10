@@ -1,5 +1,7 @@
 For an introduction to CodaLab, check out our two-minute overview [video](https://www.youtube.com/watch?v=WwFGfgf3-5s).
 
+[![CodaLab overview video](https://img.youtube.com/vi/WwFGfgf3-5s/hq3.jpg)](https://www.youtube.com/watch?v=WwFGfgf3-5s)
+
 ## **Why CodaLab Worksheets?**
 
 While there has been tremendous progress in machine learning, data science,

@@ -10,4 +10,5 @@
 * [REST API Reference](http://codalab.org/codalab-cli/rest.html)
 * [Latest Features](Latest-Features)
 * [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home)
+* [Competitions](Competitions)
 * [About](About)

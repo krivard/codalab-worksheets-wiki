@@ -1,3 +1,5 @@
+_This article is about hosting competitions on CodaLab **Worksheets**. To learn more about CodaLab **Competitions**, which is an affiliated but separate project, check out the [Competitions Wiki](https://github.com/codalab/codalab-competitions/wiki)._
+
 # Hosting a competition
 
 The job execution and provenance facilities of CodaLab Worksheets enable a wide variety of applications in computational experimentation, including hosting competitions on machine learning tasks.

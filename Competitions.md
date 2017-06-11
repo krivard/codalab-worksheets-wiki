@@ -1,4 +1,4 @@
-_This article is about hosting competitions on CodaLab **Worksheets**. To learn more about CodaLab **Competitions**, which is an affiliated but separate project, check out the [Competitions Wiki](https://github.com/codalab/codalab-competitions/wiki)._
+_This article is about hosting competitions on CodaLab **Worksheets**. To learn more about CodaLab **Competitions**, which is an affiliated project built on a separate stack, check out the [Competitions Wiki](https://github.com/codalab/codalab-competitions/wiki)._
 
 # Hosting a competition
 

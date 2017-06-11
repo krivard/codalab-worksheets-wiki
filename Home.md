@@ -63,6 +63,7 @@ and gives you total freedom in terms of what to put in your repository.
 * [REST API Reference](https://github.com/codalab/codalab-cli/blob/master/docs/rest.md): develop your own application against our REST API
 * [Latest Features](Latest-Features): what features have been recently added CodaLab lately?
 * [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home): from the official CodaLab server.
+* [Competitions](Competitions): Host a machine learning competition on CodaLab
 * [About](About): who's behind CodaLab?
 
 ## **Where do I report bugs?**

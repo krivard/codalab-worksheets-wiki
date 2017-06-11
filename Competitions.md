@@ -90,7 +90,7 @@ score_specs:
 
 # Running the competition
 
-There are many ways you could choose to set up the competition. The recommended way is to set up a static webpage that loads the generated leaderboard JSON file and formats it into a leaderboard table using a simple templating language such as [Mustache](https://mustache.github.io/). We even provide an (example HTML page that does just that)[https://github.com/codalab/codalab-cli/blob/ecbc9146918415b3a53d1e61dc8c9c9185cc10ba/scripts/leaderboard.html]. Just make sure to tweak it for your own purposes.
+There are many ways you could choose to set up the competition. The recommended way is to set up a static webpage that loads the generated leaderboard JSON file and formats it into a leaderboard table using a simple templating language such as [Mustache](https://mustache.github.io/). We even provide an [example HTML page that does just that](https://github.com/codalab/codalab-cli/blob/ecbc9146918415b3a53d1e61dc8c9c9185cc10ba/scripts/leaderboard.html). Just make sure to tweak it for your own purposes.
 
 Running the competition script in daemon mode will start a long-running process that periodically checks for new submissions, runs them, then updates the leaderboard file.
 

@@ -6,7 +6,7 @@ The job execution and provenance facilities of CodaLab Worksheets enable a wide 
 
 We provide a small application built on the [CodaLab Worksheets API](http://codalab.org/codalab-cli/rest.html) for running small-scale Kaggle-like competitions. It is packaged as a simple Python script in the [codalab-cli repository](https://github.com/codalab/codalab-cli). Competition participants can "submit" their models to the competition by running them on an public dataset provided by the competition organizers, then tagging the resulting predictions bundle with a specific tag. The script searches for bundles with the configured tag, and "mimics" the submitted executions -- rerunning the models while replacing the public dataset with the hidden evaluation dataset. Competition organizers can run this script manually, as a cron job, or as a long-lived daemon.
 
-# Installation and setup
+## Installation and setup
 
 Clone the [codalab-cli repository](https://github.com/codalab/codalab-cli):
 
@@ -68,7 +68,7 @@ predict:
   mimic:
   - {new: '0xbcd57bee090b421c982906709c8c27e1', old: '0x4870af25abc94b0687a1927fcec66392'}  # replace `old` bundle with `new` bundle
 
-# Configure how to evaluate the new prediction bundles
+## Configure how to evaluate the new prediction bundles
 evaluate:
   # Essentially
   #     cl run evaluate.py:0x089063eb85b64b239b342405b5ebab57 \
@@ -88,7 +88,7 @@ score_specs:
 - {key: '/stdout:exact_match', name: exact_match}
 ```
 
-# Running the competition
+## Running the competition
 
 There are many ways you could choose to set up the competition. The recommended way is to set up a static webpage that loads the generated leaderboard JSON file and formats it into a leaderboard table using a simple templating language such as [Mustache](https://mustache.github.io/). We even provide an [example HTML page that does just that](https://github.com/codalab/codalab-cli/blob/ecbc9146918415b3a53d1e61dc8c9c9185cc10ba/scripts/leaderboard.html). Just make sure to tweak it for your own purposes.
 
@@ -96,6 +96,19 @@ Running the competition script in daemon mode will start a long-running process 
 
     $ scripts/competitiond.py -d ~/competition-config.yml /var/www/leaderboard.json
 
-# Submitting a model (as a participant)
+## Submitting a model (as a participant)
 
 For the participant, submitting a model involves uploading their code, running it against a public dataset provided by the competition organizers, tagging the bundle appropriately, then waiting for the next time the competition script checks for new submissions. The [submission tutorial for the SQuAD competition](https://worksheets.codalab.org/worksheets/0x8403d867f9a3444685c344f4f0bc8d34/) provides a good example.
+
+## FAQ / Known issues
+
+* Q: How do I reset the quota for a participant?
+  * A: Delete their associated evaluation bundles from the log worksheet, and their quota values should go down accordingly the next time that the leaderboard is generated.
+* Q: Which submissions correspond to the scores displayed in the leaderboard?
+  * A: The last submission submitted by each participant chronologically. (No max is performed.)
+* Q: Why is there a finite `max_leaderboard_size`? Why not just support any leaderboard size?
+  * A: Because of a quirk in the CodaLab search API, we need to specific a finite "limit" to the number of search results. Just make this number big enough and it should be fine.
+* Q: This script is really slow.
+  * A: The script is pretty bare bones and doesn't do much in the way of optimizing API calls. The implementation is pretty small, so feel free to shoot us some pull requests to make it better!
+* Q: How can I let participants debug their own submissions when they fail?
+  * A: There are some rare cases where a submission succeeds on the public dataset but fails on the hidden dataset. Unfortunately, the competition organizers will have to manually send the participants stacktraces for those failed runs, unless they are willing to make the prediction bundles public (`make_predictions_public: true` in config).

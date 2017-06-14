@@ -12,3 +12,4 @@
 * [Worksheet Examples](https://worksheets.codalab.org/rest/worksheets/?name=home)
 * [Competitions](Competitions)
 * [About](About)
+* [Frequently Asked Questions](https://github.com/codalab/codalab-worksheets/wiki/FAQ)

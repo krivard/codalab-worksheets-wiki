@@ -9,4 +9,4 @@ See our [article on running jobs that use GPUs](https://github.com/codalab/codal
 
 CodaLab runs all run bundles in Docker containers. See our [article about specifying Docker containers](https://github.com/codalab/codalab-worksheets/wiki/Execution#specifying-environments-with-docker).
 
-How to [make your own Docker images] (https://github.com/codalab/codalab-worksheets/wiki/Creating-Docker-Images)
+How to [make your own Docker images](https://github.com/codalab/codalab-worksheets/wiki/Creating-Docker-Images)

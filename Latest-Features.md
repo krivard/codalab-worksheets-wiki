@@ -1,3 +1,8 @@
+Version 0.2.13 (June 17, 2017)
+- Adds support for anonymous bundles and worksheets
+- Moved contents of `worker` directory into `worker/codalabworker`. Make `worker` its own package with a new `setup.py`.
+- Various bugfixes
+
 Version 0.2.7 (May 18, 2017)
 - Support multiple comma-separated list of hosts for Torque scheduler (e.g. `--request-queue host=john7,john11`)
 - Various bugfixes

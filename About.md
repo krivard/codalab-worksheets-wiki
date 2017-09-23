@@ -30,7 +30,7 @@ worksheets and competitions.
 
 ### Acknowledgments
 
-The current CodaLab Worksheets team consists of Stephen Koo, Fabian Chan, and Max Wang at Stanford.
+The current CodaLab Worksheets team consists of Fabian Chan and Max Wang at Stanford.
 
 Over the years, CodaLab has received important contributions from many people, and we would like to thank their efforts in making CodaLab what it is today:
 

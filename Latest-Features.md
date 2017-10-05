@@ -1,3 +1,6 @@
+Version 0.2.15 (Oct 4, 2017)
+- Bugfixes
+
 Version 0.2.13 (June 17, 2017)
 - Adds support for anonymous bundles and worksheets
 - Moved contents of `worker` directory into `worker/codalabworker`. Make `worker` its own package with a new `setup.py`.

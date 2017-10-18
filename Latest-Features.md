@@ -1,3 +1,8 @@
+Version 0.2.16 (Oct 17, 2017)
+- Fixed a bug involving display content with bad paths
+- Fixed hanging CLI tests
+- Fixed a security exploit
+
 Version 0.2.15 (Oct 4, 2017)
 - Bugfixes
 
